@@ -11,7 +11,11 @@ It's really easy to add keyboard shortcuts in the template:
 <textarea (keydown.ctrl.enter)></textarea>
 ```
 
-# Bonus 
+
+# Bonus
+I'm amazing bonus, I should be expandeable and collapseable
+
+# Links
 TODO: Choose one of th links.
 https://netbasal.com/lifting-the-veil-insights-into-angulars-eventmanagerplugin-ed9d14cbb31a
 https://www.bennadel.com/blog/3088-native-key-combination-event-binding-support-in-angular-2-beta-17.htm

@@ -12,9 +12,16 @@
 <textarea [keydown.ctrl.enter]></textarea>
 ```
 
+<details>
+<summary>Bonus</summary>
+TODO: Choose one of th links.
+https://netbasal.com/lifting-the-veil-insights-into-angulars-eventmanagerplugin-ed9d14cbb31a
+https://www.bennadel.com/blog/3088-native-key-combination-event-binding-support-in-angular-2-beta-17.htm
+</details>
+
 tags: tips,good-to-know
 
-<br>[⬆ Back to top](#table-of-contents)
+<br>[⬆ Back to top](#table-of-contents)<br><br>
 ### Awesome Tip
 ```
 @Module({
@@ -22,9 +29,10 @@ tags: tips,good-to-know
 })
 ```
 
+
 tags: tips,good-to-know
 
-<br>[⬆ Back to top](#table-of-contents)
+<br>[⬆ Back to top](#table-of-contents)<br><br>
 ### trackBy
 To avoid the expensive operations, we can help Angular to track which items added or removed i.e. customize the default tracking algorithm by providing a trackBy option to NgForOf.
 
@@ -55,6 +63,7 @@ If trackBy is given, Angular tracks changes by the return value of the function.
 
 Now when you change the collection, Angular can track which items have been added or removed according to the unique identifier and create/destroy only changed items.
 
+
 tags: tips,good-to-know
 
-<br>[⬆ Back to top](#table-of-contents)
+<br>[⬆ Back to top](#table-of-contents)<br><br>
