@@ -18,7 +18,9 @@
   },
   "homepage": "https://github.com/nycJSorg/30-seconds-of-angular#readme",
   "devDependencies": {
-    "md-2-json": "^1.0.5"
+    "he": "^1.2.0",
+    "md-2-json": "^1.0.5",
+    "mustache": "^3.0.1"
   },
   "dependencies": {
     "gray-matter": "^4.0.2"

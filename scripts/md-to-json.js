@@ -26,7 +26,7 @@ function extractHeaders(str) {
 		.match(/\n#+.*\n[\s\S]*?(?=\n#)/g)
 		.reduce((result, a) => {
 			const [, depth, header, content] = a.match(/^\n(#+)(.*)\n([\s\S]*)$/);
-			result[header.trim()] = content.trim();
+			result[header.trim().toLocaleLowerCase()] = content.trim();
 			return result;
 		}, {})
 }
@@ -68,7 +68,23 @@ if (!existsSync(dist)) {
 	mkdirSync(dist);
 }
 
-writeFileSync(join(dist, 'data.json'), JSON.stringify(mdFolderTOJSON(folder)));
+let json = mdFolderTOJSON(folder);
+writeFileSync(join(dist, 'data.json'), JSON.stringify(json));
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 
