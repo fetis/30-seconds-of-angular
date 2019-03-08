@@ -4,7 +4,8 @@
   "description": "",
   "main": "index.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "generate": "node scripts/md-to-json.js && node scripts/json-to-readme.js"
   },
   "repository": {
     "type": "git",
