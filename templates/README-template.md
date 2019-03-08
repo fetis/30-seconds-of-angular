@@ -12,4 +12,6 @@
 {{{content}}}
 
 tags: {{tags}}
+
+<br>[⬆ Back to top](#table-of-contents)
 {{/each}}
