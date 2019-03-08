@@ -1,5 +1,6 @@
+[![Logo 30 Seconds of Angular](/templates/logo.png)](https://github.com/nycJSorg/30-seconds-of-angular)
+
 # 30 Seconds Of Angular
-[![Logo](/templates/logo.png)](https://github.com/nycJSorg/30-seconds-of-angular)
 
 ## Table of contents
 
