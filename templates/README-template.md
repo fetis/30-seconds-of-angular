@@ -2,14 +2,14 @@
 
 ## Table of contents
 
-{{#snippets}}
-* [{{title}}](#{{title}})
-{{/snippets}}
+{{#each snippets}}
+* [{{title}}](#{{slugify title}})
+{{/each}}
 
 ## Snippets
-{{#snippets}}
+{{#each snippets}}
 ### {{title}}
 {{{content}}}
 
 tags: {{tags}}
-{{/snippets}}
+{{/each}}

@@ -2,8 +2,8 @@
 
 ## Table of contents
 
-* [Adding shortcuts to elements](#Adding shortcuts to elements)
-* [Awesome Tip](#Awesome Tip)
+* [Adding shortcuts to elements](#Adding-shortcuts-to-elements)
+* [Awesome Tip](#Awesome-Tip)
 * [trackBy](#trackBy)
 
 ## Snippets
