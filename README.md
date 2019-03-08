@@ -4,35 +4,25 @@
 
 ## Table of contents
 
-* [Adding shortcuts to elements](#Adding-shortcuts-to-elements)
-* [Awesome Tip](#Awesome-Tip)
+* [Adding keyboard shortcuts to elements](#Adding-keyboard-shortcuts-to-elements)
 * [trackBy](#trackBy)
 
 ## Snippets
-### Adding shortcuts to elements
+### Adding keyboard shortcuts to elements
+It's really easy to add keyboard shortcuts in the template: 
 ```
-<textarea [keydown.ctrl.enter]></textarea>
+<textarea (keydown.ctrl.enter)></textarea>
 ```
 
 <details>
 <summary>Bonus</summary>
+I'm amazing bonus, I should be expandeable and collapseable
+</details>
+
+#### Links
 TODO: Choose one of th links.
 https://netbasal.com/lifting-the-veil-insights-into-angulars-eventmanagerplugin-ed9d14cbb31a
 https://www.bennadel.com/blog/3088-native-key-combination-event-binding-support-in-angular-2-beta-17.htm
-</details>
-
-
-tags: tips,good-to-know
-
-<br>[⬆ Back to top](#table-of-contents)<br><br>
-### Awesome Tip
-```
-@Module({
-    lol: 'dasdsad'
-})
-```
-
-
 
 tags: tips,good-to-know
 
@@ -68,7 +58,7 @@ If trackBy is given, Angular tracks changes by the return value of the function.
 Now when you change the collection, Angular can track which items have been added or removed according to the unique identifier and create/destroy only changed items.
 
 
-### Links
+#### Links
 https://angular.io/api/common/NgForOf
 https://angular.io/api/core/TrackByFunction
 
