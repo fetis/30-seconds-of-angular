@@ -1,9 +1,12 @@
 ---
-# trackBy
+title: trackBy
+
+tags:
   - tips
   - good-to-know
 ---
 
+# Content
 To avoid the expensive operations, we can help Angular to track which items added or removed i.e. customize the default tracking algorithm by providing a trackBy option to NgForOf.
 
 So you can provide your custom trackBy function that will return unique identifier for each iterated item. 
@@ -32,3 +35,8 @@ export class AppComponent {
 If trackBy is given, Angular tracks changes by the return value of the function. 
 
 Now when you change the collection, Angular can track which items have been added or removed according to the unique identifier and create/destroy only changed items.
+
+# Links
+
+https://angular.io/api/common/NgForOf
+https://angular.io/api/core/TrackByFunction
