@@ -1,4 +1,5 @@
 # 30 Seconds Of Angular
+[![Logo](/templates/logo.png)](https://github.com/nycJSorg/30-seconds-of-angular)
 
 ## Table of contents
 
@@ -16,6 +17,11 @@
 <summary>Bonus</summary>
 {{{bonus}}}
 </details>
+{{/if}}
+
+{{#if links}}
+### Links
+{{{links}}}
 {{/if}}
 
 tags: {{tags}}

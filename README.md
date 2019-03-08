@@ -1,4 +1,5 @@
 # 30 Seconds Of Angular
+[![Logo](/templates/logo.png)](https://github.com/nycJSorg/30-seconds-of-angular)
 
 ## Table of contents
 
@@ -19,6 +20,7 @@ https://netbasal.com/lifting-the-veil-insights-into-angulars-eventmanagerplugin-
 https://www.bennadel.com/blog/3088-native-key-combination-event-binding-support-in-angular-2-beta-17.htm
 </details>
 
+
 tags: tips,good-to-know
 
 <br>[⬆ Back to top](#table-of-contents)<br><br>
@@ -28,6 +30,7 @@ tags: tips,good-to-know
     lol: 'dasdsad'
 })
 ```
+
 
 
 tags: tips,good-to-know
@@ -63,6 +66,10 @@ If trackBy is given, Angular tracks changes by the return value of the function.
 
 Now when you change the collection, Angular can track which items have been added or removed according to the unique identifier and create/destroy only changed items.
 
+
+### Links
+https://angular.io/api/common/NgForOf
+https://angular.io/api/core/TrackByFunction
 
 tags: tips,good-to-know
 
