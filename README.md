@@ -8,7 +8,7 @@
 * [trackBy](#trackBy)
 
 ## Snippets
-### 🔥 Adding keyboard shortcuts to elements
+### Adding keyboard shortcuts to elements
 It's really easy to add keyboard shortcuts in the template: 
 ```
 <textarea (keydown.ctrl.enter)></textarea>
@@ -27,7 +27,7 @@ https://www.bennadel.com/blog/3088-native-key-combination-event-binding-support-
 tags: tips,good-to-know
 
 <br>[⬆ Back to top](#table-of-contents)<br><br>
-### 🔥 trackBy
+### trackBy
 To avoid the expensive operations, we can help Angular to track which items added or removed i.e. customize the default tracking algorithm by providing a trackBy option to NgForOf.
 
 So you can provide your custom trackBy function that will return unique identifier for each iterated item. 

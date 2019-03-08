@@ -10,7 +10,7 @@
 
 ## Snippets
 {{#each snippets}}
-### 🔥 {{title}}
+### {{title}}
 {{{content}}}
 
 {{#if bonus}}
