@@ -1,14 +1,14 @@
 ---
-title: Adding shortcuts to elements
+title: Adding keyboard shortcuts to elements
 tags:
   - tips
   - good-to-know
 ---
 # Content
 
-
+It's really easy to add keyboard shortcuts in the template: 
 ```
-<textarea [keydown.ctrl.enter]></textarea>
+<textarea (keydown.ctrl.enter)></textarea>
 ```
 
 # Bonus 
