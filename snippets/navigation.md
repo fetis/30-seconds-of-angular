@@ -23,9 +23,30 @@ Navigate to up:
 <a [routerLink]="['../', 'second', 'details']">link</a>
 ```
 
+Navigate with query params:
+
+the router will navigate to `/first/details?filter=new`
+```html
+<a [routerLink]="['/', 'first', 'details']"
+   [queryParams]="{ filter: 'new' }">
+  filter: new
+</a>
+```
+with merge old query params:
+
+the router will navigate to `/first/details?filter=new&sort=asc`
+```html
+<a [routerLink]="['/', 'first', 'details']"
+   [queryParams]="{ sort: 'asc' }"
+   queryParamsHandling="merge">
+  sorting
+</a>
+```
+
+
 Navigate with object params:
 
-the router will navigate to /first;name=foo/details
+the router will navigate to `/first;name=foo/details`
 ```html
 <a [routerLink]="['/', 'first', {name: 'foo'}, 'details']">
   link with params
