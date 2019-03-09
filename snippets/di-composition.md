@@ -25,7 +25,6 @@ export class ProvideComponent {}
 export class ProvideDirective {}
 ```
 
-
 # Bonus
 Using this you can connect components and directives.
 
