@@ -28,22 +28,6 @@ myStyles = {
 'font-size': '25px',
 }
 
-<!--Svg attribute bindings-->
-
-Before:
-<svg>
-  <circle r="25" cx="50" cy="50"></circle>
-</svg>
-
-After:
-<svg>
-  <circle [attr.r]="radius" cx="50" cy="50"></circle>
-</svg>
-
-in component.ts:
-
-radius = 25;
-
 ```
 
 
