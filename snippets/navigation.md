@@ -44,7 +44,7 @@ the router will navigate to `/first/details?filter=new&sort=asc`
 ```
 
 
-Navigate with object params:
+Navigate with matrix params:
 
 the router will navigate to `/first;name=foo/details`
 ```html
