@@ -7,8 +7,39 @@ tags:
 ---
 # Content
 
-# Bonus
-<!-- This is optional -->
-# Links
-<!-- This is optional -->
 
+# Bonus
+<!-- This is optional, remove if not needed -->
+# Links
+<!-- This is optional, remove if not needed -->
+
+<!-- 
+    __      _
+  o'')}____//   The code below is used for interactive demos.
+   `_/      )   You can override any of the components, or remove 
+   (_(_/-(_/    the section to keep default value.
+   
+  -->
+  
+# example/app.component.ts
+import { Component } from '@angular/core';
+
+// Just an empty component to make everything compile
+@Component({
+  selector: 'my-app',
+  template: `<h1></h2>`
+})
+export class AppComponent {}
+
+# example/app.module.ts
+// This section is optional, remove it if the code below is good.
+import { BrowserModule } from '@angular/platform-browser';
+import { NgModule } from '@angular/core';
+import { AppComponent } from './app.component';
+
+@NgModule({
+  imports: [BrowserModule],
+  declarations: [AppComponent],
+  bootstrap: [AppComponent]
+})
+export class AppModule {}

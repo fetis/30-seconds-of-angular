@@ -39,3 +39,25 @@ https://netbasal.com/lifting-the-veil-insights-into-angulars-eventmanagerplugin-
 https://www.bennadel.com/blog/3088-native-key-combination-event-binding-support-in-angular-2-beta-17.htm
 
 https://alligator.io/angular/binding-keyup-keydown-events
+
+  
+# ComponentCode
+import { Component } from '@angular/core';
+
+@Component({
+  selector: 'my-app',
+  template: `<h1>Hello world</h1>`
+})
+export class AppComponent {}
+
+# ModuleCode
+import { BrowserModule } from '@angular/platform-browser';
+import { NgModule } from '@angular/core';
+import { AppComponent } from './app.component';
+
+@NgModule({
+  imports: [BrowserModule],
+  declarations: [AppComponent],
+  bootstrap: [AppComponent]
+})
+export class AppModule {}
