@@ -25,7 +25,7 @@ Here is the way to notify user that there are fields with non-valid values.
 export class AppComponent {
   yourAwesomeComponentReactiveForm: FormGroup;
   
-  markFieldsAsTouched(formGroup: FormGroup): void {
+  markFieldsAsTouched(formGroup: FormGroup | FormArray): void {
     Object.values(formGroup.controls).forEach(
       (control) => {
         if (control instanceof FormControl) {
