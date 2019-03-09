@@ -1,8 +1,7 @@
 ---
 title: Style bindings
 tags:
-  - tips
-  - good-to-know
+  - styles
 ---
 # Content
  
