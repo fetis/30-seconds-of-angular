@@ -8,7 +8,7 @@ tags:
 ---
 
 # Content
-Here is the way to notify that there are fields with non-valid values.
+Here is the way to notify user that there are fields with non-valid values.
 
 **markFieldsAsTouched** function takes _control_ which is FormGroup type as arg. 
 
