@@ -1,12 +1,12 @@
 ---
 title: DI Composition
 tags:
-  - tips
-  - good-to-know
+  - dependency-injection
 ---
 
 # Content
-Вы можете легко создавать новые инстансы сервисов через компоненты и директивы. Достаточно добавить сервис в providers у компонента или директивы.
+Generally we get one service instance per the whole application. 
+It is also possible to create an instance of service per component or directive. 
 
 ```typescript
 @Component({
@@ -27,7 +27,7 @@ export class ProvideDirective {}
 
 
 # Bonus
-С помощью этого способа вы можете с легкостью создавать связанные компоненты и директивы.
+Using this you can connect components and directives.
 
 ```typescript
 @Injectable()
