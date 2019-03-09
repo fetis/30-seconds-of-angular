@@ -3,13 +3,11 @@ title: ng-content
 
 tags:
   - tips
-  - good-to-know
 ---
 
 # Content
-С помощью **ng-content** можно передать в компонент любое созедржимое и отобразить его. Это сделает использование собственной библиотеки компонентов более простым.
-
-**ng-content** takes a projectable nodes and show it. 
+With ng-content **ng-content** you can pass any elements to a component. 
+This simplifies creating reusable components.
 
 ```typescript
 @Component({
@@ -30,7 +28,7 @@ export class Wrapper {}
 ```
 
 # Bonus
-Сделаем компоненты с карточками.
+Let's create components with cards.
 
 ```typescript
 function template(useClass: string): string {
