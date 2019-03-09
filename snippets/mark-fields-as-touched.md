@@ -26,12 +26,11 @@ export class AppComponent {
   yourAwesomeComponentReactiveForm: FormGroup;
   
   markFieldsAsTouched(formGroup: FormGroup): void {
-    Object.keys(formGroup.controls).forEach(
-      (field) => {
-        const control = formGroup.get(field);
+    Object.values(formGroup.controls).forEach(
+      (control) => {
         if (control instanceof FormControl) {
           control.markAsTouched({onlySelf: true});
-        } else if (control instanceof FormGroup) {
+        } else if (control instanceof FormGroup || control instanceof FormArray) {
           this.markFieldsAsTouched(control);
         }
       }
