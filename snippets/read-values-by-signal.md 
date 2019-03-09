@@ -1,0 +1,28 @@
+---
+title: Reading values by signal
+tags:
+  - tips
+  - good-to-know
+---
+
+# Content
+Мы можем сделать простое считывание синхронных значений по асинхронным сигналам.
+
+```typescript
+defer(() => of(`what we read`)).pipe(
+  repeatWhen(() => signal)
+);
+```
+
+# Bonus
+Как пример, когда значение в localStorage меняется, мы его считаем.
+
+```typescript
+defer(() => of(localStorage.getItem(key))).pipe(
+  repeatWhen(() => fromEvent(window, 'storage').pipe(
+    filter((event: StorageEvent) => event.key === key)
+  ))
+);
+```
+
+# Links
