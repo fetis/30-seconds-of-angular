@@ -24,10 +24,9 @@ tags:
 # example/app.component.ts
 import { Component } from '@angular/core';
 
-// Just an empty component to make everything compile
 @Component({
   selector: 'my-app',
-  template: `<h1></h2>`
+  template: `<h1>Update me!</h1>`
 })
 export class AppComponent {}
 
