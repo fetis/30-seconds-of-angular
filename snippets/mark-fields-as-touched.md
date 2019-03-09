@@ -32,7 +32,7 @@ export class AppComponent {
         if (control instanceof FormControl) {
           control.markAsTouched({onlySelf: true});
         } else if (control instanceof FormGroup) {
-          this.markAllFormFieldsAsTouched(control);
+          this.markFieldsAsTouched(control);
         }
       }
     );
