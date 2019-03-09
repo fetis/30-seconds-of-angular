@@ -23,6 +23,16 @@ Navigate to up:
 <a [routerLink]="['../', 'second', 'details']">link</a>
 ```
 
+Navigate to fragment:
+
+the router will navigate to `/first/details#anchor`
+```html
+<a [routerLink]="['../', 'second', 'details']"
+  fragment="anchor">
+  Anchor
+</a>
+```
+
 Navigate with query params:
 
 the router will navigate to `/first/details?filter=new`
