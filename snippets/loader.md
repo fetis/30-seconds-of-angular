@@ -1,7 +1,7 @@
 ---
 title: Loaders
 tags:
-  - loader
+  - tips
 ---
 # Content
 
@@ -67,10 +67,6 @@ export class LoadingDirective {
 }
 
 ```
-
-
-# Bonus
-I'm amazing bonus, I should be expandeable and collapseable
 
 # Links
 
