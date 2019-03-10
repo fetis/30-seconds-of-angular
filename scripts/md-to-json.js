@@ -1,5 +1,7 @@
-const {readdirSync, writeFileSync,existsSync, mkdirSync} = require('fs');
-const {join } = require('path');
+const validateSnippets = require("./validate-json");
+
+const {readdirSync, writeFileSync, existsSync, mkdirSync} = require('fs');
+const {join, basename} = require('path');
 const matter = require('gray-matter');
 const folder = join(__dirname, '..', 'snippets');
 const dist = join(__dirname, '..', 'data');
@@ -34,7 +36,7 @@ function extractHeaders(str) {
 
 /**
  *
- * Takes mardown and returns content.
+ * Takes markdown and returns content.
  * e.g. input:
  *
  * ---
@@ -61,7 +63,11 @@ function mdFolderTOJSON(folder) {
 	return readdirSync(folder)
 		.map(file => join(folder, file))
 		.map(file => matter.read(file))
-		.map(result => ({...result.data, ...extractHeaders(result.content)}));
+		.map(result => ({
+			...result.data,
+			slug: basename(result.path).replace('.md', ''),
+			...extractHeaders(result.content)
+		}));
 }
 
 if (!existsSync(dist)) {
@@ -69,6 +75,7 @@ if (!existsSync(dist)) {
 }
 
 let json = mdFolderTOJSON(folder);
+validateSnippets(json);
 writeFileSync(join(dist, 'data.json'), JSON.stringify(json));
 
 

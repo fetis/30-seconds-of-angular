@@ -14,39 +14,11 @@
 
 ## Table of contents
 
-* [Bind to host properties with host binding](#Bind-to-host-properties-with-host-binding)
 * [Adding keyboard shortcuts to elements](#Adding-keyboard-shortcuts-to-elements)
+* [Bind to host properties with host binding](#Bind-to-host-properties-with-host-binding)
 * [trackBy](#trackBy)
 
 ## Snippets
-### Bind to host properties with host binding
-Every rendered angular component is wrapped in a host element (which is the same as component's selector).
-
-It is possible to bind properties and attributes of host element using @HostBinding decorators, e.g. 
-
-```typescript
-import { Component, HostBinding } from '@angular/core';
-
-@Component({
-   selector: 'my-app', 
-   template: `
-  <div>Use the input below  to select host background-color:</div>
-  <input type="color" [(ngModel)]="color"> 
-`,
-  styles:[`:host { display: block; height: 100px; }`]
-  },
-  
-)
-export class AppComponent {
-  @HostBinding('style.background') color = '#ff9900';
-}
-```
-
-
-
-tags: components
-
-<br>[⬆ Back to top](#table-of-contents)<br><br>
 ### Adding keyboard shortcuts to elements
 It's really easy to add keyboard shortcuts in the template: 
 ```
@@ -85,7 +57,39 @@ https://alligator.io/angular/binding-keyup-keydown-events
 
 tags: tips,good-to-know
 
-<br>[⬆ Back to top](#table-of-contents)<br><br>
+
+
+<br>[⭐ Interactive demo of this snippet](https://codelab-next.firebaseapp.com/angular/30-seconds/0) | [⬆ Back to top](#table-of-contents)<br><br>
+### Bind to host properties with host binding
+Every rendered angular component is wrapped in a host element (which is the same as component's selector).
+
+It is possible to bind properties and attributes of host element using @HostBinding decorators, e.g. 
+
+```typescript
+import { Component, HostBinding } from '@angular/core';
+
+@Component({
+   selector: 'my-app', 
+   template: `
+  <div>Use the input below  to select host background-color:</div>
+  <input type="color" [(ngModel)]="color"> 
+`,
+  styles:[`:host { display: block; height: 100px; }`]
+  },
+  
+)
+export class AppComponent {
+  @HostBinding('style.background') color = '#ff9900';
+}
+```
+
+
+
+tags: components
+
+
+
+<br>[⭐ Interactive demo of this snippet](https://codelab-next.firebaseapp.com/angular/30-seconds/1) | [⬆ Back to top](#table-of-contents)<br><br>
 ### trackBy
 To avoid the expensive operations, we can help Angular to track which items added or removed i.e. customize the default tracking algorithm by providing a trackBy option to NgForOf.
 
@@ -97,18 +101,14 @@ For example, some key value of the item. If this key value matches the previous 
 ```typescript
 @Component({
   selector: 'app-root',
-  template: `
-    <ul>
+  template: `<ul>
       <li *ngFor="let item of items; trackBy: trackByFn">{{item.id}}</li>
-    </ul>
-  `,
+    </ul>`,
 })
-export class AppComponent {
-  // ...  
+export class AppComponent { 
   trackByFn(index, item) {
     return item.id;
   }
-  // ...
 }
 ```
 If trackBy is given, Angular tracks changes by the return value of the function. 
@@ -122,4 +122,6 @@ https://angular.io/api/core/TrackByFunction
 
 tags: good-to-know,tips,components,performance
 
-<br>[⬆ Back to top](#table-of-contents)<br><br>
+
+
+<br>[⭐ Interactive demo of this snippet](https://codelab-next.firebaseapp.com/angular/30-seconds/2) | [⬆ Back to top](#table-of-contents)<br><br>

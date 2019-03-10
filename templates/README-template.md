@@ -38,5 +38,7 @@
 
 tags: {{tags}}
 
-<br>[⬆ Back to top](#table-of-contents)<br><br>
+
+
+<br>[⭐ Interactive demo of this snippet](https://codelab-next.firebaseapp.com/angular/30-seconds/{{@index}}) | [⬆ Back to top](#table-of-contents)<br><br>
 {{/each}}
