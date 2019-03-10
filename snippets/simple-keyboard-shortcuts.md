@@ -46,18 +46,14 @@ import { Component } from '@angular/core';
 
 @Component({
   selector: 'my-app',
-  template: `<h1>Hello world</h1>`
-})
-export class AppComponent {}
+  template: `
+    <h2>Type something in the input and hit control+enter to 
+        update the value below:</h2>
 
-# ModuleCode
-import { BrowserModule } from '@angular/platform-browser';
-import { NgModule } from '@angular/core';
-import { AppComponent } from './app.component';
-
-@NgModule({
-  imports: [BrowserModule],
-  declarations: [AppComponent],
-  bootstrap: [AppComponent]
+    <h1>{{value || 'no value'}}</h1>
+    <input (keydown.control.enter)="value=$event.target.value; $event.target.value = ''">
+  `
 })
-export class AppModule {}
+export class AppComponent {
+    value: string;
+}

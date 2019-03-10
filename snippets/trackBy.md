@@ -40,3 +40,26 @@ Now when you change the collection, Angular can track which items have been adde
 
 https://angular.io/api/common/NgForOf
 https://angular.io/api/core/TrackByFunction
+
+# ComponentCode
+import { Component } from '@angular/core';
+
+@Component({
+  selector: 'my-app',
+  template: `
+    <ul>
+      <li *ngFor="let item of items; trackBy: trackByFn">{{item.id}}</li>
+    </ul>
+  `
+})
+export class AppComponent {
+ items = [
+   {id: 1},
+   {id: 2},
+   {id: 3},
+ ]
+
+  trackByFn(index, item) {
+    return item.id;
+  } 
+}
