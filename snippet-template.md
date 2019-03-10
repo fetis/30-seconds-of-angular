@@ -1,6 +1,7 @@
 ---
 title: Feature Description
-author: Your name or github handle. 
+author: Your name or github handle.
+level: beginner|intermediate|advanced 
 tags:
   - tips
   - good-to-know
@@ -21,7 +22,7 @@ tags:
    
   -->
   
-# example/app.component.ts
+# ComponentCode
 import { Component } from '@angular/core';
 
 @Component({
@@ -30,7 +31,7 @@ import { Component } from '@angular/core';
 })
 export class AppComponent {}
 
-# example/app.module.ts
+# ModuleCode
 // This section is optional, remove it if the code below is good.
 import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
