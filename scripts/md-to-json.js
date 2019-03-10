@@ -2,7 +2,7 @@ const {readdirSync, writeFileSync,existsSync, mkdirSync} = require('fs');
 const {join } = require('path');
 const matter = require('gray-matter');
 const folder = join(__dirname, '..', 'snippets');
-const dist = join(__dirname, '..', 'dist');
+const dist = join(__dirname, '..', 'data');
 
 /**
  *

@@ -3,7 +3,7 @@ const {readFileSync, writeFileSync} = require('fs');
 const {join} = require('path');
 const slugify = require('slugify');
 
-const snippets = require('../dist/data.json');
+const snippets = require('../data/data.json');
 
 // Paths
 const template = readFileSync(join(__dirname, '..', 'templates', 'README-template.md'), 'UTF-8');
