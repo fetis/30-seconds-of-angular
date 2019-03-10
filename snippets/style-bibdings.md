@@ -30,7 +30,36 @@ tags:
 <!-- Height relative to the viewport height -->
 <div [style.height.vh]="vwHeight"></div>
 ```
+# ComponentCode
+  
+import { Component } from '@angular/core';
 
-# Links
+@Component({
+  selector: 'my-app',
+  template: `
+  <div>Use the input below to select host background-color:</div>
+<input type="color" [(ngModel)]="color">
+<input type="number" [(ngModel)]="width">
+<div [style.width.px]="width" [style.background]="color">
+    Change me!
+</div> 
+`
+})
+export class AppComponent {
+  color = '#ff9900';
+  width = 200;
+}
 
-https://stackblitz.com/edit/angular-9h1tkc?file=src%2Fapp%2Fapp.component.html
+
+# ModuleCode  
+import { BrowserModule } from '@angular/platform-browser';
+import { NgModule } from '@angular/core';
+import { AppComponent } from './app.component';
+import { FormsModule } from '@angular/forms';
+
+@NgModule({
+  imports: [BrowserModule, FormsModule],
+  declarations: [AppComponent],
+  bootstrap: [AppComponent]
+})
+export class AppModule {}
