@@ -1,9 +1,11 @@
 ---
 title: trackBy
-
+author: maxtarsis
+level: beginner
 tags:
   - tips
   - good-to-know
+  
 ---
 
 # Content
