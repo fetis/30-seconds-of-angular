@@ -1,6 +1,6 @@
 ---
 title: ng-content
-
+level: beginner
 tags:
   - tips
 ---
