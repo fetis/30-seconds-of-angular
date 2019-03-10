@@ -1,5 +1,5 @@
 ---
-title: trackBy
+title: trackBy in for loops
 author: maktarsis
 level: beginner
 
