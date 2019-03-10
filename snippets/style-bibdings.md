@@ -15,18 +15,6 @@ tags:
   May be important text.
 </p>
 
-<p [ngStyle]="myStyles">
-  Lorem
-</p>
-
-in component.ts:
-
-myStyles = {
-'background-color': 'black',
-'color': 'white',
-'font-size': '25px',
-}
-
 ```
 
 
