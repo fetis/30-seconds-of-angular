@@ -16,6 +16,7 @@
 
 * [Adding keyboard shortcuts to elements](#Adding-keyboard-shortcuts-to-elements)
 * [Bind to host properties with host binding](#Bind-to-host-properties-with-host-binding)
+* [Style bindings](#Style-bindings)
 * [trackBy](#trackBy)
 
 ## Snippets
@@ -90,6 +91,41 @@ tags: components
 
 
 <br>[⭐ Interactive demo of this snippet](https://codelab-next.firebaseapp.com/angular/30-seconds/1) | [⬆ Back to top](#table-of-contents)<br><br>
+### Style bindings
+You can use advanced property bindings to set specific style values based on component property values: 
+
+```html
+<p [style.background-color]="'green'">
+  I am in green background
+</p>
+
+<p [style.font-size.px]="isImportant ? '30' : '16'">
+  May be important text.
+</p>
+
+```
+
+<details>
+<summary>Bonus</summary>
+
+```html
+<!-- Width in pixels -->
+<div [style.width.px]="pxWidth"></div>
+
+<!-- Font size in percentage relative to the parent -->
+<div [style.font-size.%]="percentageSize">...</div>
+
+<!-- Height relative to the viewport height -->
+<div [style.height.vh]="vwHeight"></div>
+```
+</details>
+
+
+tags: styles
+
+
+
+<br>[⭐ Interactive demo of this snippet](https://codelab-next.firebaseapp.com/angular/30-seconds/2) | [⬆ Back to top](#table-of-contents)<br><br>
 ### trackBy
 To avoid the expensive operations, we can help Angular to track which items added or removed i.e. customize the default tracking algorithm by providing a trackBy option to NgForOf.
 
@@ -124,4 +160,4 @@ tags: good-to-know,tips,components,performance
 
 
 
-<br>[⭐ Interactive demo of this snippet](https://codelab-next.firebaseapp.com/angular/30-seconds/2) | [⬆ Back to top](#table-of-contents)<br><br>
+<br>[⭐ Interactive demo of this snippet](https://codelab-next.firebaseapp.com/angular/30-seconds/3) | [⬆ Back to top](#table-of-contents)<br><br>
