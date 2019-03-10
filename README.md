@@ -104,12 +104,11 @@ For example, some key value of the item. If this key value matches the previous 
   `,
 })
 export class AppComponent {
-  
-  ...
-  
+  // ...  
   trackByFn(index, item) {
     return item.id;
   }
+  // ...
 }
 ```
 If trackBy is given, Angular tracks changes by the return value of the function. 
@@ -121,6 +120,6 @@ Now when you change the collection, Angular can track which items have been adde
 https://angular.io/api/common/NgForOf
 https://angular.io/api/core/TrackByFunction
 
-tags: tips,good-to-know
+tags: good-to-know,tips,components,performance
 
 <br>[⬆ Back to top](#table-of-contents)<br><br>
