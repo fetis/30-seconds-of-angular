@@ -1,11 +1,11 @@
 ---
 title: trackBy
-
 author: maktarsis
-
 level: beginner
 
 tags:
+  - good-to-know
+  - tips
   - components
   - performance
 ---
@@ -28,12 +28,11 @@ For example, some key value of the item. If this key value matches the previous 
   `,
 })
 export class AppComponent {
-  
-  ...
-  
+  // ...  
   trackByFn(index, item) {
     return item.id;
   }
+  // ...
 }
 ```
 If trackBy is given, Angular tracks changes by the return value of the function. 
@@ -60,9 +59,9 @@ export class AppComponent {
  items = [
    {id: 1},
    {id: 2},
-   {id: 3},
+   {id: 3}
  ]
- 
+
   trackByFn(index, item) {
     return item.id;
   } 
