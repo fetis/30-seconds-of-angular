@@ -17,7 +17,7 @@
 * [Adding keyboard shortcuts to elements](#Adding-keyboard-shortcuts-to-elements)
 * [Bind to host properties with host binding](#Bind-to-host-properties-with-host-binding)
 * [Style bindings](#Style-bindings)
-* [trackBy](#trackBy)
+* [trackBy in for loops](#trackBy-in-for-loops)
 
 ## Snippets
 ### Adding keyboard shortcuts to elements
@@ -126,7 +126,7 @@ tags: styles
 
 
 <br>[⭐ Interactive demo of this snippet](https://codelab-next.firebaseapp.com/angular/30-seconds/2) | [⬆ Back to top](#table-of-contents)<br><br>
-### trackBy
+### trackBy in for loops
 To avoid the expensive operations, we can help Angular to track which items added or removed i.e. customize the default tracking algorithm by providing a trackBy option to NgForOf.
 
 So you can provide your custom trackBy function that will return unique identifier for each iterated item. 
