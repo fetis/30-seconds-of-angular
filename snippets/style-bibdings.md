@@ -1,5 +1,6 @@
 ---
 title: Style bindings
+level: intermediate
 tags:
   - styles
 ---
