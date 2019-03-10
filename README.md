@@ -14,10 +14,39 @@
 
 ## Table of contents
 
+* [Bind to host properties with host binding](#Bind-to-host-properties-with-host-binding)
 * [Adding keyboard shortcuts to elements](#Adding-keyboard-shortcuts-to-elements)
 * [trackBy](#trackBy)
 
 ## Snippets
+### Bind to host properties with host binding
+Every rendered angular component is wrapped in a host element (which is the same as component's selector).
+
+It is possible to bind properties and attributes of host element using @HostBinding decorators, e.g. 
+
+```typescript
+import { Component, HostBinding } from '@angular/core';
+
+@Component({
+   selector: 'my-app', 
+   template: `
+  <div>Use the input below  to select host background-color:</div>
+  <input type="color" [(ngModel)]="color"> 
+`,
+  styles:[`:host { display: block; height: 100px; }`]
+  },
+  
+)
+export class AppComponent {
+  @HostBinding('style.background') color = '#ff9900';
+}
+```
+
+
+
+tags: components
+
+<br>[⬆ Back to top](#table-of-contents)<br><br>
 ### Adding keyboard shortcuts to elements
 It's really easy to add keyboard shortcuts in the template: 
 ```
