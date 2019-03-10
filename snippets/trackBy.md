@@ -1,9 +1,13 @@
 ---
 title: trackBy
 
+author: maktarsis
+
+level: beginner
+
 tags:
-  - tips
-  - good-to-know
+  - components
+  - performance
 ---
 
 # Content
@@ -45,7 +49,7 @@ https://angular.io/api/core/TrackByFunction
 import { Component } from '@angular/core';
 
 @Component({
-  selector: 'my-app',
+  selector: 'app-root',
   template: `
     <ul>
       <li *ngFor="let item of items; trackBy: trackByFn">{{item.id}}</li>
@@ -58,7 +62,7 @@ export class AppComponent {
    {id: 2},
    {id: 3},
  ]
-
+ 
   trackByFn(index, item) {
     return item.id;
   } 
