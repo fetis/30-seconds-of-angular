@@ -5,9 +5,9 @@ tags:
   - styles
 ---
 # Content
- 
-```html
+You can use advanced property bindings to set specific style values based on component property values: 
 
+```html
 <p [style.background-color]="'green'">
   I am in green background
 </p>
@@ -31,8 +31,7 @@ tags:
 <!-- Height relative to the viewport height -->
 <div [style.height.vh]="vwHeight"></div>
 ```
-# ComponentCode
-  
+# ComponentCode 
 import { Component } from '@angular/core';
 
 @Component({
