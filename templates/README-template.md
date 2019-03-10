@@ -26,6 +26,7 @@
 {{#if bonus}}
 <details>
 <summary>Bonus</summary>
+
 {{{bonus}}}
 </details>
 {{/if}}

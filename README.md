@@ -26,6 +26,7 @@ It's really easy to add keyboard shortcuts in the template:
 
 <details>
 <summary>Bonus</summary>
+
 ```html
 <input (keydown.enter)="...">
 <input (keydown.a)="...">
