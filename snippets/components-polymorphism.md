@@ -34,7 +34,7 @@ class Bar extends Base {}
 https://medium.com/p/96a29d70d11b
 
 # ComponentCode
-import { Component, AfterViewInit } from '@angular/core';
+import { Component, ViewChildren, AfterViewInit } from '@angular/core';
 
 export abstract class Animal {
     abstract say();
@@ -43,9 +43,7 @@ export abstract class Animal {
 @Component({
   selector: 'fox',
   template: `🦊`,
-  providers: [
-      { provide: Animal, useExisting: Fox }
-  ]
+  providers: [{ provide: Animal, useExisting: Fox }]
 })
 export class Fox extends Animal {
     say() {
@@ -56,9 +54,7 @@ export class Fox extends Animal {
 @Component({
   selector: 'rice',
   template: `🍚`,
-  providers: [
-      { provide: Animal, useExisting: Rice }
-  ]
+  providers: [{ provide: Animal, useExisting: Rice }]
 })
 export class Rice extends Animal {
     say() {
@@ -69,9 +65,7 @@ export class Rice extends Animal {
 @Component({
   selector: 'dragon',
   template: `🐉`,
-  providers: [
-      { provide: Animal, useExisting: Dragon }
-  ]
+  providers: [{ provide: Animal, useExisting: Dragon }]
 })
 export class Dragon extends Animal {
     say() {
@@ -80,7 +74,7 @@ export class Dragon extends Animal {
 }
 
 @Component({
-    selector: 'animals',
+    selector: 'my-app',
     template: `
         <fox></fox>
         <rice></rice>
@@ -101,8 +95,8 @@ import { NgModule } from '@angular/core';
 import { AppComponent, Fox, Rice, Dragon } from './app.component';
 
 @NgModule({
-  imports: [ BrowserModule ],
-  declarations: [ AppComponent, Fox, Rice, Dragon ],
-  bootstrap: [ AppComponent ]
+  imports: [BrowserModule],
+  declarations: [AppComponent, Fox, Rice, Dragon],
+  bootstrap: [AppComponent]
 })
 export class AppModule {}
