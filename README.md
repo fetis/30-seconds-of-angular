@@ -14,39 +14,12 @@
 
 ## Table of contents
 
-* [Bind to host properties with host binding](#Bind-to-host-properties-with-host-binding)
 * [Adding keyboard shortcuts to elements](#Adding-keyboard-shortcuts-to-elements)
-* [trackBy](#trackBy)
+* [Bind to host properties with host binding](#Bind-to-host-properties-with-host-binding)
+* [Style bindings](#Style-bindings)
+* [trackBy in for loops](#trackBy-in-for-loops)
 
 ## Snippets
-### Bind to host properties with host binding
-Every rendered angular component is wrapped in a host element (which is the same as component's selector).
-
-It is possible to bind properties and attributes of host element using @HostBinding decorators, e.g. 
-
-```typescript
-import { Component, HostBinding } from '@angular/core';
-
-@Component({
-   selector: 'my-app', 
-   template: `
-  <div>Use the input below  to select host background-color:</div>
-  <input type="color" [(ngModel)]="color"> 
-`,
-  styles:[`:host { display: block; height: 100px; }`]
-  },
-  
-)
-export class AppComponent {
-  @HostBinding('style.background') color = '#ff9900';
-}
-```
-
-
-
-tags: components
-
-<br>[⬆ Back to top](#table-of-contents)<br><br>
 ### Adding keyboard shortcuts to elements
 It's really easy to add keyboard shortcuts in the template: 
 ```
@@ -85,8 +58,75 @@ https://alligator.io/angular/binding-keyup-keydown-events
 
 tags: tips,good-to-know
 
-<br>[⬆ Back to top](#table-of-contents)<br><br>
-### trackBy
+
+
+<br>[⭐ Interactive demo of this snippet](https://codelab-next.firebaseapp.com/angular/30-seconds/0) | [⬆ Back to top](#table-of-contents)<br><br>
+### Bind to host properties with host binding
+Every rendered angular component is wrapped in a host element (which is the same as component's selector).
+
+It is possible to bind properties and attributes of host element using @HostBinding decorators, e.g. 
+
+```typescript
+import { Component, HostBinding } from '@angular/core';
+
+@Component({
+   selector: 'my-app', 
+   template: `
+  <div>Use the input below  to select host background-color:</div>
+  <input type="color" [(ngModel)]="color"> 
+`,
+  styles:[`:host { display: block; height: 100px; }`]
+  },
+  
+)
+export class AppComponent {
+  @HostBinding('style.background') color = '#ff9900';
+}
+```
+
+
+
+tags: components
+
+
+
+<br>[⭐ Interactive demo of this snippet](https://codelab-next.firebaseapp.com/angular/30-seconds/1) | [⬆ Back to top](#table-of-contents)<br><br>
+### Style bindings
+You can use advanced property bindings to set specific style values based on component property values: 
+
+```html
+<p [style.background-color]="'green'">
+  I am in green background
+</p>
+
+<p [style.font-size.px]="isImportant ? '30' : '16'">
+  May be important text.
+</p>
+
+```
+
+<details>
+<summary>Bonus</summary>
+
+```html
+<!-- Width in pixels -->
+<div [style.width.px]="pxWidth"></div>
+
+<!-- Font size in percentage relative to the parent -->
+<div [style.font-size.%]="percentageSize">...</div>
+
+<!-- Height relative to the viewport height -->
+<div [style.height.vh]="vwHeight"></div>
+```
+</details>
+
+
+tags: styles
+
+
+
+<br>[⭐ Interactive demo of this snippet](https://codelab-next.firebaseapp.com/angular/30-seconds/2) | [⬆ Back to top](#table-of-contents)<br><br>
+### trackBy in for loops
 To avoid the expensive operations, we can help Angular to track which items added or removed i.e. customize the default tracking algorithm by providing a trackBy option to NgForOf.
 
 So you can provide your custom trackBy function that will return unique identifier for each iterated item. 
@@ -97,18 +137,14 @@ For example, some key value of the item. If this key value matches the previous 
 ```typescript
 @Component({
   selector: 'app-root',
-  template: `
-    <ul>
+  template: `<ul>
       <li *ngFor="let item of items; trackBy: trackByFn">{{item.id}}</li>
-    </ul>
-  `,
+    </ul>`,
 })
-export class AppComponent {
-  // ...  
+export class AppComponent { 
   trackByFn(index, item) {
     return item.id;
   }
-  // ...
 }
 ```
 If trackBy is given, Angular tracks changes by the return value of the function. 
@@ -122,4 +158,6 @@ https://angular.io/api/core/TrackByFunction
 
 tags: good-to-know,tips,components,performance
 
-<br>[⬆ Back to top](#table-of-contents)<br><br>
+
+
+<br>[⭐ Interactive demo of this snippet](https://codelab-next.firebaseapp.com/angular/30-seconds/3) | [⬆ Back to top](#table-of-contents)<br><br>

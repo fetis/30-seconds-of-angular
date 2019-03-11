@@ -1,6 +1,7 @@
 ---
 title: Style bindings
 level: intermediate
+author: Jamaks
 tags:
   - styles
 ---

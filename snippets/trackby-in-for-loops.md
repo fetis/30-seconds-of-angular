@@ -1,5 +1,5 @@
 ---
-title: trackBy
+title: trackBy in for loops
 author: maktarsis
 level: beginner
 
@@ -21,18 +21,14 @@ For example, some key value of the item. If this key value matches the previous 
 ```typescript
 @Component({
   selector: 'app-root',
-  template: `
-    <ul>
+  template: `<ul>
       <li *ngFor="let item of items; trackBy: trackByFn">{{item.id}}</li>
-    </ul>
-  `,
+    </ul>`,
 })
-export class AppComponent {
-  // ...  
+export class AppComponent { 
   trackByFn(index, item) {
     return item.id;
   }
-  // ...
 }
 ```
 If trackBy is given, Angular tracks changes by the return value of the function. 
