@@ -34,7 +34,7 @@ class Bar extends Base {}
 https://medium.com/p/96a29d70d11b
 
 # ComponentCode
-import { Component, ViewChildren, AfterViewInit } from '@angular/core';
+import { Component, ViewChildren, QueryList, AfterViewInit } from '@angular/core';
 
 export abstract class Animal {
     abstract say();
