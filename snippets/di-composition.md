@@ -1,7 +1,8 @@
 ---
 title: DI Composition
+level: intermediate
+author: thekiba
 tags:
-  - intermediate
   - tips
   - components
   - dependency-injection
