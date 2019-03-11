@@ -1,6 +1,9 @@
 ---
 title: DI Composition
 tags:
+  - intermediate
+  - tips
+  - components
   - dependency-injection
 ---
 
@@ -25,37 +28,43 @@ export class ProvideComponent {}
 export class ProvideDirective {}
 ```
 
-# Bonus
-Using this you can connect components and directives.
+# Links
+https://stackblitz.com/edit/angular-cdk-happy-animals
 
-```typescript
+# ComponentCode
+import { Injectable, Component } from '@angular/core';
+
 @Injectable()
 export class ItemsLinker implements OnDestroy {
-  itemLinks: Set<ItemDirective> = new Set();
+  links: Set<ItemComponent> = new Set();
 
-  activate(item: ItemDirective) {
-    this.itemLinks.forEach(
-      (otherItems) => otherItems.deactivate());
+  activate(item: ItemComponent) {
+    this.links.forEach((link) => link.deactivate());
     item.activate();
   }
-  deactivate(item: ItemDirective) {
+  deactivate(item: ItemComponent) {
     item.deactivate();
   }
 
-  register(item: ItemDirective) {
-    this.itemLinks.add(item);
+  register(item: ItemComponent) {
+    this.links.add(item);
   }
-  unregister(item: ItemDirective) {
-    this.itemLinks.delete(item);
+  unregister(item: ItemComponent) {
+    this.links.delete(item);
   }
 
   ngOnDestroy() {
-    this.itemLinks.clear();
+    this.links.clear();
   }
 }
 
-@Directive({ selector: '[item]' })
-export class ItemDirective implements OnInit, OnDestroy {
+@Component({
+  selector: 'item',
+  template: `
+    <ng-content></ng-content>
+  `
+})
+export class ItemComponent implements OnInit, OnDestroy {
 
   @HostBinding('class.selected') isActivated: boolean = false;
 
@@ -74,8 +83,12 @@ export class ItemDirective implements OnInit, OnDestroy {
     this.isActivated = false;
   }
 
-  ngOnInit() { this.linker.register(this); }
-  ngOnDestroy() { this.linker.unregister(this); }
+  ngOnInit() {
+    this.linker.register(this);
+  }
+  ngOnDestroy() {
+    this.linker.unregister(this);
+  }
 }
 
 @Component({
@@ -83,16 +96,39 @@ export class ItemDirective implements OnInit, OnDestroy {
   template: '<ng-content></ng-content>',
   providers: [ ItemsLinker ]
 })
-export class ContainerDirective {}
-```
+export class ContainerComponent {}
 
-```html
-<items>
-  <span item>🦊</span>
-  <span item>🦄</span>
-  <span item>🐉</span>
-</items>
-```
+@Component({
+  selector: 'my-app',
+  template: `
+    <items>
+      <item>🦊</item>
+      <item>🦄</item>
+      <item>🐉</item>
+    </items>
+  `,
+  styles: [
+    `
+      :host /deep/ .selected {
+        background: #309eed;
+      }
+    `
+  ]
+})
+export class AppComponent {}
 
-# Links
-https://stackblitz.com/edit/angular-cdk-happy-animals
+# ModuleCode
+import { BrowserModule } from '@angular/platform-browser';
+import { NgModule } from '@angular/core';
+import { AppComponent, ContainerComponent, ItemComponent } from './app.component';
+
+@NgModule({
+  imports: [BrowserModule],
+  declarations: [
+    AppComponent,
+    ContainerComponent,
+    ItemComponent
+  ],
+  bootstrap: [AppComponent]
+})
+export class AppModule {}
