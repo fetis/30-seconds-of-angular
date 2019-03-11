@@ -1,6 +1,7 @@
 ---
 title: ng-content
 level: beginner
+author: thekiba
 tags:
   - good-to-know
   - tips
