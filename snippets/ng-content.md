@@ -2,7 +2,9 @@
 title: ng-content
 level: beginner
 tags:
+  - good-to-know
   - tips
+  - components
 ---
 
 # Content
@@ -27,10 +29,13 @@ export class Wrapper {}
 </wrapper>
 ```
 
-# Bonus
-Let's create components with cards.
+# Links
+https://medium.com/p/96a29d70d11b
 
-```typescript
+
+# ComponentCode
+import { Component } from '@angular/core';
+
 function template(useClass: string): string {
   return `
     <div class="${useClass}">
@@ -62,15 +67,21 @@ export class CardBody {}
   template: template('card-footer')
 })
 export class CardFooter {}
-```
 
-```html
-<app-card>
-  <app-card-header>Header</app-card-header>
-  <app-card-body>Body</app-card-body>
-  <app-card-footer>Footer</app-card-footer>
-</app-card>
-```
-
-# Links
-https://medium.com/p/96a29d70d11b
+@Component({
+  selector: 'my-app',
+  template: `
+    <app-card>
+      <app-card-header>
+        Header
+      </app-card-header>
+      <app-card-body>
+        Body
+      </app-card-body>
+      <app-card-footer>
+        Footer
+      </app-card-footer>
+    </app-card>
+  `
+})
+export class AppComponent {}
