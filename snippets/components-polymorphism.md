@@ -10,38 +10,24 @@ tags:
 ---
 
 # Content
-С помощью DI у вас есть возможность провайдить несколько компонентов или директив для выборки через декораторы:
-- ViewChild
-- ViewChildren
-- ConentChild
-- ContentChildren
+С помощью DI у вас есть возможность провайдить несколько компонентов или директив для выборки через декораторы @ViewChild(), @ViewChildren(), @ContentChild(), @ContentChildren().
 
 ```typescript
 abstract class Base {}
 
 @Component({
-  providers: [
-      { provide: Base, useExisting: Foo }
-  ]
+  providers: [{ provide: Base, useExisting: Foo }]
 })
 class Foo extends Base {}
 
 @Component({
-  providers: [
-      { provide: Base, useExisting: Bar }
-  ]
+  providers: [{ provide: Base, useExisting: Bar }]
 })
 class Bar extends Base {}
 ```
 
 ```typescript
 @ViewChildren(Base) components: QueryList<Base>;
-```
-
-```html
-<wrapper>
-    <h1>Hello World!</h1>
-</wrapper>
 ```
 
 # Links
