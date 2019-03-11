@@ -31,7 +31,7 @@ class Bar extends Base {}
 ```
 
 # Links
-https://medium.com/p/96a29d70d11b
+https://www.youtube.com/watch?v=PRRgo6F0cjs
 
 # ComponentCode
 import { Component, ViewChildren, QueryList, AfterViewInit } from '@angular/core';
