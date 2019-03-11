@@ -32,7 +32,7 @@ export class ProvideDirective {}
 https://stackblitz.com/edit/angular-cdk-happy-animals
 
 # ComponentCode
-import { Injectable, Component } from '@angular/core';
+import { Injectable, Component, HostBinding, HostListener, OnInit, OnDestroy } from '@angular/core';
 
 @Injectable()
 export class ItemsLinker implements OnDestroy {
@@ -109,7 +109,7 @@ export class ContainerComponent {}
   `,
   styles: [
     `
-      :host /deep/ .selected {
+      .selected {
         background: #309eed;
       }
     `
