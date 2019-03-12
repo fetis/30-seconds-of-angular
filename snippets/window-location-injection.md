@@ -1,5 +1,5 @@
 ---
-title: How to inject Location object of Window
+title: window.location injection
 author: Sergey Fetiskin
 level: intermediate
 
@@ -20,22 +20,16 @@ export const LOCATION_TOKEN = new InjectionToken<Location>('Window location obje
     { provide: LOCATION_TOKEN, useValue: window.location }
   ]
 })
-export class SharedModule {
-}
+export class SharedModule {}
 
 //...
 
 @Component({
-  // ...
 })
 export class AppComponent {
   constructor(
     @Inject(LOCATION_TOKEN) public location: Location
   ) {}
-
-  useIt() {
-    this.location.assign('xxx');
-  }
 }
 ```
 
