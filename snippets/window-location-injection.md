@@ -1,5 +1,5 @@
 ---
-title: window.location injection
+title: Window Location injection
 author: Sergey Fetiskin
 level: intermediate
 
