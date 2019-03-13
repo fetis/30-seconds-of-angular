@@ -34,3 +34,22 @@ export class AppPerson {
 # Links
 https://angular.io/api/core/Input
 https://medium.com/datadriveninvestor/angular-7-share-component-data-with-other-components-1b91d6f0b93f
+
+# ComponentCode
+import { Component, Input } from '@angular/core';
+
+@Component({
+  selector: 'app-name',
+  template: `<p>Name: {{ name }}</p>`
+})
+export class AppName {
+  @Input() name: string;
+}
+
+@Component({
+  selector: 'app-person',
+  template: `<app-name [name]="personName"></app-name>`,
+})
+export class AppPerson {
+  personName = 'Max';
+}

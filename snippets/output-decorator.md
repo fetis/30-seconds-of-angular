@@ -1,5 +1,5 @@
 ---
-title: Input / Output decorators
+title: Output decorator
 author: maktarsis
 level: beginner
 tags:
@@ -39,3 +39,24 @@ Change detection **onPush** strategy works very well with presentational compone
 https://angular.io/api/core/Output
 https://angular.io/api/core/EventEmitter
 https://medium.com/datadriveninvestor/angular-7-share-component-data-with-other-components-1b91d6f0b93f
+
+# ComponentCode
+import { Component, Input } from '@angular/core';
+
+import { Component, Output, EventEmitter } from '@angular/core';
+
+@Component({
+  selector: 'app-decision',
+  template: `<button (click)="decision.emit(true)">True</button>`,
+})
+export class AppDecision {
+  @Output() decision: EventEmitter<boolean> = new EventEmitter<boolean>();
+}
+
+ @Component({
+   selector: 'app-dashboard',
+   template: `<app-decision (decision)="getDecision($event)"></app-decision>`,
+ })
+ export class AppDashboard {
+   getDecision(decision: boolean): void { ... };
+ }
