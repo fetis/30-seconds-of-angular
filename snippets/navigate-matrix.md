@@ -68,6 +68,7 @@ export class DetailComponent  {
 
 # ModuleCode  
 import { NgModule } from '@angular/core';
+import { APP_BASE_HREF } from '@angular/common';
 import { BrowserModule } from '@angular/platform-browser';
 import { FormsModule } from '@angular/forms';
 import { RouterModule, Route } from '@angular/router';
@@ -88,6 +89,7 @@ const ROUTES:  Route[] = [
 @NgModule({
   imports:      [ BrowserModule, FormsModule, RouterModule.forRoot(ROUTES) ],
   declarations: [ AppComponent, DetailComponent, FirstComponent  ],
-  bootstrap:    [ AppComponent ]
+  bootstrap:    [ AppComponent ],
+  providers: [{ provide: APP_BASE_HREF, useValue: '/assets/runner/' }]
 })
 export class AppModule { }
