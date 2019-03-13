@@ -1,6 +1,6 @@
 ---
 title: components-polymorphism
-level: intermediate
+level: advanced
 author: thekiba
 tags:
   - good-to-know
@@ -10,7 +10,7 @@ tags:
 ---
 
 # Content
-С помощью DI у вас есть возможность провайдить несколько компонентов или директив для выборки через декораторы @ViewChild(), @ViewChildren(), @ContentChild(), @ContentChildren().
+You can use dependency injection to provide components or directive that can be selected via ViewChild(), @ViewChildren(), @ContentChild() or @ContentChildren().
 
 ```typescript
 abstract class Base {}
