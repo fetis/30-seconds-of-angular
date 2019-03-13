@@ -1,5 +1,6 @@
 ---
 title: Route navigate with matrix params
+level: beginner
 tags:
   - route
 ---

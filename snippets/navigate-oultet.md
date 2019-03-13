@@ -1,5 +1,6 @@
 ---
 title: Route navigate with diferent outlets
+level: intermediate
 tags:
   - route
 ---

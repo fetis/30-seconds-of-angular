@@ -1,5 +1,6 @@
 ---
 title: Route navigate to up
+level: beginner
 tags:
   - route
 ---

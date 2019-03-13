@@ -1,5 +1,6 @@
 ---
 title: Route navigate with merging query params
+level: intermediate
 tags:
   - route
 ---
