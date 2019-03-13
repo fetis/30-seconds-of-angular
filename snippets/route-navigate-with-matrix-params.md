@@ -1,11 +1,11 @@
 ---
-title: Route navigate with matrix params
+title: 
+author: Jamaks
 level: beginner
 tags:
   - route
 ---
 # Content
-
 Navigate with matrix params:
 
 the router will navigate to `/first;name=foo/details`
@@ -15,11 +15,14 @@ the router will navigate to `/first;name=foo/details`
 </a>
 ```
 
-# Links
+
+# Bonus
 https://stackblitz.com/edit/angular-xvy5pd
 
+
+
 # ComponentCode
-import { Component, OnInit } from '@angular/core';
+  import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute } from '@angular/router';
 
 @Component({
@@ -66,8 +69,10 @@ export class DetailComponent  {
   }
 }
 
-# ModuleCode  
-import { NgModule } from '@angular/core';
+
+
+# ModuleCode
+  import { NgModule } from '@angular/core';
 import { APP_BASE_HREF } from '@angular/common';
 import { BrowserModule } from '@angular/platform-browser';
 import { FormsModule } from '@angular/forms';
@@ -90,6 +95,6 @@ const ROUTES:  Route[] = [
   imports:      [ BrowserModule, FormsModule, RouterModule.forRoot(ROUTES) ],
   declarations: [ AppComponent, DetailComponent, FirstComponent  ],
   bootstrap:    [ AppComponent ],
-  providers: [{ provide: APP_BASE_HREF, useValue: '/assets/runner/' }]
+  providers: [{ provide: APP_BASE_HREF, useValue: '/angular/30-seconds' }]
 })
 export class AppModule { }
