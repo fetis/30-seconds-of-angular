@@ -31,6 +31,7 @@ export class ProvideDirective {}
 
 # Links
 https://stackblitz.com/edit/angular-cdk-happy-animals
+https://angular.io/guide/hierarchical-dependency-injection#component-level-injectors
 
 # ComponentCode
 import { Injectable, Component, HostBinding, HostListener, OnInit, OnDestroy } from '@angular/core';
