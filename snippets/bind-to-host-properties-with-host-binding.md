@@ -47,18 +47,14 @@ export class AppComponent {
 
 
 # ModuleCode
-  import { Component, HostBinding } from '@angular/core';
+import { BrowserModule } from '@angular/platform-browser';
+import { NgModule } from '@angular/core';
+import { AppComponent } from './app.component';
+import { FormsModule } from '@angular/forms';
 
-@Component({
-   selector: 'my-app', 
-   template: `
-  <div>Use the input below  to select host background-color:</div>
-  <input type="color" [(ngModel)]="color"> 
-`,
-  styles:[`:host { display: block; height: 100px; }`]
-  },
-  
-)
-export class AppComponent {
-  @HostBinding('style.background') color = '#ff9900';
-}
+@NgModule({
+  imports: [BrowserModule, FormsModule],
+  declarations: [AppComponent],
+  bootstrap: [AppComponent]
+})
+export class AppModule {}
