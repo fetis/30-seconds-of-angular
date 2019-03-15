@@ -34,7 +34,10 @@ class Bar extends Base {}
 
 ```typescript
 @Component({
-  template: `<foo></foo><bar></bar>`
+  template: `
+    <foo></foo>
+    <bar></bar>
+  `
 })
 class AppComponent {
   @ViewChildren(Base) components: QueryList<Base>;
