@@ -1,5 +1,5 @@
 ---
-title: Requiring components of different types via @ViewChild
+title: getting components of different types with @ViewChild
 level: advanced
 author: thekiba
 tags:
@@ -10,9 +10,11 @@ tags:
 ---
 
 # Content
-It's possible to use @ViewChild to require components of different types using dependency injection. 
+It's possible to use @ViewChild to query for components of different types using dependency injection. 
 
 In the example below we can use `@ViewChildren(Base)` to get instances of `Foo` and `Bar`.
+
+This also applies for @ViewChildren and @ContentChild/Children.
 
 ```typescript
 abstract class Base {}
