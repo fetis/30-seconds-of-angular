@@ -18,16 +18,13 @@ platformBrowserDynamic().bootstrapModule(AppModule, [
 ]);
 ``` 
 
-
-
-
 # ComponentCode
   
 import { Component } from '@angular/core';
 
 @Component({
   selector: 'my-app',
-  template: `<h1>Edit me </h1>`,
+  template: `<h1>I am red </h1>`,
   styles: [` body {background: red}; `]
 })
 export class AppComponent {}
