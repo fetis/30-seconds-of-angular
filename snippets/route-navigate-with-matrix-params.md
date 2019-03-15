@@ -3,7 +3,7 @@ title: Route navigate with matrix params
 author: Jamaks
 level: beginner
 tags:
-  - route
+  - routing
 ---
 # Content
 Navigate with matrix params:
