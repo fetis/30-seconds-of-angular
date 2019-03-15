@@ -1,5 +1,5 @@
 ---
-title: components-polymorphism
+title: Requiring components of different types via @ViewChild
 level: advanced
 author: thekiba
 tags:
@@ -10,7 +10,9 @@ tags:
 ---
 
 # Content
-You can use dependency injection to provide components or directive that can be selected via ViewChild(), @ViewChildren(), @ContentChild() or @ContentChildren().
+It's possible to use @ViewChild to require components of different types using dependency injection. 
+
+In the example below we can use `@ViewChildren(Base)` to get instances of `Foo` and `Bar`.
 
 ```typescript
 abstract class Base {}
