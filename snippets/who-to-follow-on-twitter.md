@@ -6,19 +6,16 @@ tags:
   - learning
 ---
 # Content
-ABC:
 https://twitter.com/angular
-https://twitter.com/IgorMinar
+
+https://twitter.com/amcdnl
+https://twitter.com/bradlygreen
+https://twitter.com/igorminar
+https://twitter.com/john_papa
+https://twitter.com/josepheames
 https://twitter.com/mhevery
+https://twitter.com/mgechev
 https://twitter.com/robwormald
 https://twitter.com/stephenfluin
-https://twitter.com/mgechev
-https://twitter.com/bradlygreen
-https://twitter.com/John_Papa
-https://twitter.com/josepheames
-https://twitter.com/ManfredSteyer
-https://twitter.com/AngularInDepth
-https://twitter.com/robwormald
-https://twitter.com/amcdnl
 https://twitter.com/UriShaked
 https://twitter.com/victorsavkin
