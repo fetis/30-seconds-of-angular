@@ -20,7 +20,7 @@ For example, some key value of the item. If this key value matches the previous 
 
 ```typescript
 @Component({
-  selector: 'app-root',
+  selector: 'my-app',
   template: `<ul>
       <li *ngFor="let item of items; trackBy: trackByFn">{{item.id}}</li>
     </ul>`,
@@ -44,7 +44,7 @@ https://angular.io/api/core/TrackByFunction
 import { Component } from '@angular/core';
 
 @Component({
-  selector: 'app-root',
+  selector: 'my-app',
   template: `
     <ul>
       <li *ngFor="let item of items; trackBy: trackByFn">{{item.id}}</li>
