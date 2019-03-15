@@ -14,6 +14,7 @@ Luckily you can configure it globally when bootstrapping your app:
 ```TypeScript
 platformBrowserDynamic().bootstrapModule(AppModule, [
     {
+        // NOTE: Use ViewEncapsulation.None only if you know what you're doing.
         defaultEncapsulation: ViewEncapsulation.None
     }
 ]);
