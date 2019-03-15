@@ -3,7 +3,7 @@ title: Tabs component
 author: Jamaks
 level: beginner
 tags:
-  - component
+  - components
 ---
 # Content
  <app-tabs>
@@ -21,8 +21,6 @@ tags:
 
 # Links
 https://stackblitz.com/edit/angular-mm5gwg
-
-
 
 # ComponentCode
   import { Component, Input, AfterContentInit, ContentChildren, QueryList } from '@angular/core';
