@@ -18,3 +18,7 @@ https://twitter.com/John_Papa
 https://twitter.com/josepheames
 https://twitter.com/ManfredSteyer
 https://twitter.com/AngularInDepth
+https://twitter.com/robwormald
+https://twitter.com/amcdnl
+https://twitter.com/UriShaked
+https://twitter.com/victorsavkin
