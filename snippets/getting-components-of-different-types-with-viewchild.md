@@ -10,11 +10,11 @@ tags:
 ---
 
 # Content
-It's possible to use `@ViewChild` to query for components of different types using dependency injection. 
+It's possible to use `@ViewChild` (also `@ViewChildren` and `@ContentChild/Children`) to query for components of different types using dependency injection. 
 
 In the example below we can use `@ViewChildren(Base)` to get instances of `Foo` and `Bar`.
 
-This also applies for `@ViewChildren` and `@ContentChild/Children`.
+
 
 ```typescript
 abstract class Base {}
@@ -30,20 +30,15 @@ class Foo extends Base {}
   providers: [{ provide: Base, useExisting: Bar }]
 })
 class Bar extends Base {}
-```
 
-```typescript
+// Now we can require both types of components using Base.
 @Component({
-  template: `
-    <foo></foo>
-    <bar></bar>
-  `
+  template: `<foo></foo><bar></bar>`
 })
 class AppComponent {
   @ViewChildren(Base) components: QueryList<Base>;
 }
 ```
-
 # Links
 https://www.youtube.com/watch?v=PRRgo6F0cjs
 
