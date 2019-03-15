@@ -3,7 +3,8 @@ title: Default ViewEncapsulation value
 author: kirjs
 level: beginner
 tags:
-  - configuration  -  styles
+  - configuration  
+  - styling
 ---
 # Content
 If you're using `ViewEncapsulation` value which is different than default, it might be daunting to set the value manually for every component. 
