@@ -1,10 +1,10 @@
 ---
 title: Window Location injection
-author: Sergey Fetiskin
+author: fetis
 level: intermediate
 
 tags:
-  - di
+  - dependency-injection
   - testing
 ---
 
@@ -54,8 +54,6 @@ export class AppComponent {
     this.location.assign('xxx');
   }
 }
-
-
 
 # ModuleCode
 import { BrowserModule } from '@angular/platform-browser';
