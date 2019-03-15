@@ -14,8 +14,6 @@ It's possible to use `@ViewChild` (also `@ViewChildren` and `@ContentChild/Child
 
 In the example below we can use `@ViewChildren(Base)` to get instances of `Foo` and `Bar`.
 
-
-
 ```typescript
 abstract class Base {}
 
