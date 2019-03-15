@@ -1,6 +1,6 @@
 ---
-title: Route navigate with matrix params
-author: Jamaks
+title: Optional parameters in the middle
+author: irustm
 level: beginner
 tags:
   - routing
@@ -22,7 +22,7 @@ https://stackblitz.com/edit/angular-xvy5pd
 
 
 # ComponentCode
-  import { Component, OnInit } from '@angular/core';
+import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute } from '@angular/router';
 
 @Component({
@@ -72,7 +72,7 @@ export class DetailComponent  {
 
 
 # ModuleCode
-  import { NgModule } from '@angular/core';
+import { NgModule } from '@angular/core';
 import { APP_BASE_HREF } from '@angular/common';
 import { BrowserModule } from '@angular/platform-browser';
 import { FormsModule } from '@angular/forms';
