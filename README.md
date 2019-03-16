@@ -16,8 +16,10 @@
 
 * [Adding keyboard shortcuts to elements](#Adding-keyboard-shortcuts-to-elements)
 * [Bind to host properties with host binding](#Bind-to-host-properties-with-host-binding)
+* [Injecting document](#Injecting-document)
 * [Style bindings](#Style-bindings)
 * [trackBy in for loops](#trackBy-in-for-loops)
+* [Window Location injection](#Window-Location-injection)
 
 ## Snippets
 ### Adding keyboard shortcuts to elements
@@ -91,6 +93,34 @@ tags: components
 
 
 <br>[⭐ Interactive demo of this snippet](https://codelab-next.firebaseapp.com/angular/30-seconds/1) | [⬆ Back to top](#table-of-contents)<br><br>
+### Injecting document
+Sometimes you need to get access to global `document`. 
+
+To simplify unit-testing, Angular provides it through dependency injection:
+
+```typescript
+import { DOCUMENT } from '@angular/common';
+import { Inject } from '@angular/core';
+
+@Component({
+  selector: 'my-app',
+  template: `<h1>Edit me </h1>`
+})
+export class AppComponent {
+    constructor(@Inject(DOCUMENT) private document: Document) {
+        // Word with document.location, or other things here....
+    }
+}
+
+
+#### Links
+https://angular.io/api/common/DOCUMENT
+
+tags: dependency injection
+
+
+
+<br>[⭐ Interactive demo of this snippet](https://codelab-next.firebaseapp.com/angular/30-seconds/2) | [⬆ Back to top](#table-of-contents)<br><br>
 ### Style bindings
 You can use advanced property bindings to set specific style values based on component property values: 
 
@@ -125,7 +155,7 @@ tags: styles
 
 
 
-<br>[⭐ Interactive demo of this snippet](https://codelab-next.firebaseapp.com/angular/30-seconds/2) | [⬆ Back to top](#table-of-contents)<br><br>
+<br>[⭐ Interactive demo of this snippet](https://codelab-next.firebaseapp.com/angular/30-seconds/3) | [⬆ Back to top](#table-of-contents)<br><br>
 ### trackBy in for loops
 To avoid the expensive operations, we can help Angular to track which items added or removed i.e. customize the default tracking algorithm by providing a trackBy option to NgForOf.
 
@@ -136,7 +166,7 @@ For example, some key value of the item. If this key value matches the previous 
 
 ```typescript
 @Component({
-  selector: 'app-root',
+  selector: 'my-app',
   template: `<ul>
       <li *ngFor="let item of items; trackBy: trackByFn">{{item.id}}</li>
     </ul>`,
@@ -160,4 +190,39 @@ tags: good-to-know,tips,components,performance
 
 
 
-<br>[⭐ Interactive demo of this snippet](https://codelab-next.firebaseapp.com/angular/30-seconds/3) | [⬆ Back to top](#table-of-contents)<br><br>
+<br>[⭐ Interactive demo of this snippet](https://codelab-next.firebaseapp.com/angular/30-seconds/4) | [⬆ Back to top](#table-of-contents)<br><br>
+### Window Location injection
+For testing purposes you might want to inject `window.location` object in your component.
+You can achieve this with custom `InjectionToken` mechanism provided by Angular.
+
+```typescript
+export const LOCATION_TOKEN = new InjectionToken<Location>('Window location object');
+
+@NgModule({
+  providers: [
+    { provide: LOCATION_TOKEN, useValue: window.location }
+  ]
+})
+export class SharedModule {}
+
+//...
+
+@Component({
+})
+export class AppComponent {
+  constructor(
+    @Inject(LOCATION_TOKEN) public location: Location
+  ) {}
+}
+```
+
+
+#### Links
+https://itnext.io/testing-browser-window-location-in-angular-application-e4e8388508ff
+https://angular.io/guide/dependency-injection
+
+tags: dependency-injection,testing
+
+
+
+<br>[⭐ Interactive demo of this snippet](https://codelab-next.firebaseapp.com/angular/30-seconds/5) | [⬆ Back to top](#table-of-contents)<br><br>
