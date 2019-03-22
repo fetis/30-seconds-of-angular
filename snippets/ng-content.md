@@ -9,7 +9,7 @@ tags:
 ---
 
 # Content
-With ng-content **ng-content** you can pass any elements to a component. 
+With  `ng-content` you can pass any elements to a component. 
 This simplifies creating reusable components.
 
 ```typescript
