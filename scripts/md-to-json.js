@@ -78,6 +78,7 @@ let json = mdFolderTOJSON(folder);
 validateSnippets(json);
 console.log(`generated ${json.length} snippets`);
 writeFileSync(join(dist, 'data.json'), JSON.stringify(json));
+writeFileSync(join(dist, 'data-formatted.json'), JSON.stringify(json, null, '  '));
 
 
 
