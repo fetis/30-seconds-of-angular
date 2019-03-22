@@ -4,6 +4,7 @@ author: kirjs
 level: intermediate
 tags:
   - events
+  - components
 ---
 # Content
 It is possible to add global event listeners in your Components/Directives with `HostListener`. Angular will take care of unsubscribing once your directive is destroyed.
@@ -39,8 +40,6 @@ You can also pass params:
     console.log('Pressed right on this element: ' target)
   }
 ```
-
-
 
 # ComponentCode
 import { Component, HostListener } from '@angular/core';
