@@ -14,14 +14,44 @@
 
 ## Table of contents
 
+* [Accessing Enums in template](#Accessing-Enums-in-template)
 * [Adding keyboard shortcuts to elements](#Adding-keyboard-shortcuts-to-elements)
 * [Bind to host properties with host binding](#Bind-to-host-properties-with-host-binding)
+* [Default ViewEncapsulation value](#Default-ViewEncapsulation-value)
+* [Global event listeners](#Global-event-listeners)
 * [Injecting document](#Injecting-document)
 * [Style bindings](#Style-bindings)
 * [trackBy in for loops](#trackBy-in-for-loops)
 * [Window Location injection](#Window-Location-injection)
 
 ## Snippets
+### Accessing Enums in template
+Enums are great but they are not visible in Angular templates by default. 
+With this little trick you can make them accessible.
+
+```typescript
+enum Animals {
+  DOG,
+  CAT,
+  DOLPHIN
+}
+
+...
+@Component({
+  ...
+})
+export class AppComponent {
+  animalsEnum: typeof Animals = Animals;
+}
+```
+
+
+
+tags: enums,templates
+
+
+
+<br>[⭐ Interactive demo of this snippet](https://codelab-next.firebaseapp.com/angular/30-seconds/0) | [⬆ Back to top](#table-of-contents)<br><br>
 ### Adding keyboard shortcuts to elements
 It's really easy to add keyboard shortcuts in the template: 
 ```
@@ -62,7 +92,7 @@ tags: tips,good-to-know
 
 
 
-<br>[⭐ Interactive demo of this snippet](https://codelab-next.firebaseapp.com/angular/30-seconds/0) | [⬆ Back to top](#table-of-contents)<br><br>
+<br>[⭐ Interactive demo of this snippet](https://codelab-next.firebaseapp.com/angular/30-seconds/1) | [⬆ Back to top](#table-of-contents)<br><br>
 ### Bind to host properties with host binding
 Every rendered angular component is wrapped in a host element (which is the same as component's selector).
 
@@ -92,7 +122,71 @@ tags: components
 
 
 
-<br>[⭐ Interactive demo of this snippet](https://codelab-next.firebaseapp.com/angular/30-seconds/1) | [⬆ Back to top](#table-of-contents)<br><br>
+<br>[⭐ Interactive demo of this snippet](https://codelab-next.firebaseapp.com/angular/30-seconds/2) | [⬆ Back to top](#table-of-contents)<br><br>
+### Default ViewEncapsulation value
+If you're using `ViewEncapsulation` value which is different than default, it might be daunting to set the value manually for every component. 
+
+Luckily you can configure it globally when bootstrapping your app:
+
+```TypeScript
+platformBrowserDynamic().bootstrapModule(AppModule, [
+    {
+        // NOTE: Use ViewEncapsulation.None only if you know what you're doing.
+        defaultEncapsulation: ViewEncapsulation.None
+    }
+]);
+```
+
+
+
+tags: configuration,styling
+
+
+
+<br>[⭐ Interactive demo of this snippet](https://codelab-next.firebaseapp.com/angular/30-seconds/3) | [⬆ Back to top](#table-of-contents)<br><br>
+### Global event listeners
+It is possible to add global event listeners in your Components/Directives with `HostListener`. Angular will take care of unsubscribing once your directive is destroyed.
+
+```typescript
+@Directive({
+  selector: '[rightClicker]'
+})
+export class ShortcutsDirective {
+  @HostListener('window:keydown.ArrowRight')
+  doImportantThings() {
+    console.log('You pressed right');
+  }
+```
+
+<details>
+<summary>Bonus</summary>
+
+You can have multiple bindings:
+
+```typescript
+  @HostListener('window:keydown.ArrowRight')
+  @HostListener('window:keydown.PageDown')
+  next() {
+    console.log('Next')
+  }
+```
+
+You can also pass params:
+
+```typescript
+  @HostListener('window:keydown.ArrowRight', '$event.target')
+  next(target) {
+    console.log('Pressed right on this element: ' target)
+  }
+```
+</details>
+
+
+tags: events,components
+
+
+
+<br>[⭐ Interactive demo of this snippet](https://codelab-next.firebaseapp.com/angular/30-seconds/4) | [⬆ Back to top](#table-of-contents)<br><br>
 ### Injecting document
 Sometimes you need to get access to global `document`. 
 
@@ -120,7 +214,7 @@ tags: dependency injection
 
 
 
-<br>[⭐ Interactive demo of this snippet](https://codelab-next.firebaseapp.com/angular/30-seconds/2) | [⬆ Back to top](#table-of-contents)<br><br>
+<br>[⭐ Interactive demo of this snippet](https://codelab-next.firebaseapp.com/angular/30-seconds/5) | [⬆ Back to top](#table-of-contents)<br><br>
 ### Style bindings
 You can use advanced property bindings to set specific style values based on component property values: 
 
@@ -155,7 +249,7 @@ tags: styles
 
 
 
-<br>[⭐ Interactive demo of this snippet](https://codelab-next.firebaseapp.com/angular/30-seconds/3) | [⬆ Back to top](#table-of-contents)<br><br>
+<br>[⭐ Interactive demo of this snippet](https://codelab-next.firebaseapp.com/angular/30-seconds/6) | [⬆ Back to top](#table-of-contents)<br><br>
 ### trackBy in for loops
 To avoid the expensive operations, we can help Angular to track which items added or removed i.e. customize the default tracking algorithm by providing a trackBy option to NgForOf.
 
@@ -190,7 +284,7 @@ tags: good-to-know,tips,components,performance
 
 
 
-<br>[⭐ Interactive demo of this snippet](https://codelab-next.firebaseapp.com/angular/30-seconds/4) | [⬆ Back to top](#table-of-contents)<br><br>
+<br>[⭐ Interactive demo of this snippet](https://codelab-next.firebaseapp.com/angular/30-seconds/7) | [⬆ Back to top](#table-of-contents)<br><br>
 ### Window Location injection
 For testing purposes you might want to inject `window.location` object in your component.
 You can achieve this with custom `InjectionToken` mechanism provided by Angular.
@@ -225,4 +319,4 @@ tags: dependency-injection,testing
 
 
 
-<br>[⭐ Interactive demo of this snippet](https://codelab-next.firebaseapp.com/angular/30-seconds/5) | [⬆ Back to top](#table-of-contents)<br><br>
+<br>[⭐ Interactive demo of this snippet](https://codelab-next.firebaseapp.com/angular/30-seconds/8) | [⬆ Back to top](#table-of-contents)<br><br>
