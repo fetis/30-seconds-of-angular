@@ -1,5 +1,7 @@
 ---
 title: Loaders
+author: irustm
+level: beginner
 tags:
   - tips
 ---
