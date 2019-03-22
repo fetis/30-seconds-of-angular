@@ -9,7 +9,7 @@ tags:
 # Content
 
 It's really easy to add keyboard shortcuts in the template: 
-```
+```html
 <textarea (keydown.ctrl.enter)="doSomething()"></textarea>
 ```
 
@@ -34,11 +34,6 @@ It's really easy to add keyboard shortcuts in the template:
 ```
 
 # Links
-TODO: Choose one of th links.
-
-https://netbasal.com/lifting-the-veil-insights-into-angulars-eventmanagerplugin-ed9d14cbb31a
-
-https://www.bennadel.com/blog/3088-native-key-combination-event-binding-support-in-angular-2-beta-17.htm
 
 https://alligator.io/angular/binding-keyup-keydown-events
 

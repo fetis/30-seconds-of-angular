@@ -54,8 +54,8 @@ tags: enums,templates
 <br>[⭐ Interactive demo of this snippet](https://codelab-next.firebaseapp.com/angular/30-seconds/0) | [⬆ Back to top](#table-of-contents)<br><br>
 ### Adding keyboard shortcuts to elements
 It's really easy to add keyboard shortcuts in the template: 
-```
-<textarea (keydown.ctrl.enter)></textarea>
+```html
+<textarea (keydown.ctrl.enter)="doSomething()"></textarea>
 ```
 
 <details>
@@ -80,12 +80,6 @@ It's really easy to add keyboard shortcuts in the template:
 </details>
 
 #### Links
-TODO: Choose one of th links.
-
-https://netbasal.com/lifting-the-veil-insights-into-angulars-eventmanagerplugin-ed9d14cbb31a
-
-https://www.bennadel.com/blog/3088-native-key-combination-event-binding-support-in-angular-2-beta-17.htm
-
 https://alligator.io/angular/binding-keyup-keydown-events
 
 tags: tips,good-to-know
@@ -205,6 +199,7 @@ export class AppComponent {
         // Word with document.location, or other things here....
     }
 }
+````
 
 
 #### Links
