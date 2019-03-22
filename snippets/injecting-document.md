@@ -23,7 +23,7 @@ export class AppComponent {
         // Word with document.location, or other things here....
     }
 }
-
+````
 
 # Links
 https://angular.io/api/common/DOCUMENT
