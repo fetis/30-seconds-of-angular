@@ -1,5 +1,5 @@
 ---
-title: Enum in template
+title: Accessing Enums in template
 author: fetis
 level: beginner
 tags:
