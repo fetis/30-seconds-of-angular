@@ -22,7 +22,7 @@ enum Animals {
   ...
 })
 export class AppComponent {
-  animalsEnum = Animals;
+  animalsEnum: typeof Animals = Animals;
 }
 ```
 
