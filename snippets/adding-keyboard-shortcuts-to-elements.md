@@ -10,7 +10,7 @@ tags:
 
 It's really easy to add keyboard shortcuts in the template: 
 ```
-<textarea (keydown.ctrl.enter)></textarea>
+<textarea (keydown.ctrl.enter)="doSomething()"></textarea>
 ```
 
 
