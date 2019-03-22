@@ -42,5 +42,5 @@ enum Animals {
 })
 export class AppComponent {
   value: Animals = Animals.CAT;
-  animalsEnum = Animals;
+  animalsEnum: typeof Animals = Animals;
 }
