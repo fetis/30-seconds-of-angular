@@ -14,8 +14,8 @@ Here is the way to notify user that there are fields with non-valid values.
 
 ```typescript
   function markFieldsAsTouched(form: AbstractControl): void {
-    control.markAsTouched({ onlySelf: true });
-    if (control instanceof FormArray || control instanceof FormGroup) {
+    form.markAsTouched({ onlySelf: true });
+    if (form instanceof FormArray || form instanceof FormGroup) {
       Object.values(form.controls).forEach(markFieldsAsTouched);
     }
   }
