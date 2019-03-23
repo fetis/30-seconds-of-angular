@@ -41,6 +41,7 @@ https://angular.io/api/common/NgForOf
 https://angular.io/api/core/TrackByFunction
 
 # ComponentCode
+```typescript
 import { Component } from '@angular/core';
 
 @Component({
@@ -56,9 +57,11 @@ export class AppComponent {
    {id: 1},
    {id: 2},
    {id: 3}
- ]
+ ];
 
   trackByFn(index, item) {
     return item.id;
   } 
 }
+
+```

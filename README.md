@@ -36,7 +36,6 @@ enum Animals {
   DOLPHIN
 }
 
-...
 @Component({
   ...
 })

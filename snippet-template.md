@@ -23,6 +23,7 @@ tags:
   -->
   
 # ComponentCode
+```typescript
 import { Component } from '@angular/core';
 
 @Component({
@@ -32,6 +33,7 @@ import { Component } from '@angular/core';
 export class AppComponent {}
 
 # ModuleCode
+```typescript
 // This section is optional, remove it if the code below is good.
 import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';

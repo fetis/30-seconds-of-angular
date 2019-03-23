@@ -21,6 +21,7 @@ platformBrowserDynamic().bootstrapModule(AppModule, [
 ``` 
 
 # ComponentCode
+```typescript
   
 import { Component } from '@angular/core';
 
@@ -42,3 +43,4 @@ platformBrowserDynamic().bootstrapModule(AppModule, [
         defaultEncapsulation: ViewEncapsulation.None
     }
 ]);
+```

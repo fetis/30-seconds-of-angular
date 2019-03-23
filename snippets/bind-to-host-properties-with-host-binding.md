@@ -29,6 +29,7 @@ export class AppComponent {
 ```
 
 # ComponentCode
+```typescript
   import { Component, HostBinding } from '@angular/core';
 
 @Component({
@@ -44,9 +45,11 @@ export class AppComponent {
 export class AppComponent {
   @HostBinding('style.background') color = '#ff9900';
 }
+```
 
 
 # ModuleCode
+```typescript
 import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
 import { AppComponent } from './app.component';
@@ -58,3 +61,4 @@ import { FormsModule } from '@angular/forms';
   bootstrap: [AppComponent]
 })
 export class AppModule {}
+```
