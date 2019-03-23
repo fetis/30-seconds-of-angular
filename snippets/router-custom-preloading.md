@@ -44,14 +44,16 @@ import { Component, Inject } from '@angular/core';
 export class AppComponent {}
 ```
 
-# RoutingModuleCode
+# ModuleCode
 ```typescript
-import { ModuleWithProviders, NgModule } from '@angular/core';
+import { BrowserModule } from '@angular/platform-browser';
+import { NgModule, ModuleWithProviders } from '@angular/core';
+import { AppComponent } from './app.component';
 import { Routes, RouterModule } from '@angular/router';
 import { Observable, of, timer } from 'rxjs';
 import { mergeMap } from 'rxjs/operators';
 
-export class CustomPreloading implements PreloadingStrategy {
+class CustomPreloading implements PreloadingStrategy {
   public preload(route: Route, load: () => Observable<any>): Observable<any> {
     const loadRoute = delay => delay === false
     ? load()
@@ -63,7 +65,7 @@ export class CustomPreloading implements PreloadingStrategy {
   }
 }
 
-export const routes: Routes = [
+const routes: Routes = [
     { 
         path: '', 
         redirectTo: 'items', 
@@ -81,21 +83,14 @@ export const routes: Routes = [
     }
 ];
 
-export const routing: ModuleWithProviders = RouterModule.forRoot(routes);
+const routing: ModuleWithProviders = RouterModule.forRoot(routes);
 
 @NgModule({
   imports: [routing],
   exports: [RouterModule],
-  providers: [Preloading]
+  providers: [CustomPreloading]
 })
-export class RoutingModule {}
-```
-# ModuleCode
-```typescript
-import { BrowserModule } from '@angular/platform-browser';
-import { NgModule, InjectionToken } from '@angular/core';
-import { AppComponent } from './app.component';
-import { RoutingModule } from './routing.module.ts';
+class RoutingModule {}
 
 @NgModule({
   imports: [BrowserModule, RoutingModule],
