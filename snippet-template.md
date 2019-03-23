@@ -31,6 +31,7 @@ import { Component } from '@angular/core';
   template: `<h1>Update me!</h1>`
 })
 export class AppComponent {}
+````
 
 # ModuleCode
 ```typescript
@@ -45,3 +46,4 @@ import { AppComponent } from './app.component';
   bootstrap: [AppComponent]
 })
 export class AppModule {}
+```
