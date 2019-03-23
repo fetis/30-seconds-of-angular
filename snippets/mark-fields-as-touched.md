@@ -13,16 +13,11 @@ Here is the way to notify user that there are fields with non-valid values.
 **markFieldsAsTouched** function takes _form_ which is FormGroup or FormArray as arg. 
 
 ```typescript
-  function markFieldsAsTouched(form: FormGroup | FormArray): void {
-    Object.values(form.controls).forEach(
-      (control) => {
-        if (control instanceof FormControl) {
-          control.markAsTouched({onlySelf: true});
-        } else {
-          this.markFieldsAsTouched(control);
-        }
-      }
-    );
+  function markFieldsAsTouched(form: FormControl | FormGroup | FormArray): void {
+    control.markAsTouched({ onlySelf: true });
+    if (control instanceof FormArray || control instanceof FormGroup) {
+      Object.values(form.controls).forEach(markFieldsAsTouched);
+    }
   }
 ```
 
