@@ -29,6 +29,7 @@ export class AppComponent {
 https://angular.io/api/common/DOCUMENT
 
 # ComponentCode
+```typescript
   
 import { Component } from '@angular/core';
 import { DOCUMENT } from '@angular/common';
@@ -44,3 +45,4 @@ export class AppComponent {
       document.body.style.backgroundColor = 'pink';
     }
 }
+```

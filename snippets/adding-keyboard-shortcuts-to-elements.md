@@ -39,6 +39,7 @@ https://alligator.io/angular/binding-keyup-keydown-events
 
   
 # ComponentCode
+```typescript
 import { Component } from '@angular/core';
 
 @Component({
@@ -54,3 +55,4 @@ import { Component } from '@angular/core';
 export class AppComponent {
     value: string;
 }
+```

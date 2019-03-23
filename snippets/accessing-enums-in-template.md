@@ -17,7 +17,6 @@ enum Animals {
   DOLPHIN
 }
 
-...
 @Component({
   ...
 })
@@ -26,8 +25,8 @@ export class AppComponent {
 }
 ```
 
-  
 # ComponentCode
+```typescript
 import { Component } from "@angular/core";
 
 enum Animals {
@@ -37,10 +36,11 @@ enum Animals {
 }
 
 @Component({
-  selector: "app-root",
+  selector: "my-app",
   template: `<div *ngIf="value === animalsEnum.CAT">meow</div>`,
 })
 export class AppComponent {
   value: Animals = Animals.CAT;
   animalsEnum: typeof Animals = Animals;
 }
+```

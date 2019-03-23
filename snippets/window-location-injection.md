@@ -38,6 +38,7 @@ https://itnext.io/testing-browser-window-location-in-angular-application-e4e8388
 https://angular.io/guide/dependency-injection
 
 # ComponentCode
+```typescript
 import { Component, Inject } from '@angular/core';
 import { LOCATION_TOKEN } from './app.module';
 
@@ -54,8 +55,9 @@ export class AppComponent {
     this.location.assign('xxx');
   }
 }
-
+```
 # ModuleCode
+```typescript
 import { BrowserModule } from '@angular/platform-browser';
 import { NgModule, InjectionToken } from '@angular/core';
 import { AppComponent } from './app.component';
@@ -71,3 +73,4 @@ export const LOCATION_TOKEN = new InjectionToken<Location>('Window location obje
   bootstrap: [AppComponent]
 })
 export class AppModule {}
+```

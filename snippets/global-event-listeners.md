@@ -42,6 +42,7 @@ You can also pass params:
 ```
 
 # ComponentCode
+```typescript
 import { Component, HostListener } from '@angular/core';
 
 @Component({
@@ -57,3 +58,4 @@ export class AppComponent {
     this.lastPressed = key;
   }
 }
+```

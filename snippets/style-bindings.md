@@ -32,7 +32,8 @@ You can use advanced property bindings to set specific style values based on com
 <!-- Height relative to the viewport height -->
 <div [style.height.vh]="vwHeight"></div>
 ```
-# ComponentCode 
+# ComponentCode
+```typescript 
 import { Component } from '@angular/core';
 
 @Component({
@@ -50,9 +51,10 @@ export class AppComponent {
   color = '#ff9900';
   width = 200;
 }
+```
 
-
-# ModuleCode  
+# ModuleCode
+```typescript  
 import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
 import { AppComponent } from './app.component';
@@ -64,3 +66,4 @@ import { FormsModule } from '@angular/forms';
   bootstrap: [AppComponent]
 })
 export class AppModule {}
+```
