@@ -1,5 +1,5 @@
 ---
-title: getting components of different types with @ViewChild
+title: Getting components of different types with ViewChild
 level: advanced
 author: thekiba
 tags:
@@ -30,17 +30,17 @@ class Foo extends Base {}
 class Bar extends Base {}
 
 // Now we can require both types of components using Base.
-@Component({
-  template: `<foo></foo><bar></bar>`
-})
+@Component({ template: `<foo></foo><bar></bar>` })
 class AppComponent {
   @ViewChildren(Base) components: QueryList<Base>;
 }
 ```
+
 # Links
 https://www.youtube.com/watch?v=PRRgo6F0cjs
 
 # ComponentCode
+```typescript
 import { Component, ViewChildren, QueryList, AfterViewInit } from '@angular/core';
 
 export abstract class Animal {
@@ -95,8 +95,10 @@ export class AppComponent implements AfterViewInit {
         animals.forEach((animal) => animal.say());
     }
 }
+```
 
 # ModuleCode
+```typescript
 import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
 import { AppComponent, Fox, Rice, Dragon } from './app.component';
@@ -107,3 +109,4 @@ import { AppComponent, Fox, Rice, Dragon } from './app.component';
   bootstrap: [AppComponent]
 })
 export class AppModule {}
+```
