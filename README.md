@@ -14,13 +14,13 @@
 
 ## Table of contents
 
-beginner
+Beginner snippets
 
 * [Accessing Enums in template](#Accessing-Enums-in-template)
 * [Default ViewEncapsulation value](#Default-ViewEncapsulation-value)
 * [trackBy in for loops](#trackBy-in-for-loops)
 	
-intermediate
+Intermediate snippets
 
 * [Adding keyboard shortcuts to elements](#Adding-keyboard-shortcuts-to-elements)
 * [Bind to host properties with host binding](#Bind-to-host-properties-with-host-binding)
@@ -29,15 +29,17 @@ intermediate
 * [Style bindings](#Style-bindings)
 * [Window Location injection](#Window-Location-injection)
 	
-advanced
+Advanced snippets
 
 * [Getting components of different types with ViewChild](#Getting-components-of-different-types-with-ViewChild)
 	
 
 
 ## Snippets
-### beginner
-#### Accessing Enums in template
+
+Beginner snippets
+
+### Accessing Enums in template
 Enums are great but they are not visible in Angular templates by default. 
 With this little trick you can make them accessible.
 
@@ -60,7 +62,7 @@ export class AppComponent {
 
 <br>[⭐ Interactive demo of this snippet](https://codelab-next.firebaseapp.com/angular/30-seconds/0) | [⬆ Back to top](#table-of-contents) | tags: enums,templates 
 <br><br>
-#### Default ViewEncapsulation value
+### Default ViewEncapsulation value
 If you're using `ViewEncapsulation` value which is different than default, it might be daunting to set the value manually for every component. 
 
 Luckily you can configure it globally when bootstrapping your app:
@@ -78,7 +80,7 @@ platformBrowserDynamic().bootstrapModule(AppModule, [
 
 <br>[⭐ Interactive demo of this snippet](https://codelab-next.firebaseapp.com/angular/30-seconds/1) | [⬆ Back to top](#table-of-contents) | tags: configuration,styling 
 <br><br>
-#### trackBy in for loops
+### trackBy in for loops
 To avoid the expensive operations, we can help Angular to track which items added or removed i.e. customize the default tracking algorithm by providing a trackBy option to NgForOf.
 
 So you can provide your custom trackBy function that will return unique identifier for each iterated item. 
@@ -104,14 +106,16 @@ If trackBy is given, Angular tracks changes by the return value of the function.
 Now when you change the collection, Angular can track which items have been added or removed according to the unique identifier and create/destroy only changed items.
 
 
-##### Links
+#### Links
 https://angular.io/api/common/NgForOf
 https://angular.io/api/core/TrackByFunction
 
 <br>[⭐ Interactive demo of this snippet](https://codelab-next.firebaseapp.com/angular/30-seconds/2) | [⬆ Back to top](#table-of-contents) | tags: good-to-know,tips,components,performance 
 <br><br>
-### intermediate
-#### Adding keyboard shortcuts to elements
+
+Intermediate snippets
+
+### Adding keyboard shortcuts to elements
 It's really easy to add keyboard shortcuts in the template: 
 ```html
 <textarea (keydown.ctrl.enter)="doSomething()"></textarea>
@@ -138,12 +142,12 @@ It's really easy to add keyboard shortcuts in the template:
 ```
 </details>
 
-##### Links
+#### Links
 https://alligator.io/angular/binding-keyup-keydown-events
 
 <br>[⭐ Interactive demo of this snippet](https://codelab-next.firebaseapp.com/angular/30-seconds/0) | [⬆ Back to top](#table-of-contents) | tags: tips,good-to-know 
 <br><br>
-#### Bind to host properties with host binding
+### Bind to host properties with host binding
 Every rendered angular component is wrapped in a host element (which is the same as component's selector).
 
 It is possible to bind properties and attributes of host element using @HostBinding decorators, e.g. 
@@ -170,7 +174,7 @@ export class AppComponent {
 
 <br>[⭐ Interactive demo of this snippet](https://codelab-next.firebaseapp.com/angular/30-seconds/1) | [⬆ Back to top](#table-of-contents) | tags: components 
 <br><br>
-#### Global event listeners
+### Global event listeners
 It is possible to add global event listeners in your Components/Directives with `HostListener`. Angular will take care of unsubscribing once your directive is destroyed.
 
 ```typescript
@@ -210,7 +214,7 @@ You can also pass params:
 
 <br>[⭐ Interactive demo of this snippet](https://codelab-next.firebaseapp.com/angular/30-seconds/2) | [⬆ Back to top](#table-of-contents) | tags: events,components 
 <br><br>
-#### Injecting document
+### Injecting document
 Sometimes you need to get access to global `document`. 
 
 To simplify unit-testing, Angular provides it through dependency injection:
@@ -231,12 +235,12 @@ export class AppComponent {
 ````
 
 
-##### Links
+#### Links
 https://angular.io/api/common/DOCUMENT
 
 <br>[⭐ Interactive demo of this snippet](https://codelab-next.firebaseapp.com/angular/30-seconds/3) | [⬆ Back to top](#table-of-contents) | tags: dependency injection 
 <br><br>
-#### Style bindings
+### Style bindings
 You can use advanced property bindings to set specific style values based on component property values: 
 
 ```html
@@ -268,7 +272,7 @@ You can use advanced property bindings to set specific style values based on com
 
 <br>[⭐ Interactive demo of this snippet](https://codelab-next.firebaseapp.com/angular/30-seconds/4) | [⬆ Back to top](#table-of-contents) | tags: styles 
 <br><br>
-#### Window Location injection
+### Window Location injection
 For testing purposes you might want to inject `window.location` object in your component.
 You can achieve this with custom `InjectionToken` mechanism provided by Angular.
 
@@ -294,14 +298,16 @@ export class AppComponent {
 ```
 
 
-##### Links
+#### Links
 https://itnext.io/testing-browser-window-location-in-angular-application-e4e8388508ff
 https://angular.io/guide/dependency-injection
 
 <br>[⭐ Interactive demo of this snippet](https://codelab-next.firebaseapp.com/angular/30-seconds/5) | [⬆ Back to top](#table-of-contents) | tags: dependency-injection,testing 
 <br><br>
-### advanced
-#### Getting components of different types with ViewChild
+
+Advanced snippets
+
+### Getting components of different types with ViewChild
 It's possible to use `@ViewChild` (also `@ViewChildren` and `@ContentChild/Children`) to query for components of different types using dependency injection. 
 
 In the example below we can use `@ViewChildren(Base)` to get instances of `Foo` and `Bar`.
@@ -329,7 +335,7 @@ class AppComponent {
 ```
 
 
-##### Links
+#### Links
 https://www.youtube.com/watch?v=PRRgo6F0cjs
 
 <br>[⭐ Interactive demo of this snippet](https://codelab-next.firebaseapp.com/angular/30-seconds/0) | [⬆ Back to top](#table-of-contents) | tags: good-to-know,tips,components,dependency-injection 

@@ -14,6 +14,9 @@ const readmePath = join(__dirname, '..', 'README.md');
 // Set up handlebars
 handlebars.registerHelper('slugify', (str) => slugify(str, '-'));
 handlebars.registerHelper(groupBy(handlebars));
+handlebars.registerHelper('capitalize', function (str) {
+	return str.charAt(0).toUpperCase() + str.slice(1);
+});
 
 
 // Generate!

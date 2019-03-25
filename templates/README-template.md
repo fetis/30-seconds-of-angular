@@ -15,7 +15,7 @@
 ## Table of contents
 
 {{#group snippets by="level"}}
-{{value}}
+{{capitalize value}} snippets
 
 {{#each items}}
 * [{{title}}](#{{slugify title}})
@@ -26,9 +26,11 @@
 
 ## Snippets
 {{#group snippets by="level"}}
-### {{value}}
+
+{{capitalize value}} snippets
+
 {{#each items}}
-#### {{title}}
+### {{title}}
 {{{content}}}
 
 {{#if bonus}}
@@ -40,7 +42,7 @@
 {{/if}}
 
 {{#if links}}
-##### Links
+#### Links
 {{{links}}}
 {{/if}}
 
