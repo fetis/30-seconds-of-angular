@@ -22,6 +22,10 @@ Here is the way to notify user that there are fields with non-valid values.
   }
 ```
 
+# Links
+
+https://angular.io/guide/reactive-forms
+
 # ComponentCode
 ```typescript
 import { Component } from '@angular/core';
@@ -75,7 +79,3 @@ On 'Submit' trigger function 'markFieldsAsTouched' with your reactive form passe
 It will mark form controls as 'touch' and in case of non-validity control will get error property.
 
 Based on control error property you can add validation notification via, for example, *ngIf directive in template
-
-# Links
-
-https://angular.io/guide/reactive-forms
