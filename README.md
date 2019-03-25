@@ -18,6 +18,7 @@
 * [Adding keyboard shortcuts to elements](#Adding-keyboard-shortcuts-to-elements)
 * [Bind to host properties with host binding](#Bind-to-host-properties-with-host-binding)
 * [Default ViewEncapsulation value](#Default-ViewEncapsulation-value)
+* [Getting components of different types with ViewChild](#Getting-components-of-different-types-with-ViewChild)
 * [Global event listeners](#Global-event-listeners)
 * [Injecting document](#Injecting-document)
 * [Style bindings](#Style-bindings)
@@ -137,6 +138,42 @@ tags: configuration,styling
 
 
 <br>[⭐ Interactive demo of this snippet](https://codelab-next.firebaseapp.com/angular/30-seconds/3) | [⬆ Back to top](#table-of-contents)<br><br>
+### Getting components of different types with ViewChild
+It's possible to use `@ViewChild` (also `@ViewChildren` and `@ContentChild/Children`) to query for components of different types using dependency injection. 
+
+In the example below we can use `@ViewChildren(Base)` to get instances of `Foo` and `Bar`.
+
+```typescript
+abstract class Base {}
+
+@Component({
+  selector: 'foo',
+  providers: [{ provide: Base, useExisting: Foo }]
+})
+class Foo extends Base {}
+
+@Component({
+  selector: 'bar',
+  providers: [{ provide: Base, useExisting: Bar }]
+})
+class Bar extends Base {}
+
+// Now we can require both types of components using Base.
+@Component({ template: `<foo></foo><bar></bar>` })
+class AppComponent {
+  @ViewChildren(Base) components: QueryList<Base>;
+}
+```
+
+
+#### Links
+https://www.youtube.com/watch?v=PRRgo6F0cjs
+
+tags: good-to-know,tips,components,dependency-injection
+
+
+
+<br>[⭐ Interactive demo of this snippet](https://codelab-next.firebaseapp.com/angular/30-seconds/4) | [⬆ Back to top](#table-of-contents)<br><br>
 ### Global event listeners
 It is possible to add global event listeners in your Components/Directives with `HostListener`. Angular will take care of unsubscribing once your directive is destroyed.
 
@@ -179,7 +216,7 @@ tags: events,components
 
 
 
-<br>[⭐ Interactive demo of this snippet](https://codelab-next.firebaseapp.com/angular/30-seconds/4) | [⬆ Back to top](#table-of-contents)<br><br>
+<br>[⭐ Interactive demo of this snippet](https://codelab-next.firebaseapp.com/angular/30-seconds/5) | [⬆ Back to top](#table-of-contents)<br><br>
 ### Injecting document
 Sometimes you need to get access to global `document`. 
 
@@ -208,7 +245,7 @@ tags: dependency injection
 
 
 
-<br>[⭐ Interactive demo of this snippet](https://codelab-next.firebaseapp.com/angular/30-seconds/5) | [⬆ Back to top](#table-of-contents)<br><br>
+<br>[⭐ Interactive demo of this snippet](https://codelab-next.firebaseapp.com/angular/30-seconds/6) | [⬆ Back to top](#table-of-contents)<br><br>
 ### Style bindings
 You can use advanced property bindings to set specific style values based on component property values: 
 
@@ -243,7 +280,7 @@ tags: styles
 
 
 
-<br>[⭐ Interactive demo of this snippet](https://codelab-next.firebaseapp.com/angular/30-seconds/6) | [⬆ Back to top](#table-of-contents)<br><br>
+<br>[⭐ Interactive demo of this snippet](https://codelab-next.firebaseapp.com/angular/30-seconds/7) | [⬆ Back to top](#table-of-contents)<br><br>
 ### trackBy in for loops
 To avoid the expensive operations, we can help Angular to track which items added or removed i.e. customize the default tracking algorithm by providing a trackBy option to NgForOf.
 
@@ -278,7 +315,7 @@ tags: good-to-know,tips,components,performance
 
 
 
-<br>[⭐ Interactive demo of this snippet](https://codelab-next.firebaseapp.com/angular/30-seconds/7) | [⬆ Back to top](#table-of-contents)<br><br>
+<br>[⭐ Interactive demo of this snippet](https://codelab-next.firebaseapp.com/angular/30-seconds/8) | [⬆ Back to top](#table-of-contents)<br><br>
 ### Window Location injection
 For testing purposes you might want to inject `window.location` object in your component.
 You can achieve this with custom `InjectionToken` mechanism provided by Angular.
@@ -313,4 +350,4 @@ tags: dependency-injection,testing
 
 
 
-<br>[⭐ Interactive demo of this snippet](https://codelab-next.firebaseapp.com/angular/30-seconds/8) | [⬆ Back to top](#table-of-contents)<br><br>
+<br>[⭐ Interactive demo of this snippet](https://codelab-next.firebaseapp.com/angular/30-seconds/9) | [⬆ Back to top](#table-of-contents)<br><br>

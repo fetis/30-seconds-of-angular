@@ -51,6 +51,22 @@
     "maincode": "import { platformBrowserDynamic } from '@angular/platform-browser-dynamic';\nimport { AppModule } from './app.module';\nimport {ViewEncapsulation} from '@angular/core'\n\nplatformBrowserDynamic().bootstrapModule(AppModule, [\n    {\n        defaultEncapsulation: ViewEncapsulation.None\n    }\n]);\n```"
   },
   {
+    "title": "Getting components of different types with ViewChild",
+    "level": "advanced",
+    "author": "thekiba",
+    "tags": [
+      "good-to-know",
+      "tips",
+      "components",
+      "dependency-injection"
+    ],
+    "slug": "getting-components-of-different-types-with-viewchild",
+    "content": "It's possible to use `@ViewChild` (also `@ViewChildren` and `@ContentChild/Children`) to query for components of different types using dependency injection. \n\nIn the example below we can use `@ViewChildren(Base)` to get instances of `Foo` and `Bar`.\n\n```typescript\nabstract class Base {}\n\n@Component({\n  selector: 'foo',\n  providers: [{ provide: Base, useExisting: Foo }]\n})\nclass Foo extends Base {}\n\n@Component({\n  selector: 'bar',\n  providers: [{ provide: Base, useExisting: Bar }]\n})\nclass Bar extends Base {}\n\n// Now we can require both types of components using Base.\n@Component({ template: `<foo></foo><bar></bar>` })\nclass AppComponent {\n  @ViewChildren(Base) components: QueryList<Base>;\n}\n```",
+    "links": "https://www.youtube.com/watch?v=PRRgo6F0cjs",
+    "componentcode": "```typescript\nimport { Component, ViewChildren, QueryList, AfterViewInit } from '@angular/core';\n\nexport abstract class Animal {\n    abstract say();\n}\n\n@Component({\n  selector: 'fox',\n  template: `🦊`,\n  providers: [{ provide: Animal, useExisting: Fox }]\n})\nexport class Fox extends Animal {\n    say() {\n        console.log('Joff-tchoff-tchoffo-tchoffo-tchoff!');\n    }\n}\n\n@Component({\n  selector: 'rice',\n  template: `🍚`,\n  providers: [{ provide: Animal, useExisting: Rice }]\n})\nexport class Rice extends Animal {\n    say() {\n        console.log('lol');\n    }\n}\n\n@Component({\n  selector: 'dragon',\n  template: `🐉`,\n  providers: [{ provide: Animal, useExisting: Dragon }]\n})\nexport class Dragon extends Animal {\n    say() {\n        console.log('Wa-pa-pa-pa-pa-pa-pow!');\n    }\n}\n\n@Component({\n    selector: 'my-app',\n    template: `\n        <fox></fox>\n        <rice></rice>\n        <dragon></dragon>\n    `\n})\nexport class AppComponent implements AfterViewInit {\n    @ViewChildren(Animal) animals: QueryList<Animal>;\n\n    ngAfterViewInit() {\n        animals.forEach((animal) => animal.say());\n    }\n}\n```",
+    "modulecode": "```typescript\nimport { BrowserModule } from '@angular/platform-browser';\nimport { NgModule } from '@angular/core';\nimport { AppComponent, Fox, Rice, Dragon } from './app.component';\n\n@NgModule({\n  imports: [BrowserModule],\n  declarations: [AppComponent, Fox, Rice, Dragon],\n  bootstrap: [AppComponent]\n})\nexport class AppModule {}\n```"
+  },
+  {
     "title": "Global event listeners",
     "author": "kirjs",
     "level": "intermediate",
