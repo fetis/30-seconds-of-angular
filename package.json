@@ -26,6 +26,7 @@
   },
   "dependencies": {
     "gray-matter": "^4.0.2",
-    "handlebars": "^4.1.0"
+    "handlebars": "^4.1.0",
+    "handlebars-group-by": "^1.0.1"
   }
 }

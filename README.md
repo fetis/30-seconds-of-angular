@@ -14,17 +14,29 @@
 
 ## Table of contents
 
+Beginner snippets
+
 * [Accessing Enums in template](#Accessing-Enums-in-template)
+* [Default ViewEncapsulation value](#Default-ViewEncapsulation-value)
+* [trackBy in for loops](#trackBy-in-for-loops)
+	
+Intermediate snippets
+
 * [Adding keyboard shortcuts to elements](#Adding-keyboard-shortcuts-to-elements)
 * [Bind to host properties with host binding](#Bind-to-host-properties-with-host-binding)
-* [Default ViewEncapsulation value](#Default-ViewEncapsulation-value)
 * [Global event listeners](#Global-event-listeners)
 * [Injecting document](#Injecting-document)
 * [Style bindings](#Style-bindings)
-* [trackBy in for loops](#trackBy-in-for-loops)
 * [Window Location injection](#Window-Location-injection)
+	
+Advanced snippets
 
-## Snippets
+* [Getting components of different types with ViewChild](#Getting-components-of-different-types-with-ViewChild)
+	
+
+
+## Beginner snippets
+
 ### Accessing Enums in template
 Enums are great but they are not visible in Angular templates by default. 
 With this little trick you can make them accessible.
@@ -46,11 +58,61 @@ export class AppComponent {
 
 
 
-tags: enums,templates
+<br>[⭐ Interactive demo of this snippet](https://codelab-next.firebaseapp.com/angular/30-seconds/0) | [⬆ Back to top](#table-of-contents) | tags: enums,templates 
+<br><br>
+### Default ViewEncapsulation value
+If you're using `ViewEncapsulation` value which is different than default, it might be daunting to set the value manually for every component. 
+
+Luckily you can configure it globally when bootstrapping your app:
+
+```TypeScript
+platformBrowserDynamic().bootstrapModule(AppModule, [
+    {
+        // NOTE: Use ViewEncapsulation.None only if you know what you're doing.
+        defaultEncapsulation: ViewEncapsulation.None
+    }
+]);
+```
 
 
 
-<br>[⭐ Interactive demo of this snippet](https://codelab-next.firebaseapp.com/angular/30-seconds/0) | [⬆ Back to top](#table-of-contents)<br><br>
+<br>[⭐ Interactive demo of this snippet](https://codelab-next.firebaseapp.com/angular/30-seconds/1) | [⬆ Back to top](#table-of-contents) | tags: configuration,styling 
+<br><br>
+### trackBy in for loops
+To avoid the expensive operations, we can help Angular to track which items added or removed i.e. customize the default tracking algorithm by providing a trackBy option to NgForOf.
+
+So you can provide your custom trackBy function that will return unique identifier for each iterated item. 
+For example, some key value of the item. If this key value matches the previous one, then Angular won't detect changes.
+
+**trackBy** takes a function that has _index_ and _item_ args. 
+
+```typescript
+@Component({
+  selector: 'my-app',
+  template: `<ul>
+      <li *ngFor="let item of items; trackBy: trackByFn">{{item.id}}</li>
+    </ul>`,
+})
+export class AppComponent { 
+  trackByFn(index, item) {
+    return item.id;
+  }
+}
+```
+If trackBy is given, Angular tracks changes by the return value of the function. 
+
+Now when you change the collection, Angular can track which items have been added or removed according to the unique identifier and create/destroy only changed items.
+
+
+#### Links
+https://angular.io/api/common/NgForOf
+https://angular.io/api/core/TrackByFunction
+
+<br>[⭐ Interactive demo of this snippet](https://codelab-next.firebaseapp.com/angular/30-seconds/2) | [⬆ Back to top](#table-of-contents) | tags: good-to-know,tips,components,performance 
+<br><br>
+
+## Intermediate snippets
+
 ### Adding keyboard shortcuts to elements
 It's really easy to add keyboard shortcuts in the template: 
 ```html
@@ -81,11 +143,8 @@ It's really easy to add keyboard shortcuts in the template:
 #### Links
 https://alligator.io/angular/binding-keyup-keydown-events
 
-tags: tips,good-to-know
-
-
-
-<br>[⭐ Interactive demo of this snippet](https://codelab-next.firebaseapp.com/angular/30-seconds/1) | [⬆ Back to top](#table-of-contents)<br><br>
+<br>[⭐ Interactive demo of this snippet](https://codelab-next.firebaseapp.com/angular/30-seconds/0) | [⬆ Back to top](#table-of-contents) | tags: tips,good-to-know 
+<br><br>
 ### Bind to host properties with host binding
 Every rendered angular component is wrapped in a host element (which is the same as component's selector).
 
@@ -111,32 +170,8 @@ export class AppComponent {
 
 
 
-tags: components
-
-
-
-<br>[⭐ Interactive demo of this snippet](https://codelab-next.firebaseapp.com/angular/30-seconds/2) | [⬆ Back to top](#table-of-contents)<br><br>
-### Default ViewEncapsulation value
-If you're using `ViewEncapsulation` value which is different than default, it might be daunting to set the value manually for every component. 
-
-Luckily you can configure it globally when bootstrapping your app:
-
-```TypeScript
-platformBrowserDynamic().bootstrapModule(AppModule, [
-    {
-        // NOTE: Use ViewEncapsulation.None only if you know what you're doing.
-        defaultEncapsulation: ViewEncapsulation.None
-    }
-]);
-```
-
-
-
-tags: configuration,styling
-
-
-
-<br>[⭐ Interactive demo of this snippet](https://codelab-next.firebaseapp.com/angular/30-seconds/3) | [⬆ Back to top](#table-of-contents)<br><br>
+<br>[⭐ Interactive demo of this snippet](https://codelab-next.firebaseapp.com/angular/30-seconds/1) | [⬆ Back to top](#table-of-contents) | tags: components 
+<br><br>
 ### Global event listeners
 It is possible to add global event listeners in your Components/Directives with `HostListener`. Angular will take care of unsubscribing once your directive is destroyed.
 
@@ -175,11 +210,8 @@ You can also pass params:
 </details>
 
 
-tags: events,components
-
-
-
-<br>[⭐ Interactive demo of this snippet](https://codelab-next.firebaseapp.com/angular/30-seconds/4) | [⬆ Back to top](#table-of-contents)<br><br>
+<br>[⭐ Interactive demo of this snippet](https://codelab-next.firebaseapp.com/angular/30-seconds/2) | [⬆ Back to top](#table-of-contents) | tags: events,components 
+<br><br>
 ### Injecting document
 Sometimes you need to get access to global `document`. 
 
@@ -204,11 +236,8 @@ export class AppComponent {
 #### Links
 https://angular.io/api/common/DOCUMENT
 
-tags: dependency injection
-
-
-
-<br>[⭐ Interactive demo of this snippet](https://codelab-next.firebaseapp.com/angular/30-seconds/5) | [⬆ Back to top](#table-of-contents)<br><br>
+<br>[⭐ Interactive demo of this snippet](https://codelab-next.firebaseapp.com/angular/30-seconds/3) | [⬆ Back to top](#table-of-contents) | tags: dependency injection 
+<br><br>
 ### Style bindings
 You can use advanced property bindings to set specific style values based on component property values: 
 
@@ -239,46 +268,8 @@ You can use advanced property bindings to set specific style values based on com
 </details>
 
 
-tags: styles
-
-
-
-<br>[⭐ Interactive demo of this snippet](https://codelab-next.firebaseapp.com/angular/30-seconds/6) | [⬆ Back to top](#table-of-contents)<br><br>
-### trackBy in for loops
-To avoid the expensive operations, we can help Angular to track which items added or removed i.e. customize the default tracking algorithm by providing a trackBy option to NgForOf.
-
-So you can provide your custom trackBy function that will return unique identifier for each iterated item. 
-For example, some key value of the item. If this key value matches the previous one, then Angular won't detect changes.
-
-**trackBy** takes a function that has _index_ and _item_ args. 
-
-```typescript
-@Component({
-  selector: 'my-app',
-  template: `<ul>
-      <li *ngFor="let item of items; trackBy: trackByFn">{{item.id}}</li>
-    </ul>`,
-})
-export class AppComponent { 
-  trackByFn(index, item) {
-    return item.id;
-  }
-}
-```
-If trackBy is given, Angular tracks changes by the return value of the function. 
-
-Now when you change the collection, Angular can track which items have been added or removed according to the unique identifier and create/destroy only changed items.
-
-
-#### Links
-https://angular.io/api/common/NgForOf
-https://angular.io/api/core/TrackByFunction
-
-tags: good-to-know,tips,components,performance
-
-
-
-<br>[⭐ Interactive demo of this snippet](https://codelab-next.firebaseapp.com/angular/30-seconds/7) | [⬆ Back to top](#table-of-contents)<br><br>
+<br>[⭐ Interactive demo of this snippet](https://codelab-next.firebaseapp.com/angular/30-seconds/4) | [⬆ Back to top](#table-of-contents) | tags: styles 
+<br><br>
 ### Window Location injection
 For testing purposes you might want to inject `window.location` object in your component.
 You can achieve this with custom `InjectionToken` mechanism provided by Angular.
@@ -309,8 +300,41 @@ export class AppComponent {
 https://itnext.io/testing-browser-window-location-in-angular-application-e4e8388508ff
 https://angular.io/guide/dependency-injection
 
-tags: dependency-injection,testing
+<br>[⭐ Interactive demo of this snippet](https://codelab-next.firebaseapp.com/angular/30-seconds/5) | [⬆ Back to top](#table-of-contents) | tags: dependency-injection,testing 
+<br><br>
+
+## Advanced snippets
+
+### Getting components of different types with ViewChild
+It's possible to use `@ViewChild` (also `@ViewChildren` and `@ContentChild/Children`) to query for components of different types using dependency injection. 
+
+In the example below we can use `@ViewChildren(Base)` to get instances of `Foo` and `Bar`.
+
+```typescript
+abstract class Base {}
+
+@Component({
+  selector: 'foo',
+  providers: [{ provide: Base, useExisting: Foo }]
+})
+class Foo extends Base {}
+
+@Component({
+  selector: 'bar',
+  providers: [{ provide: Base, useExisting: Bar }]
+})
+class Bar extends Base {}
+
+// Now we can require both types of components using Base.
+@Component({ template: `<foo></foo><bar></bar>` })
+class AppComponent {
+  @ViewChildren(Base) components: QueryList<Base>;
+}
+```
 
 
+#### Links
+https://www.youtube.com/watch?v=PRRgo6F0cjs
 
-<br>[⭐ Interactive demo of this snippet](https://codelab-next.firebaseapp.com/angular/30-seconds/8) | [⬆ Back to top](#table-of-contents)<br><br>
+<br>[⭐ Interactive demo of this snippet](https://codelab-next.firebaseapp.com/angular/30-seconds/0) | [⬆ Back to top](#table-of-contents) | tags: good-to-know,tips,components,dependency-injection 
+<br><br>
