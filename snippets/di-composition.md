@@ -36,16 +36,16 @@ https://stackblitz.com/edit/angular-cdk-happy-animals
 
 # ComponentCode
 ```typescript
-import { Injectable, Component, OnInit, OnDestroy } from '@angular/core';
+import { Injectable, Component, OnInit, OnDestroy, Host } from '@angular/core';
 
 @Injectable()
 export class ItemsLinker implements OnDestroy {
   links: Set<ItemComponent> = new Set();
 
-  register(item: ItemComponent) {
+  link(item: ItemComponent) {
     this.links.add(item);
   }
-  unregister(item: ItemComponent) {
+  unlink(item: ItemComponent) {
     this.links.delete(item);
   }
 
@@ -63,10 +63,10 @@ export class ItemComponent implements OnInit, OnDestroy {
   constructor(@Host() private linker: ItemsLinker) {}
 
   ngOnInit() {
-    this.linker.register(this);
+    this.linker.link(this);
   }
   ngOnDestroy() {
-    this.linker.unregister(this);
+    this.linker.unlink(this);
   }
 }
 
