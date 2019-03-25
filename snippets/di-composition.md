@@ -75,9 +75,7 @@ export class ItemComponent implements OnInit, OnDestroy {
   template: '<ng-content></ng-content>',
   providers: [ ItemsLinker ]
 })
-export class ItemsComponent {
-  constructor(readonly items: ItemsLinker) {}
-}
+export class ItemsComponent {}
 
 @Component({
   selector: 'my-app',
