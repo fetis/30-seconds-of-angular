@@ -11,7 +11,7 @@ tags:
 # Content
 Here is the way to notify user that there are fields with non-valid values.
 
-**markFieldsAsTouched** function takes _form_ which is FormGroup or FormArray as arg. 
+`markFieldsAsTouched` function FormGroup or FormArray as an argument. 
 
 # ComponentCode
 ```typescript
