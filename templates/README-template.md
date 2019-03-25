@@ -23,11 +23,9 @@
 	
 {{/group}}
 
-
-## Snippets
 {{#group snippets by="level"}}
 
-{{capitalize value}} snippets
+## {{capitalize value}} snippets
 
 {{#each items}}
 ### {{title}}

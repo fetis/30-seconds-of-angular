@@ -35,9 +35,7 @@ Advanced snippets
 	
 
 
-## Snippets
-
-Beginner snippets
+## Beginner snippets
 
 ### Accessing Enums in template
 Enums are great but they are not visible in Angular templates by default. 
@@ -113,7 +111,7 @@ https://angular.io/api/core/TrackByFunction
 <br>[⭐ Interactive demo of this snippet](https://codelab-next.firebaseapp.com/angular/30-seconds/2) | [⬆ Back to top](#table-of-contents) | tags: good-to-know,tips,components,performance 
 <br><br>
 
-Intermediate snippets
+## Intermediate snippets
 
 ### Adding keyboard shortcuts to elements
 It's really easy to add keyboard shortcuts in the template: 
@@ -305,7 +303,7 @@ https://angular.io/guide/dependency-injection
 <br>[⭐ Interactive demo of this snippet](https://codelab-next.firebaseapp.com/angular/30-seconds/5) | [⬆ Back to top](#table-of-contents) | tags: dependency-injection,testing 
 <br><br>
 
-Advanced snippets
+## Advanced snippets
 
 ### Getting components of different types with ViewChild
 It's possible to use `@ViewChild` (also `@ViewChildren` and `@ContentChild/Children`) to query for components of different types using dependency injection. 
