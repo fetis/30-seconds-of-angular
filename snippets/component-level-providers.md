@@ -1,5 +1,5 @@
 ---
-title: DI Composition
+title: Component level providers
 level: intermediate
 author: thekiba
 tags:
