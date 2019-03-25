@@ -30,24 +30,17 @@ export class ProvideDirective {}
 ```
 
 # Links
-https://stackblitz.com/edit/angular-cdk-happy-animals
-
 https://angular.io/guide/hierarchical-dependency-injection#component-level-injectors
 
+https://stackblitz.com/edit/angular-cdk-happy-animals
+
 # ComponentCode
-import { Injectable, Component, HostBinding, HostListener, OnInit, OnDestroy } from '@angular/core';
+```typescript
+import { Injectable, Component, OnInit, OnDestroy } from '@angular/core';
 
 @Injectable()
 export class ItemsLinker implements OnDestroy {
   links: Set<ItemComponent> = new Set();
-
-  activate(item: ItemComponent) {
-    this.links.forEach((link) => link.deactivate());
-    item.activate();
-  }
-  deactivate(item: ItemComponent) {
-    item.deactivate();
-  }
 
   register(item: ItemComponent) {
     this.links.add(item);
@@ -63,28 +56,11 @@ export class ItemsLinker implements OnDestroy {
 
 @Component({
   selector: 'item',
-  template: `
-    <ng-content></ng-content>
-  `
+  template: '<ng-content></ng-content>'
 })
 export class ItemComponent implements OnInit, OnDestroy {
 
-  @HostBinding('class.selected') isActivated: boolean = false;
-
   constructor(@Host() private linker: ItemsLinker) {}
-
-  @HostListener('click') onClick() {
-    this.isActivated
-      ? this.linker.deactivate(this)
-      : this.linker.activate(this);
-  }
-
-  activate() {
-    this.isActivated = true;
-  }
-  deactivate() {
-    this.isActivated = false;
-  }
 
   ngOnInit() {
     this.linker.register(this);
@@ -99,7 +75,9 @@ export class ItemComponent implements OnInit, OnDestroy {
   template: '<ng-content></ng-content>',
   providers: [ ItemsLinker ]
 })
-export class ContainerComponent {}
+export class ItemsComponent {
+  constructor(readonly items: ItemsLinker) {}
+}
 
 @Component({
   selector: 'my-app',
@@ -109,29 +87,25 @@ export class ContainerComponent {}
       <item>🦄</item>
       <item>🐉</item>
     </items>
-  `,
-  styles: [
-    `
-      .selected {
-        background: #309eed;
-      }
-    `
-  ]
+  `
 })
 export class AppComponent {}
+```
 
 # ModuleCode
+```typescript
 import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
-import { AppComponent, ContainerComponent, ItemComponent } from './app.component';
+import { AppComponent, ItemsComponent, ItemComponent } from './app.component';
 
 @NgModule({
   imports: [BrowserModule],
   declarations: [
     AppComponent,
-    ContainerComponent,
+    ItemsComponent,
     ItemComponent
   ],
   bootstrap: [AppComponent]
 })
 export class AppModule {}
+```
