@@ -2,6 +2,8 @@ const handlebars = require('handlebars');
 const {readFileSync, writeFileSync} = require('fs');
 const {join} = require('path');
 const slugify = require('slugify');
+const groupBy = require('handlebars-group-by');
+
 
 const snippets = require('../data/data.json');
 
@@ -11,6 +13,8 @@ const readmePath = join(__dirname, '..', 'README.md');
 
 // Set up handlebars
 handlebars.registerHelper('slugify', (str) => slugify(str, '-'));
+handlebars.registerHelper(groupBy(handlebars));
+
 
 // Generate!
 const result = handlebars.compile(template)({snippets});

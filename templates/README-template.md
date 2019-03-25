@@ -14,13 +14,21 @@
 
 ## Table of contents
 
-{{#each snippets}}
+{{#group snippets by="level"}}
+{{value}}
+
+{{#each items}}
 * [{{title}}](#{{slugify title}})
 {{/each}}
+	
+{{/group}}
+
 
 ## Snippets
-{{#each snippets}}
-### {{title}}
+{{#group snippets by="level"}}
+### {{value}}
+{{#each items}}
+#### {{title}}
 {{{content}}}
 
 {{#if bonus}}
@@ -32,13 +40,11 @@
 {{/if}}
 
 {{#if links}}
-#### Links
+##### Links
 {{{links}}}
 {{/if}}
 
-tags: {{tags}}
-
-
-
-<br>[⭐ Interactive demo of this snippet](https://codelab-next.firebaseapp.com/angular/30-seconds/{{@index}}) | [⬆ Back to top](#table-of-contents)<br><br>
+<br>[⭐ Interactive demo of this snippet](https://codelab-next.firebaseapp.com/angular/30-seconds/{{@index}}) | [⬆ Back to top](#table-of-contents) | tags: {{tags}} 
+<br><br>
 {{/each}}
+{{/group}}
