@@ -40,7 +40,7 @@ import { Injectable, Component, OnInit, OnDestroy, Host } from '@angular/core';
 
 @Injectable()
 export class ItemsLinker implements OnDestroy {
-  links: Set<ItemComponent> = new Set();
+  private links: Set<ItemComponent> = new Set();
 
   link(item: ItemComponent) {
     this.links.add(item);
