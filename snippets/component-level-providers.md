@@ -45,6 +45,7 @@ export class ItemsLinker implements OnDestroy {
   link(item: ItemComponent) {
     this.links.add(item);
   }
+
   unlink(item: ItemComponent) {
     this.links.delete(item);
   }
