@@ -22,7 +22,7 @@ export class ProvideComponent {}
 ```
 
 ```typescript
-@Component({
+@Directive({
   selector: '[provide]',
   providers: [ Service ]
 })
