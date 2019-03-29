@@ -1,5 +1,5 @@
 ---
-title: Reuse code in template
+title: Reusing code in template
 author: fetis
 level: intermediate 
 tags:
