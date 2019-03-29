@@ -26,6 +26,7 @@ Intermediate snippets
 * [Bind to host properties with host binding](#Bind-to-host-properties-with-host-binding)
 * [Global event listeners](#Global-event-listeners)
 * [Injecting document](#Injecting-document)
+* [Reusing code in template](#Reusing-code-in-template)
 * [Style bindings](#Style-bindings)
 * [Window Location injection](#Window-Location-injection)
 	
@@ -238,6 +239,32 @@ https://angular.io/api/common/DOCUMENT
 
 <br>[⭐ Interactive demo of this snippet](https://codelab-next.firebaseapp.com/angular/30-seconds/3) | [⬆ Back to top](#table-of-contents) | tags: dependency injection 
 <br><br>
+### Reusing code in template
+While the best way of reusing your code is creating a component, it's also possible to do it in a template.
+
+To do this you can use `ng-template` along with `*ngTemplateOutlet` directive.
+
+```html
+  <p>
+    <ng-container *ngTemplateOutlet="fancyGreeting"></ng-container>
+  </p>
+
+  <button>
+    <ng-container *ngTemplateOutlet="fancyGreeting"></ng-container>    
+  </button>
+  
+  <ng-template #fancyGreeting>
+    Hello <b>{{name}}!</b>
+  </ng-template>
+```
+
+
+#### Links
+https://angular.io/api/common/NgTemplateOutlet
+https://angular.io/guide/structural-directives#the-ng-template
+
+<br>[⭐ Interactive demo of this snippet](https://codelab-next.firebaseapp.com/angular/30-seconds/4) | [⬆ Back to top](#table-of-contents) | tags: templates 
+<br><br>
 ### Style bindings
 You can use advanced property bindings to set specific style values based on component property values: 
 
@@ -268,7 +295,7 @@ You can use advanced property bindings to set specific style values based on com
 </details>
 
 
-<br>[⭐ Interactive demo of this snippet](https://codelab-next.firebaseapp.com/angular/30-seconds/4) | [⬆ Back to top](#table-of-contents) | tags: styles 
+<br>[⭐ Interactive demo of this snippet](https://codelab-next.firebaseapp.com/angular/30-seconds/5) | [⬆ Back to top](#table-of-contents) | tags: styles 
 <br><br>
 ### Window Location injection
 For testing purposes you might want to inject `window.location` object in your component.
@@ -300,7 +327,7 @@ export class AppComponent {
 https://itnext.io/testing-browser-window-location-in-angular-application-e4e8388508ff
 https://angular.io/guide/dependency-injection
 
-<br>[⭐ Interactive demo of this snippet](https://codelab-next.firebaseapp.com/angular/30-seconds/5) | [⬆ Back to top](#table-of-contents) | tags: dependency-injection,testing 
+<br>[⭐ Interactive demo of this snippet](https://codelab-next.firebaseapp.com/angular/30-seconds/6) | [⬆ Back to top](#table-of-contents) | tags: dependency-injection,testing 
 <br><br>
 
 ## Advanced snippets
