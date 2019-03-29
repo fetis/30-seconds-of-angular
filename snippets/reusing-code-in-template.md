@@ -7,10 +7,9 @@ tags:
 ---
 
 # Content
-The best way to re-use your code is to create a component, but in some sutuations you would like to
-keep everything in the same component.
+While the best way of reusing your code is creating a component, it's also possible to do it in a template.
 
-To resovle this issue you can use `ng-template` and `*ngTemplateOutlet` directives.
+To do this you can use `ng-template` along with `*ngTemplateOutlet` directive.
 
 ```html
   <p>
