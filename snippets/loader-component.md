@@ -34,6 +34,8 @@ For usage example:
 
 https://medium.com/claritydesignsystem/ng-content-the-hidden-docs-96a29d70d11b
 
+https://blog.angularindepth.com/https-medium-com-thomasburleson-animated-ghosts-bfc045a51fba
+
 # ComponentCode
 ```typescript 
 import { Component, Input } from '@angular/core';
