@@ -44,9 +44,7 @@ import { Component, Input } from '@angular/core';
   selector: 'loader',
   template: `
     <ng-content *ngIf="!loading else showLoader"></ng-content>
-    <ng-template #showLoader>
-      Come away with me to the Anywhere City!
-    </ng-template>
+    <ng-template #showLoader>🕚 Wait 10 seconds!</ng-template>
   `
 })
 export class LoaderComponent {
