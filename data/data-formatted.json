@@ -47,8 +47,8 @@
     ],
     "slug": "default-viewencapsulation-value",
     "content": "If you're using `ViewEncapsulation` value which is different than default, it might be daunting to set the value manually for every component. \n\nLuckily you can configure it globally when bootstrapping your app:\n\n```TypeScript\nplatformBrowserDynamic().bootstrapModule(AppModule, [\n    {\n        // NOTE: Use ViewEncapsulation.None only if you know what you're doing.\n        defaultEncapsulation: ViewEncapsulation.None\n    }\n]);\n```",
-    "componentcode": "```typescript\n  \nimport { Component } from '@angular/core';\n\n@Component({\n  selector: 'my-app',\n  template: `<h1>I am red </h1>`,\n  styles: [` body {background: red}; `]\n})\nexport class AppComponent {}",
-    "maincode": "import { platformBrowserDynamic } from '@angular/platform-browser-dynamic';\nimport { AppModule } from './app.module';\nimport {ViewEncapsulation} from '@angular/core'\n\nplatformBrowserDynamic().bootstrapModule(AppModule, [\n    {\n        defaultEncapsulation: ViewEncapsulation.None\n    }\n]);\n```"
+    "componentcode": "```typescript\n  \nimport { Component } from '@angular/core';\n\n@Component({\n  selector: 'my-app',\n  template: `<h1>I am red </h1>`,\n  styles: [` body {background: red}; `]\n})\nexport class AppComponent {}\n```",
+    "maincode": "```typescript\nimport { platformBrowserDynamic } from '@angular/platform-browser-dynamic';\nimport { AppModule } from './app.module';\nimport {ViewEncapsulation} from '@angular/core'\n\nplatformBrowserDynamic().bootstrapModule(AppModule, [\n    {\n        defaultEncapsulation: ViewEncapsulation.None\n    }\n]);\n```"
   },
   {
     "title": "Getting components of different types with ViewChild",
@@ -76,8 +76,8 @@
     ],
     "slug": "global-event-listeners",
     "content": "It is possible to add global event listeners in your Components/Directives with `HostListener`. Angular will take care of unsubscribing once your directive is destroyed.\n\n```typescript\n@Directive({\n  selector: '[rightClicker]'\n})\nexport class ShortcutsDirective {\n  @HostListener('window:keydown.ArrowRight')\n  doImportantThings() {\n    console.log('You pressed right');\n  }\n```",
-    "bonus": "You can have multiple bindings:\n\n```typescript\n  @HostListener('window:keydown.ArrowRight')\n  @HostListener('window:keydown.PageDown')\n  next() {\n    console.log('Next')\n  }\n```\n\nYou can also pass params:\n\n```typescript\n  @HostListener('window:keydown.ArrowRight', '$event.target')\n  next(target) {\n    console.log('Pressed right on this element: ' target)\n  }\n```",
-    "componentcode": "```typescript\nimport { Component, HostListener } from '@angular/core';\n\n@Component({\n  selector: 'my-app',\n  template: `\n  <h2>Try using your keyboard.</h2>\n  <h1>Last pressed: {{lastPressed}} </h1>`\n})\nexport class AppComponent {\n  lastPressed = 'nothing';\n  @HostListener('window:keydown.ArrowRight', ['$event.key'])\n  next(key: string) {\n    this.lastPressed = key;\n  }\n}\n```"
+    "bonus": "You can have multiple bindings:\n\n```typescript\n  @HostListener('window:keydown.ArrowRight')\n  @HostListener('window:keydown.PageDown')\n  next() {\n    console.log('Next')\n  }\n```\n\nYou can also pass params:\n\n```typescript\n  @HostListener('window:keydown.ArrowRight', '$event.target')\n  next(target) {\n    console.log('Pressed right on this element: ' + target)\n  }\n```",
+    "componentcode": "```typescript\nimport { Component, HostListener } from '@angular/core';\n\n@Component({\n  selector: 'my-app',\n  template: `\n  <h2>Try using your keyboard.</h2>\n  <h1>Last pressed: {{lastPressed}} </h1>`\n})\nexport class AppComponent {\n  lastPressed = 'nothing';\n  @HostListener('window:keydown', ['$event.key'])\n  next(key: string) {\n    this.lastPressed = key;\n  }\n}\n```"
   },
   {
     "title": "Injecting document",
@@ -90,6 +90,18 @@
     "content": "Sometimes you need to get access to global `document`. \n\nTo simplify unit-testing, Angular provides it through dependency injection:\n\n```typescript\nimport { DOCUMENT } from '@angular/common';\nimport { Inject } from '@angular/core';\n\n@Component({\n  selector: 'my-app',\n  template: `<h1>Edit me </h1>`\n})\nexport class AppComponent {\n    constructor(@Inject(DOCUMENT) private document: Document) {\n        // Word with document.location, or other things here....\n    }\n}\n````",
     "links": "https://angular.io/api/common/DOCUMENT",
     "componentcode": "```typescript\n  \nimport { Component } from '@angular/core';\nimport { DOCUMENT } from '@angular/common';\nimport { Inject } from '@angular/core';\n\n@Component({\n  selector: 'my-app',\n  template: `<h1>Edit me </h1>`\n})\nexport class AppComponent {\n    constructor(@Inject(DOCUMENT) private document: Document) {\n      // Don't do this in prod!\n      document.body.style.backgroundColor = 'pink';\n    }\n}\n```"
+  },
+  {
+    "title": "Reusing code in template",
+    "author": "fetis",
+    "level": "intermediate",
+    "tags": [
+      "templates"
+    ],
+    "slug": "reusing-code-in-template",
+    "content": "While the best way of reusing your code is creating a component, it's also possible to do it in a template.\n\nTo do this you can use `ng-template` along with `*ngTemplateOutlet` directive.\n\n```html\n  <p>\n    <ng-container *ngTemplateOutlet=\"fancyGreeting\"></ng-container>\n  </p>\n\n  <button>\n    <ng-container *ngTemplateOutlet=\"fancyGreeting\"></ng-container>    \n  </button>\n  \n  <ng-template #fancyGreeting>\n    Hello <b>{{name}}!</b>\n  </ng-template>\n```",
+    "links": "https://angular.io/api/common/NgTemplateOutlet\nhttps://angular.io/guide/structural-directives#the-ng-template",
+    "componentcode": "```typescript\nimport { Component } from '@angular/core';\n\n@Component({\n  selector: 'my-app',\n  template: `\n  <p>\n    <ng-container *ngTemplateOutlet=\"fancyGreeting\"></ng-container>\n  </p>\n\n  <button>\n    <ng-container *ngTemplateOutlet=\"fancyGreeting\"></ng-container>    \n  </button>\n  \n  <ng-template #fancyGreeting>\n    Hello <b>{{name}}!</b>\n  </ng-template>\n  `,\n})\nexport class AppComponent  {\n  name = 'Angular';\n}\n```"
   },
   {
     "title": "Style bindings",
@@ -117,7 +129,7 @@
     "slug": "trackby-in-for-loops",
     "content": "To avoid the expensive operations, we can help Angular to track which items added or removed i.e. customize the default tracking algorithm by providing a trackBy option to NgForOf.\n\nSo you can provide your custom trackBy function that will return unique identifier for each iterated item. \nFor example, some key value of the item. If this key value matches the previous one, then Angular won't detect changes.\n\n**trackBy** takes a function that has _index_ and _item_ args. \n\n```typescript\n@Component({\n  selector: 'my-app',\n  template: `<ul>\n      <li *ngFor=\"let item of items; trackBy: trackByFn\">{{item.id}}</li>\n    </ul>`,\n})\nexport class AppComponent { \n  trackByFn(index, item) {\n    return item.id;\n  }\n}\n```\nIf trackBy is given, Angular tracks changes by the return value of the function. \n\nNow when you change the collection, Angular can track which items have been added or removed according to the unique identifier and create/destroy only changed items.",
     "links": "https://angular.io/api/common/NgForOf\nhttps://angular.io/api/core/TrackByFunction",
-    "componentcode": "```typescript\nimport { Component } from '@angular/core';\n\n@Component({\n  selector: 'my-app',\n  template: `\n    <ul>\n      <li *ngFor=\"let item of items; trackBy: trackByFn\">{{item.id}}</li>\n    </ul>\n  `\n})\nexport class AppComponent {\n items = [\n   {id: 1},\n   {id: 2},\n   {id: 3}\n ];\n\n  trackByFn(index, item) {\n    return item.id;\n  } \n}\n\n```"
+    "componentcode": "```typescript\nimport { Component } from '@angular/core';\n\ninterface Item {\n    id: string;\n}\n\n@Component({\n  selector: 'my-app',\n  template: `\n    <ul>\n      <li *ngFor=\"let item of items; trackBy: trackByFn\">{{item.id}}</li>\n    </ul>\n  `\n})\nexport class AppComponent {\n items = [\n   {id: 1},\n   {id: 2},\n   {id: 3}\n ];\n\n  trackByFn(index: number, item: Item) {\n    return item.id;\n  } \n}\n\n```"
   },
   {
     "title": "Window Location injection",
