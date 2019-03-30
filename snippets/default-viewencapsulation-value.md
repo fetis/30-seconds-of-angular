@@ -31,9 +31,10 @@ import { Component } from '@angular/core';
   styles: [` body {background: red}; `]
 })
 export class AppComponent {}
+```
 
 # MainCode
-
+```typescript
 import { platformBrowserDynamic } from '@angular/platform-browser-dynamic';
 import { AppModule } from './app.module';
 import {ViewEncapsulation} from '@angular/core'

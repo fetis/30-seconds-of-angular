@@ -44,6 +44,10 @@ https://angular.io/api/core/TrackByFunction
 ```typescript
 import { Component } from '@angular/core';
 
+interface Item {
+    id: string;
+}
+
 @Component({
   selector: 'my-app',
   template: `
@@ -59,7 +63,7 @@ export class AppComponent {
    {id: 3}
  ];
 
-  trackByFn(index, item) {
+  trackByFn(index: number, item: Item) {
     return item.id;
   } 
 }

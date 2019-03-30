@@ -37,7 +37,7 @@ You can also pass params:
 ```typescript
   @HostListener('window:keydown.ArrowRight', '$event.target')
   next(target) {
-    console.log('Pressed right on this element: ' target)
+    console.log('Pressed right on this element: ' + target)
   }
 ```
 
@@ -53,7 +53,7 @@ import { Component, HostListener } from '@angular/core';
 })
 export class AppComponent {
   lastPressed = 'nothing';
-  @HostListener('window:keydown.ArrowRight', ['$event.key'])
+  @HostListener('window:keydown', ['$event.key'])
   next(key: string) {
     this.lastPressed = key;
   }

@@ -205,7 +205,7 @@ You can also pass params:
 ```typescript
   @HostListener('window:keydown.ArrowRight', '$event.target')
   next(target) {
-    console.log('Pressed right on this element: ' target)
+    console.log('Pressed right on this element: ' + target)
   }
 ```
 </details>
