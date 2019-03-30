@@ -18,7 +18,7 @@
 {{capitalize value}} snippets
 
 {{#each items}}
-* [{{title}}](#{{slugify title}})
+* [{{title}}](#{slug}})
 {{/each}}
 	
 {{/group}}
@@ -44,7 +44,7 @@
 {{{links}}}
 {{/if}}
 
-<br>[⭐ Interactive demo of this snippet](https://codelab-next.firebaseapp.com/angular/30-seconds/{{@index}}) | [⬆ Back to top](#table-of-contents) | tags: {{tags}} 
+<br>[⭐ Interactive demo of this snippet](https://codelab-next.firebaseapp.com/30/angular/{{slug}}) | [⬆ Back to top](#table-of-contents) | tags: {{#each tags}}[{{this}}](https://codelab-next.firebaseapp.com/30/angular/tag/{{this}}) {{/each}} 
 <br><br>
 {{/each}}
 {{/group}}
