@@ -18,7 +18,7 @@
 {{capitalize value}} snippets
 
 {{#each items}}
-* [{{title}}](#{slug}})
+* [{{title}}](#{{slug}})
 {{/each}}
 	
 {{/group}}

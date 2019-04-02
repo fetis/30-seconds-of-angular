@@ -16,23 +16,23 @@
 
 Beginner snippets
 
-* [Accessing Enums in template](#{slug}})
-* [Default ViewEncapsulation value](#{slug}})
-* [trackBy in for loops](#{slug}})
+* [Accessing Enums in template](#accessing-enums-in-template)
+* [Default ViewEncapsulation value](#default-viewencapsulation-value)
+* [trackBy in for loops](#trackby-in-for-loops)
 	
 Intermediate snippets
 
-* [Adding keyboard shortcuts to elements](#{slug}})
-* [Bind to host properties with host binding](#{slug}})
-* [Global event listeners](#{slug}})
-* [Injecting document](#{slug}})
-* [Reusing code in template](#{slug}})
-* [Style bindings](#{slug}})
-* [Window Location injection](#{slug}})
+* [Adding keyboard shortcuts to elements](#adding-keyboard-shortcuts-to-elements)
+* [Bind to host properties with host binding](#bind-to-host-properties-with-host-binding)
+* [Global event listeners](#global-event-listeners)
+* [Injecting document](#injecting-document)
+* [Reusing code in template](#reusing-code-in-template)
+* [Style bindings](#style-bindings)
+* [Window Location injection](#window-location-injection)
 	
 Advanced snippets
 
-* [Getting components of different types with ViewChild](#{slug}})
+* [Getting components of different types with ViewChild](#getting-components-of-different-types-with-viewchild)
 	
 
 
