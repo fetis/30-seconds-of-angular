@@ -16,23 +16,23 @@
 
 Beginner snippets
 
-* [Accessing Enums in template](#Accessing-Enums-in-template)
-* [Default ViewEncapsulation value](#Default-ViewEncapsulation-value)
-* [trackBy in for loops](#trackBy-in-for-loops)
+* [Accessing Enums in template](#accessing-enums-in-template)
+* [Default ViewEncapsulation value](#default-viewencapsulation-value)
+* [trackBy in for loops](#trackby-in-for-loops)
 	
 Intermediate snippets
 
-* [Adding keyboard shortcuts to elements](#Adding-keyboard-shortcuts-to-elements)
-* [Bind to host properties with host binding](#Bind-to-host-properties-with-host-binding)
-* [Global event listeners](#Global-event-listeners)
-* [Injecting document](#Injecting-document)
-* [Reusing code in template](#Reusing-code-in-template)
-* [Style bindings](#Style-bindings)
-* [Window Location injection](#Window-Location-injection)
+* [Adding keyboard shortcuts to elements](#adding-keyboard-shortcuts-to-elements)
+* [Bind to host properties with host binding](#bind-to-host-properties-with-host-binding)
+* [Global event listeners](#global-event-listeners)
+* [Injecting document](#injecting-document)
+* [Reusing code in template](#reusing-code-in-template)
+* [Style bindings](#style-bindings)
+* [Window Location injection](#window-location-injection)
 	
 Advanced snippets
 
-* [Getting components of different types with ViewChild](#Getting-components-of-different-types-with-ViewChild)
+* [Getting components of different types with ViewChild](#getting-components-of-different-types-with-viewchild)
 	
 
 
@@ -59,7 +59,7 @@ export class AppComponent {
 
 
 
-<br>[⭐ Interactive demo of this snippet](https://codelab-next.firebaseapp.com/angular/30-seconds/0) | [⬆ Back to top](#table-of-contents) | tags: enums,templates 
+<br>[⭐ Interactive demo of this snippet](https://codelab-next.firebaseapp.com/30/angular/accessing-enums-in-template) | [⬆ Back to top](#table-of-contents) | tags: [enums](https://codelab-next.firebaseapp.com/30/angular/tag/enums) [templates](https://codelab-next.firebaseapp.com/30/angular/tag/templates)  
 <br><br>
 ### Default ViewEncapsulation value
 If you're using `ViewEncapsulation` value which is different than default, it might be daunting to set the value manually for every component. 
@@ -77,7 +77,7 @@ platformBrowserDynamic().bootstrapModule(AppModule, [
 
 
 
-<br>[⭐ Interactive demo of this snippet](https://codelab-next.firebaseapp.com/angular/30-seconds/1) | [⬆ Back to top](#table-of-contents) | tags: configuration,styling 
+<br>[⭐ Interactive demo of this snippet](https://codelab-next.firebaseapp.com/30/angular/default-viewencapsulation-value) | [⬆ Back to top](#table-of-contents) | tags: [configuration](https://codelab-next.firebaseapp.com/30/angular/tag/configuration) [styling](https://codelab-next.firebaseapp.com/30/angular/tag/styling)  
 <br><br>
 ### trackBy in for loops
 To avoid the expensive operations, we can help Angular to track which items added or removed i.e. customize the default tracking algorithm by providing a trackBy option to NgForOf.
@@ -109,7 +109,7 @@ Now when you change the collection, Angular can track which items have been adde
 https://angular.io/api/common/NgForOf
 https://angular.io/api/core/TrackByFunction
 
-<br>[⭐ Interactive demo of this snippet](https://codelab-next.firebaseapp.com/angular/30-seconds/2) | [⬆ Back to top](#table-of-contents) | tags: good-to-know,tips,components,performance 
+<br>[⭐ Interactive demo of this snippet](https://codelab-next.firebaseapp.com/30/angular/trackby-in-for-loops) | [⬆ Back to top](#table-of-contents) | tags: [good-to-know](https://codelab-next.firebaseapp.com/30/angular/tag/good-to-know) [tips](https://codelab-next.firebaseapp.com/30/angular/tag/tips) [components](https://codelab-next.firebaseapp.com/30/angular/tag/components) [performance](https://codelab-next.firebaseapp.com/30/angular/tag/performance)  
 <br><br>
 
 ## Intermediate snippets
@@ -144,7 +144,7 @@ It's really easy to add keyboard shortcuts in the template:
 #### Links
 https://alligator.io/angular/binding-keyup-keydown-events
 
-<br>[⭐ Interactive demo of this snippet](https://codelab-next.firebaseapp.com/angular/30-seconds/0) | [⬆ Back to top](#table-of-contents) | tags: tips,good-to-know 
+<br>[⭐ Interactive demo of this snippet](https://codelab-next.firebaseapp.com/30/angular/adding-keyboard-shortcuts-to-elements) | [⬆ Back to top](#table-of-contents) | tags: [tips](https://codelab-next.firebaseapp.com/30/angular/tag/tips) [good-to-know](https://codelab-next.firebaseapp.com/30/angular/tag/good-to-know)  
 <br><br>
 ### Bind to host properties with host binding
 Every rendered angular component is wrapped in a host element (which is the same as component's selector).
@@ -171,7 +171,7 @@ export class AppComponent {
 
 
 
-<br>[⭐ Interactive demo of this snippet](https://codelab-next.firebaseapp.com/angular/30-seconds/1) | [⬆ Back to top](#table-of-contents) | tags: components 
+<br>[⭐ Interactive demo of this snippet](https://codelab-next.firebaseapp.com/30/angular/bind-to-host-properties-with-host-binding) | [⬆ Back to top](#table-of-contents) | tags: [components](https://codelab-next.firebaseapp.com/30/angular/tag/components)  
 <br><br>
 ### Global event listeners
 It is possible to add global event listeners in your Components/Directives with `HostListener`. Angular will take care of unsubscribing once your directive is destroyed.
@@ -211,7 +211,7 @@ You can also pass params:
 </details>
 
 
-<br>[⭐ Interactive demo of this snippet](https://codelab-next.firebaseapp.com/angular/30-seconds/2) | [⬆ Back to top](#table-of-contents) | tags: events,components 
+<br>[⭐ Interactive demo of this snippet](https://codelab-next.firebaseapp.com/30/angular/global-event-listeners) | [⬆ Back to top](#table-of-contents) | tags: [events](https://codelab-next.firebaseapp.com/30/angular/tag/events) [components](https://codelab-next.firebaseapp.com/30/angular/tag/components)  
 <br><br>
 ### Injecting document
 Sometimes you need to get access to global `document`. 
@@ -237,7 +237,7 @@ export class AppComponent {
 #### Links
 https://angular.io/api/common/DOCUMENT
 
-<br>[⭐ Interactive demo of this snippet](https://codelab-next.firebaseapp.com/angular/30-seconds/3) | [⬆ Back to top](#table-of-contents) | tags: dependency injection 
+<br>[⭐ Interactive demo of this snippet](https://codelab-next.firebaseapp.com/30/angular/injecting-document) | [⬆ Back to top](#table-of-contents) | tags: [dependency injection](https://codelab-next.firebaseapp.com/30/angular/tag/dependency injection)  
 <br><br>
 ### Reusing code in template
 While the best way of reusing your code is creating a component, it's also possible to do it in a template.
@@ -263,7 +263,7 @@ To do this you can use `ng-template` along with `*ngTemplateOutlet` directive.
 https://angular.io/api/common/NgTemplateOutlet
 https://angular.io/guide/structural-directives#the-ng-template
 
-<br>[⭐ Interactive demo of this snippet](https://codelab-next.firebaseapp.com/angular/30-seconds/4) | [⬆ Back to top](#table-of-contents) | tags: templates 
+<br>[⭐ Interactive demo of this snippet](https://codelab-next.firebaseapp.com/30/angular/reusing-code-in-template) | [⬆ Back to top](#table-of-contents) | tags: [templates](https://codelab-next.firebaseapp.com/30/angular/tag/templates)  
 <br><br>
 ### Style bindings
 You can use advanced property bindings to set specific style values based on component property values: 
@@ -295,7 +295,7 @@ You can use advanced property bindings to set specific style values based on com
 </details>
 
 
-<br>[⭐ Interactive demo of this snippet](https://codelab-next.firebaseapp.com/angular/30-seconds/5) | [⬆ Back to top](#table-of-contents) | tags: styles 
+<br>[⭐ Interactive demo of this snippet](https://codelab-next.firebaseapp.com/30/angular/style-bindings) | [⬆ Back to top](#table-of-contents) | tags: [styles](https://codelab-next.firebaseapp.com/30/angular/tag/styles)  
 <br><br>
 ### Window Location injection
 For testing purposes you might want to inject `window.location` object in your component.
@@ -327,7 +327,7 @@ export class AppComponent {
 https://itnext.io/testing-browser-window-location-in-angular-application-e4e8388508ff
 https://angular.io/guide/dependency-injection
 
-<br>[⭐ Interactive demo of this snippet](https://codelab-next.firebaseapp.com/angular/30-seconds/6) | [⬆ Back to top](#table-of-contents) | tags: dependency-injection,testing 
+<br>[⭐ Interactive demo of this snippet](https://codelab-next.firebaseapp.com/30/angular/window-location-injection) | [⬆ Back to top](#table-of-contents) | tags: [dependency-injection](https://codelab-next.firebaseapp.com/30/angular/tag/dependency-injection) [testing](https://codelab-next.firebaseapp.com/30/angular/tag/testing)  
 <br><br>
 
 ## Advanced snippets
@@ -363,5 +363,5 @@ class AppComponent {
 #### Links
 https://www.youtube.com/watch?v=PRRgo6F0cjs
 
-<br>[⭐ Interactive demo of this snippet](https://codelab-next.firebaseapp.com/angular/30-seconds/0) | [⬆ Back to top](#table-of-contents) | tags: good-to-know,tips,components,dependency-injection 
+<br>[⭐ Interactive demo of this snippet](https://codelab-next.firebaseapp.com/30/angular/getting-components-of-different-types-with-viewchild) | [⬆ Back to top](#table-of-contents) | tags: [good-to-know](https://codelab-next.firebaseapp.com/30/angular/tag/good-to-know) [tips](https://codelab-next.firebaseapp.com/30/angular/tag/tips) [components](https://codelab-next.firebaseapp.com/30/angular/tag/components) [dependency-injection](https://codelab-next.firebaseapp.com/30/angular/tag/dependency-injection)  
 <br><br>
