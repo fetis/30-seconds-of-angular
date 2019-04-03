@@ -27,7 +27,7 @@ class LoaderComponent {
 
 For usage example:
 ```html
-<loader [loading]="loading">🦊 🦄 🐉</loader>
+<loader [loading]="isLoading">🦊 🦄 🐉</loader>
 ```
 
 # Links
@@ -54,16 +54,16 @@ export class LoaderComponent {
 @Component({
   selector: 'my-app',
   template: `
-    <button (click)="loading = !loading">
+    <button (click)="isLoading = !isLoading">
       Toggle
     </button>
-    <loader [loading]="loading">
+    <loader [loading]="isLoading">
       🦊 🦄 🐉
     </loader>
   `
 })
 export class AppComponent {
-  loading: boolean = true;
+  isLoading: boolean = true;
 }
 ```
 
