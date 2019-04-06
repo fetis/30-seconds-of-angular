@@ -1,4 +1,4 @@
-[![Logo 30 Seconds of Angular](/templates/logo.png)](https://github.com/nycJSorg/30-seconds-of-angular)
+[![Logo 30 Seconds of Angular](/config/logo.png)](https://github.com/nycJSorg/30-seconds-of-angular)
 
 
 [![Build Status](https://travis-ci.com/nycJSorg/30-seconds-of-angular.svg?branch=master)](https://travis-ci.com/nycJSorg/30-seconds-of-angular) [![PRs Welcome](https://img.shields.io/badge/PRs-welcome-brightgreen.svg)](http://makeapullrequest.com)
