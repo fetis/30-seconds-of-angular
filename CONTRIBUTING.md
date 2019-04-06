@@ -11,7 +11,7 @@ Here's what you can do to help:
 
 ### Snippet submission and Pull request guidelines
 
-- **DO NOT MODIFY THE README.md or index.html FILES!** Make changes to individual snippet files. **Travis CI** will automatically build the `README.md` and `index.html` files when your pull request is merged.
+- **DO NOT MODIFY THE README.md!** Make changes to individual snippet files. **Travis CI** will automatically build the `README.md` files when your pull request is merged.
 - **Snippet filenames** must correspond to the title of the snippet. For example, if your snippet is titled `title: Awesome Snippet` the filename should be `awesome-snippet.md`.
   - Use `kebab-case`, not `camelCase` or `snake_case`.
   - Avoid capitalization of words, except if the whole word is capitalized (e.g. `URL` should be capitalized in the filename and the snippet title).
