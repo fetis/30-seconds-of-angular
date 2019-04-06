@@ -5,8 +5,7 @@
   "main": "index.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
-    "generate": "node scripts/md-to-json.js && node scripts/json-to-readme.js",
-    "generate2": "30-seconds-builder"
+    "generate": "md-to-json-snippet-generator"
   },
   "repository": {
     "type": "git",
@@ -30,6 +29,7 @@
     "gray-matter": "^4.0.2",
     "handlebars": "^4.1.1",
     "handlebars-group-by": "^1.0.1",
-    "json-pointer": "^0.6.0"
+    "json-pointer": "^0.6.0",
+    "md-to-json-snippet-generator": "0.0.2"
   }
 }
