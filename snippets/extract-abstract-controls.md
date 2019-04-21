@@ -13,10 +13,10 @@ tags:
 Here is the way to extract all form controls from AbstractControl.
 
 ```typescript
-function extractControls(form: AbstractControl): AbstractControl[] {
+function flattenControls(form: AbstractControl): AbstractControl[] {
   let extracted: AbstractControl[] = [ form ];
   if (form instanceof FormArray || form instanceof FormGroup) {
-    const children = Object.values(form.controls).map(extractControls);
+    const children = Object.values(form.controls).map(flattenControls);
     extracted = extracted.concat(...children);
   }
   return extracted;
