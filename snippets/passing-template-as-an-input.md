@@ -1,5 +1,5 @@
 ---
-title: Template as parameter
+title: Passing template as an input
 author: fetis
 level: intermediate
 tags:
