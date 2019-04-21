@@ -1,5 +1,5 @@
 ---
-title: Extract Abstract Controls
+title: Accessing all nested form controls
 author: thekiba
 level: intermediate
 tags:
@@ -10,7 +10,7 @@ tags:
 
 # Content
 
-Here is the way to extract all form controls from AbstractControl.
+Sometimes we need to work with every single Control is a form. Here's how it can be done: 
 
 ```typescript
 function flattenControls(form: AbstractControl): AbstractControl[] {
