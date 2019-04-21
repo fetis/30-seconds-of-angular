@@ -14,21 +14,28 @@
 
 ## Table of contents
 
+Intermediate snippets
+
+* [Accessing all nested form controls](#accessing-all-nested-form-controls)
+* [Adding keyboard shortcuts to elements](#adding-keyboard-shortcuts-to-elements)
+* [Bind to host properties with host binding](#bind-to-host-properties-with-host-binding)
+* [Component level providers](#component-level-providers)
+* [Global event listeners](#global-event-listeners)
+* [Injecting document](#injecting-document)
+* [Passing template as an input](#passing-template-as-an-input)
+* [Reusing code in template](#reusing-code-in-template)
+* [Style bindings](#style-bindings)
+* [Window Location injection](#window-location-injection)
+	
 Beginner snippets
 
 * [Accessing Enums in template](#accessing-enums-in-template)
 * [Default ViewEncapsulation value](#default-viewencapsulation-value)
+* [Loader Component](#loader-component)
+* [ng-content](#ng-content)
+* [ngIf else](#ngif-else)
+* [Optional parameters in the middle](#optional-parameters-in-the-middle)
 * [trackBy in for loops](#trackby-in-for-loops)
-	
-Intermediate snippets
-
-* [Adding keyboard shortcuts to elements](#adding-keyboard-shortcuts-to-elements)
-* [Bind to host properties with host binding](#bind-to-host-properties-with-host-binding)
-* [Global event listeners](#global-event-listeners)
-* [Injecting document](#injecting-document)
-* [Reusing code in template](#reusing-code-in-template)
-* [Style bindings](#style-bindings)
-* [Window Location injection](#window-location-injection)
 	
 Advanced snippets
 
@@ -36,84 +43,37 @@ Advanced snippets
 	
 
 
-## Beginner snippets
+## Intermediate snippets
 
-### Accessing Enums in template
-Enums are great but they are not visible in Angular templates by default. 
-With this little trick you can make them accessible.
-
-```typescript
-enum Animals {
-  DOG,
-  CAT,
-  DOLPHIN
-}
-
-@Component({
-  ...
-})
-export class AppComponent {
-  animalsEnum: typeof Animals = Animals;
-}
-```
-
-
-
-<br>[⭐ Interactive demo of this snippet](https://codelab-next.firebaseapp.com/30/angular/accessing-enums-in-template) | [⬆ Back to top](#table-of-contents) | tags: [enums](https://codelab-next.firebaseapp.com/30/angular/tag/enums) [templates](https://codelab-next.firebaseapp.com/30/angular/tag/templates)  
-<br><br>
-### Default ViewEncapsulation value
-If you're using `ViewEncapsulation` value which is different than default, it might be daunting to set the value manually for every component. 
-
-Luckily you can configure it globally when bootstrapping your app:
-
-```TypeScript
-platformBrowserDynamic().bootstrapModule(AppModule, [
-    {
-        // NOTE: Use ViewEncapsulation.None only if you know what you're doing.
-        defaultEncapsulation: ViewEncapsulation.None
-    }
-]);
-```
-
-
-
-<br>[⭐ Interactive demo of this snippet](https://codelab-next.firebaseapp.com/30/angular/default-viewencapsulation-value) | [⬆ Back to top](#table-of-contents) | tags: [configuration](https://codelab-next.firebaseapp.com/30/angular/tag/configuration) [styling](https://codelab-next.firebaseapp.com/30/angular/tag/styling)  
-<br><br>
-### trackBy in for loops
-To avoid the expensive operations, we can help Angular to track which items added or removed i.e. customize the default tracking algorithm by providing a trackBy option to NgForOf.
-
-So you can provide your custom trackBy function that will return unique identifier for each iterated item. 
-For example, some key value of the item. If this key value matches the previous one, then Angular won't detect changes.
-
-**trackBy** takes a function that has _index_ and _item_ args. 
+### Accessing all nested form controls
+Sometimes we need to work with every single Control is a form. Here's how it can be done: 
 
 ```typescript
-@Component({
-  selector: 'my-app',
-  template: `<ul>
-      <li *ngFor="let item of items; trackBy: trackByFn">{{item.id}}</li>
-    </ul>`,
-})
-export class AppComponent { 
-  trackByFn(index, item) {
-    return item.id;
+function flattenControls(form: AbstractControl): AbstractControl[] {
+  let extracted: AbstractControl[] = [ form ];
+  if (form instanceof FormArray || form instanceof FormGroup) {
+    const children = Object.values(form.controls).map(flattenControls);
+    extracted = extracted.concat(...children);
   }
+  return extracted;
 }
 ```
-If trackBy is given, Angular tracks changes by the return value of the function. 
 
-Now when you change the collection, Angular can track which items have been added or removed according to the unique identifier and create/destroy only changed items.
+For examples use:
+```typescript
+// returns all dirty abstract controls
+extractControls(form).filter((control) => control.dirty);
+
+// mark all controls as touched
+extractControls(form).forEach((control) => control.markAsTouched({ onlySelf: true }));
+```
 
 
 #### Links
-https://angular.io/api/common/NgForOf
-https://angular.io/api/core/TrackByFunction
+https://angular.io/guide/reactive-forms
 
-<br>[⭐ Interactive demo of this snippet](https://codelab-next.firebaseapp.com/30/angular/trackby-in-for-loops) | [⬆ Back to top](#table-of-contents) | tags: [good-to-know](https://codelab-next.firebaseapp.com/30/angular/tag/good-to-know) [tips](https://codelab-next.firebaseapp.com/30/angular/tag/tips) [components](https://codelab-next.firebaseapp.com/30/angular/tag/components) [performance](https://codelab-next.firebaseapp.com/30/angular/tag/performance)  
+<br>[⭐ Interactive demo of this snippet](https://codelab-next.firebaseapp.com/30/angular/accessing-all-nested-form-controls) | [⬆ Back to top](#table-of-contents) | tags: [reactive forms](https://codelab-next.firebaseapp.com/30/angular/tag/reactive forms) [tips](https://codelab-next.firebaseapp.com/30/angular/tag/tips) [good to know](https://codelab-next.firebaseapp.com/30/angular/tag/good to know)  
 <br><br>
-
-## Intermediate snippets
-
 ### Adding keyboard shortcuts to elements
 It's really easy to add keyboard shortcuts in the template: 
 ```html
@@ -172,6 +132,35 @@ export class AppComponent {
 
 
 <br>[⭐ Interactive demo of this snippet](https://codelab-next.firebaseapp.com/30/angular/bind-to-host-properties-with-host-binding) | [⬆ Back to top](#table-of-contents) | tags: [components](https://codelab-next.firebaseapp.com/30/angular/tag/components)  
+<br><br>
+### Component level providers
+Generally we get one service instance per the whole application. 
+It is also possible to create an instance of service per component or directive. 
+
+```typescript
+@Component({
+  selector: 'provide',
+  template: '<ng-content></ng-content>',
+  providers: [ Service ]
+})
+export class ProvideComponent {}
+```
+
+```typescript
+@Directive({
+  selector: '[provide]',
+  providers: [ Service ]
+})
+export class ProvideDirective {}
+```
+
+
+#### Links
+https://angular.io/guide/hierarchical-dependency-injection#component-level-injectors
+
+https://stackblitz.com/edit/angular-cdk-happy-animals
+
+<br>[⭐ Interactive demo of this snippet](https://codelab-next.firebaseapp.com/30/angular/component-level-providers) | [⬆ Back to top](#table-of-contents) | tags: [tips](https://codelab-next.firebaseapp.com/30/angular/tag/tips) [components](https://codelab-next.firebaseapp.com/30/angular/tag/components) [dependency-injection](https://codelab-next.firebaseapp.com/30/angular/tag/dependency-injection)  
 <br><br>
 ### Global event listeners
 It is possible to add global event listeners in your Components/Directives with `HostListener`. Angular will take care of unsubscribing once your directive is destroyed.
@@ -238,6 +227,40 @@ export class AppComponent {
 https://angular.io/api/common/DOCUMENT
 
 <br>[⭐ Interactive demo of this snippet](https://codelab-next.firebaseapp.com/30/angular/injecting-document) | [⬆ Back to top](#table-of-contents) | tags: [dependency injection](https://codelab-next.firebaseapp.com/30/angular/tag/dependency injection)  
+<br><br>
+### Passing template as an input
+It's possible to take a template as `@Input` for a component to customize the render
+
+
+```typescript
+@Component({
+  template: `
+    <nav>
+      <ng-container *ngTemplateOutlet="template"></ng-container>
+    </nav>
+  `,
+})
+export class SiteMenuComponent  {
+  @Input() template: TemplateRef<any>
+}
+
+...
+
+<site-menu [template]="menu1"></site-menu>
+
+<ng-template #menu1>
+  <div><a href="#">item1</a></div>
+  <div><a href="#">item2</a></div>
+</ng-template>
+```
+> Note: `ng-content` should be used for most of the cases and it's simpler and more declarative.
+> Only use this approach if you need extra flexibility that can't be achieved with ng-content.
+
+
+#### Links
+https://blog.angular-university.io/angular-ng-template-ng-container-ngtemplateoutlet/
+
+<br>[⭐ Interactive demo of this snippet](https://codelab-next.firebaseapp.com/30/angular/passing-template-as-an-input) | [⬆ Back to top](#table-of-contents) | tags: [template](https://codelab-next.firebaseapp.com/30/angular/tag/template)  
 <br><br>
 ### Reusing code in template
 While the best way of reusing your code is creating a component, it's also possible to do it in a template.
@@ -328,6 +351,174 @@ https://itnext.io/testing-browser-window-location-in-angular-application-e4e8388
 https://angular.io/guide/dependency-injection
 
 <br>[⭐ Interactive demo of this snippet](https://codelab-next.firebaseapp.com/30/angular/window-location-injection) | [⬆ Back to top](#table-of-contents) | tags: [dependency-injection](https://codelab-next.firebaseapp.com/30/angular/tag/dependency-injection) [testing](https://codelab-next.firebaseapp.com/30/angular/tag/testing)  
+<br><br>
+
+## Beginner snippets
+
+### Accessing Enums in template
+Enums are great but they are not visible in Angular templates by default. 
+With this little trick you can make them accessible.
+
+```typescript
+enum Animals {
+  DOG,
+  CAT,
+  DOLPHIN
+}
+
+@Component({
+  ...
+})
+export class AppComponent {
+  animalsEnum: typeof Animals = Animals;
+}
+```
+
+
+
+<br>[⭐ Interactive demo of this snippet](https://codelab-next.firebaseapp.com/30/angular/accessing-enums-in-template) | [⬆ Back to top](#table-of-contents) | tags: [enums](https://codelab-next.firebaseapp.com/30/angular/tag/enums) [templates](https://codelab-next.firebaseapp.com/30/angular/tag/templates)  
+<br><br>
+### Default ViewEncapsulation value
+If you're using `ViewEncapsulation` value which is different than default, it might be daunting to set the value manually for every component. 
+
+Luckily you can configure it globally when bootstrapping your app:
+
+```TypeScript
+platformBrowserDynamic().bootstrapModule(AppModule, [
+    {
+        // NOTE: Use ViewEncapsulation.None only if you know what you're doing.
+        defaultEncapsulation: ViewEncapsulation.None
+    }
+]);
+```
+
+
+
+<br>[⭐ Interactive demo of this snippet](https://codelab-next.firebaseapp.com/30/angular/default-viewencapsulation-value) | [⬆ Back to top](#table-of-contents) | tags: [configuration](https://codelab-next.firebaseapp.com/30/angular/tag/configuration) [styling](https://codelab-next.firebaseapp.com/30/angular/tag/styling)  
+<br><br>
+### Loader Component
+You can create own helper component and use it instead of `*ngIf`.
+
+```typescript
+@Component({
+  selector: 'loader',
+  template: `
+    <ng-content *ngIf="!loading else showLoader"></ng-content>
+    <ng-template #showLoader>🕚 Wait 10 seconds!</ng-template>
+  `
+})
+class LoaderComponent {
+  @Input() loading: boolean;
+}
+```
+
+For usage example:
+```html
+<loader [loading]="isLoading">🦊 🦄 🐉</loader>
+```
+
+> Note that the content will be eagerly evaluated, e.g. in the snippet below `destroy-the-world` will be created before the loading even starts:
+
+```html
+<loader [loading]="isLoading"><destroy-the-world></destroy-the-world></loader>
+```
+
+
+#### Links
+https://medium.com/claritydesignsystem/ng-content-the-hidden-docs-96a29d70d11b
+
+https://blog.angularindepth.com/https-medium-com-thomasburleson-animated-ghosts-bfc045a51fba
+
+<br>[⭐ Interactive demo of this snippet](https://codelab-next.firebaseapp.com/30/angular/loader-component) | [⬆ Back to top](#table-of-contents) | tags: [tips](https://codelab-next.firebaseapp.com/30/angular/tag/tips) [good-to-know](https://codelab-next.firebaseapp.com/30/angular/tag/good-to-know) [components](https://codelab-next.firebaseapp.com/30/angular/tag/components) [templates](https://codelab-next.firebaseapp.com/30/angular/tag/templates)  
+<br><br>
+### ng-content
+With `ng-content` you can pass any elements to a component. 
+This simplifies creating reusable components.
+
+```typescript
+@Component({
+  selector: 'wrapper',
+  template: `
+    <div class="wrapper">
+      <ng-content></ng-content>
+    </div>
+  `,
+})
+export class Wrapper {}
+```
+
+```html
+<wrapper>
+  <h1>Hello World!</h1>
+</wrapper>
+```
+
+
+#### Links
+https://medium.com/p/96a29d70d11b
+
+<br>[⭐ Interactive demo of this snippet](https://codelab-next.firebaseapp.com/30/angular/ng-content) | [⬆ Back to top](#table-of-contents) | tags: [good-to-know](https://codelab-next.firebaseapp.com/30/angular/tag/good-to-know) [tips](https://codelab-next.firebaseapp.com/30/angular/tag/tips) [components](https://codelab-next.firebaseapp.com/30/angular/tag/components)  
+<br><br>
+### ngIf else
+`*ngIf` directive also supports `else` statement.
+
+```html
+<div *ngIf="isLoading; else notLoading">loading...</div>
+
+<ng-template #notLoading>not loading</ng-template>
+```
+
+
+
+<br>[⭐ Interactive demo of this snippet](https://codelab-next.firebaseapp.com/30/angular/ngif-else) | [⬆ Back to top](#table-of-contents) | tags: [ngif](https://codelab-next.firebaseapp.com/30/angular/tag/ngif) [templates](https://codelab-next.firebaseapp.com/30/angular/tag/templates)  
+<br><br>
+### Optional parameters in the middle
+Navigate with matrix params:
+
+the router will navigate to `/first;name=foo/details`
+```html
+<a [routerLink]="['/', 'first', {name: 'foo'}, 'details']">
+  link with params
+</a>
+```
+
+
+#### Links
+https://stackblitz.com/edit/angular-xvy5pd
+
+<br>[⭐ Interactive demo of this snippet](https://codelab-next.firebaseapp.com/30/angular/optional-parameters-in-the-middle) | [⬆ Back to top](#table-of-contents) | tags: [routing](https://codelab-next.firebaseapp.com/30/angular/tag/routing)  
+<br><br>
+### trackBy in for loops
+To avoid the expensive operations, we can help Angular to track which items added or removed i.e. customize the default tracking algorithm by providing a trackBy option to NgForOf.
+
+So you can provide your custom trackBy function that will return unique identifier for each iterated item. 
+For example, some key value of the item. If this key value matches the previous one, then Angular won't detect changes.
+
+**trackBy** takes a function that has _index_ and _item_ args. 
+
+```typescript
+@Component({
+  selector: 'my-app',
+  template: `<ul>
+      <li *ngFor="let item of items; trackBy: trackByFn">{{item.id}}</li>
+    </ul>`,
+})
+export class AppComponent { 
+  trackByFn(index, item) {
+    return item.id;
+  }
+}
+```
+If trackBy is given, Angular tracks changes by the return value of the function. 
+
+Now when you change the collection, Angular can track which items have been added or removed according to the unique identifier and create/destroy only changed items.
+
+
+#### Links
+https://angular.io/api/common/NgForOf
+https://angular.io/api/core/TrackByFunction
+
+<br>[⭐ Interactive demo of this snippet](https://codelab-next.firebaseapp.com/30/angular/trackby-in-for-loops) | [⬆ Back to top](#table-of-contents) | tags: [good-to-know](https://codelab-next.firebaseapp.com/30/angular/tag/good-to-know) [tips](https://codelab-next.firebaseapp.com/30/angular/tag/tips) [components](https://codelab-next.firebaseapp.com/30/angular/tag/components) [performance](https://codelab-next.firebaseapp.com/30/angular/tag/performance)  
 <br><br>
 
 ## Advanced snippets
