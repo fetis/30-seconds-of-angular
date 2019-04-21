@@ -8,6 +8,7 @@ tags:
 # Content
 It's possible to take a template as `@Input` for a component to customize the render
 
+
 ```typescript
 @Component({
   template: `
@@ -29,6 +30,8 @@ export class SiteMenuComponent  {
   <div><a href="#">item2</a></div>
 </ng-template>
 ```
+> Note: `ng-content` should be used for most of the cases and it's simpler and more declarative.
+> Only use this approach if you need extra flexibility that can't be achieved with ng-content.
 
 # Links
 https://blog.angular-university.io/angular-ng-template-ng-container-ngtemplateoutlet/
@@ -61,9 +64,7 @@ export class SiteMenuComponent  {
   `
 })
 export class AppComponent {}
-````
-
-````
+```
 
 # ModuleCode
 ```typescript
