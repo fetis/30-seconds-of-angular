@@ -30,6 +30,11 @@ For usage example:
 <loader [loading]="isLoading">🦊 🦄 🐉</loader>
 ```
 
+> Note that the content will be eagerly evaluated, e.g. in the snippet below `destroy-the-world` will be created before the loading even starts:
+
+```html
+<loader [loading]="isLoading"><destroy-the-world></destroy-the-world></loader>
+```
 # Links
 
 https://medium.com/claritydesignsystem/ng-content-the-hidden-docs-96a29d70d11b
