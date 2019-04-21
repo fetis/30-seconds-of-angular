@@ -6,7 +6,7 @@ tags:
   - template
 ---
 # Content
-It's possible to pass a tempplate as parameter for a component to customize the render
+It's possible to take a template as `@Input` for a component to customize the render
 
 ```typescript
 @Component({
