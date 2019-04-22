@@ -12,17 +12,17 @@ While the best way of reusing your code is creating a component, it's also possi
 To do this you can use `ng-template` along with `*ngTemplateOutlet` directive.
 
 ```html
-  <p>
-    <ng-container *ngTemplateOutlet="fancyGreeting"></ng-container>
-  </p>
+<p>
+  <ng-container *ngTemplateOutlet="fancyGreeting"></ng-container>
+</p>
 
-  <button>
-    <ng-container *ngTemplateOutlet="fancyGreeting"></ng-container>    
-  </button>
-  
-  <ng-template #fancyGreeting>
-    Hello <b>{{name}}!</b>
-  </ng-template>
+<button>
+  <ng-container *ngTemplateOutlet="fancyGreeting"></ng-container>    
+</button>
+
+<ng-template #fancyGreeting>
+  Hello <b>{{name}}!</b>
+</ng-template>
 ```
 
 # Links
@@ -36,17 +36,17 @@ import { Component } from '@angular/core';
 @Component({
   selector: 'my-app',
   template: `
-  <p>
-    <ng-container *ngTemplateOutlet="fancyGreeting"></ng-container>
-  </p>
+    <p>
+      <ng-container *ngTemplateOutlet="fancyGreeting"></ng-container>
+    </p>
 
-  <button>
-    <ng-container *ngTemplateOutlet="fancyGreeting"></ng-container>    
-  </button>
-  
-  <ng-template #fancyGreeting>
-    Hello <b>{{name}}!</b>
-  </ng-template>
+    <button>
+      <ng-container *ngTemplateOutlet="fancyGreeting"></ng-container>    
+    </button>
+
+    <ng-template #fancyGreeting>
+      Hello <b>{{name}}!</b>
+    </ng-template>
   `,
 })
 export class AppComponent  {
