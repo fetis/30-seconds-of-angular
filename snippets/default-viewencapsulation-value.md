@@ -13,16 +13,15 @@ Luckily you can configure it globally when bootstrapping your app:
 
 ```TypeScript
 platformBrowserDynamic().bootstrapModule(AppModule, [
-    {
-        // NOTE: Use ViewEncapsulation.None only if you know what you're doing.
-        defaultEncapsulation: ViewEncapsulation.None
-    }
+  {
+    // NOTE: Use ViewEncapsulation.None only if you know what you're doing.
+    defaultEncapsulation: ViewEncapsulation.None
+  }
 ]);
 ``` 
 
 # ComponentCode
 ```typescript
-  
 import { Component } from '@angular/core';
 
 @Component({
@@ -37,11 +36,11 @@ export class AppComponent {}
 ```typescript
 import { platformBrowserDynamic } from '@angular/platform-browser-dynamic';
 import { AppModule } from './app.module';
-import {ViewEncapsulation} from '@angular/core'
+import { ViewEncapsulation } from '@angular/core'
 
 platformBrowserDynamic().bootstrapModule(AppModule, [
-    {
-        defaultEncapsulation: ViewEncapsulation.None
-    }
+  {
+    defaultEncapsulation: ViewEncapsulation.None
+  }
 ]);
 ```
