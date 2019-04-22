@@ -21,9 +21,11 @@ For example, some key value of the item. If this key value matches the previous 
 ```typescript
 @Component({
   selector: 'my-app',
-  template: `<ul>
+  template: `
+    <ul>
       <li *ngFor="let item of items; trackBy: trackByFn">{{item.id}}</li>
-    </ul>`,
+    </ul>
+  `
 })
 export class AppComponent { 
   trackByFn(index, item) {
