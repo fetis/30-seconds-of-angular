@@ -20,7 +20,7 @@ import { Inject } from '@angular/core';
 })
 export class AppComponent {
     constructor(@Inject(DOCUMENT) private document: Document) {
-        // Word with document.location, or other things here....
+        // Work with document.location, or other things here....
     }
 }
 ````
