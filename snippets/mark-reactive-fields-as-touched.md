@@ -79,3 +79,7 @@ On 'Submit' trigger function 'markFieldsAsTouched' with your reactive form passe
 It will mark form controls as 'touch' and in case of non-validity control will get error property.
 
 Based on control error property you can add validation notification via, for example, *ngIf directive in template
+
+# Bonus
+
+It's very useful to check out more general method [Accessing all nested form controls](#accessing-all-nested-form-controls) by [Thekiba](https://twitter.com/thekiba_io) to work with controls.
