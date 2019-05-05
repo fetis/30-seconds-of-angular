@@ -26,7 +26,7 @@ Intermediate snippets
 * [Reusing code in template](#reusing-code-in-template)
 * [Style bindings](#style-bindings)
 * [Window Location injection](#window-location-injection)
-	
+
 Beginner snippets
 
 * [Accessing Enums in template](#accessing-enums-in-template)
@@ -36,7 +36,7 @@ Beginner snippets
 * [ngIf else](#ngif-else)
 * [Optional parameters in the middle](#optional-parameters-in-the-middle)
 * [trackBy in for loops](#trackby-in-for-loops)
-	
+
 Advanced snippets
 
 * [Getting components of different types with ViewChild](#getting-components-of-different-types-with-viewchild)

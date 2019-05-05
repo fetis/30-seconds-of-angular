@@ -1,0 +1,21 @@
+{{> head }}
+
+<style>
+    .mdl-card__menu img {
+        height: 86px;
+        margin-top: -20px;
+        margin-right: -30px;
+    }
+</style>
+
+<div class="mdl-card mdl-shadow--2dp card snippet-card">
+    <div class="mdl-card__title">
+        <h2 class="mdl-card__title-text">✅ {{title}} </h2>
+    </div>
+    <div class="mdl-card__supporting-text">
+        {{{markdown content}}}
+    </div>
+    <div class="mdl-card__menu">
+        <img src="public/logo.png" style="">
+    </div>
+</div>

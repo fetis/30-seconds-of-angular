@@ -1,0 +1,21 @@
+<div class="mdl-card mdl-shadow--2dp card snippet-card">
+    <div class="mdl-card__title">
+        <a href="/{{slugify title}}"><h2 class="mdl-card__title-text">{{title}}</h2></a>
+    </div>
+    <div class="mdl-card__supporting-text">
+        {{{markdown content}}}
+    </div>
+    <div class="mdl-card__actions mdl-card--border">
+        {{#each tags}}
+            <span class="mdl-chip">
+     <span class="mdl-chip__text">{{this}}</span>
+    </span>
+        {{/each}}
+    </div>
+    <div class="mdl-card__menu">
+        <a href="https://twitter.com/intent/tweet?button_hashtag=share&ref_src=twsrc%5Etfw"
+           class="twitter-hashtag-button"
+           data-show-count="false" data-text="✨✨ https://30.codelab.fun/{{slugify title}}">Tweet #share</a>
+        <script async src="https://platform.twitter.com/widgets.js" charset="utf-8"></script>
+    </div>
+</div>

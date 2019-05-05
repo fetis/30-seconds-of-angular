@@ -1,0 +1,14 @@
+{
+  "projects": {
+    "default": "angular-presentation"
+  },
+   "targets": {
+      "angular-presentation": {
+        "hosting": {
+          "angular-30-seconds": [
+            "angular-30-seconds"
+          ]
+        }
+      }
+    }
+}

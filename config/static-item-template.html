@@ -1,0 +1,42 @@
+<link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons">
+<link rel="stylesheet" href="https://code.getmdl.io/1.3.0/material.indigo-pink.min.css">
+<link rel="stylesheet"
+      href="//cdnjs.cloudflare.com/ajax/libs/highlight.js/9.15.6/styles/default.min.css">
+<link rel="stylesheet"
+      href="//cdnjs.cloudflare.com/ajax/libs/highlight.js/9.15.6/styles/zenburn.min.css">
+<script defer src="https://code.getmdl.io/1.3.0/material.min.js"></script>
+<style>
+    .card {
+        margin: 0 auto;
+        width: 80%;
+        max-width: 800px;
+        margin-bottom: 20px;
+    }
+
+    pre {
+        background: #333;
+        padding: 20px;
+        color: #ddd;
+    }
+</style>
+
+<div class="mdl-card mdl-shadow--2dp card">
+    <div class="mdl-card__title">
+        <h2 class="mdl-card__title-text">{{title}}</h2>
+    </div>
+    <div class="mdl-card__supporting-text">
+        {{{markdown content}}}
+    </div>
+    <div class="mdl-card__actions mdl-card--border">
+        {{#each tags}}
+        <span class="mdl-chip">
+             <span class="mdl-chip__text">{{this}}</span>
+        </span>
+        {{/each}}
+    </div>
+    <div class="mdl-card__menu">
+        <button class="mdl-button mdl-button--icon mdl-js-button mdl-js-ripple-effect">
+            <i class="material-icons">share</i>
+        </button>
+    </div>
+</div>
