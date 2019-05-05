@@ -1,5 +1,6 @@
 const slugify = require('slugify');
 const groupBy = require('handlebars-group-by');
+const {inspect} = require('util');
 
 let group;
 
@@ -9,7 +10,6 @@ groupBy({
 		group = helpers.group;
 	}
 });
-
 
 
 function highlight(code, lang) {
@@ -34,6 +34,19 @@ module.exports = {
 	group() {
 		return group.apply(this, arguments);
 	},
-	markdown: require('helper-markdown')(highlight)
+	markdown: require('helper-markdown')(highlight),
+	json: (snippets) => {
+		const newSnippet = snippets.map(s => ({
+			content: s.contents.toString(),
+			title: s.title,
+			author: s.author,
+			level: s.level,
+			tags: s.tags,
+			links: s.links,
+			componentcode: s.componentcode,
+			modulecode: s.modulecode,
+		}));
+		return JSON.stringify(newSnippet, null, 2)
+	}
 };
 
