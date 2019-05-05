@@ -38,6 +38,7 @@
     "metalsmith-register-helpers": "^0.4.0",
     "metalsmith-serve": "0.0.7",
     "metalsmith-static": "0.0.5",
+    "metalsmith-tags": "^2.0.0",
     "metalsmith-watch": "^1.0.3",
     "puppeteer": "^1.15.0"
   }

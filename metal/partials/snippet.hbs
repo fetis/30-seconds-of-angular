@@ -8,7 +8,14 @@
     <div class="mdl-card__actions mdl-card--border">
         {{#each tags}}
             <span class="mdl-chip">
-     <span class="mdl-chip__text">{{this}}</span>
+     <span class="mdl-chip__text">
+         <!-- TODO:  There should be a better way-->
+         {{#if this.name}}
+             <a href="/tags/{{slugify this.name}}">{{this.name}}</a>
+         {{else}}
+             <a href="/tags/{{slugify this}}">{{this}}</a>
+         {{/if}}
+     </span>
     </span>
         {{/each}}
     </div>

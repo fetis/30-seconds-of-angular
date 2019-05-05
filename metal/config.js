@@ -8,6 +8,7 @@ var registerHelpers = require('metalsmith-register-helpers');
 var metalsmithStatic = require('metalsmith-static');
 var rewrite = require('metalsmith-rewrite');
 var permalinks = require('metalsmith-permalinks');
+var tags = require('metalsmith-tags');
 
 
 var marked = require('marked');
@@ -24,7 +25,6 @@ function extractHeaders(str) {
 }
 
 const generateScreenshots = () => (files, metalsmith, done) => {
-	debugger;
 	for (const [file, {layout}] of Object.entries(files)) {
 		// Only generate screenshots if there's no layout
 		if (!layout) {
@@ -96,7 +96,14 @@ module.exports = Metalsmith(__dirname)
 			pattern: ':title'
 		})
 	)
+	.use(tags({
+		layout: 'tag.hbs'
+	}))
 	.use(generateScreenshots())
+	.use((a,b,d)=>{
+		debugger;
+		d();
+	})
 	.use(layouts({
 		engine: handlebars,
 		default: 'snippet.hbs',

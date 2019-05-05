@@ -35,7 +35,6 @@ const screenshots = (server) => async (files, metalsmith, done) => {
 		await screenshotDOMElement('.snippet-card', 'static/' + file.replace('screenshot.html','preview.png') , 0)
 	}
 
-
 	await new Promise((resolve) => {
 		server.shutdown(resolve);
 	});
