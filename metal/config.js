@@ -1,22 +1,28 @@
-var Metalsmith = require('metalsmith');
-var markdown = require('metalsmith-markdown');
-var layouts = require('metalsmith-layouts');
-var handlebars = require('handlebars');
-var collections = require('metalsmith-collections');
-var discoverPartials = require('metalsmith-discover-partials');
-var registerHelpers = require('metalsmith-register-helpers');
-var metalsmithStatic = require('metalsmith-static');
-var rewrite = require('metalsmith-rewrite');
-var permalinks = require('metalsmith-permalinks');
-var tags = require('metalsmith-tags');
-
+const Metalsmith = require('metalsmith');
+const markdown = require('metalsmith-markdown');
+const layouts = require('metalsmith-layouts');
+const handlebars = require('handlebars');
+const collections = require('metalsmith-collections');
+const discoverPartials = require('metalsmith-discover-partials');
+const registerHelpers = require('metalsmith-register-helpers');
+const metalsmithStatic = require('metalsmith-static');
+const rewrite = require('metalsmith-rewrite');
+const permalinks = require('metalsmith-permalinks');
+const tags = require('metalsmith-tags');
+const rename = require('metalsmith-rename');
 
 var marked = require('marked');
 
-
 function extractHeaders(str) {
-	return ('\n' + str + '\n#')
-		.match(/\n#+.*\n[\s\S]*?(?=\n#)/g)
+	const match = ('\n' + str + '\n#')
+		.match(/\n#+.*\n[\s\S]*?(?=\n#)/g);
+
+	if (!match) {
+		return {
+			content: str,
+		}
+	}
+	return match
 		.reduce((result, a) => {
 			const [, depth, header, content] = a.match(/^\n(#+)(.*)\n([\s\S]*)$/);
 			result[header.trim().toLocaleLowerCase()] = content.trim();
@@ -68,14 +74,12 @@ const prep = () => (files, metalsmith, done) => {
 module.exports = Metalsmith(__dirname)
 	.metadata({
 		site: {
-			title: 'lol',
 			base: 'https://30.codelab.fun/'
 		}
 	})
 	.source('../snippets')
 	.use(rewrite([{
 		pattern: 'pages/*.html',
-		filename: '__{slug}llr.html',
 	}]))
 	.destination('../static')
 	.use(metalsmithStatic())
@@ -90,18 +94,20 @@ module.exports = Metalsmith(__dirname)
 	.use(registerHelpers())
 	.use(markdown({}))
 	.use(
-		permalinks({
-			pattern: ':title'
-		})
+		permalinks()
 	)
 	.use(tags({
 		layout: 'tag.hbs'
 	}))
 	.use(generateScreenshots())
-	.use((a,b,d)=>{
-		debugger;
-		d();
-	})
+	.use(
+		rename([
+			['json/index.html', 'data.json'],
+			['readme/index.html', 'README.md'],
+
+		])
+	)
+
 	.use(layouts({
 		engine: handlebars,
 		default: 'snippet.hbs',

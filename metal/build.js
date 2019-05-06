@@ -3,6 +3,7 @@ const puppeteer = require('puppeteer');
 var serve = require('metalsmith-serve');
 
 
+
 const screenshots = (server) => async (files, metalsmith, done) => {
 	async function screenshotDOMElement(selector, file, padding = 0) {
 		const rect = await page.evaluate(selector => {
@@ -52,6 +53,8 @@ const server = serve({
 config.use(server)
 	.use(screenshots(server))
 	.build(function (err) {
+
+
 		if (err) throw err;
 	});
 

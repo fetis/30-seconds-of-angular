@@ -1,5 +1,3 @@
 ---
 layout: index.hbs 
 ---
-# Content
-
