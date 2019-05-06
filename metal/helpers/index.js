@@ -36,7 +36,6 @@ module.exports = {
 	},
 	markdown: require('helper-markdown')(highlight),
 	json: (snippets) => {
-		debugger;
 		const newSnippet = snippets.map(s => ({
 			content: s.contents.toString(),
 			title: s.title,

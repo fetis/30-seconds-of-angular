@@ -12,6 +12,7 @@ const tags = require('metalsmith-tags');
 const rename = require('metalsmith-rename');
 const generateHtmlFilesForScreenshots = require('./plugins/generate-html-files-for-screenshots');
 const customMarkdownParse = require('./plugins/custom-markdown-parse');
+const validate = require('./plugins/validate');
 
 
 
@@ -34,6 +35,9 @@ module.exports = Metalsmith(__dirname)
 		},
 	}))
 	.use(customMarkdownParse())
+	.use(validate(
+		require('./schemas/snippet').schema
+	))
 	.use(discoverPartials())
 	.use(registerHelpers())
 	.use(markdown({}))
