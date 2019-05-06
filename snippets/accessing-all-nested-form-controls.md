@@ -6,6 +6,8 @@ tags:
   - reactive forms
   - tips
   - good to know
+links: 
+  - https://angular.io/guide/reactive-forms
 ---
 
 # Content
@@ -31,10 +33,6 @@ extractControls(form).filter((control) => control.dirty);
 // mark all controls as touched
 extractControls(form).forEach((control) => control.markAsTouched({ onlySelf: true }));
 ```
-
-# Links
-
-https://angular.io/guide/reactive-forms
 
 # ComponentCode
 ```typescript

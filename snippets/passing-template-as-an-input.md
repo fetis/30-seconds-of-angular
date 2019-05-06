@@ -3,7 +3,9 @@ title: Passing template as an input
 author: fetis
 level: intermediate
 tags:
-  - template
+  - template  
+links: 
+  - https://blog.angular-university.io/angular-ng-template-ng-container-ngtemplateoutlet
 ---
 # Content
 It's possible to take a template as `@Input` for a component to customize the render
@@ -18,11 +20,10 @@ It's possible to take a template as `@Input` for a component to customize the re
   `,
 })
 export class SiteMenuComponent  {
-  @Input() template: TemplateRef<any>
+  @Input() template: TemplateRef<any>;
 }
-
-...
-
+```
+```html
 <site-menu [template]="menu1"></site-menu>
 
 <ng-template #menu1>
@@ -32,9 +33,6 @@ export class SiteMenuComponent  {
 ```
 > Note: `ng-content` should be used for most of the cases and it's simpler and more declarative.
 > Only use this approach if you need extra flexibility that can't be achieved with ng-content.
-
-# Links
-https://blog.angular-university.io/angular-ng-template-ng-container-ngtemplateoutlet/
 
 # ComponentCode
 ```typescript

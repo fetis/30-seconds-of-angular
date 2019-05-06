@@ -24,17 +24,20 @@
 
     blockquote:before {
         content: "";
+        display: none;
     }
 
 
     blockquote:after {
         content: "";
+        display: none;
     }
 
     blockquote {
         margin-left: 0;
         padding-left: 8px;
         border-left: 4px #333333 solid;
+        min-height: 20px;
     }
 
     .mdl-card__title a {
@@ -65,6 +68,24 @@
     .mdl-chip__text a:hover {
         color: #000;
         text-decoration: underline;
+    }
+
+    .footer {
+        display: flex;
+        justify-content: space-between;
+    }
+
+    .footer .author {
+        line-height: 36px;
+    }
+
+    .mdl-card__actions {
+        padding: 8px 16px;
+    }
+
+    p > code {
+        background: #eee;
+        padding: 4px;
     }
 </style>
 

@@ -4,6 +4,8 @@ author: irustm
 level: beginner
 tags:
   - routing
+links:
+  - https://stackblitz.com/edit/angular-xvy5pd
 ---
 # Content
 Navigate with matrix params:
@@ -14,12 +16,6 @@ the router will navigate to `/first;name=foo/details`
   link with params
 </a>
 ```
-
-
-# Links
-https://stackblitz.com/edit/angular-xvy5pd
-
-
 
 # ComponentCode
 import { Component, OnInit } from '@angular/core';

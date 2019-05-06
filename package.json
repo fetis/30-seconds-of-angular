@@ -7,8 +7,7 @@
     "test": "echo \"Error: no test specified\" && exit 1",
     "build": "node metal/build",
     "start": "node metal/serve",
-    "deploy": "npm run build && firebase deploy --only hosting:angular-30-seconds",
-    "generate": "md-to-json-snippet-generator"
+    "deploy": "npm run build && firebase deploy --only hosting:angular-30-seconds"
   },
   "repository": {
     "type": "git",

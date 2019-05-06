@@ -7,6 +7,8 @@ tags:
   - tips
   - components
   - dependency-injection
+links: 
+  - https://www.youtube.com/watch?v=PRRgo6F0cjs
 ---
 
 # Content
@@ -35,9 +37,6 @@ class AppComponent {
   @ViewChildren(Base) components: QueryList<Base>;
 }
 ```
-
-# Links
-https://www.youtube.com/watch?v=PRRgo6F0cjs
 
 # ComponentCode
 ```typescript

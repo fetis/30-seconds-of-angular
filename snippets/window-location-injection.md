@@ -6,6 +6,11 @@ level: intermediate
 tags:
   - dependency-injection
   - testing
+  
+links: 
+  - https://itnext.io/testing-browser-window-location-in-angular-application-e4e8388508ff
+  - https://angular.io/guide/dependency-injection
+  
 ---
 
 # Content
@@ -31,11 +36,7 @@ export class AppComponent {
     @Inject(LOCATION_TOKEN) public location: Location
   ) {}
 }
-```
-
-# Links
-https://itnext.io/testing-browser-window-location-in-angular-application-e4e8388508ff
-https://angular.io/guide/dependency-injection
+``` 
 
 # ComponentCode
 ```typescript

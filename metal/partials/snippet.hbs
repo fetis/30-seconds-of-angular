@@ -4,10 +4,27 @@
     </div>
     <div class="mdl-card__supporting-text">
         {{{markdown content}}}
+        {{#if links}}
+            {{links}}
+            <h4>Links</h4>
+            <ul>
+                {{#each links}}
+                    <li><a href="{{this}}" target="_blank" rel="noopener">{{this}}</a></li>
+                {{/each}}
+            </ul>
+        {{/if}}
+        {{#if this.bonus}}
+            <details>
+                <summary><h4 style="display: inline;">Bonus</h4></summary>
+                {{{markdown this.bonus}}}
+            </details>
+
+        {{/if}}
     </div>
-    <div class="mdl-card__actions mdl-card--border">
-        {{#each tags}}
-            <span class="mdl-chip">
+    <div class="mdl-card__actions mdl-card--border footer">
+        <div>
+            {{#each tags}}
+                <span class="mdl-chip">
      <span class="mdl-chip__text">
          <!-- TODO:  There should be a better way-->
          {{#if this.name}}
@@ -17,12 +34,15 @@
          {{/if}}
      </span>
     </span>
-        {{/each}}
+            {{/each}}
+        </div>
+        
+        <div class="author">by <a href="http://github.com/{{author}}" target="_blank" rel="noopener">@{{author}}</a></div>
     </div>
     <div class="mdl-card__menu">
         <a href="https://twitter.com/intent/tweet?button_hashtag=share&ref_src=twsrc%5Etfw"
            class="twitter-hashtag-button"
-           data-show-count="false" data-text="✨✨ https://30.codelab.fun/{{slugify title}}">Tweet #share</a>
+           data-show-count="false" data-text="✨✨ https://30.codelab.fun/{{slugify title}}">Share on twitter</a>
         <script async src="https://platform.twitter.com/widgets.js" charset="utf-8"></script>
     </div>
 </div>

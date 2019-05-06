@@ -88,9 +88,7 @@ module.exports = Metalsmith(__dirname)
 	.use(prep())
 	.use(discoverPartials())
 	.use(registerHelpers())
-	.use(markdown({
-		keys: ['links']
-	}))
+	.use(markdown({}))
 	.use(
 		permalinks({
 			pattern: ':title'

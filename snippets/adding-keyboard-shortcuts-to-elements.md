@@ -5,6 +5,8 @@ level: intermediate
 tags:
   - tips
   - good-to-know
+links:
+  - https://alligator.io/angular/binding-keyup-keydown-events
 ---
 # Content
 
@@ -32,11 +34,6 @@ It's really easy to add keyboard shortcuts in the template:
 <input (keydown.shift.control.z)="...">
 <input (keydown.f4)="...">
 ```
-
-# Links
-
-https://alligator.io/angular/binding-keyup-keydown-events
-
   
 # ComponentCode
 ```typescript

@@ -6,6 +6,8 @@ tags:
   - good-to-know
   - tips
   - components
+links:
+  - https://medium.com/p/96a29d70d11b
 ---
 
 # Content
@@ -30,8 +32,8 @@ export class Wrapper {}
 </wrapper>
 ```
 
-# Links
-https://medium.com/p/96a29d70d11b
+
+
 
 
 # ComponentCode

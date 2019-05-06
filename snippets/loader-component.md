@@ -7,6 +7,10 @@ tags:
   - good-to-know
   - components
   - templates
+  
+links: 
+  - https://medium.com/claritydesignsystem/ng-content-the-hidden-docs-96a29d70d11b
+  - https://blog.angularindepth.com/https-medium-com-thomasburleson-animated-ghosts-bfc045a51fba
 ---
 
 # Content
@@ -35,11 +39,6 @@ For usage example:
 ```html
 <loader [loading]="isLoading"><destroy-the-world></destroy-the-world></loader>
 ```
-# Links
-
-https://medium.com/claritydesignsystem/ng-content-the-hidden-docs-96a29d70d11b
-
-https://blog.angularindepth.com/https-medium-com-thomasburleson-animated-ghosts-bfc045a51fba
 
 # ComponentCode
 ```typescript 

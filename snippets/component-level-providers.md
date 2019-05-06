@@ -6,6 +6,9 @@ tags:
   - tips
   - components
   - dependency-injection
+links:
+  - https://angular.io/guide/hierarchical-dependency-injection#component-level-injectors 
+  - https://stackblitz.com/edit/angular-cdk-happy-animals
 ---
 
 # Content
@@ -28,11 +31,6 @@ export class ProvideComponent {}
 })
 export class ProvideDirective {}
 ```
-
-# Links
-https://angular.io/guide/hierarchical-dependency-injection#component-level-injectors
-
-https://stackblitz.com/edit/angular-cdk-happy-animals
 
 # ComponentCode
 ```typescript

@@ -4,6 +4,8 @@ author: kirjs
 level: intermediate
 tags:
   - dependency injection
+links:
+  - https://angular.io/api/common/DOCUMENT
 ---
 # Content
 Sometimes you need to get access to global `document`. 
@@ -25,9 +27,6 @@ export class AppComponent {
   }
 }
 ```
-
-# Links
-https://angular.io/api/common/DOCUMENT
 
 # ComponentCode
 ```typescript
