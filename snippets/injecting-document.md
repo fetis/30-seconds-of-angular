@@ -19,11 +19,12 @@ import { Inject } from '@angular/core';
   template: `<h1>Edit me </h1>`
 })
 export class AppComponent {
-    constructor(@Inject(DOCUMENT) private document: Document) {
-        // Work with document.location, or other things here....
-    }
+
+  constructor(@Inject(DOCUMENT) private document: Document) {
+    // Word with document.location, or other things here....
+  }
 }
-````
+```
 
 # Links
 https://angular.io/api/common/DOCUMENT
@@ -40,9 +41,9 @@ import { Inject } from '@angular/core';
   template: `<h1>Edit me </h1>`
 })
 export class AppComponent {
-    constructor(@Inject(DOCUMENT) private document: Document) {
-      // Don't do this in prod!
-      document.body.style.backgroundColor = 'pink';
-    }
+  constructor(@Inject(DOCUMENT) private document: Document) {
+    // Don't do this in prod!
+    document.body.style.backgroundColor = 'pink';
+  }
 }
 ```
