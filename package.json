@@ -5,8 +5,8 @@
   "main": "index.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
-    "build": "node metal/build",
-    "start": "node metal/serve",
+    "build": "node builder/build",
+    "start": "node builder/serve",
     "deploy": "npm run build && firebase deploy --only hosting:angular-30-seconds"
   },
   "repository": {
