@@ -18,6 +18,7 @@ export class ShortcutsDirective {
   doImportantThings() {
     console.log('You pressed right');
   }
+}
 ```
 
 
@@ -25,20 +26,20 @@ export class ShortcutsDirective {
 You can have multiple bindings:
 
 ```typescript
-  @HostListener('window:keydown.ArrowRight')
-  @HostListener('window:keydown.PageDown')
-  next() {
-    console.log('Next')
-  }
+@HostListener('window:keydown.ArrowRight')
+@HostListener('window:keydown.PageDown')
+next() {
+  console.log('Next')
+}
 ```
 
 You can also pass params:
 
 ```typescript
-  @HostListener('window:keydown.ArrowRight', '$event.target')
-  next(target) {
-    console.log('Pressed right on this element: ' + target)
-  }
+@HostListener('window:keydown.ArrowRight', '$event.target')
+next(target) {
+  console.log('Pressed right on this element: ' + target)
+}
 ```
 
 # ComponentCode
@@ -48,8 +49,9 @@ import { Component, HostListener } from '@angular/core';
 @Component({
   selector: 'my-app',
   template: `
-  <h2>Try using your keyboard.</h2>
-  <h1>Last pressed: {{lastPressed}} </h1>`
+    <h2>Try using your keyboard.</h2>
+    <h1>Last pressed: {{lastPressed}} </h1>
+  `
 })
 export class AppComponent {
   lastPressed = 'nothing';
