@@ -5,6 +5,12 @@ level: intermediate
 
 tags:
   - router
+links:
+  - https://angular.io/api/router/PreloadingStrategy
+  - https://vsavkin.com/angular-router-preloading-modules-ba3c75e424cb
+  - https://medium.com/@adrianfaciu/custom-preloading-strategy-for-angular-modules-b3b5c873681a
+  - https://coryrylan.com/blog/custom-preloading-and-lazy-loading-strategies-with-angular
+
 ---
 
 # Content
@@ -22,11 +28,6 @@ export class CustomPreloading implements PreloadingStrategy {
 ```
 That example shows the preloading behavior. 
 So, if user has a good network connection, then an application will preload every module, otherwise that strategy won't preload lazy chunks.
-# Links
-https://angular.io/api/router/PreloadingStrategy
-https://vsavkin.com/angular-router-preloading-modules-ba3c75e424cb
-https://medium.com/@adrianfaciu/custom-preloading-strategy-for-angular-modules-b3b5c873681a
-https://coryrylan.com/blog/custom-preloading-and-lazy-loading-strategies-with-angular
 
 # ComponentCode
 ```typescript
