@@ -6,6 +6,8 @@ tags:
   - reactive forms validation
   - tips
   - good to know
+links:
+  - https://angular.io/guide/reactive-forms
 ---
 
 # Content
@@ -21,10 +23,6 @@ Here is the way to notify user that there are fields with non-valid values.
     }
   }
 ```
-
-# Links
-
-https://angular.io/guide/reactive-forms
 
 # ComponentCode
 ```typescript

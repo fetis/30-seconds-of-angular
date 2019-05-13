@@ -4,6 +4,9 @@ author: fetis
 level: intermediate 
 tags:
   - templates
+links:
+  - https://angular.io/api/common/NgTemplateOutlet
+  - https://angular.io/guide/structural-directives#the-ng-template
 ---
 
 # Content
@@ -24,10 +27,6 @@ To do this you can use `ng-template` along with `*ngTemplateOutlet` directive.
   Hello <b>{{name}}!</b>
 </ng-template>
 ```
-
-# Links
-https://angular.io/api/common/NgTemplateOutlet
-https://angular.io/guide/structural-directives#the-ng-template
 
 # ComponentCode
 ```typescript

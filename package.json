@@ -5,7 +5,9 @@
   "main": "index.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
-    "generate": "md-to-json-snippet-generator"
+    "generate": "node builder/build",
+    "start": "node builder/serve",
+    "deploy": "npm run build && firebase deploy --only hosting:angular-30-seconds"
   },
   "repository": {
     "type": "git",
@@ -18,8 +20,28 @@
     "url": "https://github.com/nycJSorg/30-seconds-of-angular/issues"
   },
   "homepage": "https://github.com/nycJSorg/30-seconds-of-angular#readme",
-  "devDependencies": {},
+  "devDependencies": {
+    "metalsmith-rewrite": "^0.1.2"
+  },
   "dependencies": {
-    "md-to-json-snippet-generator": "0.0.9"
+    "helper-markdown": "^1.0.0",
+    "highlight.js": "^9.15.6",
+    "jstransformer-handlebars": "^1.1.0",
+    "md-to-json-snippet-generator": "0.0.9",
+    "metalsmith": "^2.3.0",
+    "metalsmith-collections": "^0.9.0",
+    "metalsmith-copy": "^0.4.1",
+    "metalsmith-discover-partials": "^0.1.2",
+    "metalsmith-layouts": "^2.3.1",
+    "metalsmith-markdown": "^1.2.0",
+    "metalsmith-permalinks": "^2.2.0",
+    "metalsmith-register-helpers": "^0.4.0",
+    "metalsmith-rename": "^1.0.0",
+    "metalsmith-serve": "0.0.7",
+    "metalsmith-static": "0.0.5",
+    "metalsmith-tags": "^2.0.0",
+    "metalsmith-validate": "^0.1.4",
+    "metalsmith-watch": "^1.0.3",
+    "puppeteer": "^1.15.0"
   }
 }

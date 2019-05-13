@@ -18,9 +18,9 @@
 {{capitalize value}} snippets
 
 {{#each items}}
-* [{{title}}](#{{slug}})
+* [{{title}}](#{{slugify title}})
 {{/each}}
-	
+
 {{/group}}
 
 {{#group snippets by="level"}}
@@ -44,7 +44,7 @@
 {{{links}}}
 {{/if}}
 
-<br>[⭐ Interactive demo of this snippet](https://codelab-next.firebaseapp.com/30/angular/{{slug}}) | [⬆ Back to top](#table-of-contents) | tags: {{#each tags}}[{{this}}](https://codelab-next.firebaseapp.com/30/angular/tag/{{this}}) {{/each}} 
+<br>[⭐ Interactive demo of this snippet](https://codelab-next.firebaseapp.com/30/angular/{{slugify title}}) | [⬆ Back to top](#table-of-contents) | tags: {{#each tags}}[{{this}}](https://codelab-next.firebaseapp.com/30/angular/tag/{{this}}) {{/each}}
 <br><br>
 {{/each}}
 {{/group}}

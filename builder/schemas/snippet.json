@@ -34,7 +34,12 @@
         "type": "string"
       },
       "links": {
-        "type": "string"
+        "type": "array",
+        "items": {
+          "type": "string",
+          "maxItems": 5,
+          "uniqueItems": true
+        }
       },
       "componentCode": {
         "type": "string"
@@ -50,7 +55,8 @@
       "title",
       "level",
       "content",
-      "tags"
+      "tags",
+      "author"
     ]
   }
 }

@@ -8,6 +8,10 @@ tags:
   - tips
   - components
   - performance
+  
+links: 
+  - https://angular.io/api/common/NgForOf
+  - https://angular.io/api/core/TrackByFunction
 ---
 
 # Content
@@ -36,11 +40,6 @@ export class AppComponent {
 If trackBy is given, Angular tracks changes by the return value of the function. 
 
 Now when you change the collection, Angular can track which items have been added or removed according to the unique identifier and create/destroy only changed items.
-
-# Links
-
-https://angular.io/api/common/NgForOf
-https://angular.io/api/core/TrackByFunction
 
 # ComponentCode
 ```typescript

@@ -1,0 +1,14 @@
+{{> header }}
+
+
+{{#group snippets by="level"}}
+
+<h2 class="group">{{capitalize value}} snippets</h2>
+
+{{#each items}}
+{{>snippet}}
+{{/each}}
+
+{{/group}}
+
+{{> footer }}

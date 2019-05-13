@@ -5,13 +5,14 @@ level: beginner|intermediate|advanced
 tags:
   - tips
   - good-to-know
+links: 
+  - http://additional.context
 ---
 # Content
 
 
 # Bonus
-<!-- This is optional, remove if not needed -->
-# Links
+
 <!-- This is optional, remove if not needed -->
 
 <!-- 
