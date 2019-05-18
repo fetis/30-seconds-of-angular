@@ -47,12 +47,10 @@ module.exports = (isDevMode = false) => Metalsmith(__dirname)
 		layout: 'tag.hbs'
 	}))
 	.use(generateHtmlFilesForScreenshots())
-	.use(
-		rename([
-			['json/index.html', 'data.json'],
-			['readme/index.html', 'README.md'],
-		])
-	)
+	.use(rename([
+		['json/index.html', 'data.json'],
+		['readme/index.html', 'README.md'],
+	]))
 	.use(layouts({
 		engine: handlebars,
 		default: 'snippet.hbs',
