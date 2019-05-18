@@ -16,10 +16,11 @@ const validate = require('./plugins/validate');
 
 
 
-module.exports = Metalsmith(__dirname)
+module.exports = (isDevMode = false) => Metalsmith(__dirname)
 	.metadata({
 		site: {
-			base: 'https://30.codelab.fun/'
+			base: 'https://30.codelab.fun/',
+			isDevMode
 		}
 	})
 	.source('../snippets')

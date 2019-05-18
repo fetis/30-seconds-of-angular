@@ -40,6 +40,7 @@ module.exports = {
 			content: s.contents.toString(),
 			title: s.title,
 			author: s.author,
+			twitter: s.twitter,
 			level: s.level,
 			tags: s.tags,
 			links: s.links,

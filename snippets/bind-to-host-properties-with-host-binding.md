@@ -1,6 +1,7 @@
 ---
 title: Bind to host properties with host binding
 author: kirjs
+twitter: kirjs
 level: intermediate
 tags:
   - components

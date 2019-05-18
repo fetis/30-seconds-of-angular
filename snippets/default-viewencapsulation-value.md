@@ -1,6 +1,7 @@
 ---
 title: Default ViewEncapsulation value
 author: kirjs
+twitter: kirjs
 level: beginner
 tags:
   - configuration  

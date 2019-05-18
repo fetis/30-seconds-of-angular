@@ -7,7 +7,7 @@ const server = serve({
 	verbose: true
 });
 
-config.use(server)
+config().use(server)
 	.use(screenshots(server))
 	.build(function (err) {
 		if (err) throw err;

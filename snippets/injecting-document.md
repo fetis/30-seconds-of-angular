@@ -1,6 +1,7 @@
 ---
 title: Injecting document
 author: kirjs
+twitter: kirjs
 level: intermediate
 tags:
   - dependency injection

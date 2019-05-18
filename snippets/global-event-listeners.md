@@ -1,6 +1,7 @@
 ---
 title: Global event listeners
 author: kirjs
+twitter: kirjs
 level: intermediate
 tags:
   - events

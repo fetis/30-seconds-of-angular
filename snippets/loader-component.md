@@ -2,6 +2,7 @@
 title: Loader Component
 level: beginner
 author: thekiba
+twitter: thekiba_io
 tags:
   - tips
   - good-to-know
