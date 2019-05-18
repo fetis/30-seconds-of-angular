@@ -43,7 +43,7 @@ class AppComponent {
 import { Component, ViewChildren, QueryList, AfterViewInit } from '@angular/core';
 
 export abstract class Animal {
-    abstract say();
+  abstract say();
 }
 
 @Component({
@@ -52,9 +52,9 @@ export abstract class Animal {
   providers: [{ provide: Animal, useExisting: Fox }]
 })
 export class Fox extends Animal {
-    say() {
-        console.log('Joff-tchoff-tchoffo-tchoffo-tchoff!');
-    }
+  say() {
+    console.log('Joff-tchoff-tchoffo-tchoffo-tchoff!');
+  }
 }
 
 @Component({
@@ -63,9 +63,9 @@ export class Fox extends Animal {
   providers: [{ provide: Animal, useExisting: Rice }]
 })
 export class Rice extends Animal {
-    say() {
-        console.log('lol');
-    }
+  say() {
+    console.log('lol');
+  }
 }
 
 @Component({
@@ -74,25 +74,25 @@ export class Rice extends Animal {
   providers: [{ provide: Animal, useExisting: Dragon }]
 })
 export class Dragon extends Animal {
-    say() {
-        console.log('Wa-pa-pa-pa-pa-pa-pow!');
-    }
+  say() {
+    console.log('Wa-pa-pa-pa-pa-pa-pow!');
+  }
 }
 
 @Component({
-    selector: 'my-app',
-    template: `
-        <fox></fox>
-        <rice></rice>
-        <dragon></dragon>
-    `
+  selector: 'my-app',
+  template: `
+    <fox></fox>
+    <rice></rice>
+    <dragon></dragon>
+  `
 })
 export class AppComponent implements AfterViewInit {
-    @ViewChildren(Animal) animals: QueryList<Animal>;
+  @ViewChildren(Animal) animals: QueryList<Animal>;
 
-    ngAfterViewInit() {
-        animals.forEach((animal) => animal.say());
-    }
+  ngAfterViewInit() {
+    animals.forEach((animal) => animal.say());
+  }
 }
 ```
 
