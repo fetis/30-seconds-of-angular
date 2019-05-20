@@ -1,6 +1,7 @@
 ---
 title: Router Custom Preloading
 author: maktarsis
+twitter: maktarsis
 level: intermediate
 
 tags:
@@ -14,9 +15,14 @@ links:
 ---
 
 # Content
-The topic covers preloadingStrategy API that could help us in preloading modules on demand.
+Angular allows us to control the way module preloading is handled.
 
-So, **@angular/router** provides _PreloadAllModules_ and _NoPreloading_ strategies, and the last one is enabled by default. It works well, but sometimes we need to customize the behavior of preloading. If our app is very large, preload every module in the background may cause unnecessary data to be loaded. Ideally, we would like to preload the core features on demand. This will allow core features to render immediately when the user navigates to the feature while keeping our core bundle small. As well as we continue to lazy load the rest of the less used features on demand when the user navigates.
+There are 2 strategies provided by **@angular/router**: `PreloadAllModules` and `NoPreloading` strategies. The last one is enabled by default, only preloading lazy modules on demand.
+
+We can override this behavior by providing custom preloading strategy.
+
+In the example below we preload all included modules if the connection is good.
+
 ```typescript
 import { Observable, of } from 'rxjs';
 
@@ -25,9 +31,12 @@ export class CustomPreloading implements PreloadingStrategy {
     return preloadingConnection() ? load() : of(null);
   }
 }
+
+const routing: ModuleWithProviders = RouterModule.forRoot(routes, {
+  preloadingStrategy: CustomPreloading
+});
 ```
-That example shows the preloading behavior. 
-So, if user has a good network connection, then an application will preload every module, otherwise that strategy won't preload lazy chunks.
+> Note that that the example above would not be very efficient for larger apps, as it'll preload all the modules.
 
 # ComponentCode
 ```typescript
@@ -65,23 +74,23 @@ class CustomPreloading implements PreloadingStrategy {
 }
 
 const routes: Routes = [
-    { 
-        path: '', 
-        redirectTo: 'items', 
-        pathMatch: 'full' 
-    },
-    {
-        path: 'items',
-        loadChildren: 'app/items/items.module#ItemsModule'
-    },
-    {
-        path: 'item',
-        loadChildren: 'app/details/details.module#DetailsModule'
-    }
+  { 
+      path: '', 
+      redirectTo: 'items', 
+      pathMatch: 'full' 
+  },
+  {
+      path: 'items',
+      loadChildren: 'app/items/items.module#ItemsModule'
+  },
+  {
+      path: 'item',
+      loadChildren: 'app/details/details.module#DetailsModule'
+  }
 ];
 
 const routing: ModuleWithProviders = RouterModule.forRoot(routes, {
-      preloadingStrategy: CustomPreloading
+  preloadingStrategy: CustomPreloading
 });
 
 @NgModule({
