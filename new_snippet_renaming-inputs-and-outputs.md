@@ -28,7 +28,7 @@ Sometimes you need prefixed inputs and outputs in template
 You can rename input to avoid property name bloating
 
 ```typescript
-class Component {
+class PaginationComponent {
   @Input('paginationShowFirst') 
   showFirst: boolean = true;
 
