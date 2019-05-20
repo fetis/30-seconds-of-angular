@@ -2,6 +2,7 @@
 title: Component level providers
 level: intermediate
 author: thekiba
+twitter: thekiba_io
 tags:
   - tips
   - components

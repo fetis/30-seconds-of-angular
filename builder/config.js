@@ -16,10 +16,11 @@ const validate = require('./plugins/validate');
 
 
 
-module.exports = Metalsmith(__dirname)
+module.exports = (isDevMode = false) => Metalsmith(__dirname)
 	.metadata({
 		site: {
-			base: 'https://30.codelab.fun/'
+			base: 'https://30.codelab.fun/',
+			isDevMode
 		}
 	})
 	.source('../snippets')
@@ -46,12 +47,10 @@ module.exports = Metalsmith(__dirname)
 		layout: 'tag.hbs'
 	}))
 	.use(generateHtmlFilesForScreenshots())
-	.use(
-		rename([
-			['json/index.html', 'data.json'],
-			['readme/index.html', 'README.md'],
-		])
-	)
+	.use(rename([
+		['json/index.html', 'data.json'],
+		['readme/index.html', 'README.md'],
+	]))
 	.use(layouts({
 		engine: handlebars,
 		default: 'snippet.hbs',

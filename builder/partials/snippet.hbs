@@ -5,7 +5,6 @@
     <div class="mdl-card__supporting-text">
         {{{markdown content}}}
         {{#if links}}
-            {{links}}
             <h4>Links</h4>
             <ul>
                 {{#each links}}
@@ -37,12 +36,27 @@
             {{/each}}
         </div>
         
-        <div class="author">by <a href="http://github.com/{{author}}" target="_blank" rel="noopener">@{{author}}</a></div>
+        <div class="author">
+            {{#if this.author}}
+                <a class="github-button"
+                   href="http://github.com/{{author}}"
+                   aria-label="Follow @{{author}} on GitHub"
+                   data-show-count="true"
+                   target="_blank" rel="noopener">Follow @{{author}}</a>
+            {{/if}}
+            {{#if this.twitter}}
+                <a class="twitter-follow-button"
+                   href="https://twitter.com/{{twitter}}"
+                   aria-label="Follow @{{twitter}} on Twitter"
+                   data-show-count="true"
+                   target="_blank" rel="noopener"></a>
+            {{/if}}
+        </div>
     </div>
     <div class="mdl-card__menu">
-        <a href="https://twitter.com/intent/tweet?button_hashtag=share&ref_src=twsrc%5Etfw"
+        <a href="https://twitter.com/intent/tweet?ref_src=twsrc%5Etfw"
            class="twitter-hashtag-button"
-           data-show-count="false" data-text="✨✨ https://30.codelab.fun/{{slugify title}}">Share on twitter</a>
-        <script async src="https://platform.twitter.com/widgets.js" charset="utf-8"></script>
+           data-hashtags="30SecondsOfAngular"
+           data-text="✨✨ {{title}} | 30 Seconds of Angular&#010;https://30.codelab.fun/{{slugify title}}"></a>
     </div>
 </div>

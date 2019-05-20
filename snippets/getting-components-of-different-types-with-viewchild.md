@@ -2,6 +2,7 @@
 title: Getting components of different types with ViewChild
 level: advanced
 author: thekiba
+twitter: thekiba_io
 tags:
   - good-to-know
   - tips

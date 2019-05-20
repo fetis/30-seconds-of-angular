@@ -1,7 +1,8 @@
 ---
 title: Accessing all nested form controls
-author: thekiba
 level: intermediate
+author: thekiba
+twitter: thekiba_io
 tags:
   - reactive forms
   - tips
@@ -11,7 +12,6 @@ links:
 ---
 
 # Content
-
 Sometimes we need to work with every single Control is a form. Here's how it can be done: 
 
 ```typescript

@@ -1,7 +1,8 @@
 ---
 title: Style bindings
 level: intermediate
-author: Jamaks
+author: irustm
+twitter: irustm
 tags:
   - styles
 ---

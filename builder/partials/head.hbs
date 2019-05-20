@@ -7,6 +7,11 @@
 <meta charset="UTF-8">
 <base href="/">
 <script defer src="https://code.getmdl.io/1.3.0/material.min.js"></script>
+<script async defer src="https://platform.twitter.com/widgets.js" charset="utf-8"></script>
+<script async defer src="https://buttons.github.io/buttons.js"></script>
+{{#if site.isDevMode}}
+    <script async src="http://localhost:35729/livereload.js"></script>
+{{/if}}
 <style>
     .card, h2.group {
         margin: 0 auto;
@@ -77,6 +82,11 @@
 
     .footer .author {
         line-height: 36px;
+    }
+
+    .footer .author > * {
+        display: inline-block;
+        vertical-align: middle;
     }
 
     .mdl-card__actions {

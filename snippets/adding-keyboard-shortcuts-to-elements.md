@@ -1,6 +1,7 @@
 ---
 title: Adding keyboard shortcuts to elements
 author: kirjs
+twitter: kirjs
 level: intermediate
 tags:
   - tips
