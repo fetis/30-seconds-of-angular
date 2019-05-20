@@ -1,15 +1,10 @@
 ---
 title: Renaming inputs and outputs
-
 author: Alex Kulagin
-
 level: beginner
-
 tags:
 - components
 - templates
-
-
 links:
 - https://angular.io/guide/styleguide#style-05-13
 ---
