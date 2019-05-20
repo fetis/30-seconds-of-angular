@@ -1,15 +1,13 @@
 ---
 title: Reusing existing custom pipes
-
-author: Kirill Cherkashin
-
+author: kirjs
+twitter: kirjs
 level: intermediate
 
 tags:
 - tip
 - pipes
 - library
-
 
 links:
 - https://github.com/danrevah/ngx-pipes
