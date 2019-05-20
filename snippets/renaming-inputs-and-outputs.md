@@ -10,7 +10,7 @@ links:
 ---
 
 # Content
-Sometimes you need prefixed inputs and outputs in template
+In certain cases `@Input` and `@Output` properties can be named differently than the actual inputs and outputs.
 
 ```html
 <div 
@@ -20,9 +20,8 @@ Sometimes you need prefixed inputs and outputs in template
 </div>
 ```
 
-You can rename input to avoid property name bloating
-
 ```typescript
+@Directive({ selector: '[pagination]'})
 class PaginationComponent {
   @Input('paginationShowFirst') 
   showFirst: boolean = true;
@@ -31,3 +30,4 @@ class PaginationComponent {
   pageChanged = new EventEmitter();
 }
 ```
+> Note: Use this wisely, see [StyleGuide recommedation](https://angular.io/guide/styleguide#style-05-13)
