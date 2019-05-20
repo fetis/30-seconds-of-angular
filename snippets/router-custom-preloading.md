@@ -19,9 +19,7 @@ Angular allows us to control the way module preloading is handled.
 
 There are 2 strategies provided by **@angular/router**: `PreloadAllModules` and `NoPreloading` strategies. The last one is enabled by default, only preloading lazy modules on demand.
 
-We can override this behavior by providing custom preloading strategy.
-
-In the example below we preload all included modules if the connection is good.
+We can override this behavior by providing custom preloading strategy: In the example below we preload all included modules if the connection is good.
 
 ```typescript
 import { Observable, of } from 'rxjs';
