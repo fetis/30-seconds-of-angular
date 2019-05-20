@@ -2,7 +2,7 @@
 title: Router Custom Preloading
 author: maktarsis
 twitter: maktarsis
-level: intermediate
+level: advanced
 
 tags:
   - router
