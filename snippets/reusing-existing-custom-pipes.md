@@ -19,13 +19,16 @@ If you need a custom `pipe`, before creating one, consider checking out the [NGX
 Here are some examples:
 
 ```html
-<span>Updated: {{lastWeek | timeAgo}}</span> <!-- Output: "last week" -->
+<p>{{ date | timeAgo }}</p> 
+<!-- Output: "last week" -->
 
-<p>{{'foo bar' | ucfirst }}</p> <!-- Output: "Foo bar" -->
+<p>{{ 'foo bar' | ucfirst }}</p>
+<!-- Output: "Foo bar" -->
 
-<span>{{'Painting' | makePluralString}}</span> <!-- Output: "Paintings" -->
+<p>3 {{ 'Painting' | makePluralString:3 }}</p>
+<!-- Output: "3 Paintings" -->
 
-<p>{{ [1, 2, 3, 1, 2, 3] | max }}</p> <!-- Output: "3" -->
-
+<p>{{ [1, 2, 3, 1, 2, 3] | max }}</p>
+<!-- Output: "3" -->
 ```
 
