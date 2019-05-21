@@ -16,4 +16,5 @@ links:
 # Content
 Check out [Angular Cheat Sheet](https://angular.io/guide/cheatsheet) which contains lots of useful information condensed in one place. 
 
+There's also an [alternative version](https://malcoded.com/angular-cheat-sheet).
 
