@@ -36,11 +36,13 @@ Beginner snippets
 * [ng-content](#ng-content)
 * [ngIf else](#ngif-else)
 * [Optional parameters in the middle](#optional-parameters-in-the-middle)
+* [Renaming inputs and outputs](#renaming-inputs-and-outputs)
 * [trackBy in for loops](#trackby-in-for-loops)
 
 Advanced snippets
 
 * [Getting components of different types with ViewChild](#getting-components-of-different-types-with-viewchild)
+* [Router Custom Preloading](#router-custom-preloading)
 
 
 
@@ -73,7 +75,7 @@ extractControls(form).forEach((control) => control.markAsTouched({ onlySelf: tru
 #### Links
 https://angular.io/guide/reactive-forms
 
-<br>[⭐ Interactive demo of this snippet](https://codelab-next.firebaseapp.com/30/angular/accessing-all-nested-form-controls) | [⬆ Back to top](#table-of-contents) | tags: [reactive forms](https://codelab-next.firebaseapp.com/30/angular/tag/reactive forms) [tips](https://codelab-next.firebaseapp.com/30/angular/tag/tips) [good to know](https://codelab-next.firebaseapp.com/30/angular/tag/good to know) 
+<br>[⭐ Interactive demo of this snippet](https://30.codelab.fun/accessing-all-nested-form-controls) | [⬆ Back to top](#table-of-contents) | tags: [reactive forms](https://30.codelab.fun/tags/reactive-forms) [tips](https://30.codelab.fun/tags/tips) [good to know](https://30.codelab.fun/tags/good-to-know) 
 <br><br>
 ### Adding keyboard shortcuts to elements
 It's really easy to add keyboard shortcuts in the template: 
@@ -105,7 +107,7 @@ It's really easy to add keyboard shortcuts in the template:
 #### Links
 https://alligator.io/angular/binding-keyup-keydown-events
 
-<br>[⭐ Interactive demo of this snippet](https://codelab-next.firebaseapp.com/30/angular/adding-keyboard-shortcuts-to-elements) | [⬆ Back to top](#table-of-contents) | tags: [tips](https://codelab-next.firebaseapp.com/30/angular/tag/tips) [good-to-know](https://codelab-next.firebaseapp.com/30/angular/tag/good-to-know) 
+<br>[⭐ Interactive demo of this snippet](https://30.codelab.fun/adding-keyboard-shortcuts-to-elements) | [⬆ Back to top](#table-of-contents) | tags: [tips](https://30.codelab.fun/tags/tips) [good-to-know](https://30.codelab.fun/tags/good-to-know) 
 <br><br>
 ### Bind to host properties with host binding
 Every rendered angular component is wrapped in a host element (which is the same as component's selector).
@@ -132,7 +134,7 @@ export class AppComponent {
 
 
 
-<br>[⭐ Interactive demo of this snippet](https://codelab-next.firebaseapp.com/30/angular/bind-to-host-properties-with-host-binding) | [⬆ Back to top](#table-of-contents) | tags: [components](https://codelab-next.firebaseapp.com/30/angular/tag/components) 
+<br>[⭐ Interactive demo of this snippet](https://30.codelab.fun/bind-to-host-properties-with-host-binding) | [⬆ Back to top](#table-of-contents) | tags: [components](https://30.codelab.fun/tags/components) 
 <br><br>
 ### Component level providers
 Generally we get one service instance per the whole application. 
@@ -159,7 +161,7 @@ export class ProvideDirective {}
 #### Links
 https://angular.io/guide/hierarchical-dependency-injection#component-level-injectors,https://stackblitz.com/edit/angular-cdk-happy-animals
 
-<br>[⭐ Interactive demo of this snippet](https://codelab-next.firebaseapp.com/30/angular/component-level-providers) | [⬆ Back to top](#table-of-contents) | tags: [tips](https://codelab-next.firebaseapp.com/30/angular/tag/tips) [components](https://codelab-next.firebaseapp.com/30/angular/tag/components) [dependency-injection](https://codelab-next.firebaseapp.com/30/angular/tag/dependency-injection) 
+<br>[⭐ Interactive demo of this snippet](https://30.codelab.fun/component-level-providers) | [⬆ Back to top](#table-of-contents) | tags: [tips](https://30.codelab.fun/tags/tips) [components](https://30.codelab.fun/tags/components) [dependency-injection](https://30.codelab.fun/tags/dependency-injection) 
 <br><br>
 ### Global event listeners
 It is possible to add global event listeners in your Components/Directives with `HostListener`. Angular will take care of unsubscribing once your directive is destroyed.
@@ -200,7 +202,7 @@ next(target) {
 </details>
 
 
-<br>[⭐ Interactive demo of this snippet](https://codelab-next.firebaseapp.com/30/angular/global-event-listeners) | [⬆ Back to top](#table-of-contents) | tags: [events](https://codelab-next.firebaseapp.com/30/angular/tag/events) [components](https://codelab-next.firebaseapp.com/30/angular/tag/components) 
+<br>[⭐ Interactive demo of this snippet](https://30.codelab.fun/global-event-listeners) | [⬆ Back to top](#table-of-contents) | tags: [events](https://30.codelab.fun/tags/events) [components](https://30.codelab.fun/tags/components) 
 <br><br>
 ### Injecting document
 Sometimes you need to get access to global `document`. 
@@ -227,7 +229,7 @@ export class AppComponent {
 #### Links
 https://angular.io/api/common/DOCUMENT
 
-<br>[⭐ Interactive demo of this snippet](https://codelab-next.firebaseapp.com/30/angular/injecting-document) | [⬆ Back to top](#table-of-contents) | tags: [dependency injection](https://codelab-next.firebaseapp.com/30/angular/tag/dependency injection) 
+<br>[⭐ Interactive demo of this snippet](https://30.codelab.fun/injecting-document) | [⬆ Back to top](#table-of-contents) | tags: [dependency injection](https://30.codelab.fun/tags/dependency-injection) 
 <br><br>
 ### Mark reactive fields as touched
 Here is the way to notify user that there are fields with non-valid values.
@@ -252,7 +254,7 @@ It's very useful to check out more general method [Accessing all nested form con
 #### Links
 https://angular.io/guide/reactive-forms
 
-<br>[⭐ Interactive demo of this snippet](https://codelab-next.firebaseapp.com/30/angular/mark-reactive-fields-as-touched) | [⬆ Back to top](#table-of-contents) | tags: [reactive forms validation](https://codelab-next.firebaseapp.com/30/angular/tag/reactive forms validation) [tips](https://codelab-next.firebaseapp.com/30/angular/tag/tips) [good to know](https://codelab-next.firebaseapp.com/30/angular/tag/good to know) 
+<br>[⭐ Interactive demo of this snippet](https://30.codelab.fun/mark-reactive-fields-as-touched) | [⬆ Back to top](#table-of-contents) | tags: [reactive forms validation](https://30.codelab.fun/tags/reactive-forms-validation) [tips](https://30.codelab.fun/tags/tips) [good to know](https://30.codelab.fun/tags/good-to-know) 
 <br><br>
 ### Passing template as an input
 It's possible to take a template as `@Input` for a component to customize the render
@@ -285,7 +287,7 @@ export class SiteMenuComponent  {
 #### Links
 https://blog.angular-university.io/angular-ng-template-ng-container-ngtemplateoutlet
 
-<br>[⭐ Interactive demo of this snippet](https://codelab-next.firebaseapp.com/30/angular/passing-template-as-an-input) | [⬆ Back to top](#table-of-contents) | tags: [template](https://codelab-next.firebaseapp.com/30/angular/tag/template) 
+<br>[⭐ Interactive demo of this snippet](https://30.codelab.fun/passing-template-as-an-input) | [⬆ Back to top](#table-of-contents) | tags: [template](https://30.codelab.fun/tags/template) 
 <br><br>
 ### Reusing code in template
 While the best way of reusing your code is creating a component, it's also possible to do it in a template.
@@ -310,7 +312,7 @@ To do this you can use `ng-template` along with `*ngTemplateOutlet` directive.
 #### Links
 https://angular.io/api/common/NgTemplateOutlet,https://angular.io/guide/structural-directives#the-ng-template
 
-<br>[⭐ Interactive demo of this snippet](https://codelab-next.firebaseapp.com/30/angular/reusing-code-in-template) | [⬆ Back to top](#table-of-contents) | tags: [templates](https://codelab-next.firebaseapp.com/30/angular/tag/templates) 
+<br>[⭐ Interactive demo of this snippet](https://30.codelab.fun/reusing-code-in-template) | [⬆ Back to top](#table-of-contents) | tags: [templates](https://30.codelab.fun/tags/templates) 
 <br><br>
 ### Style bindings
 You can use advanced property bindings to set specific style values based on component property values: 
@@ -342,7 +344,7 @@ You can use advanced property bindings to set specific style values based on com
 </details>
 
 
-<br>[⭐ Interactive demo of this snippet](https://codelab-next.firebaseapp.com/30/angular/style-bindings) | [⬆ Back to top](#table-of-contents) | tags: [styles](https://codelab-next.firebaseapp.com/30/angular/tag/styles) 
+<br>[⭐ Interactive demo of this snippet](https://30.codelab.fun/style-bindings) | [⬆ Back to top](#table-of-contents) | tags: [styles](https://30.codelab.fun/tags/styles) 
 <br><br>
 ### Window Location injection
 For testing purposes you might want to inject `window.location` object in your component.
@@ -373,7 +375,7 @@ export class AppComponent {
 #### Links
 https://itnext.io/testing-browser-window-location-in-angular-application-e4e8388508ff,https://angular.io/guide/dependency-injection
 
-<br>[⭐ Interactive demo of this snippet](https://codelab-next.firebaseapp.com/30/angular/window-location-injection) | [⬆ Back to top](#table-of-contents) | tags: [dependency-injection](https://codelab-next.firebaseapp.com/30/angular/tag/dependency-injection) [testing](https://codelab-next.firebaseapp.com/30/angular/tag/testing) 
+<br>[⭐ Interactive demo of this snippet](https://30.codelab.fun/window-location-injection) | [⬆ Back to top](#table-of-contents) | tags: [dependency-injection](https://30.codelab.fun/tags/dependency-injection) [testing](https://30.codelab.fun/tags/testing) 
 <br><br>
 
 ## Beginner snippets
@@ -399,7 +401,7 @@ export class AppComponent {
 
 
 
-<br>[⭐ Interactive demo of this snippet](https://codelab-next.firebaseapp.com/30/angular/accessing-enums-in-template) | [⬆ Back to top](#table-of-contents) | tags: [enums](https://codelab-next.firebaseapp.com/30/angular/tag/enums) [templates](https://codelab-next.firebaseapp.com/30/angular/tag/templates) 
+<br>[⭐ Interactive demo of this snippet](https://30.codelab.fun/accessing-enums-in-template) | [⬆ Back to top](#table-of-contents) | tags: [enums](https://30.codelab.fun/tags/enums) [templates](https://30.codelab.fun/tags/templates) 
 <br><br>
 ### Default ViewEncapsulation value
 If you're using `ViewEncapsulation` value which is different than default, it might be daunting to set the value manually for every component. 
@@ -417,7 +419,7 @@ platformBrowserDynamic().bootstrapModule(AppModule, [
 
 
 
-<br>[⭐ Interactive demo of this snippet](https://codelab-next.firebaseapp.com/30/angular/default-viewencapsulation-value) | [⬆ Back to top](#table-of-contents) | tags: [configuration](https://codelab-next.firebaseapp.com/30/angular/tag/configuration) [styling](https://codelab-next.firebaseapp.com/30/angular/tag/styling) 
+<br>[⭐ Interactive demo of this snippet](https://30.codelab.fun/default-viewencapsulation-value) | [⬆ Back to top](#table-of-contents) | tags: [configuration](https://30.codelab.fun/tags/configuration) [styling](https://30.codelab.fun/tags/styling) 
 <br><br>
 ### Loader Component
 You can create own helper component and use it instead of `*ngIf`.
@@ -450,7 +452,7 @@ For usage example:
 #### Links
 https://medium.com/claritydesignsystem/ng-content-the-hidden-docs-96a29d70d11b,https://blog.angularindepth.com/https-medium-com-thomasburleson-animated-ghosts-bfc045a51fba
 
-<br>[⭐ Interactive demo of this snippet](https://codelab-next.firebaseapp.com/30/angular/loader-component) | [⬆ Back to top](#table-of-contents) | tags: [tips](https://codelab-next.firebaseapp.com/30/angular/tag/tips) [good-to-know](https://codelab-next.firebaseapp.com/30/angular/tag/good-to-know) [components](https://codelab-next.firebaseapp.com/30/angular/tag/components) [templates](https://codelab-next.firebaseapp.com/30/angular/tag/templates) 
+<br>[⭐ Interactive demo of this snippet](https://30.codelab.fun/loader-component) | [⬆ Back to top](#table-of-contents) | tags: [tips](https://30.codelab.fun/tags/tips) [good-to-know](https://30.codelab.fun/tags/good-to-know) [components](https://30.codelab.fun/tags/components) [templates](https://30.codelab.fun/tags/templates) 
 <br><br>
 ### ng-content
 With `ng-content` you can pass any elements to a component. 
@@ -478,7 +480,7 @@ export class Wrapper {}
 #### Links
 https://medium.com/p/96a29d70d11b
 
-<br>[⭐ Interactive demo of this snippet](https://codelab-next.firebaseapp.com/30/angular/ng-content) | [⬆ Back to top](#table-of-contents) | tags: [good-to-know](https://codelab-next.firebaseapp.com/30/angular/tag/good-to-know) [tips](https://codelab-next.firebaseapp.com/30/angular/tag/tips) [components](https://codelab-next.firebaseapp.com/30/angular/tag/components) 
+<br>[⭐ Interactive demo of this snippet](https://30.codelab.fun/ng-content) | [⬆ Back to top](#table-of-contents) | tags: [good-to-know](https://30.codelab.fun/tags/good-to-know) [tips](https://30.codelab.fun/tags/tips) [components](https://30.codelab.fun/tags/components) 
 <br><br>
 ### ngIf else
 `*ngIf` directive also supports `else` statement.
@@ -491,7 +493,7 @@ https://medium.com/p/96a29d70d11b
 
 
 
-<br>[⭐ Interactive demo of this snippet](https://codelab-next.firebaseapp.com/30/angular/ngif-else) | [⬆ Back to top](#table-of-contents) | tags: [ngif](https://codelab-next.firebaseapp.com/30/angular/tag/ngif) [templates](https://codelab-next.firebaseapp.com/30/angular/tag/templates) 
+<br>[⭐ Interactive demo of this snippet](https://30.codelab.fun/ngif-else) | [⬆ Back to top](#table-of-contents) | tags: [ngif](https://30.codelab.fun/tags/ngif) [templates](https://30.codelab.fun/tags/templates) 
 <br><br>
 ### Optional parameters in the middle
 Navigate with matrix params:
@@ -507,7 +509,36 @@ the router will navigate to `/first;name=foo/details`
 #### Links
 https://stackblitz.com/edit/angular-xvy5pd
 
-<br>[⭐ Interactive demo of this snippet](https://codelab-next.firebaseapp.com/30/angular/optional-parameters-in-the-middle) | [⬆ Back to top](#table-of-contents) | tags: [routing](https://codelab-next.firebaseapp.com/30/angular/tag/routing) 
+<br>[⭐ Interactive demo of this snippet](https://30.codelab.fun/optional-parameters-in-the-middle) | [⬆ Back to top](#table-of-contents) | tags: [routing](https://30.codelab.fun/tags/routing) 
+<br><br>
+### Renaming inputs and outputs
+In certain cases `@Input` and `@Output` properties can be named differently than the actual inputs and outputs.
+
+```html
+<div 
+  pagination 
+  paginationShowFirst="true"
+  (paginationPageChanged)="onPageChanged($event)">
+</div>
+```
+
+```typescript
+@Directive({ selector: '[pagination]'})
+class PaginationComponent {
+  @Input('paginationShowFirst') 
+  showFirst: boolean = true;
+
+  @Output('paginationPageChanged') 
+  pageChanged = new EventEmitter();
+}
+```
+> Note: Use this wisely, see [StyleGuide recommedation](https://angular.io/guide/styleguide#style-05-13)
+
+
+#### Links
+https://angular.io/guide/styleguide#style-05-13
+
+<br>[⭐ Interactive demo of this snippet](https://30.codelab.fun/renaming-inputs-and-outputs) | [⬆ Back to top](#table-of-contents) | tags: [components](https://30.codelab.fun/tags/components) [templates](https://30.codelab.fun/tags/templates) 
 <br><br>
 ### trackBy in for loops
 To avoid the expensive operations, we can help Angular to track which items added or removed i.e. customize the default tracking algorithm by providing a trackBy option to NgForOf.
@@ -540,7 +571,7 @@ Now when you change the collection, Angular can track which items have been adde
 #### Links
 https://angular.io/api/common/NgForOf,https://angular.io/api/core/TrackByFunction
 
-<br>[⭐ Interactive demo of this snippet](https://codelab-next.firebaseapp.com/30/angular/trackby-in-for-loops) | [⬆ Back to top](#table-of-contents) | tags: [good-to-know](https://codelab-next.firebaseapp.com/30/angular/tag/good-to-know) [tips](https://codelab-next.firebaseapp.com/30/angular/tag/tips) [components](https://codelab-next.firebaseapp.com/30/angular/tag/components) [performance](https://codelab-next.firebaseapp.com/30/angular/tag/performance) 
+<br>[⭐ Interactive demo of this snippet](https://30.codelab.fun/trackby-in-for-loops) | [⬆ Back to top](#table-of-contents) | tags: [good-to-know](https://30.codelab.fun/tags/good-to-know) [tips](https://30.codelab.fun/tags/tips) [components](https://30.codelab.fun/tags/components) [performance](https://30.codelab.fun/tags/performance) 
 <br><br>
 
 ## Advanced snippets
@@ -576,5 +607,33 @@ class AppComponent {
 #### Links
 https://www.youtube.com/watch?v=PRRgo6F0cjs
 
-<br>[⭐ Interactive demo of this snippet](https://codelab-next.firebaseapp.com/30/angular/getting-components-of-different-types-with-viewchild) | [⬆ Back to top](#table-of-contents) | tags: [good-to-know](https://codelab-next.firebaseapp.com/30/angular/tag/good-to-know) [tips](https://codelab-next.firebaseapp.com/30/angular/tag/tips) [components](https://codelab-next.firebaseapp.com/30/angular/tag/components) [dependency-injection](https://codelab-next.firebaseapp.com/30/angular/tag/dependency-injection) 
+<br>[⭐ Interactive demo of this snippet](https://30.codelab.fun/getting-components-of-different-types-with-viewchild) | [⬆ Back to top](#table-of-contents) | tags: [good-to-know](https://30.codelab.fun/tags/good-to-know) [tips](https://30.codelab.fun/tags/tips) [components](https://30.codelab.fun/tags/components) [dependency-injection](https://30.codelab.fun/tags/dependency-injection) 
+<br><br>
+### Router Custom Preloading
+Angular allows us to control the way module preloading is handled.
+
+There are 2 strategies provided by **@angular/router**: `PreloadAllModules` and `NoPreloading`. The latter enabled by default, only preloading lazy modules on demand.
+
+We can override this behavior by providing custom preloading strategy: In the example below we preload all included modules if the connection is good.
+
+```typescript
+import { Observable, of } from 'rxjs';
+
+export class CustomPreloading implements PreloadingStrategy {
+  public preload(route: Route, load: () => Observable<any>): Observable<any> {
+    return preloadingConnection() ? load() : of(null);
+  }
+}
+
+const routing: ModuleWithProviders = RouterModule.forRoot(routes, {
+  preloadingStrategy: CustomPreloading
+});
+```
+> Note that that the example above would not be very efficient for larger apps, as it'll preload all the modules.
+
+
+#### Links
+https://angular.io/api/router/PreloadingStrategy,https://vsavkin.com/angular-router-preloading-modules-ba3c75e424cb,https://medium.com/@adrianfaciu/custom-preloading-strategy-for-angular-modules-b3b5c873681a,https://coryrylan.com/blog/custom-preloading-and-lazy-loading-strategies-with-angular
+
+<br>[⭐ Interactive demo of this snippet](https://30.codelab.fun/router-custom-preloading) | [⬆ Back to top](#table-of-contents) | tags: [router](https://30.codelab.fun/tags/router) 
 <br><br>

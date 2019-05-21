@@ -44,7 +44,7 @@
 {{{links}}}
 {{/if}}
 
-<br>[⭐ Interactive demo of this snippet](https://codelab-next.firebaseapp.com/30/angular/{{slugify title}}) | [⬆ Back to top](#table-of-contents) | tags: {{#each tags}}[{{this}}](https://codelab-next.firebaseapp.com/30/angular/tag/{{this}}) {{/each}}
+<br>[⭐ Interactive demo of this snippet](https://30.codelab.fun/{{slugify title}}) | [⬆ Back to top](#table-of-contents) | tags: {{#each tags}}[{{this}}](https://30.codelab.fun/tags/{{#if this.name}}{{slugify this.name}}{{else}}{{slugify this}}{{/if}}) {{/each}}
 <br><br>
 {{/each}}
 {{/group}}
