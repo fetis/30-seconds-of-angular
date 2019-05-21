@@ -1,6 +1,6 @@
 ---
 title: SVG
-author: NothingEverHappens
+author: kirjs
 twitter: kirjs
 level: advanced
 tags:
