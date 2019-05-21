@@ -1,6 +1,6 @@
 ---
 title: Understanding Microsyntax
-author: NothingEverHappens
+author: kirjs
 twitter: kirjs
 level: beginner
 tags:
@@ -23,7 +23,6 @@ Under the hood Angular compiles structural directives into ng-template elements,
 
 <!-- Get expanded into this -->
 <ng-template ngFor [ngForOf]="[1,2,3]" let-item="$implicit"></ng-template>
-
 ```
 
 The value passed to *ngFor directive is written using microsyntax. You can learn about it [in the docs](https://angular.io/guide/structural-directives#microsyntax). 
