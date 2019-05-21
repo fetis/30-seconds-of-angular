@@ -1,6 +1,6 @@
 ---
 title: Two-way binding any property
-author: NothingEverHappens
+author: kirjs
 twitter: kirjs
 level: intermediate
 tags:
