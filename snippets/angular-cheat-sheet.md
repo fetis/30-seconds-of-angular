@@ -1,6 +1,6 @@
 ---
 title: Angular cheat sheet
-author: NothingEverHappens
+author: kirjs
 twitter: kirjs
 level: beginner
 tags:
