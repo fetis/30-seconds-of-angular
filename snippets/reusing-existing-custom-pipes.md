@@ -25,7 +25,7 @@ Here are some examples:
 <p>{{ 'foo bar' | ucfirst }}</p>
 <!-- Output: "Foo bar" -->
 
-<p>{{ '3 Painting' | makePluralString: 3 }}</p>
+<p>3 {{ 'Painting' | makePluralString: 3 }}</p>
 <!-- Output: "3 Paintings" -->
 
 <p>{{ [1, 2, 3, 1, 2, 3] | max }}</p>
