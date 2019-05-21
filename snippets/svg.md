@@ -13,7 +13,7 @@ It is possible to use SVG tags in your Angular component, to create beautiful gr
 
 1. When binding an SVG attribute, use `attr`
 ```html
-<circle [attr.cx]="x"  [attr.cy]="y"></circle>
+<circle [attr.cx]="x" [attr.cy]="y"></circle>
 ```
 
 2. When creating sub-components, use attribute and not tag selector:
@@ -30,9 +30,8 @@ It is possible to use SVG tags in your Angular component, to create beautiful gr
 @Component({
   selector: '[child-component]',
   template: `<svg:circle></svg:circle>`
- })
+})
 ```
-
 
 # ComponentCode
 ```typescript
@@ -44,7 +43,6 @@ function generateData() {
     value: Math.round(Math.random() * 80)
   }));
 }
-
 
 @Component({
   selector: '[kirjs-ticks]',
@@ -69,8 +67,6 @@ export class TicksComponent {
     return i;
   }
 }
-
-
 
 @Component({
   selector: 'my-app',
@@ -119,8 +115,7 @@ export class AppComponent {
 ```typescript
 import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
-import { AppComponent, TicksComponent} from './app.component';
-
+import { AppComponent, TicksComponent } from './app.component';
 
 @NgModule({
   imports: [BrowserModule],
