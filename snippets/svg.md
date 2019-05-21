@@ -59,8 +59,8 @@ function generateData() {
 })
 export class TicksComponent {
   @Input() data;
-  @Input() barWidth = 10;
-  padding = 4;
+  @Input() barWidth = 30;
+  padding = 10;
   barSpace = this.padding + this.barWidth;
 
   getIndex(i: number) {
@@ -71,11 +71,11 @@ export class TicksComponent {
 @Component({
   selector: 'my-app',
   template: `
-    <svg>
+    <svg style="width:600px; height: 600px">
       <g
         *ngFor="let item of data; let i = index; trackBy: getIndex"
         [style.transform]="
-          'translate(' + barSpace * i + 'px, ' + (120 - item.value) + 'px)'
+          'translate(' + barSpace * i + 'px, ' + (320 - item.value) + 'px)'
         "
       >
         <rect

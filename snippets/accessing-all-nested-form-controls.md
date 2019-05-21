@@ -31,7 +31,8 @@ For examples use:
 extractControls(form).filter((control) => control.dirty);
 
 // mark all controls as touched
-extractControls(form).forEach((control) => control.markAsTouched({ onlySelf: true }));
+extractControls(form).forEach((control) => 
+    control.markAsTouched({ onlySelf: true }));
 ```
 
 # ComponentCode

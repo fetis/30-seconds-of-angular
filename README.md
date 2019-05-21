@@ -25,7 +25,9 @@ Intermediate snippets
 * [Mark reactive fields as touched](#mark-reactive-fields-as-touched)
 * [Passing template as an input](#passing-template-as-an-input)
 * [Reusing code in template](#reusing-code-in-template)
+* [Reusing existing custom pipes](#reusing-existing-custom-pipes)
 * [Style bindings](#style-bindings)
+* [Two-way binding any property](#two-way-binding-any-property)
 * [Window Location injection](#window-location-injection)
 
 Beginner snippets
@@ -38,11 +40,13 @@ Beginner snippets
 * [Optional parameters in the middle](#optional-parameters-in-the-middle)
 * [Renaming inputs and outputs](#renaming-inputs-and-outputs)
 * [trackBy in for loops](#trackby-in-for-loops)
+* [Understanding Microsyntax](#understanding-microsyntax)
 
 Advanced snippets
 
 * [Getting components of different types with ViewChild](#getting-components-of-different-types-with-viewchild)
 * [Router Custom Preloading](#router-custom-preloading)
+* [SVG](#svg)
 
 
 
@@ -68,7 +72,8 @@ For examples use:
 extractControls(form).filter((control) => control.dirty);
 
 // mark all controls as touched
-extractControls(form).forEach((control) => control.markAsTouched({ onlySelf: true }));
+extractControls(form).forEach((control) => 
+    control.markAsTouched({ onlySelf: true }));
 ```
 
 
@@ -314,6 +319,31 @@ https://angular.io/api/common/NgTemplateOutlet,https://angular.io/guide/structur
 
 <br>[⭐ Interactive demo of this snippet](https://30.codelab.fun/reusing-code-in-template) | [⬆ Back to top](#table-of-contents) | tags: [templates](https://30.codelab.fun/tags/templates) 
 <br><br>
+### Reusing existing custom pipes
+If you need a custom `pipe`, before creating one, consider checking out the [NGX Pipes package](https://github.com/danrevah/ngx-pipes) which has 70+ already implemeted custom pipes.
+
+Here are some examples:
+
+```html
+<p>{{ date | timeAgo }}</p> 
+<!-- Output: "last week" -->
+
+<p>{{ 'foo bar' | ucfirst }}</p>
+<!-- Output: "Foo bar" -->
+
+<p>3 {{ 'Painting' | makePluralString: 3 }}</p>
+<!-- Output: "3 Paintings" -->
+
+<p>{{ [1, 2, 3, 1, 2, 3] | max }}</p>
+<!-- Output: "3" -->
+```
+
+
+#### Links
+https://github.com/danrevah/ngx-pipes
+
+<br>[⭐ Interactive demo of this snippet](https://30.codelab.fun/reusing-existing-custom-pipes) | [⬆ Back to top](#table-of-contents) | tags: [tip](https://30.codelab.fun/tags/tip) [pipes](https://30.codelab.fun/tags/pipes) [library](https://30.codelab.fun/tags/library) 
+<br><br>
 ### Style bindings
 You can use advanced property bindings to set specific style values based on component property values: 
 
@@ -345,6 +375,29 @@ You can use advanced property bindings to set specific style values based on com
 
 
 <br>[⭐ Interactive demo of this snippet](https://30.codelab.fun/style-bindings) | [⬆ Back to top](#table-of-contents) | tags: [styles](https://30.codelab.fun/tags/styles) 
+<br><br>
+### Two-way binding any property
+Similar to how you can two-way bind `[(ngModel)]` you can two-way bind custom property on a component, for example `[(value)]`. To do it use appropriate Input/Output naming:
+
+```typescript
+@Component({
+  selector: 'super-input', 
+  template: `...`,
+})
+export class AppComponent {
+  @Input() value: string;
+  @Output() valueChange = new EventEmitter<string>();
+}
+```
+
+Then you can use it as:
+```html
+<super-input [(value)]="value"></super-input>
+```
+
+
+
+<br>[⭐ Interactive demo of this snippet](https://30.codelab.fun/two-way-binding-any-property) | [⬆ Back to top](#table-of-contents) | tags: [tip](https://30.codelab.fun/tags/tip) [binding](https://30.codelab.fun/tags/binding) 
 <br><br>
 ### Window Location injection
 For testing purposes you might want to inject `window.location` object in your component.
@@ -573,6 +626,27 @@ https://angular.io/api/common/NgForOf,https://angular.io/api/core/TrackByFunctio
 
 <br>[⭐ Interactive demo of this snippet](https://30.codelab.fun/trackby-in-for-loops) | [⬆ Back to top](#table-of-contents) | tags: [good-to-know](https://30.codelab.fun/tags/good-to-know) [tips](https://30.codelab.fun/tags/tips) [components](https://30.codelab.fun/tags/components) [performance](https://30.codelab.fun/tags/performance) 
 <br><br>
+### Understanding Microsyntax
+Under the hood Angular compiles structural directives into ng-template elements, e.g.:
+
+```html
+<!-- This -->
+<div *ngFor="let item of [1,2,3]">
+
+<!-- Get expanded into this -->
+<ng-template ngFor [ngForOf]="[1,2,3]" let-item="$implicit"></ng-template>
+```
+
+The value passed to *ngFor directive is written using microsyntax. You can learn about it [in the docs](https://angular.io/guide/structural-directives#microsyntax). 
+
+Also check out an [interactive tool](https://alexzuza.github.io/ng-structural-directive-expander/) that shows the expansion by [Alexey Zuev](https://twitter.com/yurzui)
+
+
+#### Links
+https://angular.io/guide/structural-directives#microsyntax,https://alexzuza.github.io/ng-structural-directive-expander/,https://angular.io/guide/structural-directives#inside-ngfor
+
+<br>[⭐ Interactive demo of this snippet](https://30.codelab.fun/understanding-microsyntax) | [⬆ Back to top](#table-of-contents) | tags: [tip](https://30.codelab.fun/tags/tip) [structural directive](https://30.codelab.fun/tags/structural-directive) [microsyntax](https://30.codelab.fun/tags/microsyntax) 
+<br><br>
 
 ## Advanced snippets
 
@@ -636,4 +710,33 @@ const routing: ModuleWithProviders = RouterModule.forRoot(routes, {
 https://angular.io/api/router/PreloadingStrategy,https://vsavkin.com/angular-router-preloading-modules-ba3c75e424cb,https://medium.com/@adrianfaciu/custom-preloading-strategy-for-angular-modules-b3b5c873681a,https://coryrylan.com/blog/custom-preloading-and-lazy-loading-strategies-with-angular
 
 <br>[⭐ Interactive demo of this snippet](https://30.codelab.fun/router-custom-preloading) | [⬆ Back to top](#table-of-contents) | tags: [router](https://30.codelab.fun/tags/router) 
+<br><br>
+### SVG
+It is possible to use SVG tags in your Angular component, to create beautiful graphs and visualizations. There are 3 things you need to know: 
+
+1. When binding an SVG attribute, use `attr`
+```html
+<circle [attr.cx]="x" [attr.cy]="y"></circle>
+```
+
+2. When creating sub-components, use attribute and not tag selector:
+```html
+// Not: <child-component></child-component>
+<g child-component></g>
+```
+```typescript
+@Component({selector: '[child-component]' })
+```
+
+3. When using SVG tags in sub-components use svg prefix:
+```typescript
+@Component({
+  selector: '[child-component]',
+  template: `<svg:circle></svg:circle>`
+})
+```
+
+
+
+<br>[⭐ Interactive demo of this snippet](https://30.codelab.fun/svg) | [⬆ Back to top](#table-of-contents) | tags: [tip](https://30.codelab.fun/tags/tip) [SVG](https://30.codelab.fun/tags/svg) 
 <br><br>

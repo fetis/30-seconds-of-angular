@@ -7,7 +7,7 @@
     "test": "echo \"Error: no test specified\" && exit 1",
     "generate": "node builder/build",
     "start": "node builder/serve",
-    "deploy": "npm run build && firebase deploy --only hosting:angular-30-seconds"
+    "deploy": "npm run generate && firebase deploy --only hosting:angular-30-seconds"
   },
   "repository": {
     "type": "git",

@@ -72,6 +72,13 @@ module.exports = {
 			? encodeURIComponent(Buffer.from(JSON.stringify(files), 'binary')
 				.toString('base64'))
 			: '';
+	},
+	filterAndOrderForPresentation(snippets){
+		const snippetsByPath = snippets.reduce((snippets, snippet)=>(snippets[snippet.path]=snippet, snippets), {});
+		return [
+			'two-way-binding-any-property.md',
+			'svg.md'
+		].map(path => snippetsByPath[path]);
 	}
 };
 
