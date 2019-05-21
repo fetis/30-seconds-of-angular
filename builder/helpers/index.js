@@ -76,7 +76,14 @@ module.exports = {
 	filterAndOrderForPresentation(snippets){
 		const snippetsByPath = snippets.reduce((snippets, snippet)=>(snippets[snippet.path]=snippet, snippets), {});
 		return [
+			'adding-keyboard-shortcuts-to-elements.md',
+			'global-event-listeners.md',
+			'style-bindings.md',
+			'injecting-document.md',
+			'reusing-code-in-template.md',
 			'two-way-binding-any-property.md',
+			'getting-components-of-different-types-with-viewchild.md',
+			'router-custom-preloading.md',
 			'svg.md'
 		].map(path => snippetsByPath[path]);
 	}
