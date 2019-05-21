@@ -1,4 +1,14 @@
 {{> header }}
+<style>
+    iframe {
+        width: 100%;
+        height: 100%;
+    }
+
+    .demo-card {
+        height: 100%;
+    }
+</style>
 <meta name="twitter:card" content="summary_large_image" />
 <meta name="twitter:site" content="SITE">
 <meta name="twitter:title" content="✨ 30 Seconds of Angular: {{title}} ✨">
@@ -10,3 +20,7 @@
 <meta name="twitter:app:name:iphone" content="Cannonball">
 {{>snippet}}
 {{> footer }}
+
+<div class="mdl-card mdl-shadow--2dp card demo-card">
+    <iframe src="https://codelab.fun/angular/playground?code={{codeToBase64 this}}" frameborder="0"></iframe>
+</div>
