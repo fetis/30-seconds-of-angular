@@ -12,7 +12,20 @@ links:
 
 # Content
 When your 3rd party library needs access to dom element you can provide it with ElementRef. 
+```typescript
+@Directive({
+  selector: '[tooltip]'
+})
+export class TooltipDirective implements OnInit, OnDestroy {
+  private tooltip: Tooltip;
+  constructor(
+    private elementRef: ElementRef<HTMLElement>,
+  ) { }
+}
+```
+Be aware! Direct dom manipulations are bad practice
 
+# ComponentCode
 ```typescript
 import { Directive, ElementRef, OnInit, OnDestroy } from '@angular/core';
 import Tooltip from 'tooltip.js';
@@ -38,5 +51,3 @@ export class TooltipDirective implements OnInit, OnDestroy {
   }
 }
 ```
-
-Be aware! Direct dom manipulations are bad practice
