@@ -1,6 +1,6 @@
 ---
 title: Access DOM Element
-author: Alex Kulagin
+author: alQlagin
 level: intermediate
 tags:
 - components
