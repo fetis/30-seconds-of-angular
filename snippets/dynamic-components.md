@@ -1,6 +1,6 @@
 ---
 title: Dynamic Components
-author: NothingEverHappens
+author: safinalexey
 twitter: safinalexey
 level: advanced
 tags:
