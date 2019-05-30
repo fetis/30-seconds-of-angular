@@ -21,7 +21,6 @@ The [Safe Navigation Operator](https://angular.io/guide/template-syntax#the-safe
 ```html
 {{a?.b?.c}} 
 ```
-
 Underneath will be compiled to.
 ```html
 (_co.a == null)? null: ((_co.a.b == null)? null: _co.a.b.c));
