@@ -6,11 +6,12 @@ tags:
   - object property handling
   - tips
   - good to know
+links:
+  - https://github.com/angular/angular/issues/791
 ---
 
 # Content
-The Safe Navigation Operator helps to prevent null-reference exceptions while rendering component template.
-In fact, it returns object property value if it exists or null if not.
+The [Safe Navigation Operator](https://angular.io/guide/template-syntax#the-safe-navigation-operator----and-null-property-paths) helps with preventing null-reference exceptions in component template expressions. It returns object property value if it exists or null otherwise.
 
 ```html
 <p> I will work even if student is null or undefined: {{student?.name}} </p>
