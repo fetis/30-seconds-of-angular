@@ -19,13 +19,12 @@ The [Safe Navigation Operator](https://angular.io/guide/template-syntax#the-safe
 
 # Bonus
 ```html
-<!-- Alternatives -->
-<p *ngIf="student">{{student?.name}} </p>
-<p>{{student && student.name}}</p>
-<p>{{student ? student.name : ''}}</p>
+{{a?.b?.c}} 
+```
 
-<!-- Crazy deep nesting -->
-<p> Respect if {{you?.are?.angular?.developer}} </p>
+Underneath will be compiled to.
+```html
+(_co.a == null)? null: ((_co.a.b == null)? null: _co.a.b.c));
 ```
 
 # ComponentCode
