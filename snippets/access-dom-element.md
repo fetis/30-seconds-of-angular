@@ -11,19 +11,17 @@ links:
 ---
 
 # Content
-When your 3rd party library needs access to dom element you can provide it with ElementRef. 
+In rare cases when you need to access DOM element directly, you can get it by requiring `ElementRef` in your construtor. 
 ```typescript
-@Directive({
-  selector: '[tooltip]'
-})
+@Directive({selector: '[tooltip]'})
 export class TooltipDirective implements OnInit, OnDestroy {
-  private tooltip: Tooltip;
+  private readonly tooltip: Tooltip;
   constructor(
     private elementRef: ElementRef<HTMLElement>,
   ) { }
 }
 ```
-Be aware! Direct dom manipulations are bad practice
+> Note: Try avoiding direct DOM monipulation unless the cases when it's the only option, such as interaction with 3rd party libraries.
 
 # ComponentCode
 ```typescript
