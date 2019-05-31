@@ -7,9 +7,26 @@
 
     .demo-card {
         height: 100%;
+        margin: 2%;
+        width: 96%;
+        padding: 0;
+        max-width: none;
+        box-sizing: border-box;
     }
+
+    .demo-card > h2 {
+        margin: 0;
+        margin-bottom: 4px;
+        padding: 10px 20px;
+        font-size: 16px;
+        line-height: 20px;
+        background: #333;
+        color: #ddd;
+    }
+
+
 </style>
-<meta name="twitter:card" content="summary_large_image" />
+<meta name="twitter:card" content="summary_large_image"/>
 <meta name="twitter:site" content="SITE">
 <meta name="twitter:title" content="✨ 30 Seconds of Angular: {{title}} ✨">
 <meta name="twitter:text:title" content="✨ 30 Seconds of Angular ✨">
@@ -21,6 +38,9 @@
 {{>snippet}}
 {{> footer }}
 
-<div class="mdl-card mdl-shadow--2dp card demo-card">
-    <iframe src="https://codelab.fun/angular/playground?code={{codeToBase64 this}}" frameborder="0"></iframe>
-</div>
+{{#if (hasCode this)}}
+    <div class="mdl-card mdl-shadow--2dp card demo-card">
+        <h2>Interactive demo</h2>
+        <iframe src="https://codelab.fun/angular/playground?code={{codeToBase64 this}}" frameborder="0"></iframe>
+    </div>
+{{/if}}
