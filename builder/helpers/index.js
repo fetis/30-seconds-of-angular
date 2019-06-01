@@ -74,8 +74,6 @@ module.exports = {
 				.toString('base64'))
 			: '';
 	},
-
-
 	filterAndOrderForPresentation(snippets){
 		const snippetsByPath = snippets.reduce((snippets, snippet)=>(snippets[snippet.path]=snippet, snippets), {});
 		return [

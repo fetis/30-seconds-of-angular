@@ -1,0 +1,11 @@
+<script>
+    const values = [
+        {{#each snippets}}
+        '{{path}}',
+        {{/each}}
+    ];
+
+    const path = values[Math.floor(Math.random() * values.length)];
+    console.log(path);
+    window.location = '/' + path.replace('.md', '/');
+</script>
