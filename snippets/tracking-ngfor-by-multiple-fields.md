@@ -4,7 +4,8 @@ author: thekiba
 twitter: thekiba_io
 level: beginner
 tags:
-  - tip
+  - trackBy
+  - ngFor
 links:
   - https://angular.io/api/common/NgForOf
 ---
