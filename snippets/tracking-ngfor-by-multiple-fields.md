@@ -1,5 +1,5 @@
 ---
-title: Hash function of multiple fields for trackBy
+title: Tracking ngFor by multiple fields
 author: thekiba
 twitter: thekiba_io
 level: beginner
