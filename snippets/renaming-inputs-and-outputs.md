@@ -1,6 +1,6 @@
 ---
 title: Renaming inputs and outputs
-author: Alex Kulagin
+author: alQlagin
 level: beginner
 tags:
 - components
