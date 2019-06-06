@@ -22,4 +22,4 @@ export class TooltipDirective implements OnInit, OnDestroy {
   ) { }
 }
 ```
-> Note: Try avoiding direct DOM monipulation unless the cases when it's the only option, such as interaction with 3rd party libraries.
+> Note: Try avoiding direct DOM manipulation except the cases when it's the only option, such as interaction with 3rd party libraries.
