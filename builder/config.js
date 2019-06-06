@@ -10,6 +10,7 @@ const permalinks = require('metalsmith-permalinks');
 const tags = require('metalsmith-tags');
 const rename = require('metalsmith-rename');
 const copy = require('metalsmith-copy');
+const path = require('path');
 
 const generateHtmlFilesForScreenshots = require('./plugins/generate-html-files-for-screenshots');
 const customMarkdownParse = require('./plugins/custom-markdown-parse');
@@ -51,8 +52,8 @@ module.exports = (isDevMode = false) => Metalsmith(__dirname)
 	}))
 	.use(generateHtmlFilesForScreenshots())
 	.use(rename([
-		['json/index.html', 'data.json'],
-		['readme/index.html', 'README.md'],
+		[path.join('json', 'index.html'), 'data.json'],
+		[path.join('readme', 'index.html'), 'README.md'],
 	]))
 	.use(layouts({
 		engine: handlebars,
