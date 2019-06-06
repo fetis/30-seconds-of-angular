@@ -6,10 +6,11 @@ const collections = require('metalsmith-collections');
 const discoverPartials = require('metalsmith-discover-partials');
 const registerHelpers = require('metalsmith-register-helpers');
 const metalsmithStatic = require('metalsmith-static');
-const rewrite = require('metalsmith-rewrite');
 const permalinks = require('metalsmith-permalinks');
 const tags = require('metalsmith-tags');
 const rename = require('metalsmith-rename');
+const copy = require('metalsmith-copy');
+
 const generateHtmlFilesForScreenshots = require('./plugins/generate-html-files-for-screenshots');
 const customMarkdownParse = require('./plugins/custom-markdown-parse');
 const validate = require('./plugins/validate');
@@ -24,9 +25,6 @@ module.exports = (isDevMode = false) => Metalsmith(__dirname)
 		}
 	})
 	.source('../snippets')
-	.use(rewrite([{
-		pattern: 'pages/*.html',
-	}]))
 	.destination('../static')
 	.use(metalsmithStatic())
 	.use(collections({
@@ -35,6 +33,11 @@ module.exports = (isDevMode = false) => Metalsmith(__dirname)
 			pattern: '*.md',
 		},
 	}))
+  .use(copy({
+    pattern: 'pages/*.md',
+    directory: '.',
+    move: true
+  }))
 	.use(customMarkdownParse())
 	.use(validate(
 		require('./schemas/snippet').schema
