@@ -1,6 +1,7 @@
 ---
 title: Window Location injection
 author: fetis
+twitter: fetis26
 level: intermediate
 
 tags:

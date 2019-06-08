@@ -28,10 +28,10 @@ function flattenControls(form: AbstractControl): AbstractControl[] {
 For examples use:
 ```typescript
 // returns all dirty abstract controls
-extractControls(form).filter((control) => control.dirty);
+flattenControls(form).filter((control) => control.dirty);
 
 // mark all controls as touched
-extractControls(form).forEach((control) => 
+flattenControls(form).forEach((control) => 
     control.markAsTouched({ onlySelf: true }));
 ```
 
@@ -52,7 +52,7 @@ export class AppComponent {
   form: AbstractControl;
 
   get dirtyControls(): AbstractControl[] {
-    return extractControls(this.form).filter(control => control.dirty);
+    return flattenControls(this.form).filter(control => control.dirty);
   }
 
   constructor(private fb: FormBuilder) {
@@ -67,16 +67,16 @@ export class AppComponent {
   }
 
   markAsDirty(form: AbstractControl): void {
-    for (const control of extractControls(this.form)) {
+    for (const control of flattenControls(this.form)) {
       control.markAsDirty({ onlySelf: true });
     }
   }
 }
 
-function extractControls(form: AbstractControl): AbstractControl[] {
+function flattenControls(form: AbstractControl): AbstractControl[] {
   let extracted: AbstractControl[] = [ form ];
   if (form instanceof FormArray || form instanceof FormGroup) {
-    const children = Object.values(form.controls).map(extractControls);
+    const children = Object.values(form.controls).map(flattenControls);
     extracted = extracted.concat(...children);
   }
   return extracted;

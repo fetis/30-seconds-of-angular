@@ -12,6 +12,7 @@ config(true)
             "${source}/**/*": true,
             "layouts/**/*": "**/*",
             "partials/**/*": "**/*",
+            "public/css/**/*": "*.css",
         },
         livereload: true
     }))

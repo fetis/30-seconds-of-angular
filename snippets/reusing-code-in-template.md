@@ -1,6 +1,7 @@
 ---
 title: Reusing code in template
 author: fetis
+twitter: fetis26
 level: intermediate 
 tags:
   - templates

@@ -1,6 +1,7 @@
 ---
 title: Accessing Enums in template
 author: fetis
+twitter: fetis26
 level: beginner
 tags:
   - enums
