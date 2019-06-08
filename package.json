@@ -20,9 +20,7 @@
     "url": "https://github.com/nycJSorg/30-seconds-of-angular/issues"
   },
   "homepage": "https://github.com/nycJSorg/30-seconds-of-angular#readme",
-  "devDependencies": {
-    "metalsmith-rewrite": "^0.1.2"
-  },
+  "devDependencies": {},
   "dependencies": {
     "helper-markdown": "^1.0.0",
     "highlight.js": "^9.15.6",

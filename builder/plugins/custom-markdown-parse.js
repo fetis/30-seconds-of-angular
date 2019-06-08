@@ -1,6 +1,11 @@
-var marked = require('marked');
+const marked = require('marked');
+const { EOL } = require('os');
 
-function extractHeaders(str) {
+
+function extractHeaders(content) {
+	// Get consitent line breaks across all OS.
+        const str = content.replace(/\r\n/g, '\n');
+
 	const match = ('\n' + str + '\n#')
 		.match(/\n#+.*\n[\s\S]*?(?=\n#)/g);
 
@@ -12,7 +17,8 @@ function extractHeaders(str) {
 	return match
 		.reduce((result, a) => {
 			const { groups }  = a.match(/^\n(?<depth>#+)(?<header>.*)\n(?<content>[\s\S]*)$/);
-			result[groups.header.trim().toLocaleLowerCase()] = groups.content.trim();
+			const header = groups.content.trim().replace(/\n/g, EOL);
+			result[groups.header.trim().toLocaleLowerCase()] = header ;
 			return result;
 		}, {})
 }
@@ -31,14 +37,6 @@ module.exports = () => (files, metalsmith, done) => {
 		result.contentmd = result.content;
 		return result
 	});
-
-	for (const [file] of Object.entries(files)) {
-		const flatFile = file.replace(/^pages\//, '');
-		if (flatFile !== file) {
-			files[flatFile] = files[file];
-			delete files[file];
-		}
-	}
 
 	done();
 };
