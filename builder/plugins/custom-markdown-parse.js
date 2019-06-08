@@ -3,7 +3,8 @@ const { EOL } = require('os');
 
 
 function extractHeaders(content) {
-  const str = content.replace(/\r\n/g, '\n');
+	// Get consitent line breaks across all OS.
+        const str = content.replace(/\r\n/g, '\n');
 
 	const match = ('\n' + str + '\n#')
 		.match(/\n#+.*\n[\s\S]*?(?=\n#)/g);
