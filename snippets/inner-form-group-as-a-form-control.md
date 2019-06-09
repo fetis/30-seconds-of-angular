@@ -9,8 +9,8 @@ tags:
   - forms 
   
 links: 
-  - [https://itnext.io/angular-dynamic-forms-formgroup-as-a-control-with-controlvalueaccessor-b57ad3becd16](https://itnext.io/angular-dynamic-forms-formgroup-as-a-control-with-controlvalueaccessor-b57ad3becd16)
-  - [https://angular.io/api/forms/ControlValueAccessor](https://angular.io/api/forms/ControlValueAccessor)
+  - https://itnext.io/angular-dynamic-forms-formgroup-as-a-control-with-controlvalueaccessor-b57ad3becd16
+  - https://angular.io/api/forms/ControlValueAccessor
   
 ---
 
@@ -27,62 +27,65 @@ Use an inner/nested form-group like a native control by implementing ControlValu
 
 # ComponentCode
 ```typescript
-import  {  Component,  OnInit, forwardRef,  EventEmitter,  OnDestroy  }  from  '@angular/core';
-import  {  ControlValueAccessor,  NG_VALUE_ACCESSOR,  FormBuilder,  FormGroup  }  from  '@angular/forms';
-import  {  Subscription  }  from  'rxjs';
+import { Component, EventEmitter, forwardRef, OnDestroy, OnInit } from '@angular/core';
+import { ControlValueAccessor, FormBuilder, FormControl, FormGroup, NG_VALUE_ACCESSOR } from '@angular/forms';
 
 @Component({
-selector:  'app-form-group-as-control',
-templateUrl:  './form-group-as-control.component.html',
-styleUrls:  ['./form-group-as-control.component.css'],
-providers:  [{ provide:  NG_VALUE_ACCESSOR,
-			useExisting: forwardRef(()  => FormGroupAsControlComponent),
-			multi:  true}]
-			})
-
-export  class  FormGroupAsControlComponent  implements  OnInit,  ControlValueAccessor,  OnDestroy  {
-
-public formChanged =  new  EventEmitter<any>();
-public modelYear:  FormGroup;
-public formSubscription$:  Subscription;
-
-constructor(private formBuilder:  FormBuilder)  {  }
-
-ngOnInit()  {
-	this.modelYear =  this.createForm();
-	this.formSubscription$ = this.onFormChanged()
-	.subscribe(val =>  {
-		this.formChanged.emit(val);
-	})
-}
- 
-createForm():  FormGroup  {
-	const modelYear:  FormGroup  |  any  =  {};
-	modelYear['model']  =  this.formBuilder.control('model');
-	modelYear['year']  =  this.formBuilder.control('year');
-	return  this.formBuilder.group(modelYear);
+    selector: 'my-app',
+    template: `<form [formGroup]="form" (ngSubmit)="onSubmit()">
+      <app-form-group-as-control [formControl]="childControl">
+      </app-form-group-as-control>
+      <button  type="submit">submit</button>
+    </form>`,
+})
+export class AppComponent {
+    readonly childControl = new FormControl();
+    readonly form = new FormGroup({
+        child: this.childControl
+    });
 }
 
-onFormChanged()  {
-	return  this.modelYear.valueChanges;
+@Component({
+    selector: 'app-form-group-as-control',
+    template: `<form [formGroup]="modelYear" class="widget" (ngSubmit)="onSubmit()">
+    <label for="model">model</label>
+    <input type="text" class="form-control" formControlName="model">
+    <label for="year">year</label>
+    <input type="date" class="form-control" formControlName= "year">
+</form>`,
+    providers: [
+        {
+            provide: NG_VALUE_ACCESSOR,
+            useExisting: forwardRef(() => FormGroupAsControlComponent),
+            multi: true
+        }
+    ]
+})
+export class FormGroupAsControlComponent implements ControlValueAccessor {
+    public modelYearForm = this.formBuilder.group({
+        model: '',
+        year: ''
+    });
+
+    constructor(private formBuilder: FormBuilder) {
+    }
+
+    registerOnChange(fn: any): void {
+        /* view ⇒ model */
+        this.modelYearForm.valueChange.subscribe(fn);
+    }
+
+    writeValue(controls): void {
+    	/* model ⇒ view */
+    }
+
+    setDisabledState(isDisabled: boolean): void {
+    }
+
+    registerOnTouched(fn: any): void {
+    }
 }
 
-registerOnChange(fn:  any):  void  {
-	// view ⇒ model
-	this.formChanged.subscribe(fn);
-}
-
-writeValue(controls):  void  { // model ⇒ view}
-
-setDisabledState(isDisabled:  boolean):  void  {}
-
-registerOnTouched(fn:  any):  void  {}
-
-ngOnDestroy()  {
-	this.formSubscription$ &&  this.formSubscription$.unsubscribe();
-}
-
-}
 ```
 # ModuleCode
 ```typescript
@@ -90,14 +93,12 @@ import  {  NgModule  }  from  '@angular/core';
 import  {  BrowserModule  }  from  '@angular/platform-browser';
 import  {  FormsModule  }  from  '@angular/forms';
 import  { ReactiveFormsModule }  from  '@angular/forms';
-import  {  AppComponent  }  from  './app.component';
-import  {  FormGroupAsControlComponent  }  from  './form-group-as-control/form-group-as-control.component';
+import  {  AppComponent , FormGroupAsControlComponent }  from  './app.component';
 
 @NgModule({
-imports:  [  BrowserModule,  FormsModule,  ReactiveFormsModule  ],
-declarations:  [  AppComponent, FormGroupAsControlComponent  ],
-bootstrap:  [  AppComponent  ]
+    imports:  [  BrowserModule,  FormsModule,  ReactiveFormsModule  ],
+    declarations:  [  AppComponent, FormGroupAsControlComponent  ],
+    bootstrap:  [  AppComponent  ]
 })
-
 export  class  AppModule  {  }
 ```
