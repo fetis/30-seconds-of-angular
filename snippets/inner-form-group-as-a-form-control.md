@@ -15,15 +15,31 @@ links:
 ---
 
 # Content
-Use an inner/nested form-group like a native control by implementing ControlValueAccessor.
+It is possible to bind a for a ReactiveForms `FormControl` to a custom component, e.g.
 
 ```html
-<form [formGroup]="simpleFormGroup" (ngSubmit)="onSubmit()">
-	<app-form-group-as-control [formControlName]="innerFormAsControl">
-	</app-form-group-as-control>
-	<button  type="submit">submit</button>
-</form>
+  <my-custom-component [formControl]="formControl">
 ``` 
+
+For this your custom component would have to implement `ControlValueAccessor` interface and provide `NG_VALUE_ACCESSOR`
+
+```typescript
+@Component({
+    selector: 'my-custom-component',`,
+    providers: [
+        {
+            provide: NG_VALUE_ACCESSOR,
+            useExisting: forwardRef(() => MyCustomComponent),
+            multi: true
+        }
+    ]
+})
+export class MyCustomComponent implements ControlValueAccessor {
+    registerOnChange(fn: any) { /* view ⇒ model */ }
+    writeValue(controls): void { /* model ⇒ view */ }
+}
+
+```
 
 # ComponentCode
 ```typescript
