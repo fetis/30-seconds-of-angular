@@ -5,7 +5,7 @@ const config = require('./config');
 const screenshots = require('./plugins/screenshots');
 
 const server = serve({
-	port: 8082,
+	port: 8083,
 	verbose: true
 });
 
