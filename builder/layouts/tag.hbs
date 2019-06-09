@@ -1,9 +1,23 @@
-{{> header }}
+<!doctype html>
+<html lang="en">
+<head>
+  {{> head}}
+  <title>Tag: {{ tag }}</title>
+</head>
 
+<body>
+  {{> header }}
 
-{{#each pagination.files}}
+  <div class="card">
+    <h2>Tag: {{ tag }}</h2>
+  </div>
+
+  {{#each pagination.files}}
     {{>snippet}}
-{{/each}}
+  {{/each}}
+
+  {{> footer }}
+</body>
+</html>
 
 
-{{> footer }}

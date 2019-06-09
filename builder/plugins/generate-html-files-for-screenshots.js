@@ -5,8 +5,10 @@ module.exports = () => (files, metalsmith, done) => {
 			const screenshot = file.replace(/index.html$/, 'screenshot.html');
 
 			if (screenshot !== file) {
-				files[screenshot] = {...files[file]};
-				files[screenshot].layout = 'screenshot.hbs';
+				files[screenshot] = {
+				  ...files[file],
+          layout: 'screenshot.hbs',
+				};
 			}
 		}
 	}

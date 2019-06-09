@@ -1,14 +1,25 @@
-{{> header }}
+<!doctype html>
+<html lang="en">
+<head>
+  {{> head}}
+  <title>30 seconds of Angular</title>
+</head>
+
+<body>
+  {{> header }}
+
+  {{#group snippets by="level"}}
+    <section>
+      <h2 class="group">{{capitalize value}} snippets</h2>
+
+      {{#each items}}
+        {{>snippet}}
+      {{/each}}
+    </section>
+  {{/group}}
+
+  {{> footer }}
+</body>
+</html>
 
 
-{{#group snippets by="level"}}
-
-<h2 class="group">{{capitalize value}} snippets</h2>
-
-{{#each items}}
-{{>snippet}}
-{{/each}}
-
-{{/group}}
-
-{{> footer }}

@@ -1,27 +1,37 @@
-{{> header }}
-<style>
-    iframe {
-        width: 100%;
-        height: 100%;
+<!doctype html>
+<html lang="en">
+<head>
+  {{> head}}
+  <title>{{ title }}</title>
+  <style>
+    .demo-card iframe {
+      width: 100%;
+      min-height: 50vh;
     }
 
     .demo-card {
-        height: 100%;
+      height: 100%;
     }
-</style>
-<meta name="twitter:card" content="summary_large_image" />
-<meta name="twitter:site" content="SITE">
-<meta name="twitter:title" content="✨ 30 Seconds of Angular: {{title}} ✨">
-<meta name="twitter:text:title" content="✨ 30 Seconds of Angular ✨">
-<meta name="twitter:description" content="{{title}}">
-<meta name="twitter:image" content="{{site.base}}{{slugify title}}/preview.png">
-<meta name="twitter:image:alt" content="30 seconds of angular">
-<meta name="twitter:app:country" content="US">
-<meta name="twitter:app:name:iphone" content="Cannonball">
-{{>snippet}}
+  </style>
+  <meta name="twitter:card" content="summary_large_image" />
+  <meta name="twitter:site" content="@30sec_angular">
+  <meta name="twitter:title" content="✨ 30 Seconds of Angular: {{title}} ✨">
+  <meta name="twitter:text:title" content="✨ 30 Seconds of Angular ✨">
+  <meta name="twitter:description" content="{{title}}">
+  <meta name="twitter:image" content="{{site.base}}{{slugify title}}/preview.png">
+  <meta name="twitter:image:alt" content="30 seconds of angular">
+</head>
 
-<div class="mdl-card mdl-shadow--2dp card demo-card">
-    <iframe src="https://codelab.fun/angular/playground?code={{codeToBase64 this}}" frameborder="0">
-</div>
+<body>
+  {{> header }}
 
-{{> footer }}
+  {{>snippet}}
+
+  <div class="mdl-card mdl-shadow--2dp card demo-card">
+    <iframe src="https://codelab.fun/angular/playground?code={{codeToBase64 this}}"></iframe>
+  </div>
+
+  {{> footer }}
+</body>
+</html>
+
