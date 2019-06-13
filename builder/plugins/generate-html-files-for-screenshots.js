@@ -7,7 +7,7 @@ module.exports = () => (files, metalsmith, done) => {
 			if (screenshot !== file) {
 				files[screenshot] = {
 				  ...files[file],
-          layout: 'screenshot.hbs',
+                                  layout: 'screenshot.hbs',
 				};
 			}
 		}
