@@ -1,7 +1,4 @@
-<!doctype html>
-<html lang="en">
-<head>
-  {{> head }}
+{{#> head }}
   <title>{{ title }}</title>
   <style>
     .mdl-card__menu img {
@@ -10,9 +7,9 @@
       margin-right: -30px;
     }
   </style>
-</head>
+{{/head }}
 
-<body>
+{{#> body }}
   <div class="mdl-card mdl-shadow--2dp card snippet-card">
     <div class="mdl-card__title">
       <h2 class="mdl-card__title-text">✅ {{title}} </h2>
@@ -24,5 +21,4 @@
       <img src="public/img/logo.png" style="" alt="">
     </div>
   </div>
-</body>
-</html>
+{{/body}}

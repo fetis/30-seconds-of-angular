@@ -1,95 +1,90 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    {{> head }}
-    <title>30 Seconds of Angular</title>
-    <meta charset="utf-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1">
-    <link rel="stylesheet" href="https://unpkg.com/@shower/material@2.2.1/styles/styles.css">
-    <style>
-        .shower {
-            --slide-ratio: calc(16 / 14);
-        }
+{{#> head }}
+  <title>30 Seconds of Angular slides</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link rel="stylesheet" href="https://unpkg.com/@shower/material@2.2.1/styles/styles.css">
+  <style>
+    .shower {
+      --slide-ratio: calc(16 / 14);
+    }
+
+    .code-snippet code, .code-snippet p,.code-snippet li {
+      font-size: 20px;
+      line-height: 30px !important;
+    }
+
+    .code-snippet li {
+      margin-left: 24px;
+    }
+
+    .with-list li {
+      font-size: 32px;
+      line-height: 1.5;
+    }
+
+    .with-list ul {
+      margin-left: 130px;
+    }
+
+    .slide {
+      padding: 24px;
+    }
+  </style>
+{{/head }}
+
+{{#> body class="shower list" }}
+  <header class="caption">
+    <a href="/slides/">
+      <h1>30 seconds of Angular</h1>
+      <p>beta</p>
+    </a>
+  </header>
 
 
-        .code-snippet code, .code-snippet p,.code-snippet li {
-            font-size: 20px;
-            line-height: 30px !important;
-        }
-
-        .code-snippet li {
-            margin-left: 24px;
-        }
-
-        .with-list li {
-            font-size: 32px;
-            line-height: 1.5;
-        }
-
-        .with-list ul {
-            margin-left: 130px;
-        }
-
-        .slide {
-            padding: 24px;
-        }
-    </style>
-</head>
-<body class="shower list">
-
-<header class="caption">
-    <h1>30 seconds of Angular</h1>
-    <p>beta</p>
-</header>
-
-
-<section class="slide with-list ">
+  <section class="slide with-list ">
     <img src="public/img/logo.png" class="cover" alt="30 Seconds of Angular">
-</section>
+  </section>
 
-<section class="slide with-list ">
+  <section class="slide with-list ">
     <h2>30 Seconds of angular</h2>
     <p style="font-size: 40px;line-height: 1.2;font-weight: 300;">Collection of Angular related tips and snippets, each of which can be understood in 30 seconds or less and would make you a better developer.</p>
-</section>
+  </section>
 
-<section class="slide with-list ">
+  <section class="slide with-list ">
     <h1 class="cover" style="text-align: center;">During the break come share your favorite snippets with me!</h1>
 
-</section>
+  </section>
 
-{{#each (filterAndOrderForPresentation snippets) }}
+  {{#each (filterAndOrderForPresentation snippets) }}
     <section class="slide code-snippet">
-        <h2>{{title}} (<a href="https://30.codelab.fun/{{slugify title}}" target="_blank">demo</a>)</h2>
-        {{{markdown content}}}
+      <h2>{{title}} (<a href="https://30.codelab.fun/{{slugify title}}" target="_blank">demo</a>)</h2>
+      {{{markdown content}}}
     </section>
-{{/each}}
+  {{/each}}
 
 
-<section class="slide with-list ">
+  <section class="slide with-list ">
     <h2>Thanks everybody who contributed</h2>
     <ul>
-        {{#group snippets by="author"}}
-            <li>@{{capitalize value}}</li>
-        {{/group}}
+      {{#group snippets by="author"}}
+        <li>@{{value}}</li>
+      {{/group}}
     </ul>
     <h2>Special thanks to:</h2>
     <ul>
-        <li>Stefan Fejes</li>
-        <li>Tierney Cyren</li>
-        <li>Angelos Chalaris</li>
+      <li>Stefan Fejes</li>
+      <li>Tierney Cyren</li>
+      <li>Angelos Chalaris</li>
     </ul>
 
-</section>
-<section class="slide">
+  </section>
+  <section class="slide">
     <h1 style="font-size: 100px;text-align: center;">30.codelab.fun</h1>
     <div style="font-size: 200px;text-align: center;">⭐</div>
 
-</section>
+  </section>
 
 
-<div class="progress"></div>
+  <div class="progress"></div>
 
-<script src="https://cdnjs.cloudflare.com/ajax/libs/shower-core/2.1.0/shower.min.js"></script>
-
-</body>
-</html>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/shower-core/2.1.0/shower.min.js"></script>
+{{/body}}

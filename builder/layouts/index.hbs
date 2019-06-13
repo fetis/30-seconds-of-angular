@@ -1,12 +1,8 @@
-<!doctype html>
-<html lang="en">
-<head>
-  {{> head}}
+{{#> head }}
   <title>30 seconds of Angular</title>
-</head>
+{{/head }}
 
-<body>
-  {{> header }}
+{{#> full-body }}
 
   {{#group snippets by="level"}}
     <section>
@@ -18,8 +14,4 @@
     </section>
   {{/group}}
 
-  {{> footer }}
-</body>
-</html>
-
-
+{{/full-body}}

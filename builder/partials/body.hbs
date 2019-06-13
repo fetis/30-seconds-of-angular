@@ -1,0 +1,13 @@
+{{!-- see head.hbs for start --}}
+
+{{#if class }}
+  <body class="{{ class }}">
+  {{> @partial-block }}
+  </body>
+{{ else }}
+  <body>
+  {{> @partial-block }}
+  </body>
+{{/if}}
+
+</html>

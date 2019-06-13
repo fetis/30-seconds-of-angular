@@ -1,12 +1,8 @@
-<!doctype html>
-<html lang="en">
-<head>
-  {{> head}}
+{{#> head }}
   <title>Tag: {{ tag }}</title>
-</head>
+{{/head }}
 
-<body>
-  {{> header }}
+{{#> full-body }}
 
   <div class="card">
     <h2>Tag: {{ tag }}</h2>
@@ -16,8 +12,4 @@
     {{>snippet}}
   {{/each}}
 
-  {{> footer }}
-</body>
-</html>
-
-
+{{/full-body}}

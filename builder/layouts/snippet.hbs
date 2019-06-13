@@ -1,7 +1,4 @@
-<!doctype html>
-<html lang="en">
-<head>
-  {{> head}}
+{{#> head }}
   <title>{{ title }}</title>
   <style>
     .demo-card iframe {
@@ -20,10 +17,9 @@
   <meta name="twitter:description" content="{{title}}">
   <meta name="twitter:image" content="{{site.base}}{{slugify title}}/preview.png">
   <meta name="twitter:image:alt" content="30 seconds of angular">
-</head>
+{{/head }}
 
-<body>
-  {{> header }}
+{{#> full-body }}
 
   {{>snippet}}
 
@@ -31,7 +27,5 @@
     <iframe src="https://codelab.fun/angular/playground?code={{codeToBase64 this}}"></iframe>
   </div>
 
-  {{> footer }}
-</body>
-</html>
+{{/full-body}}
 
