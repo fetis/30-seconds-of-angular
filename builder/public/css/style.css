@@ -1,4 +1,5 @@
-.card, h2.group {
+.card,
+h2.group {
     margin: 0 auto 20px;
     width: 80%;
     max-width: 1000px;
@@ -63,18 +64,18 @@ blockquote {
     text-decoration: underline;
 }
 
-.footer {
+.snippet-footer {
     display: flex;
     justify-content: space-between;
 }
 
-.footer .author {
+.snippet-footer .author {
     line-height: 36px;
     display: flex;
     align-items: center;
 }
 
-.footer .author > iframe {
+.snippet-footer .author > iframe {
     margin-left: 16px;
 }
 
@@ -118,3 +119,7 @@ p > code {
     margin-left: 15px;
 }
 
+/* Footer */
+footer {
+  height: 70px;
+}

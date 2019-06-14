@@ -1,9 +1,15 @@
-{{> header }}
+{{#> head }}
+  <title>Tag: {{ tag }}</title>
+{{/head }}
 
+{{#> full-body }}
 
-{{#each pagination.files}}
+  <div class="card">
+    <h2>Tag: {{ tag }}</h2>
+  </div>
+
+  {{#each pagination.files}}
     {{>snippet}}
-{{/each}}
+  {{/each}}
 
-
-{{> footer }}
+{{/full-body}}
