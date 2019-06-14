@@ -17,7 +17,6 @@ links:
 ---
 
 # Content
-
 You can use markdown here.
 
 Highlight `important terms` with backticks.
@@ -32,17 +31,4 @@ function theLanguageISpeak(language) {
 ```
 
 # Bonus
-qweasd
-
-# ComponentCode
-```typescript
-import { Component } from '@angular/core';
-
-@Component({
-  selector: 'my-app',
-  template: `<h1>Edit me </h1>`
-})
-export class AppComponent {
-  asdddaaasdasd
-}
-```
+qweasdqwe
