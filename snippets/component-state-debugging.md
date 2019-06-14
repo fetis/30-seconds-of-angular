@@ -11,16 +11,16 @@ links:
 ---
 # Content
 
-Debug the component state in the browser console by printing 
+Debug the component state in the browser console by running:
 ```typescript
 ng.probe($0).componentInstance
 ```
 
-> `$0` - stands for the DOM node currently selected in dev tools (`$1` for the previous one and so on).
+> `$0` - is the DOM node currently selected in dev tools (`$1` for the previous one and so on).
 
 # Bonus
 
-With Ivy renderer engine 
+With Ivy renderer engine:
 ```typescript
 ng.getComponent($0)
 ```
