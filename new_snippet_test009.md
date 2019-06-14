@@ -1,5 +1,5 @@
 ---
-title: test
+title: testqwe
 
 author: Aleksandr Bukanov
 
@@ -43,6 +43,6 @@ import { Component } from '@angular/core';
   template: `<h1>Edit me </h1>`
 })
 export class AppComponent {
-  asdddaaasdasdqwe
+  asdddaaasdasd
 }
 ```
