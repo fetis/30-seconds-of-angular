@@ -27,7 +27,7 @@ module.exports = (server) => async (files, metalsmith, done) => {
 		.filter(file => files[file].layout === 'screenshot.hbs');
 
 	for (let file of names) {
-		await page.goto(`http://localhost:8082/${file}`);
+		await page.goto(`http://localhost:8083/${file}`);
 		await screenshotDOMElement('.snippet-card', 'static/' + file.replace('screenshot.html', 'preview.png'), 0)
 	}
 

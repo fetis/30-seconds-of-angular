@@ -5,7 +5,8 @@
   "main": "index.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
-    "generate": "node builder/build",
+    "generate": "echo 'I am deprecated, use `npm run build` insted' && node builder/build",
+    "build": "node builder/build",
     "start": "node builder/serve",
     "deploy": "npm run generate && firebase deploy --only hosting:angular-30-seconds"
   },

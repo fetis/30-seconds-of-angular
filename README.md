@@ -33,12 +33,15 @@ Intermediate snippets
 Beginner snippets
 
 * [Accessing Enums in template](#accessing-enums-in-template)
+* [Angular cheat sheet](#angular-cheat-sheet)
 * [Default ViewEncapsulation value](#default-viewencapsulation-value)
+* [hammerjs-gestures](#hammerjs-gestures)
 * [Loader Component](#loader-component)
 * [ng-content](#ng-content)
 * [ngIf else](#ngif-else)
 * [Optional parameters in the middle](#optional-parameters-in-the-middle)
 * [Renaming inputs and outputs](#renaming-inputs-and-outputs)
+* [Safe Navigation Operator](#safe-navigation-operator)
 * [trackBy in for loops](#trackby-in-for-loops)
 * [Understanding Microsyntax](#understanding-microsyntax)
 
@@ -69,10 +72,10 @@ function flattenControls(form: AbstractControl): AbstractControl[] {
 For examples use:
 ```typescript
 // returns all dirty abstract controls
-extractControls(form).filter((control) => control.dirty);
+flattenControls(form).filter((control) => control.dirty);
 
 // mark all controls as touched
-extractControls(form).forEach((control) => 
+flattenControls(form).forEach((control) => 
     control.markAsTouched({ onlySelf: true }));
 ```
 
@@ -456,6 +459,17 @@ export class AppComponent {
 
 <br>[⭐ Interactive demo of this snippet](https://30.codelab.fun/accessing-enums-in-template) | [⬆ Back to top](#table-of-contents) | tags: [enums](https://30.codelab.fun/tags/enums) [templates](https://30.codelab.fun/tags/templates) 
 <br><br>
+### Angular cheat sheet
+Check out [Angular Cheat Sheet](https://angular.io/guide/cheatsheet) which contains lots of useful information condensed in one place. 
+
+There's also an [alternative version](https://malcoded.com/angular-cheat-sheet).
+
+
+#### Links
+https://malcoded.com/angular-cheat-sheet/,https://angular.io/guide/cheatsheet,https://angular.io/guide/styleguide
+
+<br>[⭐ Interactive demo of this snippet](https://30.codelab.fun/angular-cheat-sheet) | [⬆ Back to top](#table-of-contents) | tags: [tip](https://30.codelab.fun/tags/tip) [cheat sheet](https://30.codelab.fun/tags/cheat-sheet) 
+<br><br>
 ### Default ViewEncapsulation value
 If you're using `ViewEncapsulation` value which is different than default, it might be daunting to set the value manually for every component. 
 
@@ -473,6 +487,74 @@ platformBrowserDynamic().bootstrapModule(AppModule, [
 
 
 <br>[⭐ Interactive demo of this snippet](https://30.codelab.fun/default-viewencapsulation-value) | [⬆ Back to top](#table-of-contents) | tags: [configuration](https://30.codelab.fun/tags/configuration) [styling](https://30.codelab.fun/tags/styling) 
+<br><br>
+### hammerjs-gestures
+To act upon swipes, pans, and pinhces as well as the other mobile gestures, you can use `hammerjs` with `HostListener` decorator, or an event binding,
+
+```bash
+npm install hammerjs
+```
+
+```typescript
+@HostListener('swiperight')
+public swiperight(): void {
+  // Run code when a user swipes to the right
+}
+```
+
+<details>
+<summary>Bonus</summary>
+
+Here are samples on how to use all of the `hammerjs` event bindings, you can use these events with a `HostListener` as well:
+
+```HTML
+  <!-- pan events -->
+  <div (pan)="logEvent($event)"></div>
+  <div (panstart)="logEvent($event)"></div>
+  <div (panmove)="logEvent($event)"></div>
+  <div (panend)="logEvent($event)"></div>
+  <div (pancancel)="logEvent($event)"></div>
+  <div (panleft)="logEvent($event)"></div>
+  <div (panright)="logEvent($event)"></div>
+  <div (panup)="logEvent($event)"></div>
+  <div (pandown)="logEvent($event)"></div>
+
+  <!-- pinch events -->
+  <div (pinch)="logEvent($event)"></div>
+  <div (pinchstart)="logEvent($event)"></div>
+  <div (pinchmove)="logEvent($event)"></div>
+  <div (pinchend)="logEvent($event)"></div>
+  <div (pinchcancel)="logEvent($event)"></div>
+  <div (pinchin)="logEvent($event)"></div>
+  <div (pinchout)="logEvent($event)"></div>
+
+  <!-- press events -->
+  <div (press)="logEvent($event)"></div>
+  <div (pressup)="logEvent($event)"></div>
+
+  <!-- rotate events -->
+  <div (rotate)="logEvent($event)"></div>
+  <div (rotatestart)="logEvent($event)"></div>
+  <div (rotatemove)="logEvent($event)"></div>
+  <div (rotateend)="logEvent($event)"></div>
+  <div (rotatecancel)="logEvent($event)"></div>
+
+  <!-- swipe events -->
+  <div (swipe)="logEvent($event)"></div>
+  <div (swipeleft)="logEvent($event)"></div>
+  <div (swiperight)="logEvent($event)"></div>
+  <div (swipeup)="logEvent($event)"></div>
+  <div (swipedown)="logEvent($event)"></div>
+
+  <!-- tap event -->
+  <div (tap)="logEvent($event)"></div>
+```
+</details>
+
+#### Links
+https://github.com/angular/angular/blob/master/packages/platform-browser/src/dom/events/hammer_gestures.ts,http://hammerjs.github.io/api/#hammer.manager,https://angular.io/api/platform-browser/HammerGestureConfig
+
+<br>[⭐ Interactive demo of this snippet](https://30.codelab.fun/hammerjs-gestures) | [⬆ Back to top](#table-of-contents) | tags: [good-to-know](https://30.codelab.fun/tags/good-to-know) [tips](https://30.codelab.fun/tags/tips) [components](https://30.codelab.fun/tags/components) [gestures](https://30.codelab.fun/tags/gestures) 
 <br><br>
 ### Loader Component
 You can create own helper component and use it instead of `*ngIf`.
@@ -592,6 +674,30 @@ class PaginationComponent {
 https://angular.io/guide/styleguide#style-05-13
 
 <br>[⭐ Interactive demo of this snippet](https://30.codelab.fun/renaming-inputs-and-outputs) | [⬆ Back to top](#table-of-contents) | tags: [components](https://30.codelab.fun/tags/components) [templates](https://30.codelab.fun/tags/templates) 
+<br><br>
+### Safe Navigation Operator
+The [Safe Navigation Operator](https://angular.io/guide/template-syntax#the-safe-navigation-operator----and-null-property-paths) helps with preventing null-reference exceptions in component template expressions. It returns object property value if it exists or null otherwise.
+
+```html
+<p> I will work even if student is null or undefined: {{student?.name}} </p>
+```
+
+<details>
+<summary>Bonus</summary>
+
+```html
+{{a?.b?.c}} 
+```
+Underneath will be compiled to.
+```html
+(_co.a == null)? null: ((_co.a.b == null)? null: _co.a.b.c));
+```
+</details>
+
+#### Links
+https://github.com/angular/angular/issues/791
+
+<br>[⭐ Interactive demo of this snippet](https://30.codelab.fun/safe-navigation-operator) | [⬆ Back to top](#table-of-contents) | tags: [object property handling](https://30.codelab.fun/tags/object-property-handling) [tips](https://30.codelab.fun/tags/tips) [good to know](https://30.codelab.fun/tags/good-to-know) 
 <br><br>
 ### trackBy in for loops
 To avoid the expensive operations, we can help Angular to track which items added or removed i.e. customize the default tracking algorithm by providing a trackBy option to NgForOf.
