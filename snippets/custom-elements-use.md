@@ -11,9 +11,17 @@ tags:
 # Content
 It is possible to use Web Components in your Angular application.
 
-Create a custom element according to the wc standards.
+Create a custom element according to the web-component standards and use it as any other component on your Angular template.
 
+
+```html
+<button (click)="onClick($event)"> greet </button>
+<mighty-toast [text]="greet" [pop]="visibility"></mighty-toast>
+```
+
+# ComponentCode
 ```javascript
+
 export class MightyToaster extends HTMLElement {
 
   constructor() {
@@ -85,16 +93,11 @@ export class MightyToaster extends HTMLElement {
 MightyToaster.observedAttributes = [ 'text', 'pop'];
 
 customElements.define('mighty-toast', MightyToaster);
+
 ```
 
-Use it as any other component on your Angular template!
-```html
-<button (click)="onClick($event)"> greet </button>
-<mighty-toast [text]="greet" [pop]="visibility"></mighty-toast>
-```
-
-# ComponentCode
 ```typescript
+
 import { Component, OnInit} from '@angular/core';
 
 @Component({
