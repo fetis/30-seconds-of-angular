@@ -1,15 +1,14 @@
-{{#> head }}
-  <title>Tag: {{ tag }}</title>
-{{/head }}
+{{#> head}}
+    <title>✨ {{capitalize tag}} - {{site.title}} </title>
+{{/head}}
+{{#> body}}
+    <div class="card">
+        <h2>Tag: {{ tag }}</h2>
+    </div>
 
-{{#> full-body }}
-
-  <div class="card">
-    <h2>Tag: {{ tag }}</h2>
-  </div>
-
-  {{#each pagination.files}}
-    {{>snippet}}
-  {{/each}}
-
-{{/full-body}}
+    {{#each pagination.files}}
+    {{!--
+   This comment prevent indenting snippets which breaks code examples.
+--}}{{>snippet}}
+    {{/each}}
+{{/body}}

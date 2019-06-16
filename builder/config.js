@@ -22,6 +22,7 @@ module.exports = (isDevMode = false) => Metalsmith(__dirname)
 	.metadata({
 		site: {
 			base: 'https://30.codelab.fun/',
+      title: '30 Seconds of angular',
 			isDevMode
 		}
 	})

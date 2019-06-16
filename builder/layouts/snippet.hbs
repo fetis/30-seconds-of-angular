@@ -1,5 +1,4 @@
-{{#> head }}
-    <title>{{ title }}</title>
+{{#> head}}
     <style>
         .demo-card iframe {
             width: 100%;
@@ -10,24 +9,25 @@
             height: 100%;
         }
     </style>
-    <meta name="twitter:card" content="summary_large_image" />
+    <meta name="twitter:card" content="summary_large_image"/>
     <meta name="twitter:site" content="@30sec_angular">
     <meta name="twitter:title" content="✨ 30 Seconds of Angular: {{title}} ✨">
     <meta name="twitter:text:title" content="✨ 30 Seconds of Angular ✨">
     <meta name="twitter:description" content="{{title}}">
     <meta name="twitter:image" content="{{site.base}}{{slugify title}}/preview.png">
     <meta name="twitter:image:alt" content="30 seconds of angular">
-{{/head }}
+    <title>✨ {{title}} - {{site.title}}</title>
+{{/head}}
 
-{{#> full-body }}
+{{#> body}}
 
-{{!-- don't indent, it'll break code examples --}}
-{{>snippet}}
+{{!--
+This comment prevent indenting snippets which breaks code examples.
+--}}{{>snippet}}
 
-    {{#if (hasCode this)}}
-        <div class="mdl-card mdl-shadow--2dp card demo-card">
-            <iframe src="https://codelab.fun/angular/playground?code={{codeToBase64 this}}"></iframe>
-        </div>
-    {{/if}}
-
-{{/full-body}}
+{{#if (hasCode this)}}
+    <div class="mdl-card mdl-shadow--2dp card demo-card">
+        <iframe src="https://codelab.fun/angular/playground?hideControls=true&code={{codeToBase64 this}}"></iframe>
+    </div>
+{{/if}}
+{{/body}}
