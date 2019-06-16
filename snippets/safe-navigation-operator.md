@@ -1,7 +1,7 @@
 ---
 title: Safe Navigation Operator
 level: beginner
-author: alex_bu
+author: alex-bu-93
 tags:
   - object property handling
   - tips
