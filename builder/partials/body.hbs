@@ -1,13 +1,14 @@
 {{!-- see head.hbs for start --}}
 
+{{!-- don't indent, it'll break code examples --}}
 {{#if class }}
-  <body class="{{ class }}">
-  {{> @partial-block }}
-  </body>
+<body class="{{ class }}">
+{{> @partial-block }}
+</body>
 {{ else }}
-  <body>
-  {{> @partial-block }}
-  </body>
+<body>
+{{> @partial-block }}
+</body>
 {{/if}}
 
 </html>

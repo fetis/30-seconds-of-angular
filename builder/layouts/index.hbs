@@ -9,7 +9,8 @@
       <h2 class="group">{{capitalize value}} snippets</h2>
 
       {{#each items}}
-        {{>snippet}}
+{{!-- don't indent, it'll break code examples --}}
+{{>snippet}}
       {{/each}}
     </section>
   {{/group}}

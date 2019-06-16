@@ -21,7 +21,8 @@
 
 {{#> full-body }}
 
-    {{>snippet}}
+{{!-- don't indent, it'll break code examples --}}
+{{>snippet}}
 
     {{#if (hasCode this)}}
         <div class="mdl-card mdl-shadow--2dp card demo-card">
