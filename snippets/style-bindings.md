@@ -17,7 +17,6 @@ You can use advanced property bindings to set specific style values based on com
 <p [style.font-size.px]="isImportant ? '30' : '16'">
   May be important text.
 </p>
-
 ```
 
 
