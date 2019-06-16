@@ -33,10 +33,6 @@ export class Wrapper {}
 </wrapper>
 ```
 
-
-
-
-
 # ComponentCode
 ```typescript
 import { Component } from '@angular/core';
