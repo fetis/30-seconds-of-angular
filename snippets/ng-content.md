@@ -33,10 +33,6 @@ export class Wrapper {}
 </wrapper>
 ```
 
-
-
-
-
 # ComponentCode
 ```typescript
 import { Component } from '@angular/core';
@@ -50,19 +46,19 @@ function template(useClass: string): string {
 }
 
 @Component({
-  selector: 'card',
+  selector: 'app-card',
   template: template('card')
 })
 export class Card {}
 
 @Component({
-  selector: 'card-header',
+  selector: 'app-card-header',
   template: template('card-header')
 })
 export class CardHeader {}
 
 @Component({
-  selector: 'card-body',
+  selector: 'app-card-body',
   template: template('card-body')
 })
 export class CardBody {}
