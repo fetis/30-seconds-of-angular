@@ -1,29 +1,28 @@
 <!doctype html>
 <html lang="en">
 <head>
-  <link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons">
-  <link rel="stylesheet" href="https://code.getmdl.io/1.3.0/material.indigo-pink.min.css">
-  <link rel="stylesheet"
-        href="//cdnjs.cloudflare.com/ajax/libs/highlight.js/9.15.6/styles/default.min.css">
-  <link rel="stylesheet"
-        href="//cdnjs.cloudflare.com/ajax/libs/highlight.js/9.15.6/styles/zenburn.min.css">
-  <meta charset="UTF-8">
-  <base href="/">
-  <script defer src="https://code.getmdl.io/1.3.0/material.min.js"></script>
-  <script async defer src="https://platform.twitter.com/widgets.js" charset="utf-8"></script>
-  <script async defer src="https://buttons.github.io/buttons.js"></script>
+    <link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons">
+    <link rel="stylesheet" href="https://code.getmdl.io/1.3.0/material.indigo-pink.min.css">
+    <link rel="stylesheet"
+          href="//cdnjs.cloudflare.com/ajax/libs/highlight.js/9.15.6/styles/default.min.css">
+    <link rel="stylesheet"
+          href="//cdnjs.cloudflare.com/ajax/libs/highlight.js/9.15.6/styles/zenburn.min.css">
+    <meta charset="UTF-8">
+    <base href="/">
+    <script defer src="https://code.getmdl.io/1.3.0/material.min.js"></script>
+    <script async defer src="https://platform.twitter.com/widgets.js" charset="utf-8"></script>
+    <script async defer src="https://buttons.github.io/buttons.js"></script>
 
-  <link rel="icon" type="image/png" sizes="32x32" href="/public/img/favicon-32x32.png">
-  <link rel="icon" type="image/png" sizes="16x16" href="/public/img/favicon-16x16.png">
+    <link rel="icon" type="image/png" sizes="32x32" href="/public/img/favicon-32x32.png">
+    <link rel="icon" type="image/png" sizes="16x16" href="/public/img/favicon-16x16.png">
 
-  {{#if site.isDevMode}}
-    <script async src="http://localhost:35729/livereload.js"></script>
-  {{/if}}
+    {{#if site.isDevMode}}
+        <script async src="http://localhost:35729/livereload.js"></script>
+    {{/if}}
 
-  <link rel="stylesheet" href="public/css/style.css">
+    {{> @partial-block }}
 
-  {{> @partial-block }}
+    <link rel="stylesheet" href="public/css/style.css">
 </head>
 
 {{!-- see body.hbs for end --}}
-

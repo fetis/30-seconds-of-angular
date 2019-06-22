@@ -1,18 +1,16 @@
-{{#> head }}
-  <title>30 seconds of Angular</title>
-{{/head }}
+{{#> head}}
+    <title>{{site.title}}</title>
+{{/head}}
 
-{{#> full-body }}
+{{#>body}}
+    {{#group snippets by="level"}}
+        <section>
+            <h2 class="group">{{capitalize value}} snippets</h2>
+            {{#each items}}
+            {{!-- don't indent, it'll break code examples
+--}}{{>snippet}}
+            {{/each}}
+        </section>
+    {{/group}}
 
-  {{#group snippets by="level"}}
-    <section>
-      <h2 class="group">{{capitalize value}} snippets</h2>
-
-      {{#each items}}
-{{!-- don't indent, it'll break code examples --}}
-{{>snippet}}
-      {{/each}}
-    </section>
-  {{/group}}
-
-{{/full-body}}
+{{/body}}

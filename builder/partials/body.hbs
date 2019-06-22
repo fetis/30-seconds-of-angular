@@ -1,14 +1,48 @@
 {{!-- see head.hbs for start --}}
 
-{{!-- don't indent, it'll break code examples --}}
-{{#if class }}
-<body class="{{ class }}">
-{{> @partial-block }}
-</body>
-{{ else }}
-<body>
-{{> @partial-block }}
-</body>
-{{/if}}
+<body class="{{ bodyClass }}">
 
+{{#unless hideHeader}}
+    <header class="mdl-card mdl-shadow--2dp card header-card">
+        <a href="/"><img src="public/img/logo_beta.png" style="height: 100px;" alt="30 seconds of angular"></a>
+
+        <div class="header-card__buttons">
+            <a class="twitter-follow-button" data-show-count="false" data-size="large"
+               href="https://twitter.com/30sec_angular">Follow @30sec_angular</a>
+
+            <a class="github-button"
+               href="https://github.com/nycJSorg/30-seconds-of-angular"
+               data-size="large"
+               data-show-count="true" aria-label="Star nycJSorg/30-seconds-of-angular on GitHub">
+                Star
+            </a>
+        </div>
+    </header>
+
+    <div class="codelab-callout mdl-card card mdl-shadow--2dp">
+        ✨✨ New to Angular? Check out interactive
+        <a href="https://codelab.fun" rel="nofollow" target="_blank">Angular Codelab</a> ✨✨
+    </div>
+{{/unless}}
+
+{{> @partial-block }}
+
+{{#unless hideHeader}}
+<footer>
+    <style>
+        .add-snippet-button {
+            position: fixed;
+            bottom: 20px;
+            left: 84%;
+            z-index: 10;
+        }
+    </style>
+    <a href="/new">
+        <button class="add-snippet-button mdl-button mdl-js-button mdl-button--fab mdl-button--colored">
+            <i class="material-icons">add</i>
+        </button>
+    </a>
+</footer>
+{{/unless}}
+</body>
 </html>
