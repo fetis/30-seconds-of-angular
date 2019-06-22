@@ -1,0 +1,35 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`sortByLevel :: sorts according to schema  1`] = `
+Array [
+  Object {
+    "level": "beginner",
+  },
+  Object {
+    "level": "intermediate",
+  },
+  Object {
+    "level": "intermediate",
+  },
+  Object {
+    "level": "advanced",
+  },
+]
+`;
+
+exports[`sortByLevel :: sorts according to schema  2`] = `
+Array [
+  Object {
+    "level": "intermediate",
+  },
+  Object {
+    "level": "beginner",
+  },
+  Object {
+    "level": "advanced",
+  },
+  Object {
+    "level": "intermediate",
+  },
+]
+`;

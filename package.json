@@ -4,7 +4,7 @@
   "description": "",
   "main": "index.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1",
+    "test": "jest",
     "generate": "echo 'I am deprecated, use `npm run build` insted' && node builder/build",
     "build": "node builder/build",
     "start": "node builder/serve",
@@ -25,6 +25,7 @@
   "dependencies": {
     "helper-markdown": "^1.0.0",
     "highlight.js": "^9.15.6",
+    "jest": "^24.8.0",
     "jstransformer-handlebars": "^1.1.0",
     "md-to-json-snippet-generator": "0.0.9",
     "metalsmith": "^2.3.0",
