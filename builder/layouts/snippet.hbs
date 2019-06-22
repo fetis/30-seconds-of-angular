@@ -26,7 +26,7 @@
 
     {{#if (hasCode this)}}
         <div class="mdl-card mdl-shadow--2dp card demo-card">
-            <iframe src="https://codelab.fun/angular/playground?code={{codeToBase64 this}}"></iframe>
+            <iframe src="{{site.codeRunnerHost}}/angular/playground?hidecontrols=true&code={{codeToBase64 this}}"></iframe>
         </div>
     {{/if}}
 
