@@ -1,1 +1,6 @@
-Keeping root test folder in the root, as other folders get autoimported.
+# Tests
+All builder tests should be kept in builder root and replicate the folder structure.
+
+We can't keep tests in appropriate folders because metalsmith thinks those are plugins/helpers 
+and tries importing them. 
+

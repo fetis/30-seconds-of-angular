@@ -1,31 +1,35 @@
 {{#> head }}
-<title>{{ title }}</title>
-<style>
-    .mdl-card__menu img {
-        height: 86px;
-        margin-top: -20px;
-        margin-right: -30px;
-    }
-    .mdl-card__supporting-text {
-        color: #4c4c4c;
-    }
+    <title>{{ title }}</title>
 
-    .mdl-card__title-text {
-        font-weight: 400;
-    }
-</style>
-{{/head }}
+    <style>
+        .mdl-card__menu img {
+            height: 86px;
+            margin-top: -20px;
+            margin-right: -30px;
+        }
 
-{{#> body }}
+        .mdl-card__supporting-text {
+            color: #4c4c4c;
+        }
+
+        .mdl-card__title-text {
+            font-weight: 400;
+        }
+    </style>
+{{/head}}
+
+{{#> body hideHeader=true}}
     <div class="mdl-card mdl-shadow--2dp card snippet-card">
         <div class="mdl-card__title">
             <h2 class="mdl-card__title-text">✅ {{title}} </h2>
         </div>
         <div class="mdl-card__supporting-text">
-            {{{markdown content}}}
+            {{!--
+             This comment prevent indenting snippets which breaks code examples.
+--}}{{{markdown content}}}
         </div>
         <div class="mdl-card__menu">
-            <img src="public/img/logo.png" style="" alt="">
+            <img src="public/img/logo.png" alt="{{site.title}}">
         </div>
     </div>
 {{/body}}

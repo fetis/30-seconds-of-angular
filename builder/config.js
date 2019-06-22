@@ -23,6 +23,7 @@ module.exports = (isDevMode = false) => Metalsmith(__dirname)
 		site: {
 			base: 'https://30.codelab.fun/',
       codeRunnerHost: 'https://codelab.fun',
+      title: '30 Seconds of angular',
 			isDevMode
 		}
 	})

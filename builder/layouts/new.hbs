@@ -1,27 +1,19 @@
-{{#> head }}
-  <title>Add new snippet</title>
-  <style>
-    .layout {
-      display: flex;
-      flex-direction: column;
-    }
+{{#> head}}
+    <title>New Snippet - {{site.title}}</title>
+    <style>
+        body {
+            display: flex;
+            flex-direction: column;
+        }
 
-    .layout__form {
-      flex: 1;
-    }
-    .layout__form iframe {
-      width: 100%;
-      height: 100%;
-    }
-  </style>
-{{/head }}
+        iframe.new-snippet-form {
+            flex: 1;
+            width: 100%;
+            height: 100%;
+        }
+    </style>
+{{/head}}
 
-{{#> body class="layout" }}
-  <div>
-    {{> header }}
-  </div>
-
-  <div class="layout__form">
-    <iframe src="{{ site.codeRunnerHost }}/30/"></iframe>
-  </div>
+{{#> body bodyClass="layout" }}
+    <iframe class="new-snippet-form" src="{{ site.codeRunnerHost }}/30/"></iframe>
 {{/body}}
