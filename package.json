@@ -9,7 +9,7 @@
     "build": "node builder/build",
     "start": "node builder/serve",
     "deploy": "npm run generate && firebase deploy --only hosting:angular-30-seconds",
-    "deploy-staging": "npm run generate && firebase deploy --only hosting:angular-30-seconds-staging"
+    "deploy:staging": "npm run generate && firebase deploy --only hosting:angular-30-seconds-staging"
 
   },
   "repository": {
