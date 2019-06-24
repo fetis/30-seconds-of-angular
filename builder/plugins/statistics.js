@@ -18,7 +18,6 @@ function getTagsCount(metadata) {
 }
 
 module.exports = () => (files, {_metadata}, done) => {
-
   _metadata.statistics = {
     snippets: getSnippetsCount(_metadata),
     authors: getAuthorsCount(_metadata),
