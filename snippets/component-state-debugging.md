@@ -1,5 +1,5 @@
 ---
-title: component-state-debugging
+title: Component State Debugging
 author: lironHazan
 twitter: lironn_h
 level: beginner
