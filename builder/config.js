@@ -18,7 +18,6 @@ const validate = require('./plugins/validate');
 const statistics = require('./plugins/statistics');
 
 
-
 module.exports = (isDevMode = false) => Metalsmith(__dirname)
 	.metadata({
 		site: {
