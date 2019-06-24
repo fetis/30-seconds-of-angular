@@ -29,14 +29,17 @@
 
 {{#unless hideHeader}}
 <footer>
-    <style>
-        .add-snippet-button {
-            position: fixed;
-            bottom: 20px;
-            left: 84%;
-            z-index: 10;
-        }
-    </style>
+    <div class="card">
+        {{#with statistics }}
+            <p>
+                Statistics: {{ snippets }} snippets, {{ authors }} authors, {{ tags }} tags.
+            </p>
+            <p>
+                Generated from <a href="https://github.com/nycJSorg/30-seconds-of-angular/tree/{{ revision }}" target="_blank">{{ revision }}</a>
+            </p>
+        {{/with}}
+    </div>
+
     <a href="/new">
         <button class="add-snippet-button mdl-button mdl-js-button mdl-button--fab mdl-button--colored">
             <i class="material-icons">add</i>

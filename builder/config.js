@@ -15,6 +15,7 @@ const path = require('path');
 const generateHtmlFilesForScreenshots = require('./plugins/generate-html-files-for-screenshots');
 const customMarkdownParse = require('./plugins/custom-markdown-parse');
 const validate = require('./plugins/validate');
+const statistics = require('./plugins/statistics');
 
 
 
@@ -57,6 +58,7 @@ module.exports = (isDevMode = false) => Metalsmith(__dirname)
 		[path.join('json', 'index.html'), 'data.json'],
 		[path.join('readme', 'index.html'), 'README.md'],
 	]))
+  .use(statistics())
 	.use(layouts({
 		engine: handlebars,
 		default: 'snippet.hbs',
