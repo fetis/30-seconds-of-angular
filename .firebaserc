@@ -7,6 +7,9 @@
         "hosting": {
           "angular-30-seconds": [
             "angular-30-seconds"
+          ],
+           "angular-30-seconds-staging": [
+            "angular-30-seconds-staging"
           ]
         }
       }

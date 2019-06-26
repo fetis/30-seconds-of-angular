@@ -33,7 +33,8 @@ Intermediate snippets
 Beginner snippets
 
 * [Accessing Enums in template](#accessing-enums-in-template)
-* [Angular cheat sheet](#angular-cheat-sheet)
+* [Cheat Sheets and Checklists](#cheat-sheets-and-checklists)
+* [component-state-debugging](#component-state-debugging)
 * [Default ViewEncapsulation value](#default-viewencapsulation-value)
 * [hammerjs-gestures](#hammerjs-gestures)
 * [Loader Component](#loader-component)
@@ -245,12 +246,12 @@ Here is the way to notify user that there are fields with non-valid values.
 `markFieldsAsTouched` function FormGroup or FormArray as an argument. 
 
 ```typescript
-  function markFieldsAsTouched(form: AbstractControl): void {
-    form.markAsTouched({ onlySelf: true });
-    if (form instanceof FormArray || form instanceof FormGroup) {
-      Object.values(form.controls).forEach(markFieldsAsTouched);
-    }
+function markFieldsAsTouched(form: AbstractControl): void {
+  form.markAsTouched({ onlySelf: true });
+  if (form instanceof FormArray || form instanceof FormGroup) {
+    Object.values(form.controls).forEach(markFieldsAsTouched);
   }
+}
 ```
 
 <details>
@@ -459,16 +460,38 @@ export class AppComponent {
 
 <br>[⭐ Interactive demo of this snippet](https://30.codelab.fun/accessing-enums-in-template) | [⬆ Back to top](#table-of-contents) | tags: [enums](https://30.codelab.fun/tags/enums) [templates](https://30.codelab.fun/tags/templates) 
 <br><br>
-### Angular cheat sheet
-Check out [Angular Cheat Sheet](https://angular.io/guide/cheatsheet) which contains lots of useful information condensed in one place. 
-
-There's also an [alternative version](https://malcoded.com/angular-cheat-sheet).
+### Cheat Sheets and Checklists
+Check out [Angular Cheat Sheet](https://angular.io/guide/cheatsheet) or ([alternative version](https://malcoded.com/angular-cheat-sheet)) containing lots of useful information condensed in one place. 
+ 
+Also [Angular Checklist](https://angular-checklist.io) contains is curated list of common mistakes made when developing Angular applications.
 
 
 #### Links
 https://malcoded.com/angular-cheat-sheet/,https://angular.io/guide/cheatsheet,https://angular.io/guide/styleguide
 
-<br>[⭐ Interactive demo of this snippet](https://30.codelab.fun/angular-cheat-sheet) | [⬆ Back to top](#table-of-contents) | tags: [tip](https://30.codelab.fun/tags/tip) [cheat sheet](https://30.codelab.fun/tags/cheat-sheet) 
+<br>[⭐ Interactive demo of this snippet](https://30.codelab.fun/cheat-sheets-and-checklists) | [⬆ Back to top](#table-of-contents) | tags: [tip](https://30.codelab.fun/tags/tip) [cheat sheet](https://30.codelab.fun/tags/cheat-sheet) 
+<br><br>
+### component-state-debugging
+Debug the component state in the browser console by running:
+```typescript
+ng.probe($0).componentInstance
+```
+
+> `$0` - is the DOM node currently selected in dev tools (`$1` for the previous one and so on).
+
+<details>
+<summary>Bonus</summary>
+
+With Ivy renderer engine:
+```typescript
+ng.getComponent($0)
+```
+</details>
+
+#### Links
+https://blog.angularindepth.com/everything-you-need-to-know-about-debugging-angular-applications-d308ed8a51b4
+
+<br>[⭐ Interactive demo of this snippet](https://30.codelab.fun/component-state-debugging) | [⬆ Back to top](#table-of-contents) | tags: [good-to-know](https://30.codelab.fun/tags/good-to-know) [tips](https://30.codelab.fun/tags/tips) 
 <br><br>
 ### Default ViewEncapsulation value
 If you're using `ViewEncapsulation` value which is different than default, it might be daunting to set the value manually for every component. 
