@@ -11,7 +11,7 @@ tags:
 # Content
 `EventEmitters`  used for `@Output`'s are just Observables with an emit method. 
 
-This means that you can just use `Observable` instance instead. e.g. we can wire up FormControl value changes directly:
+This means that you can just use `Observable` instance instead, e.g. we can wire up FormControl value changes directly:
 
 ```TypeScript
 readonly checkbox = new FormControl();
