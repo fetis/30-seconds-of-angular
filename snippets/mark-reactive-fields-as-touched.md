@@ -24,7 +24,7 @@ function markFieldsAsTouched(form: AbstractControl): void {
 }
 ```
 
-# ComponentCode
+# file:app.component.ts
 ```typescript
 import { Component } from '@angular/core';
 import { AbstractControl, FormControl, FormGroup, FormArray, Validators } from '@angular/forms';

@@ -58,27 +58,24 @@ module.exports = {
       level: s.level,
       tags: s.tags,
       links: s.links,
-      componentcode: s.componentcode,
-      modulecode: s.modulecode,
+      'file:app.component.ts': s['file:app.component.ts'],
+      'file:app.module.ts': s['s.file:app.module.ts'],
     }));
     return JSON.stringify(newSnippet, null, 2)
   },
   hasCode(code) {
-    return code.componentcode || code.modulecode;
+    return Object.keys(code).some(key => key.startsWith('file:'));
   },
   /**
    * Right now demo is in an iframe, the code is passed to an iframe encoded with base64.
    */
   codeToBase64(code) {
-    const files = {};
-    if (code.componentcode) {
-      files['app.component.ts'] = stripTypeScript(code.componentcode);
-    }
-
-    if (code.modulecode) {
-      files['app.module.ts'] = stripTypeScript(code.modulecode);
-    }
-
+    const files = Object.entries(code).filter(([key, value]) => {
+      return key.startsWith('file:');
+    }).reduce((result, [key, value]) => {
+      result[key.slice(5).trim()] = stripTypeScript(value);
+      return result;
+    }, {});
 
     return Object.keys(files).length
       ? encodeURIComponent(Buffer.from(JSON.stringify(files), 'binary')

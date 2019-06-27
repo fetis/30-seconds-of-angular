@@ -35,7 +35,7 @@ flattenControls(form).forEach((control) =>
     control.markAsTouched({ onlySelf: true }));
 ```
 
-# ComponentCode
+# file:app.component.ts
 ```typescript
 import { Component } from '@angular/core';
 import { AbstractControl, FormControl, FormGroup, FormArray, FormBuilder } from '@angular/forms';
@@ -83,7 +83,7 @@ function flattenControls(form: AbstractControl): AbstractControl[] {
 }
 ```
 
-# ModuleCode
+# file:app.module.ts
 ```typescript  
 import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';

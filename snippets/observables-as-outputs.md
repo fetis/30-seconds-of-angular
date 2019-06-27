@@ -18,7 +18,7 @@ readonly checkbox = new FormControl();
 @Output() readonly change = this.checkbox.valueChanges;
 ```
 
-# ComponentCode
+# file:app.component.ts
 ```typescript
 import { Component, Output } from '@angular/core';
 import { FormControl } from '@angular/forms';
@@ -43,7 +43,7 @@ export class AppComponent {
 }
 ```
 
-# ModuleCode
+# file:app.module.ts
 ```typescript
 import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';

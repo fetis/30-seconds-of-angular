@@ -41,13 +41,13 @@
           "uniqueItems": true
         }
       },
-      "componentCode": {
+      "file:app.component.ts": {
         "type": "string"
       },
-      "moduleCode": {
+      "file:app.module.ts": {
         "type": "string"
       },
-      "mainCode": {
+      "file:main.ts": {
         "type": "string"
       }
     },

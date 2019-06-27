@@ -41,7 +41,7 @@ For usage example:
 <loader [loading]="isLoading"><destroy-the-world></destroy-the-world></loader>
 ```
 
-# ComponentCode
+# file:app.component.ts
 ```typescript 
 import { Component, Input } from '@angular/core';
 
@@ -72,7 +72,7 @@ export class AppComponent {
 }
 ```
 
-# ModuleCode
+# file:app.module.ts
 ```typescript  
 import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';

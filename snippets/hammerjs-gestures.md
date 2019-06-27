@@ -77,7 +77,7 @@ Here are samples on how to use all of the `hammerjs` event bindings, you can use
   <div (tap)="logEvent($event)"></div>
 ```
 
-# ComponentCode
+# file:app.component.ts
 
 ```typescript
 // Using a HostListener
@@ -116,7 +116,7 @@ export class SwiperStopSwipingComponent {
 }
 ```
 
-# MainCode
+# file:main.ts
 
 ```typescript
 import 'hammerjs';

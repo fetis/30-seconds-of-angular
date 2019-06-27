@@ -29,7 +29,7 @@ To do this you can use `ng-template` along with `*ngTemplateOutlet` directive.
 </ng-template>
 ```
 
-# ComponentCode
+# file:app.component.ts
 ```typescript
 import { Component } from '@angular/core';
 

@@ -24,7 +24,7 @@ For rare cases when you need to preserve spaces you can use special `ngPreserveW
 
 > You can also use [preserveWhitespaces](https://angular.io/api/core/Component#preserveWhitespaces) option on a component. 
 
-# ComponentCode
+# file:app.component.ts
 ```typescript
 import { Component } from '@angular/core';
 

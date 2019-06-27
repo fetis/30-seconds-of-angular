@@ -36,7 +36,7 @@ const routing: ModuleWithProviders = RouterModule.forRoot(routes, {
 ```
 > Note that that the example above would not be very efficient for larger apps, as it'll preload all the modules.
 
-# ComponentCode
+# file:app.component.ts
 ```typescript
 import { Component } from '@angular/core';
 @Component({
@@ -46,7 +46,7 @@ import { Component } from '@angular/core';
 export class AppComponent {}
 ```
 
-# ModuleCode
+# file:app.module.ts
 ```typescript
 import { BrowserModule } from '@angular/platform-browser';
 import { NgModule, ModuleWithProviders } from '@angular/core';

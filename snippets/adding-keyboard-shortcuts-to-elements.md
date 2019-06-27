@@ -36,7 +36,7 @@ It's really easy to add keyboard shortcuts in the template:
 <input (keydown.f4)="...">
 ```
   
-# ComponentCode
+# file:app.component.ts
 ```typescript
 import { Component } from '@angular/core';
 

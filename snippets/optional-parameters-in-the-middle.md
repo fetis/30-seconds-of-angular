@@ -17,7 +17,7 @@ the router will navigate to `/first;name=foo/details`
 </a>
 ```
 
-# ComponentCode
+# file:app.component.ts
 import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute } from '@angular/router';
 
@@ -67,7 +67,7 @@ export class DetailComponent  {
 
 
 
-# ModuleCode
+# file:app.module.ts
 import { NgModule } from '@angular/core';
 import { APP_BASE_HREF } from '@angular/common';
 import { BrowserModule } from '@angular/platform-browser';

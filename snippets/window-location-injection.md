@@ -39,7 +39,7 @@ export class AppComponent {
 }
 ``` 
 
-# ComponentCode
+# file:app.component.ts
 ```typescript
 import { Component, Inject } from '@angular/core';
 import { LOCATION_TOKEN } from './app.module';
@@ -58,7 +58,7 @@ export class AppComponent {
   }
 }
 ```
-# ModuleCode
+# file:app.module.ts
 ```typescript
 import { BrowserModule } from '@angular/platform-browser';
 import { NgModule, InjectionToken } from '@angular/core';
