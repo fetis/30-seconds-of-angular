@@ -27,10 +27,10 @@ function highlight(code, lang) {
 }
 
 /**
- * Drop markdown "```typescript```" from the code
+ * Drop markdown "```language```" from the code
  */
-function stripTypeScript(code) {
-  return code.slice(13, -3).trim();
+function stripMarkdownLanguageMark(code) {
+  return code.replace(/```\w+/, '').replace(/```/, '');
 }
 
 module.exports = {
@@ -73,7 +73,7 @@ module.exports = {
     const files = Object.entries(code).filter(([key, value]) => {
       return key.startsWith('file:');
     }).reduce((result, [key, value]) => {
-      result[key.slice(5).trim()] = stripTypeScript(value);
+      result[key.slice(5).trim()] = stripMarkdownLanguageMark(value);
       return result;
     }, {});
 
