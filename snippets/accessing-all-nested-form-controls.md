@@ -96,8 +96,3 @@ import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 })
 export class AppModule {}
 ```
-
-# file:template.svg
-```svg
-<circle fill="red" r=100></circle>
-```
