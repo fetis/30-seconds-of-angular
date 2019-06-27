@@ -20,7 +20,7 @@ Here's what you can do to help:
   - Snippet titles must be unique (although if you cannot find a better title, just add some placeholder at the end of the filename and title and we will figure it out).
 - **Snippet content** should have a brief description and a code snippet and must not exceed 25 lines
 - **Snippet demo** 
-  - It's possible to add an interactive demo by adding headers for appropriate files: `#componentCode` (app.component.ts), `#moduleCode` (app.module.ts), or `#mainCode` (main.ts) headers.   
+  - It's possible to add an interactive demo by adding headers for appropriate files: `#file:app.component.ts`, `#file:app.module.ts`, or `#file:main.ts` headers.   
 - Snippets *should* solve real-world problems, no matter how simple.
 - Snippets *should* be abstract enough to be applied to different scenarios.
 - You can start creating a new snippet, by using the [snippet template](snippet-template.md) to format your snippets.

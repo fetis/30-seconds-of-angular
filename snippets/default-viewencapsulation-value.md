@@ -21,7 +21,7 @@ platformBrowserDynamic().bootstrapModule(AppModule, [
 ]);
 ``` 
 
-# ComponentCode
+# file:app.component.ts
 ```typescript
 import { Component } from '@angular/core';
 
@@ -33,7 +33,7 @@ import { Component } from '@angular/core';
 export class AppComponent {}
 ```
 
-# MainCode
+# file:main.ts
 ```typescript
 import { platformBrowserDynamic } from '@angular/platform-browser-dynamic';
 import { AppModule } from './app.module';

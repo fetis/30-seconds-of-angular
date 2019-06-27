@@ -26,7 +26,7 @@ export class AppComponent {
 }
 ```
 
-# ComponentCode
+# file:app.component.ts
 ```typescript
 import { Component } from "@angular/core";
 

@@ -33,7 +33,7 @@ export class ProvideComponent {}
 export class ProvideDirective {}
 ```
 
-# ComponentCode
+# file:app.component.ts
 ```typescript
 import { Injectable, Component, OnInit, OnDestroy, Host } from '@angular/core';
 
@@ -90,7 +90,7 @@ export class ItemsComponent {}
 export class AppComponent {}
 ```
 
-# ModuleCode
+# file:app.module.ts
 ```typescript
 import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';

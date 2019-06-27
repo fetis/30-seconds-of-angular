@@ -39,7 +39,7 @@ class AppComponent {
 }
 ```
 
-# ComponentCode
+# file:app.component.ts
 ```typescript
 import { Component, ViewChildren, QueryList, AfterViewInit } from '@angular/core';
 
@@ -97,7 +97,7 @@ export class AppComponent implements AfterViewInit {
 }
 ```
 
-# ModuleCode
+# file:app.module.ts
 ```typescript
 import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';

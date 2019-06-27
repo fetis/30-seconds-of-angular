@@ -25,7 +25,7 @@ With Ivy renderer engine:
 ng.getComponent($0)
 ```
   
-# ComponentCode
+# file:app.component.ts
 ```typescript
 import { Component } from '@angular/core';
 

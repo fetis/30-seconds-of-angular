@@ -27,7 +27,7 @@ Then you can use it as:
 <super-input [(value)]="value"></super-input>
 ```
 
-# ComponentCode
+# file:app.component.ts
 ```typescript
 import { Component, Input, Output, EventEmitter } from '@angular/core';
 
@@ -56,7 +56,7 @@ export class AppComponent {
 }
 ```
 
-# ModuleCode
+# file:app.module.ts
 ```typescript
 import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';

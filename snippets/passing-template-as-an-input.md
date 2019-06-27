@@ -35,7 +35,7 @@ export class SiteMenuComponent  {
 > Note: `ng-content` should be used for most of the cases and it's simpler and more declarative.
 > Only use this approach if you need extra flexibility that can't be achieved with ng-content.
 
-# ComponentCode
+# file:app.component.ts
 ```typescript
 import { Component, Input, TemplateRef } from '@angular/core';
 
@@ -65,7 +65,7 @@ export class SiteMenuComponent  {
 export class AppComponent {}
 ```
 
-# ModuleCode
+# file:app.module.ts
 ```typescript
 // This section is optional, remove it if the code below is good.
 import { BrowserModule } from '@angular/platform-browser';

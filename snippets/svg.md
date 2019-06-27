@@ -33,7 +33,7 @@ It is possible to use SVG tags in your Angular component, to create beautiful gr
 })
 ```
 
-# ComponentCode
+# file:app.component.ts
 ```typescript
 import { Component, Input } from '@angular/core';
 
@@ -111,7 +111,7 @@ export class AppComponent {
 
 ```
 
-# ModuleCode
+# file:app.module.ts
 ```typescript
 import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';

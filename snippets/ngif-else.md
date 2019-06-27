@@ -16,7 +16,7 @@ tags:
 <ng-template #notLoading>not loading</ng-template>
 ```
 
-# ComponentCode
+# file:app.component.ts
 ```typescript
 import { Component, HostBinding } from '@angular/core';
 
@@ -36,7 +36,7 @@ export class AppComponent {
 ```
 
 
-# ModuleCode
+# file:app.module.ts
 ```typescript
 import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';

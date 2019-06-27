@@ -43,7 +43,7 @@ next(target) {
 }
 ```
 
-# ComponentCode
+# file:app.component.ts
 ```typescript
 import { Component, HostListener } from '@angular/core';
 

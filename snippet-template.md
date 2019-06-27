@@ -23,7 +23,7 @@ links:
    
   -->
   
-# ComponentCode
+# file:app.component.ts
 ```typescript
 import { Component } from '@angular/core';
 
@@ -34,7 +34,7 @@ import { Component } from '@angular/core';
 export class AppComponent {}
 ````
 
-# ModuleCode
+# file:app.module.ts
 ```typescript
 // This section is optional, remove it if the code below is good.
 import { BrowserModule } from '@angular/platform-browser';

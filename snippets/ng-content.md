@@ -33,7 +33,7 @@ export class Wrapper {}
 </wrapper>
 ```
 
-# ComponentCode
+# file:app.component.ts
 ```typescript
 import { Component } from '@angular/core';
 
@@ -79,7 +79,7 @@ export class CardBody {}
 export class AppComponent {}
 ```
 
-# ModuleCode
+# file:app.module.ts
 ```typescript  
 import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';

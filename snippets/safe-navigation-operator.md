@@ -26,7 +26,7 @@ Underneath will be compiled to.
 (_co.a == null)? null: ((_co.a.b == null)? null: _co.a.b.c));
 ```
 
-# ComponentCode
+# file:app.component.ts
 ```typescript
 import { Component } from '@angular/core';
 
@@ -45,7 +45,7 @@ export class AppComponent {
 }
 ```
 
-# ModuleCode
+# file:app.module.ts
 ```typescript
 import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
