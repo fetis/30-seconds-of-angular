@@ -16,13 +16,17 @@ It is possible to use `.svg` file as a component template:
 })
 ```
 
-# ComponentCode
+# file:app.component.ts
 ```typescript
 import { Component } from '@angular/core';
 
 @Component({
   selector: 'my-app',
-  templateUrl: 'app.svg'
+  templateUrl: './app.svg'
 })
 export class AppComponent {}
+```
+# file:app.svg
+```svg
+<circle r=100 fill=red></circle>
 ```
