@@ -17,47 +17,53 @@ const customMarkdownParse = require('./plugins/custom-markdown-parse');
 const validate = require('./plugins/validate');
 
 
-
-module.exports = (isDevMode = false) => Metalsmith(__dirname)
-	.metadata({
-		site: {
-			base: 'https://30.codelab.fun/',
+module.exports = ({
+                    metadata,
+                    source = '../snippets',
+                    static = 'public'
+                  } = {}) => Metalsmith(__dirname)
+  .metadata({
+    site: {
+      base: 'https://30.codelab.fun/',
       codeRunnerHost: 'https://codelab.fun',
       title: '30 Seconds of angular',
-			isDevMode
-		}
-	})
-	.source('../snippets')
-	.destination('../static')
-	.use(metalsmithStatic())
-	.use(collections({
-		snippets: {
-			sortBy: 'path',
-			pattern: '*.md',
-		},
-	}))
+      twitter: '30sec_angular',
+      isDevMode: false,
+      github: 'nycJSorg/30-seconds-of-angular',
+      ...metadata
+    }
+  })
+  .source(source)
+  .destination('../static')
+  .use(metalsmithStatic([{src: static}]))
+  .use(collections({
+    snippets: {
+      sortBy: 'path',
+      pattern: '*.md',
+    },
+  }))
   .use(copy({
     pattern: 'pages/*.md',
     directory: '.',
     move: true
   }))
-	.use(customMarkdownParse())
-	.use(validate(
-		require('./schemas/snippet').schema
-	))
-	.use(discoverPartials())
-	.use(registerHelpers())
-	.use(markdown({}))
-	.use(permalinks())
-	.use(tags({
-		layout: 'tag.hbs'
-	}))
-	.use(generateHtmlFilesForScreenshots())
-	.use(rename([
-		[path.join('json', 'index.html'), 'data.json'],
-		[path.join('readme', 'index.html'), 'README.md'],
-	]))
-	.use(layouts({
-		engine: handlebars,
-		default: 'snippet.hbs',
-	}));
+  .use(customMarkdownParse())
+  .use(validate(
+    require('./schemas/snippet').schema
+  ))
+  .use(discoverPartials())
+  .use(registerHelpers())
+  .use(markdown({}))
+  .use(permalinks())
+  .use(tags({
+    layout: 'tag.hbs'
+  }))
+  .use(generateHtmlFilesForScreenshots())
+  .use(rename([
+    [path.join('json', 'index.html'), 'data.json'],
+    [path.join('readme', 'index.html'), 'README.md'],
+  ]))
+  .use(layouts({
+    engine: handlebars,
+    default: 'snippet.hbs',
+  }));

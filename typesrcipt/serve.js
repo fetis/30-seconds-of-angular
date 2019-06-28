@@ -1,12 +1,15 @@
-const config = require('./config');
+const {metadata} = require("./metadata");
+
+const config = require('../builder/config');
 const serve = require('metalsmith-serve');
 const watch = require('metalsmith-watch');
 
-config({
-  metadata: {
-    isDevMode: true
-  }
-})
+const conf = {
+...metadata,
+};
+conf.metadata.isDevMode = true;
+
+config(conf)
   .use(serve({
     port: 8082,
     verbose: true

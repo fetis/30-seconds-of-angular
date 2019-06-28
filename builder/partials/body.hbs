@@ -4,16 +4,16 @@
 
 {{#unless hideHeader}}
     <header class="mdl-card mdl-shadow--2dp card header-card">
-        <a href="/"><img src="public/img/logo_beta.png" style="height: 100px;" alt="30 seconds of angular"></a>
+        <a href="/"><img src="public/img/logo_beta.png" style="height: 100px;" alt="{{site.title}}"></a>
 
         <div class="header-card__buttons">
             <a class="twitter-follow-button" data-show-count="false" data-size="large"
-               href="https://twitter.com/30sec_angular">Follow @30sec_angular</a>
+               href="https://twitter.com/{{site.twitter}}">Follow @{{site.twitter}}</a>
 
             <a class="github-button"
-               href="https://github.com/nycJSorg/30-seconds-of-angular"
+               href="https://github.com/{{site.github}}"
                data-size="large"
-               data-show-count="true" aria-label="Star nycJSorg/30-seconds-of-angular on GitHub">
+               data-show-count="true" aria-label="Star {{site.github}} on GitHub">
                 Star
             </a>
         </div>
