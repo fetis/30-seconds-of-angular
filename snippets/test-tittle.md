@@ -1,37 +1,38 @@
 ---
-title: test tittle
+title: test tittle test
 author: alex-bu-93
-twitter: test twitter
-level: intermediate
+twitter: test twitter test
+level: beginner
 tags:
 - test tags
+- test tags 2
 
 links:
-- test links
+- test links test
 ---
 
 # Content
-test content
+test content test
 
 # Bonus
-test bonus
+test bonus test
 
 # file:app.component.ts
 ```typescript
-test component
+test component test
 ```
 
 # file:app.module.ts
 ```typescript
-test module
+test module test
 ```
 
 # file:main.ts
 ```typescript
-test main
+test main test
 ```
 
 # file:index.html
 ```html
-test index
+test index test
 ```
