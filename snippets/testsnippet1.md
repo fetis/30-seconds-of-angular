@@ -7,7 +7,6 @@ tags:
 ---
 
 # Content
-
 You can use markdown here.
 
 Highlight `important terms` with backticks.
@@ -23,7 +22,7 @@ function theLanguageISpeak(language) {
 
 # file:app.component.ts
 ```typescript
-component1
+component12
 ```
 
 # file:app.module.ts
