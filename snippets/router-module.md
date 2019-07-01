@@ -11,7 +11,7 @@ links:
 ---
 
 # Content
-You can declare module router  like so
+You can declare router configuration in concise way
 
 ```typescript 
 export const AppRoutingModule = RouterModule.forRoot(routes, config);
