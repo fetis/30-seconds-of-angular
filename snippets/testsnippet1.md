@@ -22,7 +22,7 @@ function theLanguageISpeak(language) {
 
 # file:app.component.ts
 ```typescript
-component12
+component123
 ```
 
 # file:app.module.ts
