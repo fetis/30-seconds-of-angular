@@ -34,4 +34,4 @@ and use it in your module
 })
 ```
 
-It helps to avoid creating class with own meta and reduce lines of code
+It helps to avoid creating class with own meta and reduce number lines of code.
