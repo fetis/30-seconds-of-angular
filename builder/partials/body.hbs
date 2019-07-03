@@ -35,7 +35,9 @@
                 Statistics: {{ snippets }} snippets, {{ authors }} authors, {{ tags }} tags.
             </p>
             <p>
-                Generated from <a href="https://github.com/nycJSorg/30-seconds-of-angular/tree/{{ revision }}" target="_blank">{{ revision }}</a>
+                Generated {{ generationDate }}, based on commit
+                <a href="https://github.com/nycJSorg/30-seconds-of-angular/tree/{{ revision }}" target="_blank">{{ revisionAbbr }}</a>
+                from {{ revisionDate }}
             </p>
         {{/with}}
     </div>

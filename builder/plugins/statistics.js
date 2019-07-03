@@ -4,17 +4,42 @@ function getSnippetsCount(metadata) {
   return metadata.snippets.length;
 }
 
-function getAuthorsCount(metadata) {
-  const set = new Set();
-
-  metadata.snippets.forEach(snippet => set.add(snippet.author));
+function getAuthorsCount({snippets}) {
+  const authors = snippets.map(snippet => snippet.author);
+  const set = new Set(authors);
 
   return set.size;
 }
 
-function getTagsCount(metadata) {
-  const tags = metadata.tags;
+function getTagsCount({tags}) {
   return Object.keys(tags).length;
+}
+
+function getISODate(date) {
+  return date.toISOString().split('T')[0];
+}
+
+function getGenerationInfo() {
+  return new Promise((resolve, reject) => {
+    const lastCommitInfo = 'git log -1 --pretty=format:%H,%h,%ai';
+
+    exec(lastCommitInfo, (error, stdout) => {
+      if (error) {
+        reject(error);
+      } else {
+        const [revision, revisionAbbr, revDate] = stdout.trim().split(',');
+        const revisionDate = new Date(revDate);
+        const genDate = new Date();
+
+        resolve({
+          revision,
+          revisionAbbr,
+          revisionDate: getISODate(revisionDate),
+          generationDate: getISODate(genDate),
+        });
+      }
+    });
+  });
 }
 
 module.exports = () => (files, {_metadata}, done) => {
@@ -24,16 +49,16 @@ module.exports = () => (files, {_metadata}, done) => {
     tags: getTagsCount(_metadata)
   };
 
-  exec('git rev-parse HEAD', (error, stdout) => {
-    if (error) {
+  getGenerationInfo()
+    .then(gitData => {
+      _metadata.statistics = {
+        ..._metadata.statistics,
+        ...gitData
+      };
+    })
+    .catch(error => {
       console.warn(`Can not get Git revision`);
       console.warn(error);
-    } else {
-      _metadata.statistics.revision = stdout.trim();
-    }
-
-    done();
-  });
-
+    })
+    .finally(done);
 };
-
