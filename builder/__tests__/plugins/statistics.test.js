@@ -7,10 +7,6 @@ const testFiles = {};
 let testMetalsmith;
 
 jest.mock('child_process');
-childProcess.exec.mockImplementation((command, callback) => {
-  callback(null, '\n  hash123,hsh,2019-06-07T12:00:00Z  \n');
-});
-
 
 beforeEach(() => {
   testMetalsmith = {
@@ -35,6 +31,10 @@ beforeEach(() => {
 });
 
 test('statistics function', done => {
+  childProcess.exec.mockImplementation((command, callback) => {
+    callback(null, '\n  hash123,hsh,2019-06-07T12:00:00Z  \n');
+  });
+
   statisticsFn(testFiles, testMetalsmith, () => {
     const { _metadata: { statistics} } = testMetalsmith;
 
@@ -46,6 +46,19 @@ test('statistics function', done => {
     expect(statistics.revisionDate).toBe('2019-06-07');
     expect(statistics.generationDate).toMatch(/\d{4,}-\d\d-\d\d/);
 
+    done();
+  });
+});
+
+test('statistics function should call done when gets Git error', done => {
+  childProcess.exec.mockImplementation((command, callback) => {
+    callback(new Error('error'), '');
+  });
+
+  console.warn = jest.fn();
+
+  statisticsFn(testFiles, testMetalsmith, () => {
+    expect(console.warn).toHaveBeenCalledTimes(2);
     done();
   });
 });

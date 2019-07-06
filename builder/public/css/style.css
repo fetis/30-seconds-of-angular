@@ -129,7 +129,7 @@ footer p {
   margin: 0;
 }
 
-footer p + p{
+footer p + p {
   margin-top: .5em;
 }
 
@@ -143,4 +143,3 @@ footer .add-snippet-button {
   left: 84%;
   z-index: 10;
 }
-
