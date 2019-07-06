@@ -1,5 +1,5 @@
 ---
-title: qweqasd asd asd qwe
+title: qweqasd asd asd qweqwe
 author: alex-bu-93
 twitter: qwe
 level: beginner
@@ -10,7 +10,6 @@ tags:
 ---
 
 # Content
-
 You can use markdown here.
 
 Highlight `important terms` with backticks.
