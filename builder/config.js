@@ -6,6 +6,7 @@ const collections = require('metalsmith-collections');
 const discoverPartials = require('metalsmith-discover-partials');
 const registerHelpers = require('metalsmith-register-helpers');
 const metalsmithStatic = require('metalsmith-static');
+const metalsmithLocalStatic = require('./plugins/local-static');
 const permalinks = require('metalsmith-permalinks');
 const tags = require('metalsmith-tags');
 const rename = require('metalsmith-rename');
@@ -17,53 +18,46 @@ const customMarkdownParse = require('./plugins/custom-markdown-parse');
 const validate = require('./plugins/validate');
 
 
-module.exports = ({
-                    metadata,
-                    source = '../snippets',
-                    static = 'public'
-                  } = {}) => Metalsmith(__dirname)
-  .metadata({
-    site: {
-      base: 'https://30.codelab.fun/',
-      codeRunnerHost: 'https://codelab.fun',
-      title: '30 Seconds of angular',
-      twitter: '30sec_angular',
-      isDevMode: false,
-      github: 'nycJSorg/30-seconds-of-angular',
-      ...metadata
-    }
-  })
-  .source(source)
-  .destination('../static')
-  .use(metalsmithStatic([{src: static}]))
-  .use(collections({
-    snippets: {
-      sortBy: 'path',
-      pattern: '*.md',
-    },
-  }))
-  .use(copy({
-    pattern: 'pages/*.md',
-    directory: '.',
-    move: true
-  }))
-  .use(customMarkdownParse())
-  .use(validate(
-    require('./schemas/snippet').schema
-  ))
-  .use(discoverPartials())
-  .use(registerHelpers())
-  .use(markdown({}))
-  .use(permalinks())
-  .use(tags({
-    layout: 'tag.hbs'
-  }))
-  .use(generateHtmlFilesForScreenshots())
-  .use(rename([
-    [path.join('json', 'index.html'), 'data.json'],
-    [path.join('readme', 'index.html'), 'README.md'],
-  ]))
-  .use(layouts({
-    engine: handlebars,
-    default: 'snippet.hbs',
-  }));
+module.exports = function build(config) {
+  return Metalsmith(__dirname)
+    .metadata({
+      site: config.metadata
+    })
+    .source(config.snippets)
+    .destination('../static')
+    .use(metalsmithStatic())
+    .use(metalsmithLocalStatic([
+      {src: config.static},
+    ]))
+    .use(collections({
+      snippets: {
+        sortBy: 'path',
+        pattern: '*.md',
+      },
+    }))
+    .use(copy({
+      pattern: 'pages/*.md',
+      directory: '.',
+      move: true
+    }))
+    .use(customMarkdownParse())
+    .use(validate(
+      require('./schemas/snippet').schema
+    ))
+    .use(discoverPartials())
+    .use(registerHelpers())
+    .use(markdown({}))
+    .use(permalinks())
+    .use(tags({
+      layout: 'tag.hbs'
+    }))
+    .use(generateHtmlFilesForScreenshots())
+    .use(rename([
+      [path.join('json', 'index.html'), 'data.json'],
+      [path.join('readme', 'index.html'), 'README.md'],
+    ]))
+    .use(layouts({
+      engine: handlebars,
+      default: 'snippet.hbs',
+    }));
+};

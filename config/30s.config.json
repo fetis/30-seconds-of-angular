@@ -1,0 +1,16 @@
+{
+  "name": "30 Seconds of Angular",
+  "snippets": "./snippets",
+  "static": "./config/static",
+  "metadata": {
+    "base": "https://30.codelab.fun/",
+    "codeRunnerHost": "https://codelab.fun",
+    "title": "30 Seconds of angular",
+    "twitter": "30sec_angular",
+    "isDevMode": false,
+    "github": "nycJSorg/30-seconds-of-angular"
+  },
+  "serveMetadata": {
+    "isDevMode": true
+  }
+}

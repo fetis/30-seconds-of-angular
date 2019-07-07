@@ -1,28 +1,26 @@
-const config = require('./config');
+const shared = require('./config');
 const serve = require('metalsmith-serve');
 const watch = require('metalsmith-watch');
 
-config({
-  metadata: {
-    isDevMode: true
-  }
-})
-  .use(serve({
-    port: 8082,
-    verbose: true
-  }))
-  .use(watch({
-    paths: {
-      "${source}/**/*": true,
-      "layouts/**/*": "**/*",
-      "partials/**/*": "**/*",
-      "public/css/**/*": "*.css",
-    },
-    livereload: true
-  }))
-  .build(function (err) {
-    if (err) throw err;
-  });
+module.exports = function (config) {
+  shared(config)
+    .use(serve({
+      port: 8082,
+      verbose: true
+    }))
+    .use(watch({
+      paths: {
+        [config.static + '/**/*']: true,
+        "${source}/**/*": true,
+        "layouts/**/*": "**/*",
+        "partials/**/*": "**/*",
+        "public/**/*": "*.css",
 
-// .use(screenshots())
+      },
+      livereload: true
+    }))
+    .build(function (err) {
+      if (err) throw err;
+    });
+};
 
