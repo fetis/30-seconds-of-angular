@@ -121,5 +121,25 @@ p > code {
 
 /* Footer */
 footer {
-  height: 70px;
+  margin-top: 1em;
+  min-height: 80px;
+  color: #999;
+}
+footer p {
+  margin: 0;
+}
+
+footer p + p {
+  margin-top: .5em;
+}
+
+footer a {
+  color: inherit;
+}
+
+footer .add-snippet-button {
+  position: fixed;
+  bottom: 20px;
+  left: 84%;
+  z-index: 10;
 }
