@@ -84,42 +84,22 @@ Here are samples on how to use all of the `hammerjs` event bindings, you can use
 import { Component, HostListener } from '@angular/core';
 
 @Component({
-  selector: 'app-swiper-stop-swiping',
-  template: '<ng-content></ng-content>'
+  selector: 'my-app', 
+  template: 'Please do not swipe right' 
 })
-export class SwiperStopSwipingComponent {
+export class AppComponent {
   @HostListener('swiperight')
   public swiperight(): void {
     // Run code when a user swipes to the right
     alert('STOP SWIPING TO THE RIGHT');
   }
-}
-```
-
-```typescript
-// Using an event binding
-import { Component } from '@angular/core';
-
-@Component({
-  selector: 'app-swiper-stop-swiping',
-  template: `
-    <div (swiperight)="swiperight($event)">
-      <ng-content></ng-content>
-    </div>
-   `
-})
-export class SwiperStopSwipingComponent {
-  public swiperight($event): void {
-    // Run code when a user swipes to the right
-    alert('STOP SWIPING TO THE RIGHT');
-  }
-}
+} 
 ```
 
 # file:main.ts
 
 ```typescript
-import 'hammerjs';
+import 'https://cdnjs.cloudflare.com/ajax/libs/hammer.js/2.0.8/hammer.min.js';
 import { enableProdMode } from '@angular/core';
 import { platformBrowserDynamic } from '@angular/platform-browser-dynamic';
 

@@ -14,22 +14,6 @@
 
 ## Table of contents
 
-Intermediate snippets
-
-* [Accessing all nested form controls](#accessing-all-nested-form-controls)
-* [Adding keyboard shortcuts to elements](#adding-keyboard-shortcuts-to-elements)
-* [Bind to host properties with host binding](#bind-to-host-properties-with-host-binding)
-* [Component level providers](#component-level-providers)
-* [Global event listeners](#global-event-listeners)
-* [Injecting document](#injecting-document)
-* [Mark reactive fields as touched](#mark-reactive-fields-as-touched)
-* [Passing template as an input](#passing-template-as-an-input)
-* [Reusing code in template](#reusing-code-in-template)
-* [Reusing existing custom pipes](#reusing-existing-custom-pipes)
-* [Style bindings](#style-bindings)
-* [Two-way binding any property](#two-way-binding-any-property)
-* [Window Location injection](#window-location-injection)
-
 Beginner snippets
 
 * [Accessing Enums in template](#accessing-enums-in-template)
@@ -46,6 +30,22 @@ Beginner snippets
 * [trackBy in for loops](#trackby-in-for-loops)
 * [Understanding Microsyntax](#understanding-microsyntax)
 
+Intermediate snippets
+
+* [Accessing all nested form controls](#accessing-all-nested-form-controls)
+* [Adding keyboard shortcuts to elements](#adding-keyboard-shortcuts-to-elements)
+* [Bind to host properties with host binding](#bind-to-host-properties-with-host-binding)
+* [Component level providers](#component-level-providers)
+* [Global event listeners](#global-event-listeners)
+* [Injecting document](#injecting-document)
+* [Mark reactive fields as touched](#mark-reactive-fields-as-touched)
+* [Passing template as an input](#passing-template-as-an-input)
+* [Reusing code in template](#reusing-code-in-template)
+* [Reusing existing custom pipes](#reusing-existing-custom-pipes)
+* [Style bindings](#style-bindings)
+* [Two-way binding any property](#two-way-binding-any-property)
+* [Window Location injection](#window-location-injection)
+
 Advanced snippets
 
 * [Getting components of different types with ViewChild](#getting-components-of-different-types-with-viewchild)
@@ -53,387 +53,6 @@ Advanced snippets
 * [SVG](#svg)
 
 
-
-## Intermediate snippets
-
-### Accessing all nested form controls
-Sometimes we need to work with every single Control is a form. Here's how it can be done: 
-
-```typescript
-function flattenControls(form: AbstractControl): AbstractControl[] {
-  let extracted: AbstractControl[] = [ form ];
-  if (form instanceof FormArray || form instanceof FormGroup) {
-    const children = Object.values(form.controls).map(flattenControls);
-    extracted = extracted.concat(...children);
-  }
-  return extracted;
-}
-```
-
-For examples use:
-```typescript
-// returns all dirty abstract controls
-flattenControls(form).filter((control) => control.dirty);
-
-// mark all controls as touched
-flattenControls(form).forEach((control) => 
-    control.markAsTouched({ onlySelf: true }));
-```
-
-
-#### Links
-https://angular.io/guide/reactive-forms
-
-<br>[⭐ Interactive demo of this snippet](https://30.codelab.fun/accessing-all-nested-form-controls) | [⬆ Back to top](#table-of-contents) | tags: [reactive forms](https://30.codelab.fun/tags/reactive-forms) [tips](https://30.codelab.fun/tags/tips) [good to know](https://30.codelab.fun/tags/good-to-know) 
-<br><br>
-### Adding keyboard shortcuts to elements
-It's really easy to add keyboard shortcuts in the template: 
-```html
-<textarea (keydown.ctrl.enter)="doSomething()"></textarea>
-```
-
-<details>
-<summary>Bonus</summary>
-
-```html
-<input (keydown.enter)="...">
-<input (keydown.a)="...">
-<input (keydown.esc)="...">
-<input (keydown.shift.esc)="...">
-<input (keydown.control)="...">
-<input (keydown.alt)="...">
-<input (keydown.meta)="...">
-<input (keydown.9)="...">
-<input (keydown.tab)="...">
-<input (keydown.backspace)="...">
-<input (keydown.arrowup)="...">
-<input (keydown.shift.arrowdown)="...">
-<input (keydown.shift.control.z)="...">
-<input (keydown.f4)="...">
-```
-</details>
-
-#### Links
-https://alligator.io/angular/binding-keyup-keydown-events
-
-<br>[⭐ Interactive demo of this snippet](https://30.codelab.fun/adding-keyboard-shortcuts-to-elements) | [⬆ Back to top](#table-of-contents) | tags: [tips](https://30.codelab.fun/tags/tips) [good-to-know](https://30.codelab.fun/tags/good-to-know) 
-<br><br>
-### Bind to host properties with host binding
-Every rendered angular component is wrapped in a host element (which is the same as component's selector).
-
-It is possible to bind properties and attributes of host element using @HostBinding decorators, e.g. 
-
-```typescript
-import { Component, HostBinding } from '@angular/core';
-
-@Component({
-   selector: 'my-app', 
-   template: `
-    <div>Use the input below  to select host background-color:</div>
-    <input type="color" [(ngModel)]="color"> 
-  `,
-  styles: [
-    `:host { display: block; height: 100px; }`
-  ]
-})
-export class AppComponent {
-  @HostBinding('style.background') color = '#ff9900';
-}
-```
-
-
-
-<br>[⭐ Interactive demo of this snippet](https://30.codelab.fun/bind-to-host-properties-with-host-binding) | [⬆ Back to top](#table-of-contents) | tags: [components](https://30.codelab.fun/tags/components) 
-<br><br>
-### Component level providers
-Generally we get one service instance per the whole application. 
-It is also possible to create an instance of service per component or directive. 
-
-```typescript
-@Component({
-  selector: 'provide',
-  template: '<ng-content></ng-content>',
-  providers: [ Service ]
-})
-export class ProvideComponent {}
-```
-
-```typescript
-@Directive({
-  selector: '[provide]',
-  providers: [ Service ]
-})
-export class ProvideDirective {}
-```
-
-
-#### Links
-https://angular.io/guide/hierarchical-dependency-injection#component-level-injectors,https://stackblitz.com/edit/angular-cdk-happy-animals
-
-<br>[⭐ Interactive demo of this snippet](https://30.codelab.fun/component-level-providers) | [⬆ Back to top](#table-of-contents) | tags: [tips](https://30.codelab.fun/tags/tips) [components](https://30.codelab.fun/tags/components) [dependency-injection](https://30.codelab.fun/tags/dependency-injection) 
-<br><br>
-### Global event listeners
-It is possible to add global event listeners in your Components/Directives with `HostListener`. Angular will take care of unsubscribing once your directive is destroyed.
-
-```typescript
-@Directive({
-  selector: '[rightClicker]'
-})
-export class ShortcutsDirective {
-  @HostListener('window:keydown.ArrowRight')
-  doImportantThings() {
-    console.log('You pressed right');
-  }
-}
-```
-
-<details>
-<summary>Bonus</summary>
-
-You can have multiple bindings:
-
-```typescript
-@HostListener('window:keydown.ArrowRight')
-@HostListener('window:keydown.PageDown')
-next() {
-  console.log('Next')
-}
-```
-
-You can also pass params:
-
-```typescript
-@HostListener('window:keydown.ArrowRight', '$event.target')
-next(target) {
-  console.log('Pressed right on this element: ' + target)
-}
-```
-</details>
-
-
-<br>[⭐ Interactive demo of this snippet](https://30.codelab.fun/global-event-listeners) | [⬆ Back to top](#table-of-contents) | tags: [events](https://30.codelab.fun/tags/events) [components](https://30.codelab.fun/tags/components) 
-<br><br>
-### Injecting document
-Sometimes you need to get access to global `document`. 
-
-To simplify unit-testing, Angular provides it through dependency injection:
-
-```typescript
-import { DOCUMENT } from '@angular/common';
-import { Inject } from '@angular/core';
-
-@Component({
-  selector: 'my-app',
-  template: `<h1>Edit me </h1>`
-})
-export class AppComponent {
-
-  constructor(@Inject(DOCUMENT) private document: Document) {
-    // Word with document.location, or other things here....
-  }
-}
-```
-
-
-#### Links
-https://angular.io/api/common/DOCUMENT
-
-<br>[⭐ Interactive demo of this snippet](https://30.codelab.fun/injecting-document) | [⬆ Back to top](#table-of-contents) | tags: [dependency injection](https://30.codelab.fun/tags/dependency-injection) 
-<br><br>
-### Mark reactive fields as touched
-Here is the way to notify user that there are fields with non-valid values.
-
-`markFieldsAsTouched` function FormGroup or FormArray as an argument. 
-
-```typescript
-function markFieldsAsTouched(form: AbstractControl): void {
-  form.markAsTouched({ onlySelf: true });
-  if (form instanceof FormArray || form instanceof FormGroup) {
-    Object.values(form.controls).forEach(markFieldsAsTouched);
-  }
-}
-```
-
-<details>
-<summary>Bonus</summary>
-
-It's very useful to check out more general method [Accessing all nested form controls](#accessing-all-nested-form-controls) by [Thekiba](https://twitter.com/thekiba_io) to work with controls.
-</details>
-
-#### Links
-https://angular.io/guide/reactive-forms
-
-<br>[⭐ Interactive demo of this snippet](https://30.codelab.fun/mark-reactive-fields-as-touched) | [⬆ Back to top](#table-of-contents) | tags: [reactive forms validation](https://30.codelab.fun/tags/reactive-forms-validation) [tips](https://30.codelab.fun/tags/tips) [good to know](https://30.codelab.fun/tags/good-to-know) 
-<br><br>
-### Passing template as an input
-It's possible to take a template as `@Input` for a component to customize the render
-
-
-```typescript
-@Component({
-  template: `
-    <nav>
-      <ng-container *ngTemplateOutlet="template"></ng-container>
-    </nav>
-  `,
-})
-export class SiteMenuComponent  {
-  @Input() template: TemplateRef<any>;
-}
-```
-```html
-<site-menu [template]="menu1"></site-menu>
-
-<ng-template #menu1>
-  <div><a href="#">item1</a></div>
-  <div><a href="#">item2</a></div>
-</ng-template>
-```
-> Note: `ng-content` should be used for most of the cases and it's simpler and more declarative.
-> Only use this approach if you need extra flexibility that can't be achieved with ng-content.
-
-
-#### Links
-https://blog.angular-university.io/angular-ng-template-ng-container-ngtemplateoutlet
-
-<br>[⭐ Interactive demo of this snippet](https://30.codelab.fun/passing-template-as-an-input) | [⬆ Back to top](#table-of-contents) | tags: [template](https://30.codelab.fun/tags/template) 
-<br><br>
-### Reusing code in template
-While the best way of reusing your code is creating a component, it's also possible to do it in a template.
-
-To do this you can use `ng-template` along with `*ngTemplateOutlet` directive.
-
-```html
-<p>
-  <ng-container *ngTemplateOutlet="fancyGreeting"></ng-container>
-</p>
-
-<button>
-  <ng-container *ngTemplateOutlet="fancyGreeting"></ng-container>    
-</button>
-
-<ng-template #fancyGreeting>
-  Hello <b>{{name}}!</b>
-</ng-template>
-```
-
-
-#### Links
-https://angular.io/api/common/NgTemplateOutlet,https://angular.io/guide/structural-directives#the-ng-template
-
-<br>[⭐ Interactive demo of this snippet](https://30.codelab.fun/reusing-code-in-template) | [⬆ Back to top](#table-of-contents) | tags: [templates](https://30.codelab.fun/tags/templates) 
-<br><br>
-### Reusing existing custom pipes
-If you need a custom `pipe`, before creating one, consider checking out the [NGX Pipes package](https://github.com/danrevah/ngx-pipes) which has 70+ already implemeted custom pipes.
-
-Here are some examples:
-
-```html
-<p>{{ date | timeAgo }}</p> 
-<!-- Output: "last week" -->
-
-<p>{{ 'foo bar' | ucfirst }}</p>
-<!-- Output: "Foo bar" -->
-
-<p>3 {{ 'Painting' | makePluralString: 3 }}</p>
-<!-- Output: "3 Paintings" -->
-
-<p>{{ [1, 2, 3, 1, 2, 3] | max }}</p>
-<!-- Output: "3" -->
-```
-
-
-#### Links
-https://github.com/danrevah/ngx-pipes
-
-<br>[⭐ Interactive demo of this snippet](https://30.codelab.fun/reusing-existing-custom-pipes) | [⬆ Back to top](#table-of-contents) | tags: [tip](https://30.codelab.fun/tags/tip) [pipes](https://30.codelab.fun/tags/pipes) [library](https://30.codelab.fun/tags/library) 
-<br><br>
-### Style bindings
-You can use advanced property bindings to set specific style values based on component property values: 
-
-```html
-<p [style.background-color]="'green'">
-  I am in green background
-</p>
-
-<p [style.font-size.px]="isImportant ? '30' : '16'">
-  May be important text.
-</p>
-
-```
-
-<details>
-<summary>Bonus</summary>
-
-```html
-<!-- Width in pixels -->
-<div [style.width.px]="pxWidth"></div>
-
-<!-- Font size in percentage relative to the parent -->
-<div [style.font-size.%]="percentageSize">...</div>
-
-<!-- Height relative to the viewport height -->
-<div [style.height.vh]="vwHeight"></div>
-```
-</details>
-
-
-<br>[⭐ Interactive demo of this snippet](https://30.codelab.fun/style-bindings) | [⬆ Back to top](#table-of-contents) | tags: [styles](https://30.codelab.fun/tags/styles) 
-<br><br>
-### Two-way binding any property
-Similar to how you can two-way bind `[(ngModel)]` you can two-way bind custom property on a component, for example `[(value)]`. To do it use appropriate Input/Output naming:
-
-```typescript
-@Component({
-  selector: 'super-input', 
-  template: `...`,
-})
-export class AppComponent {
-  @Input() value: string;
-  @Output() valueChange = new EventEmitter<string>();
-}
-```
-
-Then you can use it as:
-```html
-<super-input [(value)]="value"></super-input>
-```
-
-
-
-<br>[⭐ Interactive demo of this snippet](https://30.codelab.fun/two-way-binding-any-property) | [⬆ Back to top](#table-of-contents) | tags: [tip](https://30.codelab.fun/tags/tip) [binding](https://30.codelab.fun/tags/binding) 
-<br><br>
-### Window Location injection
-For testing purposes you might want to inject `window.location` object in your component.
-You can achieve this with custom `InjectionToken` mechanism provided by Angular.
-
-```typescript
-export const LOCATION_TOKEN = new InjectionToken<Location>('Window location object');
-
-@NgModule({
-  providers: [
-    { provide: LOCATION_TOKEN, useValue: window.location }
-  ]
-})
-export class SharedModule {}
-
-//...
-
-@Component({
-})
-export class AppComponent {
-  constructor(
-    @Inject(LOCATION_TOKEN) public location: Location
-  ) {}
-}
-```
-
-
-#### Links
-https://itnext.io/testing-browser-window-location-in-angular-application-e4e8388508ff,https://angular.io/guide/dependency-injection
-
-<br>[⭐ Interactive demo of this snippet](https://30.codelab.fun/window-location-injection) | [⬆ Back to top](#table-of-contents) | tags: [dependency-injection](https://30.codelab.fun/tags/dependency-injection) [testing](https://30.codelab.fun/tags/testing) 
-<br><br>
 
 ## Beginner snippets
 
@@ -775,6 +394,386 @@ Also check out an [interactive tool](https://alexzuza.github.io/ng-structural-di
 https://angular.io/guide/structural-directives#microsyntax,https://alexzuza.github.io/ng-structural-directive-expander/,https://angular.io/guide/structural-directives#inside-ngfor
 
 <br>[⭐ Interactive demo of this snippet](https://30.codelab.fun/understanding-microsyntax) | [⬆ Back to top](#table-of-contents) | tags: [tip](https://30.codelab.fun/tags/tip) [structural directive](https://30.codelab.fun/tags/structural-directive) [microsyntax](https://30.codelab.fun/tags/microsyntax) 
+<br><br>
+
+## Intermediate snippets
+
+### Accessing all nested form controls
+Sometimes we need to work with every single Control is a form. Here's how it can be done: 
+
+```typescript
+function flattenControls(form: AbstractControl): AbstractControl[] {
+  let extracted: AbstractControl[] = [ form ];
+  if (form instanceof FormArray || form instanceof FormGroup) {
+    const children = Object.values(form.controls).map(flattenControls);
+    extracted = extracted.concat(...children);
+  }
+  return extracted;
+}
+```
+
+For examples use:
+```typescript
+// returns all dirty abstract controls
+flattenControls(form).filter((control) => control.dirty);
+
+// mark all controls as touched
+flattenControls(form).forEach((control) => 
+    control.markAsTouched({ onlySelf: true }));
+```
+
+
+#### Links
+https://angular.io/guide/reactive-forms
+
+<br>[⭐ Interactive demo of this snippet](https://30.codelab.fun/accessing-all-nested-form-controls) | [⬆ Back to top](#table-of-contents) | tags: [reactive forms](https://30.codelab.fun/tags/reactive-forms) [tips](https://30.codelab.fun/tags/tips) [good to know](https://30.codelab.fun/tags/good-to-know) 
+<br><br>
+### Adding keyboard shortcuts to elements
+It's really easy to add keyboard shortcuts in the template: 
+```html
+<textarea (keydown.ctrl.enter)="doSomething()"></textarea>
+```
+
+<details>
+<summary>Bonus</summary>
+
+```html
+<input (keydown.enter)="...">
+<input (keydown.a)="...">
+<input (keydown.esc)="...">
+<input (keydown.shift.esc)="...">
+<input (keydown.control)="...">
+<input (keydown.alt)="...">
+<input (keydown.meta)="...">
+<input (keydown.9)="...">
+<input (keydown.tab)="...">
+<input (keydown.backspace)="...">
+<input (keydown.arrowup)="...">
+<input (keydown.shift.arrowdown)="...">
+<input (keydown.shift.control.z)="...">
+<input (keydown.f4)="...">
+```
+</details>
+
+#### Links
+https://alligator.io/angular/binding-keyup-keydown-events
+
+<br>[⭐ Interactive demo of this snippet](https://30.codelab.fun/adding-keyboard-shortcuts-to-elements) | [⬆ Back to top](#table-of-contents) | tags: [tips](https://30.codelab.fun/tags/tips) [good-to-know](https://30.codelab.fun/tags/good-to-know) 
+<br><br>
+### Bind to host properties with host binding
+Every rendered angular component is wrapped in a host element (which is the same as component's selector).
+
+It is possible to bind properties and attributes of host element using @HostBinding decorators, e.g. 
+
+```typescript
+import { Component, HostBinding } from '@angular/core';
+
+@Component({
+   selector: 'my-app', 
+   template: `
+    <div>Use the input below  to select host background-color:</div>
+    <input type="color" [(ngModel)]="color"> 
+  `,
+  styles: [
+    `:host { display: block; height: 100px; }`
+  ]
+})
+export class AppComponent {
+  @HostBinding('style.background') color = '#ff9900';
+}
+```
+
+
+
+<br>[⭐ Interactive demo of this snippet](https://30.codelab.fun/bind-to-host-properties-with-host-binding) | [⬆ Back to top](#table-of-contents) | tags: [components](https://30.codelab.fun/tags/components) 
+<br><br>
+### Component level providers
+Generally we get one service instance per the whole application. 
+It is also possible to create an instance of service per component or directive. 
+
+```typescript
+@Component({
+  selector: 'provide',
+  template: '<ng-content></ng-content>',
+  providers: [ Service ]
+})
+export class ProvideComponent {}
+```
+
+```typescript
+@Directive({
+  selector: '[provide]',
+  providers: [ Service ]
+})
+export class ProvideDirective {}
+```
+
+
+#### Links
+https://angular.io/guide/hierarchical-dependency-injection#component-level-injectors,https://stackblitz.com/edit/angular-cdk-happy-animals
+
+<br>[⭐ Interactive demo of this snippet](https://30.codelab.fun/component-level-providers) | [⬆ Back to top](#table-of-contents) | tags: [tips](https://30.codelab.fun/tags/tips) [components](https://30.codelab.fun/tags/components) [dependency-injection](https://30.codelab.fun/tags/dependency-injection) 
+<br><br>
+### Global event listeners
+It is possible to add global event listeners in your Components/Directives with `HostListener`. Angular will take care of unsubscribing once your directive is destroyed.
+
+```typescript
+@Directive({
+  selector: '[rightClicker]'
+})
+export class ShortcutsDirective {
+  @HostListener('window:keydown.ArrowRight')
+  doImportantThings() {
+    console.log('You pressed right');
+  }
+}
+```
+
+<details>
+<summary>Bonus</summary>
+
+You can have multiple bindings:
+
+```typescript
+@HostListener('window:keydown.ArrowRight')
+@HostListener('window:keydown.PageDown')
+next() {
+  console.log('Next')
+}
+```
+
+You can also pass params:
+
+```typescript
+@HostListener('window:keydown.ArrowRight', '$event.target')
+next(target) {
+  console.log('Pressed right on this element: ' + target)
+}
+```
+</details>
+
+
+<br>[⭐ Interactive demo of this snippet](https://30.codelab.fun/global-event-listeners) | [⬆ Back to top](#table-of-contents) | tags: [events](https://30.codelab.fun/tags/events) [components](https://30.codelab.fun/tags/components) 
+<br><br>
+### Injecting document
+Sometimes you need to get access to global `document`. 
+
+To simplify unit-testing, Angular provides it through dependency injection:
+
+```typescript
+import { DOCUMENT } from '@angular/common';
+import { Inject } from '@angular/core';
+
+@Component({
+  selector: 'my-app',
+  template: `<h1>Edit me </h1>`
+})
+export class AppComponent {
+
+  constructor(@Inject(DOCUMENT) private document: Document) {
+    // Word with document.location, or other things here....
+  }
+}
+```
+
+
+#### Links
+https://angular.io/api/common/DOCUMENT
+
+<br>[⭐ Interactive demo of this snippet](https://30.codelab.fun/injecting-document) | [⬆ Back to top](#table-of-contents) | tags: [dependency injection](https://30.codelab.fun/tags/dependency-injection) 
+<br><br>
+### Mark reactive fields as touched
+Here is the way to notify user that there are fields with non-valid values.
+
+`markFieldsAsTouched` function FormGroup or FormArray as an argument. 
+
+```typescript
+function markFieldsAsTouched(form: AbstractControl): void {
+  form.markAsTouched({ onlySelf: true });
+  if (form instanceof FormArray || form instanceof FormGroup) {
+    Object.values(form.controls).forEach(markFieldsAsTouched);
+  }
+}
+```
+
+<details>
+<summary>Bonus</summary>
+
+It's very useful to check out more general method [Accessing all nested form controls](#accessing-all-nested-form-controls) by [Thekiba](https://twitter.com/thekiba_io) to work with controls.
+</details>
+
+#### Links
+https://angular.io/guide/reactive-forms
+
+<br>[⭐ Interactive demo of this snippet](https://30.codelab.fun/mark-reactive-fields-as-touched) | [⬆ Back to top](#table-of-contents) | tags: [reactive forms validation](https://30.codelab.fun/tags/reactive-forms-validation) [tips](https://30.codelab.fun/tags/tips) [good to know](https://30.codelab.fun/tags/good-to-know) 
+<br><br>
+### Passing template as an input
+It's possible to take a template as `@Input` for a component to customize the render
+
+
+```typescript
+@Component({
+  template: `
+    <nav>
+      <ng-container *ngTemplateOutlet="template"></ng-container>
+    </nav>
+  `,
+})
+export class SiteMenuComponent  {
+  @Input() template: TemplateRef<any>;
+}
+```
+```html
+<site-menu [template]="menu1"></site-menu>
+
+<ng-template #menu1>
+  <div><a href="#">item1</a></div>
+  <div><a href="#">item2</a></div>
+</ng-template>
+```
+> Note: `ng-content` should be used for most of the cases and it's simpler and more declarative.
+> Only use this approach if you need extra flexibility that can't be achieved with ng-content.
+
+
+#### Links
+https://blog.angular-university.io/angular-ng-template-ng-container-ngtemplateoutlet
+
+<br>[⭐ Interactive demo of this snippet](https://30.codelab.fun/passing-template-as-an-input) | [⬆ Back to top](#table-of-contents) | tags: [template](https://30.codelab.fun/tags/template) 
+<br><br>
+### Reusing code in template
+While the best way of reusing your code is creating a component, it's also possible to do it in a template.
+
+To do this you can use `ng-template` along with `*ngTemplateOutlet` directive.
+
+```html
+<p>
+  <ng-container *ngTemplateOutlet="fancyGreeting"></ng-container>
+</p>
+
+<button>
+  <ng-container *ngTemplateOutlet="fancyGreeting"></ng-container>    
+</button>
+
+<ng-template #fancyGreeting>
+  Hello <b>{{name}}!</b>
+</ng-template>
+```
+
+
+#### Links
+https://angular.io/api/common/NgTemplateOutlet,https://angular.io/guide/structural-directives#the-ng-template
+
+<br>[⭐ Interactive demo of this snippet](https://30.codelab.fun/reusing-code-in-template) | [⬆ Back to top](#table-of-contents) | tags: [templates](https://30.codelab.fun/tags/templates) 
+<br><br>
+### Reusing existing custom pipes
+If you need a custom `pipe`, before creating one, consider checking out the [NGX Pipes package](https://github.com/danrevah/ngx-pipes) which has 70+ already implemeted custom pipes.
+
+Here are some examples:
+
+```html
+<p>{{ date | timeAgo }}</p> 
+<!-- Output: "last week" -->
+
+<p>{{ 'foo bar' | ucfirst }}</p>
+<!-- Output: "Foo bar" -->
+
+<p>3 {{ 'Painting' | makePluralString: 3 }}</p>
+<!-- Output: "3 Paintings" -->
+
+<p>{{ [1, 2, 3, 1, 2, 3] | max }}</p>
+<!-- Output: "3" -->
+```
+
+
+#### Links
+https://github.com/danrevah/ngx-pipes
+
+<br>[⭐ Interactive demo of this snippet](https://30.codelab.fun/reusing-existing-custom-pipes) | [⬆ Back to top](#table-of-contents) | tags: [tip](https://30.codelab.fun/tags/tip) [pipes](https://30.codelab.fun/tags/pipes) [library](https://30.codelab.fun/tags/library) 
+<br><br>
+### Style bindings
+You can use advanced property bindings to set specific style values based on component property values: 
+
+```html
+<p [style.background-color]="'green'">
+  I am in green background
+</p>
+
+<p [style.font-size.px]="isImportant ? '30' : '16'">
+  May be important text.
+</p>
+```
+
+<details>
+<summary>Bonus</summary>
+
+```html
+<!-- Width in pixels -->
+<div [style.width.px]="pxWidth"></div>
+
+<!-- Font size in percentage relative to the parent -->
+<div [style.font-size.%]="percentageSize">...</div>
+
+<!-- Height relative to the viewport height -->
+<div [style.height.vh]="vwHeight"></div>
+```
+</details>
+
+
+<br>[⭐ Interactive demo of this snippet](https://30.codelab.fun/style-bindings) | [⬆ Back to top](#table-of-contents) | tags: [styles](https://30.codelab.fun/tags/styles) 
+<br><br>
+### Two-way binding any property
+Similar to how you can two-way bind `[(ngModel)]` you can two-way bind custom property on a component, for example `[(value)]`. To do it use appropriate Input/Output naming:
+
+```typescript
+@Component({
+  selector: 'super-input', 
+  template: `...`,
+})
+export class AppComponent {
+  @Input() value: string;
+  @Output() valueChange = new EventEmitter<string>();
+}
+```
+
+Then you can use it as:
+```html
+<super-input [(value)]="value"></super-input>
+```
+
+
+
+<br>[⭐ Interactive demo of this snippet](https://30.codelab.fun/two-way-binding-any-property) | [⬆ Back to top](#table-of-contents) | tags: [tip](https://30.codelab.fun/tags/tip) [binding](https://30.codelab.fun/tags/binding) 
+<br><br>
+### Window Location injection
+For testing purposes you might want to inject `window.location` object in your component.
+You can achieve this with custom `InjectionToken` mechanism provided by Angular.
+
+```typescript
+export const LOCATION_TOKEN = new InjectionToken<Location>('Window location object');
+
+@NgModule({
+  providers: [
+    { provide: LOCATION_TOKEN, useValue: window.location }
+  ]
+})
+export class SharedModule {}
+
+//...
+
+@Component({
+})
+export class AppComponent {
+  constructor(
+    @Inject(LOCATION_TOKEN) public location: Location
+  ) {}
+}
+```
+
+
+#### Links
+https://itnext.io/testing-browser-window-location-in-angular-application-e4e8388508ff,https://angular.io/guide/dependency-injection
+
+<br>[⭐ Interactive demo of this snippet](https://30.codelab.fun/window-location-injection) | [⬆ Back to top](#table-of-contents) | tags: [dependency-injection](https://30.codelab.fun/tags/dependency-injection) [testing](https://30.codelab.fun/tags/testing) 
 <br><br>
 
 ## Advanced snippets
