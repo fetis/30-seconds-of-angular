@@ -1,4 +1,4 @@
-[![Logo 30 Seconds of angular](/builder/public/img/logo.png)](https://github.com/nycJSorg/30-seconds-of-angular)
+[![Logo 30 Seconds of Angular](/builder/public/img/logo.png)](https://github.com/nycJSorg/30-seconds-of-angular)
 
 
 [![Build Status](https://travis-ci.com/nycJSorg/30-seconds-of-angular.svg?branch=master)](https://travis-ci.com/nycJSorg/30-seconds-of-angular) [![PRs Welcome](https://img.shields.io/badge/PRs-welcome-brightgreen.svg)](http://makeapullrequest.com)
@@ -10,7 +10,7 @@
 * Use <kbd>Ctrl</kbd> + <kbd>F</kbd> or <kbd>command</kbd> + <kbd>F</kbd> to search for a snippet.
 * Snippets are written in Angular 7.2.8+.
 
-# 30 Seconds of angular
+# 30 Seconds of Angular
 
 ## Table of contents
 
@@ -46,6 +46,7 @@ Intermediate snippets
 * [Reusing existing custom pipes](#reusing-existing-custom-pipes)
 * [Style bindings](#style-bindings)
 * [Two-way binding any property](#two-way-binding-any-property)
+* [Using APP_INITIALIZER to delay app start](#using-app_initializer-to-delay-app-start)
 * [Window Location injection](#window-location-injection)
 
 Advanced snippets
@@ -780,6 +781,29 @@ Then you can use it as:
 
 
 <br>[⭐ Interactive demo of this snippet](https://30.codelab.fun/two-way-binding-any-property) | [⬆ Back to top](#table-of-contents) | tags: [tip](https://30.codelab.fun/tags/tip) [binding](https://30.codelab.fun/tags/binding) 
+<br><br>
+### Using APP_INITIALIZER to delay app start
+It is possible to execute asynchronous task before the app start by providing a function returning promise using `APP_INITIALIZER` token.
+
+```typescript
+@NgModule({
+  providers: [
+    {
+      provide: APP_INITIALIZER,
+      useValue:  functionReturningPromise
+      multi: true
+    },
+})
+export class AppModule {}
+
+
+```
+
+
+#### Links
+https://hackernoon.com/hook-into-angular-initialization-process-add41a6b7e,https://angular.io/api/core/APP_INITIALIZER
+
+<br>[⭐ Interactive demo of this snippet](https://30.codelab.fun/using-app_initializer-to-delay-app-start) | [⬆ Back to top](#table-of-contents) | tags: [tip](https://30.codelab.fun/tags/tip) 
 <br><br>
 ### Window Location injection
 For testing purposes you might want to inject `window.location` object in your component.
