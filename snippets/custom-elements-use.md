@@ -120,6 +120,9 @@ export class AppComponent {
 ```
 
 # ModuleCode
+
+Make sure to include schemas: [CUSTOM_ELEMENTS_SCHEMA] to allow a non Angular element use in an Angular module.
+
 ```typescript
 import { BrowserModule } from '@angular/platform-browser';
 import { NgModule, CUSTOM_ELEMENTS_SCHEMA } from '@angular/core';
