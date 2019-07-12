@@ -24,6 +24,12 @@ We can override this behavior by providing custom preloading strategy: In the ex
 ```typescript
 import { Observable, of } from 'rxjs';
 
+const preloadingConnection = (): boolean =>
+  !navigator['connection'] || 
+  !navigator['connection'].saveData || 
+  !navigator['connection'].effectiveType || 
+  !navigator['connection'].effectiveType.includes('2g');
+
 export class CustomPreloading implements PreloadingStrategy {
   public preload(route: Route, load: () => Observable<any>): Observable<any> {
     return preloadingConnection() ? load() : of(null);
