@@ -5,13 +5,15 @@ twitter: lironn_h
 level: advanced
 tags:
 - tip
-- WebComponents
+- web-components
 ---
 
 # Content
 It is possible to use Web Components in your Angular application.
 
 Create a custom element according to the web-component standards and use it as any other component on your Angular template.
+
+Make sure to include schemas: [CUSTOM_ELEMENTS_SCHEMA] to allow a non Angular element use in an Angular module.
 
 
 ```html
@@ -120,8 +122,6 @@ export class AppComponent {
 ```
 
 # ModuleCode
-
-Make sure to include schemas: [CUSTOM_ELEMENTS_SCHEMA] to allow a non Angular element use in an Angular module.
 
 ```typescript
 import { BrowserModule } from '@angular/platform-browser';
