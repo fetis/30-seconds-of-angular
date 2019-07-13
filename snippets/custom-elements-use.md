@@ -21,8 +21,8 @@ Make sure to include schemas: [CUSTOM_ELEMENTS_SCHEMA] to allow a non Angular el
 <mighty-toast [text]="greet" [pop]="visibility"></mighty-toast>
 ```
 
-# ComponentCode
-```javascript
+# file:web-components/mighty-toaster.ts
+```typescript
 
 export class MightyToaster extends HTMLElement {
 
@@ -97,7 +97,7 @@ MightyToaster.observedAttributes = [ 'text', 'pop'];
 customElements.define('mighty-toast', MightyToaster);
 
 ```
-
+# file: app.component.ts
 ```typescript
 
 import { Component, OnInit} from '@angular/core';
@@ -121,7 +121,7 @@ export class AppComponent {
 
 ```
 
-# ModuleCode
+# file:app.module.ts
 
 ```typescript
 import { BrowserModule } from '@angular/platform-browser';
