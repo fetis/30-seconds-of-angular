@@ -32,14 +32,13 @@ import { Component, OnInit} from '@angular/core';
 })
 export class AppComponent {
   greet = 'welcome! WC workssss';
-  showAlert: Boolean = false;
-  visibility: any = {showAlert: this.showAlert};
+  showAlert= false;
+  visibility: {showAlert: boolean};
 
-  onClick($event) {
+  onClick() {
       this.showAlert = !this.showAlert;
       this.visibility = { showAlert: this.showAlert };
   }
-
 }
 
 ```
