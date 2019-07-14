@@ -1,23 +1,13 @@
 ---
-title: I am a test, ignore me
+title: I am a test, ignore me, wow I was edited
 author: kirjs
+twitter: twitter1
 level: beginner
 tags:
 - tip
+- tag1
 ---
 # Content
-
-You can use markdown here.
-
-Highlight `important terms` with backticks.
-
-For examples use:
-```typescript
-const language = 'English';
-function theLanguageISpeak(language) {
-  // English? No, only typescript!
-  return 'typescript'
-}
-```
+content 1
 
 
