@@ -1,6 +1,5 @@
 ---
 title: custom elements use
-author: ** Your github username will be here **
 twitter: lironn_h
 level: advanced
 tags:
