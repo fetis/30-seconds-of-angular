@@ -18,7 +18,7 @@ Beginner snippets
 
 * [Accessing Enums in template](#accessing-enums-in-template)
 * [Cheat Sheets and Checklists](#cheat-sheets-and-checklists)
-* [component-state-debugging](#component-state-debugging)
+* [Component State Debugging](#component-state-debugging)
 * [Default ViewEncapsulation value](#default-viewencapsulation-value)
 * [hammerjs-gestures](#hammerjs-gestures)
 * [Loader Component](#loader-component)
@@ -39,11 +39,14 @@ Intermediate snippets
 * [Global event listeners](#global-event-listeners)
 * [Injecting document](#injecting-document)
 * [Mark reactive fields as touched](#mark-reactive-fields-as-touched)
+* [Observables as outputs](#observables-as-outputs)
 * [Passing template as an input](#passing-template-as-an-input)
+* [Preseving whitespaces](#preseving-whitespaces)
 * [Reusing code in template](#reusing-code-in-template)
 * [Reusing existing custom pipes](#reusing-existing-custom-pipes)
 * [Style bindings](#style-bindings)
 * [Two-way binding any property](#two-way-binding-any-property)
+* [Using APP_INITIALIZER to delay app start](#using-app_initializer-to-delay-app-start)
 * [Window Location injection](#window-location-injection)
 
 Advanced snippets
@@ -90,7 +93,7 @@ https://malcoded.com/angular-cheat-sheet/,https://angular.io/guide/cheatsheet,ht
 
 <br>[⭐ Interactive demo of this snippet](https://30.codelab.fun/cheat-sheets-and-checklists) | [⬆ Back to top](#table-of-contents) | tags: [tip](https://30.codelab.fun/tags/tip) [cheat sheet](https://30.codelab.fun/tags/cheat-sheet) 
 <br><br>
-### component-state-debugging
+### Component State Debugging
 Debug the component state in the browser console by running:
 ```typescript
 ng.probe($0).componentInstance
@@ -607,6 +610,20 @@ https://angular.io/guide/reactive-forms
 
 <br>[⭐ Interactive demo of this snippet](https://30.codelab.fun/mark-reactive-fields-as-touched) | [⬆ Back to top](#table-of-contents) | tags: [reactive forms validation](https://30.codelab.fun/tags/reactive-forms-validation) [tips](https://30.codelab.fun/tags/tips) [good to know](https://30.codelab.fun/tags/good-to-know) 
 <br><br>
+### Observables as outputs
+`EventEmitters`  used for `@Output`'s are just Observables with an emit method. 
+
+This means that you can just use `Observable` instance instead, e.g. we can wire up FormControl value changes directly:
+
+```TypeScript
+readonly checkbox = new FormControl();
+@Output() readonly change = this.checkbox.valueChanges;
+```
+
+
+
+<br>[⭐ Interactive demo of this snippet](https://30.codelab.fun/observables-as-outputs) | [⬆ Back to top](#table-of-contents) | tags: [tip](https://30.codelab.fun/tags/tip) [outputs](https://30.codelab.fun/tags/outputs) 
+<br><br>
 ### Passing template as an input
 It's possible to take a template as `@Input` for a component to customize the render
 
@@ -639,6 +656,27 @@ export class SiteMenuComponent  {
 https://blog.angular-university.io/angular-ng-template-ng-container-ngtemplateoutlet
 
 <br>[⭐ Interactive demo of this snippet](https://30.codelab.fun/passing-template-as-an-input) | [⬆ Back to top](#table-of-contents) | tags: [template](https://30.codelab.fun/tags/template) 
+<br><br>
+### Preseving whitespaces
+By default Angular strips all whitespaces in templates to save bytes. Generally it's safe.
+
+For rare cases when you need to preserve spaces you can use special `ngPreserveWhitespaces` attribute:
+
+```html
+<div ngPreserveWhitespaces>
+             (___()'`;
+             /,    /`
+       jgs   \\"--\\
+</div>
+```
+
+> You can also use [preserveWhitespaces](https://angular.io/api/core/Component#preserveWhitespaces) option on a component.
+
+
+#### Links
+https://twitter.com/mgechev/status/1108913389277839360
+
+<br>[⭐ Interactive demo of this snippet](https://30.codelab.fun/preseving-whitespaces) | [⬆ Back to top](#table-of-contents) | tags: [tip](https://30.codelab.fun/tags/tip) 
 <br><br>
 ### Reusing code in template
 While the best way of reusing your code is creating a component, it's also possible to do it in a template.
@@ -743,6 +781,29 @@ Then you can use it as:
 
 
 <br>[⭐ Interactive demo of this snippet](https://30.codelab.fun/two-way-binding-any-property) | [⬆ Back to top](#table-of-contents) | tags: [tip](https://30.codelab.fun/tags/tip) [binding](https://30.codelab.fun/tags/binding) 
+<br><br>
+### Using APP_INITIALIZER to delay app start
+It is possible to execute asynchronous task before the app start by providing a function returning promise using `APP_INITIALIZER` token.
+
+```typescript
+@NgModule({
+  providers: [
+    {
+      provide: APP_INITIALIZER,
+      useValue:  functionReturningPromise
+      multi: true
+    },
+})
+export class AppModule {}
+
+
+```
+
+
+#### Links
+https://hackernoon.com/hook-into-angular-initialization-process-add41a6b7e,https://angular.io/api/core/APP_INITIALIZER
+
+<br>[⭐ Interactive demo of this snippet](https://30.codelab.fun/using-app_initializer-to-delay-app-start) | [⬆ Back to top](#table-of-contents) | tags: [tip](https://30.codelab.fun/tags/tip) 
 <br><br>
 ### Window Location injection
 For testing purposes you might want to inject `window.location` object in your component.
