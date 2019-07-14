@@ -28,7 +28,7 @@ export class AppModule {}
 
 ```
 
-# ModuleCode
+# file:app.module.ts
 ```typescript
 import { BrowserModule } from '@angular/platform-browser';
 import { NgModule, APP_INITIALIZER } from '@angular/core';
