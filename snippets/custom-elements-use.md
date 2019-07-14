@@ -98,7 +98,7 @@ export class MightyToaster extends HTMLElement {
     }
 
     attributeChangedCallback(name: string, oldValue, newValue) {
-        if(name === 'pop' && newValue.showAlert === oldValue.showAlert) {
+        if(name === 'pop' && newValue && newValue.showAlert === oldValue.showAlert) {
             this.setAttribute('show', 'true');
             setTimeout(() => {
                 this.removeAttribute('show');
