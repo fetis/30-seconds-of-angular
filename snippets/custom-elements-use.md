@@ -67,74 +67,70 @@ export class AppModule { }
 
 declare const HTMLElement: any;
 export class MightyToaster extends HTMLElement {
-    private toast: Element;
+  private toast: Element;
 
-    constructor() {
-        super();
+  constructor() {
+    super();
 
-        const shadowRoot = this.attachShadow({mode: 'open'});
+    const shadowRoot = this.attachShadow({mode: 'open'});
 
-        shadowRoot.innerHTML = `
-            <style>
-               :host {
-                display: none;
-                position: fixed;
-                z-index: 1;
-                top: 1rem;
-                width: 100%;
-                background-color: #FF00FF;
-                font-family: 'Bowlby One', cursive;
-                text-align: center;
-                padding: 16px;
-                }
-                :host([show]) {
-                  display: block;
-                }
-            </style>
-            <div id="mighty-toast"></div>
-        `;
+    shadowRoot.innerHTML = `
+        <style>
+           :host {
+            display: none;
+            position: fixed;
+            z-index: 1;
+            top: 1rem;
+            width: 100%;
+            background-color: #FF00FF;
+            font-family: 'Bowlby One', cursive;
+            text-align: center;
+            padding: 16px;
+            }
+            :host([show]) {
+              display: block;
+            }
+        </style>
+        <div id="mighty-toast"></div>
+    `;
 
-        this.toast = this.shadowRoot.querySelector('#mighty-toast');
+    this.toast = this.shadowRoot.querySelector('#mighty-toast');
+  }
+
+  attributeChangedCallback(name: string, oldValue, newValue) {
+    if(name === 'pop' && newValue && oldValue && newValue.showAlert === oldValue.showAlert) {
+      this.setAttribute('show', 'true');
+      setTimeout(() => {
+          this.removeAttribute('show');
+      }, 3000);
     }
+  }
 
-    attributeChangedCallback(name: string, oldValue, newValue) {
-    debugger
-        if(name === 'pop' && newValue && newValue.showAlert === oldValue.showAlert) {
-            this.setAttribute('show', 'true');
-            setTimeout(() => {
-                this.removeAttribute('show');
-            }, 3000);
-        }
-    }
+  get pop() {
+    return this.getAttribute('pop');
+  }
 
-    get pop() {
-        return this.getAttribute('pop');
-    }
+  set pop(value) {
+    this.setAttribute('pop', value);
+  }
 
-    set pop(value) {
-        debugger;
-        this.setAttribute('pop', value);
-    }
+  get text() {
+    return this.getAttribute('text');
+  }
 
-    get text() {
-        debugger
-        return this.getAttribute('text');
-    }
+  set text(value) {
+    this.toast.innerHTML = value;
+    this.setAttribute('text', value);
+  }
 
-    set text(value) {
-        this.toast.innerHTML = value;
-        this.setAttribute('text', value);
-    }
+  get color() {
+    return this.getAttribute('color');
+  }
 
-    get color() {
-        return this.getAttribute('color');
-    }
-
-    set color(value) {
-        this.toast.style.backgroundColor = value;
-        this.setAttribute('color', value);
-    }
-
+  set color(value) {
+    this.toast.style.backgroundColor = value;
+    this.setAttribute('color', value);
+  }
 }
 
 MightyToaster.observedAttributes = [ 'text', 'pop'];
