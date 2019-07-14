@@ -98,6 +98,7 @@ export class MightyToaster extends HTMLElement {
     }
 
     attributeChangedCallback(name: string, oldValue, newValue) {
+    debugger
         if(name === 'pop' && newValue && newValue.showAlert === oldValue.showAlert) {
             this.setAttribute('show', 'true');
             setTimeout(() => {
