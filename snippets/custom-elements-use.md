@@ -11,13 +11,15 @@ It is possible to use Web Components in your Angular application.
 
 Create a custom element according to the web-component standards and use it as any other component on your Angular template.
 
-Make sure to include schemas: [CUSTOM_ELEMENTS_SCHEMA] to allow a non Angular element use in an Angular module.
+Make sure to include `schemas: [CUSTOM_ELEMENTS_SCHEMA]` into your `NgModule` to allow a non Angular element use in an Angular module.
 
 
 ```html
 <button (click)="onClick($event)"> greet </button>
 <mighty-toast [text]="greet" [pop]="visibility"></mighty-toast>
 ```
+
+> Note: `CUSTOM_ELEMENTS_SCHEMA` will disable displaying errors for components that don't exist.
 
 # file:app.component.ts
 ```typescript
