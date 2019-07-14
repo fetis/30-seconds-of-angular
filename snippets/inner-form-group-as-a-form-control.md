@@ -11,7 +11,7 @@ links:
 ---
 
 # Content
-It is possible to bind a for a ReactiveForms `FormControl` to a custom component, e.g.
+It is possible to bind a ReactiveForms `FormControl` to a custom component, e.g.
 
 ```html
   <my-custom-component [formControl]="formControl">
@@ -37,7 +37,7 @@ export class MyCustomComponent implements ControlValueAccessor {
 
 ```
 
-# ComponentCode
+# file:app.component.ts
 ```typescript
 import { Component, EventEmitter, forwardRef, OnDestroy, OnInit } from '@angular/core';
 import { ControlValueAccessor, FormBuilder, FormControl, FormGroup, NG_VALUE_ACCESSOR } from '@angular/forms';
@@ -99,7 +99,7 @@ export class FormGroupAsControlComponent implements ControlValueAccessor {
 }
 
 ```
-# ModuleCode
+# file:app.module.ts
 ```typescript
 import  {  NgModule  }  from  '@angular/core';
 import  {  BrowserModule  }  from  '@angular/platform-browser';
