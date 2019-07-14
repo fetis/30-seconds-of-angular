@@ -16,4 +16,13 @@ content 1
 # Bonus
 I am bonus 2
 
+# file:app.component.ts
+```typescript
+import { Component } from '@angular/core';
 
+@Component({
+  selector: 'my-app',
+  template: `<h1>Edit me!!! </h1>`
+})
+export class AppComponent {}
+```
