@@ -64,6 +64,7 @@ export class AppModule { }
 # file:web-components/mighty-toaster.ts
 ```typescript
 
+
 declare const HTMLElement: any;
 export class MightyToaster extends HTMLElement {
     private toast: Element;
@@ -110,10 +111,12 @@ export class MightyToaster extends HTMLElement {
     }
 
     set pop(value) {
+        debugger;
         this.setAttribute('pop', value);
     }
 
     get text() {
+        debugger
         return this.getAttribute('text');
     }
 
@@ -135,7 +138,7 @@ export class MightyToaster extends HTMLElement {
 
 MightyToaster.observedAttributes = [ 'text', 'pop'];
 
-if(!customElements.get){
+if(!customElements.get('mighty-toast')){
     customElements.define('mighty-toast', MightyToaster);
 }
 ```
