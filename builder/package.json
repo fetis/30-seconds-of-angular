@@ -1,7 +1,7 @@
 {
   "name": "builder-30-seconds",
   "version": "1.0.0",
-  "description": "",
+  "description": "30 seconds site generator",
   "main": "serve.js",
   "scripts": {
     "test": "jest"
