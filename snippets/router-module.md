@@ -11,7 +11,7 @@ links:
 ---
 
 # Content
-You can declare router configuration in concise way
+When having a separate routing module, instead of creating an NgModule you can export router configuration directly:
 
 ```typescript 
 export const AppRoutingModule = RouterModule.forRoot(routes, config);
@@ -33,5 +33,3 @@ and use it in your module
   ]
 })
 ```
-
-It helps to avoid creating class with own meta and reduce number lines of code.
