@@ -1,5 +1,5 @@
 ---
-title: svg templates
+title: SVG templates
 author: NothingEverHappens
 twitter: kirjs
 level: intermediate
