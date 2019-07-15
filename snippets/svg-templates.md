@@ -5,6 +5,7 @@ twitter: kirjs
 level: intermediate
 tags:
 - tip
+- svg
 ---
 
 # Content
