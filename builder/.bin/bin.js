@@ -1,9 +1,20 @@
 #!/usr/bin/env node
 const path = require('path');
+const yargs = require('yargs');
 
 const CONFIG_FILE_NAME = '30s.config.json';
 
-require('yargs')
+function getConfig() {
+  const config = require(path.join(process.cwd(), 'config', CONFIG_FILE_NAME));
+
+  config.cwd = process.cwd();
+  config.snippets = path.join(process.cwd(), config.snippets);
+  config.static = path.join(process.cwd(), config.static || 'config/static' );
+
+  return config;
+}
+
+yargs
   .command('serve', 'start a server', () => {
     const serve = require('../serve');
     const config = getConfig();
@@ -23,13 +34,6 @@ require('yargs')
     };
 
     build(config);
-  }).argv;
+  })
+  .argv;
 
-function getConfig() {
-  const config = require(path.join(process.cwd(), 'config', CONFIG_FILE_NAME));
-  config.cwd = process.cwd();
-  config.snippets = path.join(process.cwd(), config.snippets);
-  config.static = config.static || path.join('config/static');
-  config.static  = path.join(process.cwd(), config.static );
-  return config;
-}

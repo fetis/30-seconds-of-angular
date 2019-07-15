@@ -7,8 +7,7 @@
     "codeRunnerHost": "https://codelab.fun",
     "title": "30 Seconds of Angular",
     "twitter": "30sec_angular",
-    "isDevMode": false,
-    "github": "nycJSorg/30-seconds-of-angular"
+    "github": "30-seconds/30-seconds-of-angular"
   },
   "serveMetadata": {
     "isDevMode": true

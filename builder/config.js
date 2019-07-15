@@ -6,7 +6,6 @@ const collections = require('metalsmith-collections');
 const discoverPartials = require('metalsmith-discover-partials');
 const registerHelpers = require('metalsmith-register-helpers');
 const metalsmithStatic = require('metalsmith-static');
-const metalsmithLocalStatic = require('./plugins/local-static');
 const permalinks = require('metalsmith-permalinks');
 const tags = require('metalsmith-tags');
 const rename = require('metalsmith-rename');
@@ -17,6 +16,7 @@ const generateHtmlFilesForScreenshots = require('./plugins/generate-html-files-f
 const customMarkdownParse = require('./plugins/custom-markdown-parse');
 const validate = require('./plugins/validate');
 const statistics = require('./plugins/statistics');
+const metalsmithLocalStatic = require('./plugins/local-static');
 
 module.exports = function build(config) {
   return Metalsmith(__dirname)
