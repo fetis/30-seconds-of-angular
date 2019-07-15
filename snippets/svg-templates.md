@@ -1,6 +1,6 @@
 ---
 title: SVG templates
-author: NothingEverHappens
+author: kirjs
 twitter: kirjs
 level: intermediate
 tags:
