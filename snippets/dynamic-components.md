@@ -10,7 +10,7 @@ tags:
 # Content
 TBD Dynamic Components
 
-# ComponentCode
+# file:app.component.ts
 ```typescript
 import { Component } from '@angular/core';
 import { ComponentFactoryResolver, ViewChild, ViewContainerRef
@@ -44,7 +44,7 @@ export class AppComponent  {
 
 ```
 
-# ModuleCode
+# file:app.module.ts
 ```typescript
 import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
