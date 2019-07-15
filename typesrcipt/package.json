@@ -1,0 +1,16 @@
+{
+  "name": "typesrcipt",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "build": "builder-30-seconds build",
+    "start": "builder-30-seconds serve"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "dependencies": {
+    "builder-30-seconds": "file:../builder"
+  }
+}

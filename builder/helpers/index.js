@@ -97,6 +97,6 @@ module.exports = {
       'getting-components-of-different-types-with-viewchild.md',
       'router-custom-preloading.md',
       'svg.md'
-    ].map(path => snippetsByPath[path]);
+    ].map(path => snippetsByPath[path]).filter(a=>!!a);
   }
 };

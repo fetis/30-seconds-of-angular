@@ -1,7 +1,7 @@
 [![Logo 30 Seconds of Angular](/builder/public/img/logo.png)](https://github.com/nycJSorg/30-seconds-of-angular)
 
 
-[![Build Status](https://travis-ci.com/nycJSorg/30-seconds-of-angular.svg?branch=master)](https://travis-ci.com/nycJSorg/30-seconds-of-angular) [![PRs Welcome](https://img.shields.io/badge/PRs-welcome-brightgreen.svg)](http://makeapullrequest.com)
+[![Build Status](https://travis-ci.com/30-seconds/30-seconds-of-angular.svg?branch=master)](https://travis-ci.com/nycJSorg/30-seconds-of-angular) [![PRs Welcome](https://img.shields.io/badge/PRs-welcome-brightgreen.svg)](http://makeapullrequest.com)
 
 > Curated collection of useful Angular snippets that you can understand in 30 seconds or less.
 
@@ -10,7 +10,7 @@
 * Use <kbd>Ctrl</kbd> + <kbd>F</kbd> or <kbd>command</kbd> + <kbd>F</kbd> to search for a snippet.
 * Snippets are written in Angular 7.2.8+.
 
-# 30 Seconds Of Angular
+# 30 Seconds of Angular
 
 ## Table of contents
 
