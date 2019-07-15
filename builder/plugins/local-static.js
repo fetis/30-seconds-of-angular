@@ -37,7 +37,6 @@ module.exports = function(assets) {
       }
       debugger
 
-
       mergedirs(src, dst, function(err) {
         if (err) return done(err);
       });
