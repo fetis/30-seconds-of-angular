@@ -80,17 +80,7 @@ export class MightyToaster extends HTMLElement {
     this.toast.innerHTML = value;
     this.setAttribute('text', value);
   }
-
-  get color() {
-    return this.getAttribute('color');
-  }
-
-  set color(value) {
-    this.toast.style.backgroundColor = value;
-    this.setAttribute('color', value);
-  }
-
-  }
+}
   
 MightyToaster.observedAttributes = [ 'text', 'pop'];
 
