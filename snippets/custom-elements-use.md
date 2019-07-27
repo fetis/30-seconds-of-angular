@@ -13,7 +13,6 @@ Create a custom element according to the web-component standards and use it as a
 
 Make sure to include `schemas: [CUSTOM_ELEMENTS_SCHEMA]` into your `NgModule` to allow a non Angular element use in an Angular module.
 
-
 ```html
 <button (click)="onClick($event)"> greet </button>
 <mighty-toast [text]="greet" [pop]="visibility"></mighty-toast>
