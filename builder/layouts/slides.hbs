@@ -5,6 +5,7 @@
     <style>
         .shower {
             --slide-ratio: calc(16 / 14);
+            --color-key: rgb(255,64,129);
         }
 
         .code-snippet code, .code-snippet p, .code-snippet li {
@@ -27,6 +28,22 @@
 
         .slide {
             padding: 24px;
+            background: #fff url("public/img/logo_beta.png") no-repeat right bottom;
+            background-size: 200px;
+        }
+
+        .slide h2 {
+            font-weight: normal;
+            line-height: 1.2;
+        }
+
+        section p {
+            font-size: 40px;
+            line-height: 1.2;
+        }
+
+        p.spaced {
+            margin-top: 2em;
         }
     </style>
 {{/head}}
@@ -45,13 +62,8 @@
 
     <section class="slide with-list ">
         <h2>{{site.title}}</h2>
-        <p style="font-size: 40px;line-height: 1.2;font-weight: 300;">Collection of Angular related tips and snippets,
+        <p style="padding: 2em;">Curated collection of Angular related tips and snippets,
             each of which can be understood in 30 seconds or less and would make you a better developer.</p>
-    </section>
-
-    <section class="slide with-list ">
-        <h1 class="cover" style="text-align: center;">During the break come share your favorite snippets with me!</h1>
-
     </section>
 
     {{#each (filterAndOrderForPresentation snippets) }}
@@ -64,12 +76,12 @@
 
     <section class="slide with-list ">
         <h2>Thanks everybody who contributed</h2>
-        <ul>
+        <ul style="column-count: 2">
             {{#group snippets by="author"}}
                 <li>@{{value}}</li>
             {{/group}}
         </ul>
-        <h2>Special thanks to:</h2>
+        <h2>Special thanks to</h2>
         <ul>
             <li>Stefan Fejes</li>
             <li>Tierney Cyren</li>
@@ -77,10 +89,16 @@
         </ul>
 
     </section>
-    <section class="slide">
-        <h1 style="font-size: 100px;text-align: center;">30.codelab.fun</h1>
-        <div style="font-size: 200px;text-align: center;">⭐</div>
 
+    <section class="slide">
+        <h2>Links and contacts</h2>
+
+        <p><a href="http://30.codelab.fun">30.codelab.fun</a></p>
+        <p>GitHub <a href="https://github.com/30-seconds/30-seconds-of-angular">30-seconds/30-seconds-of-angular</a></p>
+        <p>Twitter <a href="https://twitter.com/30sec_angular">@30sec_angular</a></p>
+        <p style="text-align: center" class="spaced">
+            <img src="public/img/twitter_qr_code.png" alt="">
+        </p>
     </section>
 
 
