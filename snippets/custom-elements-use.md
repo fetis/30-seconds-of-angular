@@ -72,7 +72,7 @@ export class MightyToaster extends HTMLElement {
   constructor() {
     super();
 
-const shadowRoot = this.attachShadow({mode: 'open'});
+    const shadowRoot = this.attachShadow({mode: 'open'});
 
     shadowRoot.innerHTML = `
         <style>
