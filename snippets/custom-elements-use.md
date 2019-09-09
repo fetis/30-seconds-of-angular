@@ -1,5 +1,5 @@
 ---
-title: custom elements use
+title: Custom elements use
 author: lironHazan
 twitter: lironn_h
 level: advanced
