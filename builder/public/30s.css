@@ -119,6 +119,28 @@ p > code {
     margin-left: 15px;
 }
 
+.level-navigation ul {
+    display: flex;
+    justify-content: space-between;
+    margin: 0;
+    padding: 0;
+    list-style: none;
+}
+.level-navigation ul li {
+    flex-grow: 1;
+    text-align: center;
+}
+.level-navigation ul li a {
+    display: block;
+    margin: 1rem;
+    padding: .5rem;
+    text-decoration: none;
+
+    box-shadow: 0 2px 2px 0 rgba(0,0,0,.14), 0 3px 1px -2px rgba(0,0,0,.2), 0 1px 5px 0 rgba(0,0,0,.12);
+}
+.level-navigation ul li a:hover {
+  box-shadow: 0 3px 3px 0 rgba(0,0,0,.14), 0 4px 2px -1px rgba(0,0,0,.2), 0 2px 6px 2px rgba(0,0,0,.12);
+}
 /* Footer */
 footer {
   margin-top: 1em;
