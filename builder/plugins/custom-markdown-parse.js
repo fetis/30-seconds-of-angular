@@ -25,7 +25,13 @@ function extractHeaders(content) {
 
 module.exports = () => (files, metalsmith, done) => {
 	for (const [file, value] of Object.entries(files)) {
-		const headers = extractHeaders(value.contents.toString());
+    if (value.level) {
+      if (!value.tags) {
+        value.tags = []
+      }
+      value.tags.push(value.level)
+    }
+    const headers = extractHeaders(value.contents.toString());
 		files[file] = {...headers, ...value};
 		files[file].contents = Buffer.from(files[file].content);
 	}
