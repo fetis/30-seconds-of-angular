@@ -8,7 +8,7 @@
 
 
 * Use <kbd>Ctrl</kbd> + <kbd>F</kbd> or <kbd>command</kbd> + <kbd>F</kbd> to search for a snippet.
-* Snippets are written in Angular 7.2.8+.
+* Snippets are written in Angular 8+.
 
 # 30 Seconds of Angular
 
