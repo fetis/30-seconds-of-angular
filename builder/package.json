@@ -14,7 +14,7 @@
   "license": "ISC",
   "dependencies": {
     "helper-markdown": "^1.0.0",
-    "highlight.js": "^9.15.6",
+    "highlight.js": "^10.4.1",
     "jest": "^24.8.0",
     "jstransformer-handlebars": "^1.1.0",
     "md-to-json-snippet-generator": "0.0.9",
